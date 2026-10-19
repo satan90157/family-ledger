@@ -153,12 +153,20 @@ const totalSummary=document.createElement('div');totalSummary.id='filteredTotals
 $('recordCount').insertAdjacentElement('afterend',totalSummary);
 renderRecordList=function(){
   originalRecordList();
+  updateFilteredTotals();
+};
+function updateFilteredTotals(){
   const selected=filteredRecordIds.map(id=>records.find(r=>r.id===id)).filter(Boolean);
   const inc=selected.filter(r=>r.type==='income').reduce((sum,r)=>sum+r.amount,0);
   const exp=selected.filter(r=>r.type==='expense').reduce((sum,r)=>sum+r.amount,0);
   const only=$('typeFilter').value;
   totalSummary.innerHTML=only==='expense'?`<span>篩選結果支出合計</span><strong>${money(exp)}</strong>`:only==='income'?`<span>篩選結果收入合計</span><strong>${money(inc)}</strong>`:`<span>篩選結果：收入 ${money(inc)} · 支出 ${money(exp)}</span><strong>結餘 ${money(inc-exp)}</strong>`;
-};
+}
+// v1.6.1 的篩選事件在函式覆寫之前就綁定，仍指向舊的 renderRecordList。
+// 追加加總刷新事件，確保每次更動條件都依剛更新的 filteredRecordIds 計算。
+['search','typeFilter','monthFilter','categoryFilter','ownerFilter'].forEach(id=>
+  $(id).addEventListener(id==='search'?'input':'change',updateFilteredTotals)
+);
 const toast=document.createElement('div');toast.className='toast';toast.setAttribute('role','status');toast.setAttribute('aria-live','polite');document.body.appendChild(toast);
 let toastTimeout;
 function showToast(message,error=false){toast.textContent=message;toast.className='toast'+(error?' error':'')+' show';clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>toast.classList.remove('show'),3500);}
@@ -176,9 +184,9 @@ $('cancelEdit').onclick=()=>{
   editId=null;goto('records');showToast('已取消，沒有儲存變更');
 };
 const originalRender=render;
-render=()=>{originalRender();$('footerStatus').textContent=`家計簿 v1.6.1 · ${configured()?'自動同步':'本機模式'} · ${pending.size} 筆待同步`;};
+render=()=>{originalRender();$('footerStatus').textContent=`家計簿 v1.6.2 · ${configured()?'自動同步':'本機模式'} · ${pending.size} 筆待同步`;};
 fillCategories();render();
-$('footerStatus').textContent='家計簿 v1.6.1 · Google Sheets 逐筆自動同步';
+$('footerStatus').textContent='家計簿 v1.6.2 · Google Sheets 逐筆自動同步';
 if(configured())refresh();else notify('尚未設定 Google Sheets；目前資料保存在本機。');
 })();
 </script></body></html>
