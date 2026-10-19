@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>家計簿 v1.7｜家庭財務</title>
+  <title>家計簿 v1.7.1｜家庭財務</title>
   <meta name="theme-color" content="#132d2a">
   <style>
     :root{font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif;color:#1b312e;background:#f3f6f2;font-size:15px}*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}.shell{max-width:1180px;margin:auto;padding:22px 22px 90px}.header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:25px}.logo{font-size:23px;font-weight:800;letter-spacing:.04em}.logo small{display:block;font-size:12px;font-weight:500;color:#71827c;letter-spacing:.08em}.nav{display:flex;gap:8px;flex-wrap:wrap}.nav button,.pill{border:1px solid #d8e2dc;background:white;color:#36524b;border-radius:13px;padding:10px 15px}.nav button.active{background:#183d36;color:white;border-color:#183d36}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}h1{font-size:28px;margin:0 0 5px}h2{font-size:18px;margin:0 0 16px}p.muted,.muted{color:#71827c}.subtitle{font-size:13px;color:#71827c;margin:0}.button{border:0;border-radius:12px;background:#173e35;color:white;padding:11px 15px;font-weight:650;display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;min-height:43px;line-height:1.4;text-align:center}.button.light{background:#e5eee8;color:#285247}.button.warn{background:#fff0e9;color:#9a4a25}.button.ghost{background:white;color:#1b312e;border:1px solid #d4dfd8}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.card,.panel{background:white;border:1px solid #e0e9e3;border-radius:20px;padding:21px;box-shadow:0 6px 22px #1e47350a}.card .k{font-size:13px;color:#798980}.card .v{font-size:27px;font-weight:800;margin-top:12px;letter-spacing:-.03em}.card .note{font-size:12px;color:#89968e;margin-top:8px}.positive{color:#147a5c}.negative{color:#c36a42}.grid{display:grid;grid-template-columns:1.5fr 1fr;gap:16px;margin-top:16px}.panel{min-width:0}.bars{height:245px;display:flex;gap:12px;align-items:flex-end;padding:12px 0 24px;border-bottom:1px solid #e6ebe6}.bar-group{flex:1;min-width:0;text-align:center;display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:5px;position:relative}.bar-pair{display:flex;align-items:flex-end;justify-content:center;gap:5px;height:100%}.bar{width:min(27px,38%);border-radius:6px 6px 0 0;min-height:0;transition:height .2s}.bar.income{background:#3a9a7c}.bar.expense{background:#e5a079}.bar-label{font-size:11px;color:#819088;position:absolute;bottom:-26px;width:100%}.legend{display:flex;gap:15px;font-size:12px;color:#6b8075;margin-top:38px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}.category{display:flex;gap:13px;align-items:center;margin:12px 0}.category-name{width:75px;flex-shrink:0;font-size:13px}.track{height:11px;background:#eff2ee;border-radius:20px;flex:1;overflow:hidden}.fill{height:100%;background:#62a992;border-radius:20px}.category-value{font-size:13px;text-align:right;width:85px;font-variant-numeric:tabular-nums}.actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-bottom:16px}.backup-actions{display:flex;align-items:stretch;gap:10px;flex-wrap:wrap;margin-top:12px}.backup-actions>.button{flex:0 1 auto}.field{border:1px solid #d5e0d9;border-radius:11px;padding:10px 12px;background:#fff;min-width:0}.actions .field{max-width:180px}.tablewrap{overflow-x:auto}table{border-collapse:collapse;width:100%;text-align:left;white-space:nowrap}th{color:#84948a;font-size:12px;font-weight:550;background:#f7faf7}th,td{padding:13px 10px;border-bottom:1px solid #edf1ed}td{font-size:13px}td strong{font-size:14px}td small{display:block;color:#92a098;max-width:250px;text-overflow:ellipsis;overflow:hidden}.tag{background:#eff5ef;border-radius:8px;padding:5px 8px;color:#4a6e60;font-size:12px}.empty{text-align:center;color:#839389;padding:45px 10px}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.form-grid label{display:flex;flex-direction:column;gap:6px;color:#65786b;font-size:13px}.form-grid .field{width:100%}.full{grid-column:1/-1}.status{background:#eef7ee;color:#2a654e;border-radius:12px;padding:12px 15px;font-size:13px;line-height:1.5}.status.error{background:#fff0ea;color:#a14d2a}.section{display:none}.section.active{display:block}.month{display:flex;align-items:center;gap:8px}.month input{width:145px}.file-button{position:relative;overflow:hidden}.file-button input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}.help{font-size:13px;line-height:1.8;color:#6e8175;overflow-wrap:anywhere}.help code{background:#edf2ee;padding:2px 5px;border-radius:4px;overflow-wrap:anywhere}.row{display:flex;justify-content:space-between;gap:12px;align-items:center}.small{font-size:12px}.sync{font-size:12px;color:#789084}.tooltip{font-size:12px;color:#829289}.donut{height:140px;width:140px;border-radius:50%;background:conic-gradient(#dce8de 0 100%);position:relative;flex-shrink:0}.donut:after{content:"";position:absolute;inset:26px;border-radius:50%;background:white}.donut-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}.total{font-size:26px;font-weight:800}.mini{font-size:12px;color:#7e8f85}.footer{text-align:center;font-size:12px;color:#8a9b91;margin-top:34px}@media(max-width:800px){.shell{padding:15px 13px 80px}.header{display:block}.nav{margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:5px}.nav button{font-size:12px;padding:11px 3px}.cards{grid-template-columns:repeat(2,1fr);gap:9px}.card,.panel{padding:16px;border-radius:17px}.card .v{font-size:22px}.grid{grid-template-columns:1fr}.top{align-items:flex-start}h1{font-size:23px}.form-grid{grid-template-columns:1fr}.month input{width:135px}td,th{padding:11px 8px}.actions .field{max-width:none}.button{padding:11px 13px}}@media(max-width:500px){.backup-actions{flex-direction:column}.backup-actions>.button{width:100%}}
@@ -87,7 +87,29 @@ function validUrl(url){return /^https:\/\/script\.google\.com\/macros\/s\/[^/]+\
 let session=sessionStorage.getItem('ledgerSession17')||'',currentUser=sessionStorage.getItem('ledgerUser17')||'',selectedYear=String(new Date().getFullYear());
 const loadedYearSet=new Set();
 function jsonp(action,year){return new Promise((resolve,reject)=>{if(!validUrl(settings.url)||!session)return reject(Error('請先登入'));const callback='ledgerCallback'+uid().replace(/[^a-zA-Z0-9]/g,'');const script=document.createElement('script');const timer=setTimeout(()=>finish(Error('讀取逾時')),18000);function finish(err,data){clearTimeout(timer);delete window[callback];script.remove();err?reject(err):resolve(data)}window[callback]=data=>finish(null,data);script.onerror=()=>finish(Error('無法讀取，請確認網頁應用程式已部署'));script.src=settings.url+'?action='+encodeURIComponent(action)+'&session='+encodeURIComponent(session)+'&year='+encodeURIComponent(year||selectedYear)+'&callback='+callback+'&_='+Date.now();document.body.appendChild(script)})}
-function post(payload,action='delta'){return new Promise((resolve,reject)=>{if(!validUrl(settings.url))return reject(Error('請先設定 Apps Script URL'));const nonce=uid(),iframe=document.createElement('iframe');iframe.name='ledgerFrame'+nonce.replace(/[^a-zA-Z0-9]/g,'');iframe.style.display='none';document.body.appendChild(iframe);const form=document.createElement('form');form.action=settings.url;form.method='POST';form.target=iframe.name;form.style.display='none';for(const [k,v] of Object.entries({action,session,nonce,payload:JSON.stringify(payload)})){const i=document.createElement('input');i.name=k;i.value=v;form.appendChild(i)}document.body.appendChild(form);const timer=setTimeout(()=>finish(Error('上傳等待逾時，請先從 Sheets 讀取確認是否已儲存')),25000);function finish(err,data){clearTimeout(timer);window.removeEventListener('message',listener);form.remove();iframe.remove();err?reject(err):resolve(data)}function listener(e){if(e.source!==iframe.contentWindow||!e.data||e.data.ledgerNonce!==nonce)return;if(e.data.ok)finish(null,e.data);else finish(Error(e.data.error||'上傳失敗'))}window.addEventListener('message',listener);form.submit()})}
+function post(payload,action='delta'){
+  return new Promise((resolve,reject)=>{
+    if(!validUrl(settings.url))return reject(Error('請先設定 Apps Script URL'));
+    const nonce=uid(),iframe=document.createElement('iframe');
+    iframe.name='ledgerFrame'+nonce.replace(/[^a-zA-Z0-9]/g,'');iframe.style.display='none';document.body.appendChild(iframe);
+    const form=document.createElement('form');form.action=settings.url;form.method='POST';form.target=iframe.name;form.style.display='none';
+    for(const [k,v] of Object.entries({action,session,nonce,payload:JSON.stringify(payload)})){
+      const i=document.createElement('input');i.name=k;i.value=v;form.appendChild(i);
+    }
+    document.body.appendChild(form);
+    const timer=setTimeout(()=>finish(Error('後端回應逾時；請檢查 Apps Script 執行紀錄，以及是否部署了最新版 Code.gs')),25000);
+    function finish(err,data){clearTimeout(timer);window.removeEventListener('message',listener);form.remove();iframe.remove();err?reject(err):resolve(data)}
+    function listener(e){
+      if(!e.data||e.data.ledgerNonce!==nonce)return;
+      // Apps Script HtmlService uses a nested sandbox iframe: the sender may be an inner frame.
+      let host='';try{host=new URL(e.origin).hostname}catch{}
+      const googleOrigin=e.origin.startsWith('https://')&&(host==='script.google.com'||host==='script.googleusercontent.com'||host.endsWith('.googleusercontent.com'));
+      if(e.source!==iframe.contentWindow&&!googleOrigin)return;
+      if(e.data.ok)finish(null,e.data);else finish(Error(e.data.error||'上傳失敗'));
+    }
+    window.addEventListener('message',listener);form.submit();
+  });
+}
 $('apiUrl').value=settings.url;$('apiToken').value=settings.token;
 function configured(){return validUrl(settings.url)&&Boolean(session)}
 async function pullRemote(){
@@ -192,7 +214,7 @@ $('cancelEdit').onclick=()=>{
   editId=null;goto('records');showToast('已取消，沒有儲存變更');
 };
 const originalRender=render;
-render=()=>{originalRender();$('footerStatus').textContent=`家計簿 v1.7 · ${currentUser?ownerLabel(currentUser):'尚未登入'} · ${configured()?'自動同步':'未連線'} · ${pending.size} 筆待同步`;};
+render=()=>{originalRender();$('footerStatus').textContent=`家計簿 v1.7.1 · ${currentUser?ownerLabel(currentUser):'尚未登入'} · ${configured()?'自動同步':'未連線'} · ${pending.size} 筆待同步`;};
 // v1.7: username/password login, yearly lazy load, audit viewer.
 const nav=document.querySelector('.nav');
 const auditNav=document.createElement('button');auditNav.dataset.tab='audit';auditNav.textContent='操作紀錄';auditNav.onclick=()=>{goto('audit');loadAudit();};nav.appendChild(auditNav);
@@ -248,7 +270,7 @@ $('recordForm').onsubmit=e=>{
 // Do not expose the legacy shared token field in account-based mode.
 const legacyToken=$('apiToken');legacyToken.closest('label').style.display='none';legacyToken.value='';
 fillCategories();render();
-$('footerStatus').textContent='家計簿 v1.7 · 雙人登入與操作紀錄';
+$('footerStatus').textContent='家計簿 v1.7.1 · 雙人登入與操作紀錄';
 if(configured()){$('loginGate').classList.add('hidden');loadYears().then(refresh).catch(err=>{$('loginGate').classList.remove('hidden');$('loginError').textContent=err.message;});}
 else notify('請使用個人帳號登入，系統才會讀取 Google Sheets。');
 })();
