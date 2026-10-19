@@ -1,4 +1,14 @@
-# 家計簿 v1.7 — 雙人登入、操作紀錄、年度分表與備份
+# 家計簿 v1.7.2 — 登入／同步結果查詢修正版
+
+實際截圖證實 Apps Script 的 `doPost` 在 0.5 秒內執行完成，前端仍等到逾時。1.7.2 不再只依靠 Google 的 iframe 直接 `postMessage`：後端在 `CacheService` 暫存 120 秒的操作結果，前端使用不可預測的請求 ID 透過 JSONP 輪詢取得結果。這適用於登入及逐筆同步；密碼仍透過 HTTPS POST 傳送，不會改成網址 GET 參數。
+
+**更新步驟**：替換 Apps Script 的 `Code.gs`、替換 GitHub Pages 的 `index.html`，然後在原 Apps Script「管理部署作業 → 編輯 → 新版本 → 部署」。`Auth.gs` 沿用 1.7.1，不用再執行 `setupV17()`。部署 ID 與 `/exec` 網址不變。
+
+本版本已進行靜態語法與邏輯檢查，但尚未在使用者的實際 Google Apps Script 環境完成端到端測試。
+
+修正 v1.7 登入顯示「上傳等待逾時」的可能原因：Apps Script HTML 服務存在內層 iframe，回傳訊息應送至外層頁面；同時前端允許驗證 Google 來源的內層訊息。**這版必須同時更新 `Code.gs`、`index.html`，並編輯既有部署作業選「新版本」。** 不需要再次執行 `setupV17()`，也不需要更換 `/exec` 網址。
+
+若仍逾時，請至 Apps Script 左側「執行項目」查看是否有 `doPost` 執行、是否成功，以及登入部署的存取權是否為「任何人」。目前尚未完成真實 Google Apps Script 端到端驗證。
 
 ## 重要：先備份，再升級
 
