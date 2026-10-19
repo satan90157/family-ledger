@@ -80,6 +80,37 @@ function upsert_(incoming) {
   } finally { lock.releaseLock(); }
 }
 
+/** v1.6: each write only touches changed IDs; _rev is a server-owned optimistic version. */
+function applyChanges_(changes) {
+  if (!Array.isArray(changes) || changes.length > 100) throw new Error('單次最多同步 100 筆變更');
+  changes.forEach(validate_);
+  const ids = changes.map(r => r.id);
+  if (new Set(ids).size !== ids.length) throw new Error('同一批次有重複 ID');
+  const lock = LockService.getScriptLock();
+  if (!lock.tryLock(30000)) throw new Error('同步忙碌，請稍後重試');
+  try {
+    const sheet = sheet_();
+    const existing = getRecords_();
+    const rowById = new Map(existing.map((r, i) => [r.id, {record:r, row:i+2}]));
+    const conflicts = [], accepted = [];
+    for (const record of changes) {
+      const prev = rowById.get(record.id);
+      const serverRev = Number(prev?.record._rev || 0);
+      const clientRev = Number(record._rev || 0);
+      if (!Number.isSafeInteger(clientRev) || clientRev < 0 || clientRev !== serverRev) {
+        conflicts.push(record.id);
+        continue;
+      }
+      const saved = {...record, _rev:serverRev+1};
+      const row = prev ? prev.row : sheet.getLastRow()+1;
+      sheet.getRange(row, 1, 1, HEADERS.length).setValues([rowOf_(saved)]);
+      rowById.set(saved.id,{record:saved,row});
+      accepted.push(saved);
+    }
+    return {count:accepted.length, accepted, conflicts};
+  } finally {lock.releaseLock();}
+}
+
 function doGet(e) {
   const p = e && e.parameter || {};
   const callback = String(p.callback || '');
@@ -101,9 +132,10 @@ function doPost(e) {
   let response;
   try {
     if (!authorized_(p.token)) throw new Error('存取金鑰錯誤');
-    if (p.action !== 'save') throw new Error('無效的操作');
     const input = JSON.parse(p.payload || '{}');
-    response = { ok: true, ...upsert_(input.records) };
+    if (p.action === 'delta') response = { ok: true, ...applyChanges_(input.records) };
+    else if (p.action === 'save') response = { ok: true, ...upsert_(input.records) };
+    else throw new Error('無效的操作');
   } catch (err) { response = { ok: false, error: String(err.message || err) }; }
   const data = JSON.stringify({ ledgerNonce: nonce, ...response }).replace(/</g, '\\u003c');
   const html = '<!doctype html><html><body><script>parent.postMessage(' + data + ',"*");<\/script></body></html>';
