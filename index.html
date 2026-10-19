@@ -11,6 +11,9 @@
   </style>
   <style>
     .annual-chart-scroll{overflow-x:auto;overscroll-behavior-x:contain;padding-bottom:5px}.annual-bars{display:flex;align-items:flex-end;height:270px;gap:10px;min-width:640px;border-bottom:1px solid #e6ebe6;padding:15px 8px 28px}.annual-bar-group{flex:1;min-width:0;position:relative;height:100%;display:flex;align-items:flex-end;justify-content:center;gap:4px}.annual-bar{width:38%;max-width:27px;border-radius:6px 6px 0 0;min-height:0}.annual-bar.income{background:#3a9a7c}.annual-bar.expense{background:#e5a079}.annual-bar-label{position:absolute;bottom:-26px;width:100%;text-align:center;color:#7c8c83;font-size:12px}.annual-comparison{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}.comparison-cell{background:#f6f9f6;border-radius:13px;padding:13px}.comparison-cell .value{font-weight:800;font-size:17px;margin-top:7px}.annual-month-table{width:100%;white-space:nowrap}.annual-month-table td,.annual-month-table th{font-variant-numeric:tabular-nums}.annual-month-table td:not(:first-child),.annual-month-table th:not(:first-child){text-align:right}@media(max-width:800px){.nav{grid-template-columns:repeat(5,minmax(0,1fr))}.annual-comparison{grid-template-columns:1fr}.annual-bars{min-width:580px}}
+    .toast{position:fixed;z-index:1000;left:16px;right:16px;bottom:calc(20px + env(safe-area-inset-bottom));max-width:460px;margin:0 auto;padding:14px 18px;border-radius:13px;background:#173e35;color:white;box-shadow:0 9px 30px #182d2a45;font-weight:650;text-align:center;opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .18s,transform .18s}.toast.show{opacity:1;transform:translateY(0)}.toast.error{background:#9a4a25}
+    .filtered-summary{background:#eff6f0;border:1px solid #d7e7dc;border-radius:14px;padding:12px 15px;margin:10px 0 15px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.filtered-summary strong{font-size:20px;font-variant-numeric:tabular-nums}.items-details{margin-top:8px;white-space:normal;font-size:12px;color:#63786c;max-width:400px}.items-details summary{cursor:pointer;color:#285247;font-weight:600}.items-details ul{margin:8px 0;padding-left:20px}.items-details li{padding:3px 0}
+    @media(max-width:800px){.tablewrap{overflow-x:visible}table.transaction-table,table.transaction-table tbody{display:block;width:100%;white-space:normal}table.transaction-table thead{display:none}table.transaction-table tr{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:10px;row-gap:5px;background:#fff;border:1px solid #e0e9e3;border-radius:14px;padding:14px;margin-bottom:10px}table.transaction-table td{display:block;border:0;padding:0;min-width:0;white-space:normal}table.transaction-table td:nth-child(1){grid-column:1;grid-row:1 / span 2}table.transaction-table td:nth-child(4){grid-column:2;grid-row:1;font-weight:800!important;text-align:right;font-size:17px}table.transaction-table td:nth-child(2){grid-column:1;grid-row:3}table.transaction-table td:nth-child(3){grid-column:2;grid-row:3;text-align:right;color:#71827c}table.transaction-table td:nth-child(5){grid-column:1 / -1;grid-row:4;margin-top:8px;display:flex;gap:8px}table.transaction-table td:nth-child(5) button{flex:1}table.transaction-table td small{max-width:100%;white-space:normal;overflow-wrap:anywhere}table.transaction-table td strong{overflow-wrap:anywhere} .annual-bars{min-width:0;gap:3px;padding-left:2px;padding-right:2px}.annual-bar-group{gap:2px}.annual-bar{min-width:2px}.annual-bar-label{font-size:10px}}
   </style>
 </head>
 <body><main class="shell">
@@ -28,14 +31,28 @@
   </section>
   <section id="records" class="section"><div class="top"><div><h1>收支明細</h1><p class="subtitle">可編輯分類與歸屬，重複發票會自動略過</p></div><div class="actions"><label>這份 CSV 歸屬 <select id="importOwner" class="field"><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select></label><label class="button file-button">匯入 Invoice CSV <input id="csvImport" type="file" accept=".csv,text/csv"></label></div></div><div class="actions"><input id="search" class="field" placeholder="搜尋店家、品項、備註"><select id="typeFilter" class="field"><option value="all">全部收支</option><option value="expense">僅支出</option><option value="income">僅收入</option></select><select id="monthFilter" class="field"><option value="all">所有月份</option></select><select id="categoryFilter" class="field"><option value="all">所有分類</option></select><select id="ownerFilter" class="field"><option value="all">家庭全部</option><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select><button class="button ghost" id="exportCsv">匯出備份 CSV</button></div><p class="mini" id="recordCount"></p><div class="panel"><div id="recordList"></div></div><div class="panel" style="margin-top:14px"><h2>批次調整歸屬</h2><p class="help">將上方目前篩選出的紀錄改為指定歸屬，適合處理舊版匯入的發票。請先確認篩選筆數。</p><div class="actions"><select id="bulkOwner" class="field"><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select><button id="applyBulkOwner" class="button ghost">套用至目前篩選結果</button></div></div><p class="help" id="importMessage"></p></section>
   <section id="add" class="section"><div class="top"><div><h1 id="formTitle">新增一筆記帳</h1><p class="subtitle">收入、現金支出、貸款與固定費用都可以記</p></div></div><div class="panel"><form id="recordForm" class="form-grid"><label>收支類型<select id="fType" class="field"><option value="expense">支出</option><option value="income">收入</option></select></label><label>歸屬<select id="fOwner" class="field"><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select></label><label>日期<input id="fDate" class="field" type="date" required></label><label>金額（NT$）<input id="fAmount" class="field" type="number" min="0.01" step="0.01" required placeholder="例如 1200"></label><label>分類<select id="fCategory" class="field"></select></label><label class="full">名稱 / 店家<input id="fMerchant" class="field" required maxlength="120" placeholder="例如 房貸、全家、薪資"></label><label class="full">備註<input id="fNote" class="field" maxlength="500" placeholder="選填"></label><div class="full actions"><button class="button" type="submit">儲存記帳</button><button class="button ghost" type="button" id="cancelEdit">取消編輯</button></div></form></div><div class="panel" style="margin-top:16px"><h2>管理自訂分類</h2><p class="help">新增收入或支出分類，例如「寵物」、「孝親費」、「旅遊」。分類會隨資料同步至 Google Sheets；移除分類不會刪除既有交易。</p><div class="actions"><select id="newCategoryType" class="field" aria-label="自訂分類類型"><option value="expense">支出分類</option><option value="income">收入分類</option></select><input id="newCategoryName" class="field" maxlength="30" placeholder="新分類名稱" aria-label="新分類名稱"><button class="button light" id="addCategory" type="button">新增分類</button></div><div id="customCategoryList" class="help"></div></div></section>
-  <section id="settings" class="section"><div class="top"><div><h1>Google Sheets 同步</h1><p class="subtitle">先部署 Apps Script，再將網址與存取金鑰填在這台裝置</p></div></div><div class="panel"><div class="form-grid"><label class="full">Apps Script 網頁應用程式 URL<input class="field" id="apiUrl" type="url" placeholder="https://script.google.com/macros/s/.../exec"></label><label class="full">存取金鑰<input class="field" id="apiToken" type="password" autocomplete="off" placeholder="你在 Apps Script 設定的金鑰"></label></div><div class="actions" style="margin-top:16px"><button class="button" id="saveSettings">儲存設定</button><button class="button light" id="syncDown">從 Google Sheets 讀取</button><button class="button light" id="syncUp">上傳本機資料</button></div><div id="syncStatus" class="status">尚未連線。網站目前可在本機儲存與分析資料。</div><p class="help">注意：GitHub Pages 是公開網站。請勿把存取金鑰寫進 GitHub 程式碼。首次同步前請先備份；跨裝置使用時，建議以 Google Sheets 為唯一正式資料來源。此方案適合個人使用，不建議在共用裝置儲存金鑰。</p></div><div class="panel" style="margin-top:16px"><h2>資料管理</h2><p class="help">所有資料預設先存在這個瀏覽器。清除 Safari 網站資料可能移除本機資料。定期匯出備份，或者連接 Google Sheets。刪除紀錄後請上傳，其他裝置再讀取即可同步刪除。</p><div class="backup-actions"><button class="button ghost" id="downloadJson">下載完整 JSON 備份</button><label class="button light file-button">還原 JSON 備份<input id="restoreJson" type="file" accept=".json,application/json"></label></div></div></section>
+  <section id="settings" class="section"><div class="top"><div><h1>Google Sheets 自動同步</h1><p class="subtitle">新增、修改、刪除自動上傳，開啟網站自動讀取</p></div></div><div class="panel"><div class="form-grid"><label class="full">Apps Script 網頁應用程式 URL<input class="field" id="apiUrl" type="url" placeholder="https://script.google.com/macros/s/.../exec"></label><label class="full">存取金鑰<input class="field" id="apiToken" type="password" autocomplete="off" placeholder="你在 Apps Script 設定的金鑰"></label></div><div class="actions" style="margin-top:16px"><button class="button" id="saveSettings">儲存設定</button><button class="button light" id="syncDown">立即讀取雲端</button><button class="button light" id="syncUp">重試待同步資料</button></div><div id="syncStatus" class="status" role="status" aria-live="polite">準備同步中…</div><p class="help">必須部署 v1.6 Apps Script，才能啟用逐筆同步。遇到相同紀錄的版本衝突時，會保留本機變更，停止覆蓋雲端。GitHub Pages 是公開網站，請勿將金鑰放進程式碼。</p></div><div class="panel" style="margin-top:16px"><h2>資料管理</h2><p class="help">資料與待同步變更暫存於這個瀏覽器。清除 Safari 或 LINE 的網站資料可能移除未同步紀錄，請定期備份。升級前請先確認 v1.5 的資料已成功上傳。</p><div class="backup-actions"><button class="button ghost" id="downloadJson">下載完整 JSON 備份</button><label class="button light file-button">還原 JSON 備份<input id="restoreJson" type="file" accept=".json,application/json"></label></div></div></section>
   <div class="footer" id="footerStatus">本機模式 · 尚未同步</div>
 </main>
 <script>
 (()=>{'use strict';
 const KEY='family-ledger-v1',SETTINGS='family-ledger-settings-v1';const expenseCategories=['餐飲','食品雜貨','交通','購物','居家','醫療','娛樂','水電電信','房貸','貸款','保險','其他支出'];const incomeCategories=['薪資','獎金','投資收入','退款','其他收入'];const colors=['#4e9a83','#e3a07b','#a7ba73','#779cae','#c3a3cc','#b8b0a1','#edc984','#8bafa2','#e3a4a3'];let records=read(KEY,[]),settings=read(SETTINGS,{url:'',token:''}),editId=null;const $=id=>document.getElementById(id);const categoryDefinitions=()=>records.filter(r=>r.source==='category-definition'&&!r.deleted);const activeRecords=()=>records.filter(r=>!r.deleted&&r.source!=='category-definition');const money=n=>'$'+Math.round(Number(n)||0).toLocaleString('zh-TW');const escapeHtml=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const now=new Date();let month=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
 let filteredRecordIds=[];
-function read(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}}function save(){localStorage.setItem(KEY,JSON.stringify(records));render()}function uid(){return crypto.randomUUID?crypto.randomUUID():`${Date.now()}-${Math.random()}`}function normalize(r){return {...r,amount:Number(r.amount),date:String(r.date).slice(0,10),type:r.type==='income'?'income':'expense',owner:['me','wife','shared'].includes(r.owner)?r.owner:'shared',category:r.category||'其他支出',details:Array.isArray(r.details)?r.details:[]}}function ownerLabel(owner){return ({me:'承瑋',wife:'俐穎',shared:'共同'})[owner]||'共同'}function ownerMatches(r,owner){return owner==='all'||(r.owner||'shared')===owner}function dateMonth(d){return String(d).slice(0,7)}function sorted(arr){return [...arr].sort((a,b)=>b.date.localeCompare(a.date)||String(b.id).localeCompare(String(a.id)))}function notify(message,err=false){$('importMessage').textContent=message;$('syncStatus').textContent=message;$('syncStatus').className='status'+(err?' error':'')}
+const PENDING='family-ledger-pending-v1', pending=new Set(read(PENDING,[]));
+let snapshot=new Map(records.map(r=>[r.id,JSON.stringify(r)])),syncBusy=false,syncTimer=null;
+function persistPending(){localStorage.setItem(PENDING,JSON.stringify([...pending]));}
+function queueSync(){if(syncTimer)clearTimeout(syncTimer);syncTimer=setTimeout(()=>{syncTimer=null;flushPending();},500);}
+function read(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}}
+function save(track=true){
+  if(track){for(const r of records)if(snapshot.get(r.id)!==JSON.stringify(r))pending.add(r.id);persistPending();}
+  snapshot=new Map(records.map(r=>[r.id,JSON.stringify(r)]));
+  localStorage.setItem(KEY,JSON.stringify(records));render();
+  $('footerStatus').textContent=`家計簿 v1.6 · ${configured()?'自動同步':'本機模式'} · ${pending.size} 筆待同步`;
+  if(track&&pending.size)queueSync();
+}
+function uid(){return crypto.randomUUID?crypto.randomUUID():`${Date.now()}-${Math.random()}`}
+function normalize(r){return {...r,amount:Number(r.amount),date:String(r.date).slice(0,10),type:r.type==='income'?'income':'expense',owner:['me','wife','shared'].includes(r.owner)?r.owner:'shared',category:r.category||'其他支出',details:Array.isArray(r.details)?r.details:[]}}
+function ownerLabel(owner){return ({me:'承瑋',wife:'俐穎',shared:'共同'})[owner]||'共同'}function ownerMatches(r,owner){return owner==='all'||(r.owner||'shared')===owner}function dateMonth(d){return String(d).slice(0,7)}function sorted(arr){return [...arr].sort((a,b)=>b.date.localeCompare(a.date)||String(b.id).localeCompare(String(a.id)))}function notify(message,err=false){$('importMessage').textContent=message;$('syncStatus').textContent=message;$('syncStatus').className='status'+(err?' error':'')}
 function classify(name,details){const t=(name+' '+details.map(x=>x.item).join(' ')).toLowerCase();if(/薪資|salary/.test(t))return'薪資';if(/中油|加油|停車|台灣高鐵|台鐵|uber|捷運|計程車/.test(t))return'交通';if(/醫院|診所|藥局|醫療/.test(t))return'醫療';if(/全聯|家樂福|好市多|超市|生鮮/.test(t))return'食品雜貨';if(/全家|統一超商|便利商店|餐飲|咖啡|餐廳|食堂|飲料|早餐|烘焙/.test(t))return'餐飲';if(/蝦皮|富邦媒體|momo|購物|百貨|商場/.test(t))return'購物';return'其他支出'}
 function parseCSV(text){text=text.replace(/^\uFEFF/,'');const rows=[];let row=[],field='',quotes=false;for(let i=0;i<text.length;i++){const c=text[i];if(quotes){if(c==='"'&&text[i+1]==='"'){field+='"';i++}else if(c==='"')quotes=false;else field+=c}else if(c==='"')quotes=true;else if(c===','){row.push(field);field=''}else if(c==='\n'||c==='\r'){if(c==='\r'&&text[i+1]==='\n')i++;row.push(field);if(row.some(x=>x!==''))rows.push(row);row=[];field=''}else field+=c}if(quotes)throw Error('CSV 引號未正確結束');if(field!==''||row.length){row.push(field);rows.push(row)}return rows}
 function importInvoice(text,owner){if(!['me','wife','shared'].includes(owner))throw Error('請先選擇匯入歸屬');const rows=parseCSV(text);const headers=rows.shift()?.map(x=>x.trim())||[];const required=['消費時間','發票號碼','店家名稱','消費品項','小計','總計'];if(!required.every(h=>headers.includes(h)))throw Error('CSV 欄位不符 Invoice 匯出格式');const pos=h=>headers.indexOf(h),groups=new Map();for(const row of rows){const invoice=(row[pos('發票號碼')]||'').trim();if(!invoice)continue;const merchant=row[pos('店家名稱')]||'';const time=row[pos('消費時間')]||'';const amountText=row[pos('總計')]||'';const details={item:row[pos('消費品項')]||'',subtotal:Number(row[pos('小計')]||0),unitPrice:Number(row[pos('單價')]||0),quantity:Number(row[pos('個數')]||0)};let g=groups.get(invoice);if(!g){g={id:'inv:'+invoice,type:'expense',owner,date:time.slice(0,10).replace(/\//g,'-'),merchant,invoice,amount:null,details:[],category:'',note:'',source:'invoice'};groups.set(invoice,g)}g.details.push(details);if(amountText.trim()!==''){if(g.amount!==null)throw Error(`發票 ${invoice} 有重複總計`);g.amount=Number(amountText.replace(/,/g,''))}}let added=0,skipped=0;const ids=new Set(records.map(r=>r.id));for(const r of groups.values()){if(!Number.isFinite(r.amount)||r.amount===null)throw Error(`發票 ${r.invoice} 缺少有效總計`);if(!/^\d{4}-\d{2}-\d{2}$/.test(r.date))throw Error(`發票 ${r.invoice} 日期格式錯誤`);r.category=classify(r.merchant,r.details);if(ids.has(r.id)){skipped++;continue}records.push(r);ids.add(r.id);added++}save();return {added,skipped,total:groups.size}}
@@ -63,8 +80,105 @@ function csvCell(v){const s=String(v??'');return /[",\r\n]/.test(s)?'"'+s.replac
 function adjustMonth(n){const [y,m]=month.split('-').map(Number),d=new Date(y,m-1+n,1);month=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;render()}$('prevMonth').onclick=()=>adjustMonth(-1);$('nextMonth').onclick=()=>adjustMonth(1);$('month').onchange=e=>{if(e.target.value){month=e.target.value;render()}};$('annualYear').onchange=renderAnnual;$('annualOwner').onchange=renderAnnual;$('dashboardOwnerStats').onchange=render;['search','typeFilter','monthFilter','categoryFilter','ownerFilter'].forEach(id=>$(id).addEventListener(id==='search'?'input':'change',renderRecordList));['dashboardMonthFilter','dashboardCategoryFilter','dashboardTypeFilter','dashboardOwnerFilter'].forEach(id=>$(id).addEventListener('change',renderDashboardList));
 // Google Apps Script: reads use JSONP, writes use an isolated hidden form/iframe.
 function validUrl(url){return /^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec$/.test(url)}function jsonp(action){return new Promise((resolve,reject)=>{if(!validUrl(settings.url))return reject(Error('請填入有效的 Apps Script /exec 網址'));const callback='ledgerCallback'+uid().replace(/[^a-zA-Z0-9]/g,'');const script=document.createElement('script');const timer=setTimeout(()=>finish(Error('讀取逾時')),18000);function finish(err,data){clearTimeout(timer);delete window[callback];script.remove();err?reject(err):resolve(data)}window[callback]=data=>finish(null,data);script.onerror=()=>finish(Error('無法讀取，請確認網頁應用程式已部署'));script.src=settings.url+'?action='+encodeURIComponent(action)+'&token='+encodeURIComponent(settings.token)+'&callback='+callback+'&_='+Date.now();document.body.appendChild(script)})}
-function post(payload){return new Promise((resolve,reject)=>{if(!validUrl(settings.url))return reject(Error('請先設定 Apps Script URL'));const nonce=uid(),iframe=document.createElement('iframe');iframe.name='ledgerFrame'+nonce.replace(/[^a-zA-Z0-9]/g,'');iframe.style.display='none';document.body.appendChild(iframe);const form=document.createElement('form');form.action=settings.url;form.method='POST';form.target=iframe.name;form.style.display='none';for(const [k,v] of Object.entries({action:'save',token:settings.token,nonce,payload:JSON.stringify(payload)})){const i=document.createElement('input');i.name=k;i.value=v;form.appendChild(i)}document.body.appendChild(form);const timer=setTimeout(()=>finish(Error('上傳等待逾時，請先從 Sheets 讀取確認是否已儲存')),25000);function finish(err,data){clearTimeout(timer);window.removeEventListener('message',listener);form.remove();iframe.remove();err?reject(err):resolve(data)}function listener(e){if(e.source!==iframe.contentWindow||!e.data||e.data.ledgerNonce!==nonce)return;if(e.data.ok)finish(null,e.data);else finish(Error(e.data.error||'上傳失敗'))}window.addEventListener('message',listener);form.submit()})}
-$('apiUrl').value=settings.url;$('apiToken').value=settings.token;$('saveSettings').onclick=()=>{const url=$('apiUrl').value.trim().replace(/\/$/,'');if(url&&!validUrl(url))return notify('必須是 https://script.google.com/macros/s/.../exec 格式',true);settings={url,token:$('apiToken').value.trim()};localStorage.setItem(SETTINGS,JSON.stringify(settings));notify('設定已儲存於此裝置。');render()};$('syncDown').onclick=async()=>{try{notify('正在讀取 Google Sheets…');const data=await jsonp('list');if(!data.ok)throw Error(data.error||'讀取失敗');if(!Array.isArray(data.records))throw Error('伺服器回傳格式錯誤');const remote=data.records.map(normalize);if(!confirm(`Google Sheets 有 ${remote.filter(r=>!r.deleted).length} 筆有效資料、${remote.filter(r=>r.deleted).length} 筆刪除標記。要合併到本機嗎？已刪除的紀錄不會復活。`))return;records=mergeRecords(records,remote);save();notify(`下載完成：${activeRecords().length} 筆有效紀錄。若你在本機有尚未上傳的刪除，請再按上傳。`)}catch(err){notify(err.message,true)}};$('syncUp').onclick=async()=>{if(!settings.token)return notify('請先設定存取金鑰',true);if(!confirm(`上傳 ${activeRecords().length} 筆有效資料與 ${records.filter(r=>r.deleted).length} 筆刪除標記到 Google Sheets？請先確認其他裝置已同步最新資料。`))return;try{notify('上傳中，請保持頁面開啟…');const result=await post({records});notify(`上傳完成：已處理 ${result.count??records.length} 筆資料與刪除標記。其他裝置可按「讀取」更新。`)}catch(err){notify(err.message,true)}};
+function post(payload,action='delta'){return new Promise((resolve,reject)=>{if(!validUrl(settings.url))return reject(Error('請先設定 Apps Script URL'));const nonce=uid(),iframe=document.createElement('iframe');iframe.name='ledgerFrame'+nonce.replace(/[^a-zA-Z0-9]/g,'');iframe.style.display='none';document.body.appendChild(iframe);const form=document.createElement('form');form.action=settings.url;form.method='POST';form.target=iframe.name;form.style.display='none';for(const [k,v] of Object.entries({action,token:settings.token,nonce,payload:JSON.stringify(payload)})){const i=document.createElement('input');i.name=k;i.value=v;form.appendChild(i)}document.body.appendChild(form);const timer=setTimeout(()=>finish(Error('上傳等待逾時，請先從 Sheets 讀取確認是否已儲存')),25000);function finish(err,data){clearTimeout(timer);window.removeEventListener('message',listener);form.remove();iframe.remove();err?reject(err):resolve(data)}function listener(e){if(e.source!==iframe.contentWindow||!e.data||e.data.ledgerNonce!==nonce)return;if(e.data.ok)finish(null,e.data);else finish(Error(e.data.error||'上傳失敗'))}window.addEventListener('message',listener);form.submit()})}
+$('apiUrl').value=settings.url;$('apiToken').value=settings.token;
+function configured(){return validUrl(settings.url)&&Boolean(settings.token)}
+async function pullRemote(){
+  if(!configured())return;
+  const data=await jsonp('list');
+  if(!data.ok||!Array.isArray(data.records))throw Error(data.error||'讀取失敗');
+  const map=new Map(records.map(r=>[r.id,r]));
+  for(const item of data.records){
+    const r=normalize(item);
+    if(!pending.has(r.id))map.set(r.id,r);
+  }
+  records=[...map.values()];save(false);
+  notify(`已讀取 Google Sheets：${activeRecords().length} 筆有效資料${pending.size?' · '+pending.size+' 筆待同步':''}`);
+}
+async function flushPending(){
+  if(syncBusy||!configured()||!pending.size)return;
+  syncBusy=true;
+  try{
+    while(pending.size){
+      const ids=[...pending].slice(0,100), batch=ids.map(id=>records.find(r=>r.id===id)).filter(Boolean);
+      const serial=new Map(batch.map(r=>[r.id,JSON.stringify(r)]));
+      notify(`同步中：${pending.size} 筆待同步…`);
+      const result=await post({records:batch});
+      if(!Array.isArray(result.accepted)||!Array.isArray(result.conflicts))throw Error('後端不是 v1.6，請更新 Apps Script 並重新部署');
+      for(const updated of result.accepted){
+        const index=records.findIndex(r=>r.id===updated.id);
+        if(index<0)continue;
+        const unchanged=JSON.stringify(records[index])===serial.get(updated.id);
+        records[index]._rev=updated._rev;
+        if(unchanged)pending.delete(updated.id);
+      }
+      save(false);persistPending();
+      if(result.conflicts.length){notify(`版本衝突：${result.conflicts.length} 筆未覆蓋雲端，請先備份並確認資料。`,true);return;}
+      if(!result.accepted.length)throw Error('後端未確認任何變更');
+    }
+    notify(`已同步 Google Sheets · ${activeRecords().length} 筆有效資料`);
+  }catch(err){notify(`尚有 ${pending.size} 筆待同步：${err.message}`,true)}
+  finally{syncBusy=false;}
+}
+let pullBusy=false;
+async function refresh(){
+  if(pullBusy||syncBusy)return;
+  pullBusy=true;
+  try{await pullRemote();await flushPending();}
+  catch(err){notify('讀取失敗：'+err.message,true)}
+  finally{pullBusy=false;}
+}
+$('saveSettings').onclick=()=>{
+  const url=$('apiUrl').value.trim().replace(/\/$/,'');
+  if(url&&!validUrl(url))return notify('必須是 https://script.google.com/macros/s/.../exec 格式',true);
+  settings={url,token:$('apiToken').value.trim()};
+  localStorage.setItem(SETTINGS,JSON.stringify(settings));render();refresh();
+};
+$('syncDown').onclick=refresh;
+$('syncUp').onclick=async()=>{await refresh();};
+window.addEventListener('online',refresh);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh();});
+setInterval(()=>{if(!document.hidden)refresh();},120000);
+// v1.6.1: mobile-first transaction display, amount always visible without horizontal scrolling.
+renderTable=function(id,data,editable){
+  if(!data.length){$(id).innerHTML='<div class="empty">目前沒有符合條件的紀錄</div>';return;}
+  const rows=data.map(r=>{
+    const detail=r.details?.length?`<details class="items-details"><summary>查看 ${r.details.length} 項發票品項</summary><ul>${r.details.map(d=>`<li>${escapeHtml(d.item||'未命名品項')}${Number.isFinite(Number(d.subtotal))?' · '+money(d.subtotal):''}</li>`).join('')}</ul></details>`:'';
+    return `<tr><td><strong>${escapeHtml(r.merchant)}</strong><small>${escapeHtml(r.date)}${r.invoice?' · '+escapeHtml(r.invoice):''}</small>${detail}</td><td><span class="tag">${escapeHtml(r.category)}</span></td><td>${ownerLabel(r.owner)}</td><td style="color:${r.type==='income'?'#1c8a68':'#27483d'}">${r.type==='income'?'+':'−'}${money(r.amount)}</td>${editable?`<td><button class="button light" data-edit="${escapeHtml(r.id)}">編輯</button><button class="button warn" data-del="${escapeHtml(r.id)}">刪除</button></td>`:''}</tr>`;
+  });
+  $(id).innerHTML='<div class="tablewrap"><table class="transaction-table"><thead><tr><th>日期 / 名稱</th><th>分類</th><th>歸屬</th><th>金額</th>'+(editable?'<th>操作</th>':'')+'</tr></thead><tbody>'+rows.join('')+'</tbody></table></div>';
+};
+const originalRecordList=renderRecordList;
+const totalSummary=document.createElement('div');totalSummary.id='filteredTotals';totalSummary.className='filtered-summary';
+$('recordCount').insertAdjacentElement('afterend',totalSummary);
+renderRecordList=function(){
+  originalRecordList();
+  const selected=filteredRecordIds.map(id=>records.find(r=>r.id===id)).filter(Boolean);
+  const inc=selected.filter(r=>r.type==='income').reduce((sum,r)=>sum+r.amount,0);
+  const exp=selected.filter(r=>r.type==='expense').reduce((sum,r)=>sum+r.amount,0);
+  const only=$('typeFilter').value;
+  totalSummary.innerHTML=only==='expense'?`<span>篩選結果支出合計</span><strong>${money(exp)}</strong>`:only==='income'?`<span>篩選結果收入合計</span><strong>${money(inc)}</strong>`:`<span>篩選結果：收入 ${money(inc)} · 支出 ${money(exp)}</span><strong>結餘 ${money(inc-exp)}</strong>`;
+};
+const toast=document.createElement('div');toast.className='toast';toast.setAttribute('role','status');toast.setAttribute('aria-live','polite');document.body.appendChild(toast);
+let toastTimeout;
+function showToast(message,error=false){toast.textContent=message;toast.className='toast'+(error?' error':'')+' show';clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>toast.classList.remove('show'),3500);}
+const originalFlushPending=flushPending;
+flushPending=async()=>{const before=pending.size;await originalFlushPending();if(before>0&&pending.size===0)showToast('Google Sheets 雲端同步完成');};
+const originalSubmit=$('recordForm').onsubmit;
+$('recordForm').onsubmit=e=>{
+  const prior=records.length,editing=Boolean(editId),amount=Number($('fAmount').value),merchant=$('fMerchant').value.trim();
+  originalSubmit(e);
+  if(merchant&&Number.isFinite(amount)&&amount>0&&(editing||records.length>prior))showToast(`${editing?'修改':'新增'}記帳已儲存本機${configured()?'，雲端同步中…':'（尚未設定雲端）'}`);
+};
+$('cancelEdit').onclick=()=>{
+  const hasInput=$('fMerchant').value.trim()||$('fAmount').value;
+  if(hasInput&&!confirm('要放棄尚未儲存的內容並返回明細嗎？'))return;
+  editId=null;goto('records');showToast('已取消，沒有儲存變更');
+};
+const originalRender=render;
+render=()=>{originalRender();$('footerStatus').textContent=`家計簿 v1.6.1 · ${configured()?'自動同步':'本機模式'} · ${pending.size} 筆待同步`;};
 fillCategories();render();
+$('footerStatus').textContent='家計簿 v1.6.1 · Google Sheets 逐筆自動同步';
+if(configured())refresh();else notify('尚未設定 Google Sheets；目前資料保存在本機。');
 })();
 </script></body></html>
