@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>家計簿 v1.8.4｜家庭財務</title>
+  <title>家計簿 v1.8.5｜家庭財務</title>
   <meta name="theme-color" content="#132d2a">
   <style>
     :root{font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif;color:#1b312e;background:#f3f6f2;font-size:15px}*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}.shell{max-width:1180px;margin:auto;padding:22px 22px 90px}.header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:25px}.logo{font-size:23px;font-weight:800;letter-spacing:.04em}.logo small{display:block;font-size:12px;font-weight:500;color:#71827c;letter-spacing:.08em}.nav{display:flex;gap:8px;flex-wrap:wrap}.nav button,.pill{border:1px solid #d8e2dc;background:white;color:#36524b;border-radius:13px;padding:10px 15px}.nav button.active{background:#183d36;color:white;border-color:#183d36}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}h1{font-size:28px;margin:0 0 5px}h2{font-size:18px;margin:0 0 16px}p.muted,.muted{color:#71827c}.subtitle{font-size:13px;color:#71827c;margin:0}.button{border:0;border-radius:12px;background:#173e35;color:white;padding:11px 15px;font-weight:650;display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;min-height:43px;line-height:1.4;text-align:center}.button.light{background:#e5eee8;color:#285247}.button.warn{background:#fff0e9;color:#9a4a25}.button.ghost{background:white;color:#1b312e;border:1px solid #d4dfd8}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.card,.panel{background:white;border:1px solid #e0e9e3;border-radius:20px;padding:21px;box-shadow:0 6px 22px #1e47350a}.card .k{font-size:13px;color:#798980}.card .v{font-size:27px;font-weight:800;margin-top:12px;letter-spacing:-.03em}.card .note{font-size:12px;color:#89968e;margin-top:8px}.positive{color:#147a5c}.negative{color:#c36a42}.grid{display:grid;grid-template-columns:1.5fr 1fr;gap:16px;margin-top:16px}.panel{min-width:0}.bars{height:245px;display:flex;gap:12px;align-items:flex-end;padding:12px 0 24px;border-bottom:1px solid #e6ebe6}.bar-group{flex:1;min-width:0;text-align:center;display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:5px;position:relative}.bar-pair{display:flex;align-items:flex-end;justify-content:center;gap:5px;height:100%}.bar{width:min(27px,38%);border-radius:6px 6px 0 0;min-height:0;transition:height .2s}.bar.income{background:#3a9a7c}.bar.expense{background:#e5a079}.bar-label{font-size:11px;color:#819088;position:absolute;bottom:-26px;width:100%}.legend{display:flex;gap:15px;font-size:12px;color:#6b8075;margin-top:38px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}.category{display:flex;gap:13px;align-items:center;margin:12px 0}.category-name{width:75px;flex-shrink:0;font-size:13px}.track{height:11px;background:#eff2ee;border-radius:20px;flex:1;overflow:hidden}.fill{height:100%;background:#62a992;border-radius:20px}.category-value{font-size:13px;text-align:right;width:85px;font-variant-numeric:tabular-nums}.actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-bottom:16px}.backup-actions{display:flex;align-items:stretch;gap:10px;flex-wrap:wrap;margin-top:12px}.backup-actions>.button{flex:0 1 auto}.field{border:1px solid #d5e0d9;border-radius:11px;padding:10px 12px;background:#fff;min-width:0}.actions .field{max-width:180px}.tablewrap{overflow-x:auto}table{border-collapse:collapse;width:100%;text-align:left;white-space:nowrap}th{color:#84948a;font-size:12px;font-weight:550;background:#f7faf7}th,td{padding:13px 10px;border-bottom:1px solid #edf1ed}td{font-size:13px}td strong{font-size:14px}td small{display:block;color:#92a098;max-width:250px;text-overflow:ellipsis;overflow:hidden}.tag{background:#eff5ef;border-radius:8px;padding:5px 8px;color:#4a6e60;font-size:12px}.empty{text-align:center;color:#839389;padding:45px 10px}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.form-grid label{display:flex;flex-direction:column;gap:6px;color:#65786b;font-size:13px}.form-grid .field{width:100%}.full{grid-column:1/-1}.status{background:#eef7ee;color:#2a654e;border-radius:12px;padding:12px 15px;font-size:13px;line-height:1.5}.status.error{background:#fff0ea;color:#a14d2a}.section{display:none}.section.active{display:block}.month{display:flex;align-items:center;gap:8px}.month input{width:145px}.file-button{position:relative;overflow:hidden}.file-button input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}.help{font-size:13px;line-height:1.8;color:#6e8175;overflow-wrap:anywhere}.help code{background:#edf2ee;padding:2px 5px;border-radius:4px;overflow-wrap:anywhere}.row{display:flex;justify-content:space-between;gap:12px;align-items:center}.small{font-size:12px}.sync{font-size:12px;color:#789084}.tooltip{font-size:12px;color:#829289}.donut{height:140px;width:140px;border-radius:50%;background:conic-gradient(#dce8de 0 100%);position:relative;flex-shrink:0}.donut:after{content:"";position:absolute;inset:26px;border-radius:50%;background:white}.donut-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}.total{font-size:26px;font-weight:800}.mini{font-size:12px;color:#7e8f85}.footer{text-align:center;font-size:12px;color:#8a9b91;margin-top:34px}@media(max-width:800px){.shell{padding:15px 13px 80px}.header{display:block}.nav{margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:5px}.nav button{font-size:12px;padding:11px 3px}.cards{grid-template-columns:repeat(2,1fr);gap:9px}.card,.panel{padding:16px;border-radius:17px}.card .v{font-size:22px}.grid{grid-template-columns:1fr}.top{align-items:flex-start}h1{font-size:23px}.form-grid{grid-template-columns:1fr}.month input{width:135px}td,th{padding:11px 8px}.actions .field{max-width:none}.button{padding:11px 13px}}@media(max-width:500px){.backup-actions{flex-direction:column}.backup-actions>.button{width:100%}}
@@ -47,10 +47,41 @@
   <div class="footer" id="footerStatus">本機模式 · 尚未同步</div>
   <section id="audit" class="section"><div class="top"><div><h1>操作紀錄</h1><p class="subtitle">記錄誰在何時新增、修改或刪除哪筆交易；完整修改前後內容保存在私人 Google Sheets AuditLog。</p></div><button class="button light" id="reloadAudit">重新讀取</button></div><div class="panel" id="auditItems">登入後可查看最近 100 筆操作。</div></section>
 </main>
+<template id="ruleUiTemplate">
+  <div class="panel" style="margin-top:16px"><h2>自動分類規則</h2><p class="help">在這裡新增、修改或刪除店家規則，儲存於 Google Sheets 的 CategoryRules 工作表。匯入新發票時會優先使用規則；不會擅自改動已存在的交易。</p>
+    <form id="ruleForm" class="form-grid">
+      <label>店家名稱／關鍵字<input id="ruleKeyword" class="field" maxlength="80" minlength="2" required placeholder="例如：優食台灣"></label>
+      <label>比對方式<select id="ruleMatchType" class="field"><option value="contains">包含關鍵字</option><option value="exact">名稱完全相同</option></select></label>
+      <label>自動分類<select id="ruleCategory" class="field" required></select></label>
+      <label>使用範圍<select id="ruleScope" class="field"><option value="family">家庭共用</option><option value="personal">只有我自己</option></select></label>
+      <div class="full actions"><button class="button" id="ruleSaveButton" type="submit">儲存分類規則</button><button class="button ghost" id="ruleCancelEdit" type="button">取消編輯</button><button class="button light" id="rulesReload" type="button">重新下載規則</button></div>
+    </form><p id="ruleMessage" class="help" role="status" aria-live="polite">尚未讀取分類規則。</p><div id="ruleList" class="help"></div>
+  </div>
+</template>
+<template id="bulkUiTemplate">
+  <div class="panel" style="margin-top:14px"><h2>批次修改交易分類</h2><p class="help">先用上方「搜尋店家／月份／歸屬」縮小範圍，再選擇分類。僅修改目前已載入瀏覽器的交易，不會改動發票號碼、金額或日期。</p>
+    <div class="actions"><label>改為 <select id="bulkCategory" class="field"></select></label><label>修改範圍 <select id="bulkCategoryMode" class="field"><option value="other">僅「其他支出」</option><option value="nonmanual">排除已標記手動分類的紀錄</option><option value="all">所有符合搜尋條件的交易（含手動分類）</option></select></label><button id="bulkCategoryPreview" class="button light" type="button">預覽影響範圍</button></div>
+    <p id="bulkCategorySummary" class="help" role="status" aria-live="polite">尚未預覽；修改前建議到「同步設定」下載 JSON 備份。</p>
+    <div class="actions"><button id="bulkCategoryApply" class="button" type="button" disabled>確認批次修改</button></div>
+  </div>
+</template>
 <script>
 (()=>{'use strict';
 const KEY='family-ledger-v1',SETTINGS='family-ledger-settings-v1';const expenseCategories=['餐飲','食品雜貨','交通','購物','居家','醫療','娛樂','水電電信','房貸','貸款','保險','其他支出'];const incomeCategories=['薪資','獎金','投資收入','退款','其他收入'];const colors=['#4e9a83','#e3a07b','#a7ba73','#779cae','#c3a3cc','#b8b0a1','#edc984','#8bafa2','#e3a4a3'];let records=read(KEY,[]),settings=read(SETTINGS,{url:'',token:''}),editId=null;const $=id=>document.getElementById(id);const categoryDefinitions=()=>records.filter(r=>r.source==='category-definition'&&!r.deleted);const activeRecords=()=>records.filter(r=>!r.deleted&&r.source!=='category-definition');const money=n=>'$'+Math.round(Number(n)||0).toLocaleString('zh-TW');const escapeHtml=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const now=new Date();let month=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
 let filteredRecordIds=[];
+// v1.8.5: these panels are mounted in their existing tabs.
+$('settings').appendChild($('ruleUiTemplate').content.cloneNode(true));
+$('records').appendChild($('bulkUiTemplate').content.cloneNode(true));
+let categoryRules=[],rulesReady=false,ruleEditId=null,ruleBusy=false,bulkPreview=null;
+function matchingCategoryRule(r){
+  if(r._categoryManual||!rulesReady)return null;
+  const merchant=String(r.merchant||'').trim().toLocaleLowerCase();
+  const candidates=categoryRules.filter(rule=>rule.active&&((rule.scope==='family')||(rule.scope===r.owner&&rule.scope===currentUser))&&(
+    rule.matchType==='exact'?merchant===rule.keyword.toLocaleLowerCase():merchant.includes(rule.keyword.toLocaleLowerCase())
+  ));
+  candidates.sort((a,b)=>(b.matchType==='exact')-(a.matchType==='exact')||b.keyword.length-a.keyword.length||a.id.localeCompare(b.id));
+  return candidates[0]||null;
+}
 const PENDING='family-ledger-pending-v1', pending=new Set(read(PENDING,[]));
 let cloudIssue='',cloudReady=false,legacyMismatch=[],syncConflicts=[],conflictBackupReady=false;
 let missingCloudCategories=new Set(),categoryAuditItems=[],categoryAuditBusy=false,categoryAuditBackupReady=false;
@@ -89,7 +120,7 @@ function save(track=true){
   snapshot=new Map(records.map(r=>[r.id,JSON.stringify(r)]));
   localStorage.setItem(KEY,JSON.stringify(records));render();
   if(track&&pending.size)cloudIssue='';renderSyncNotice();
-  $('footerStatus').textContent=`家計簿 v1.8.4 · ${configured()?'自動同步':'本機模式'} · ${pending.size} 筆待同步`;
+  $('footerStatus').textContent=`家計簿 v1.8.5 · ${configured()?'自動同步':'本機模式'} · ${pending.size} 筆待同步`;
   if(track&&pending.size)queueSync();
 }
 function uid(){return crypto.randomUUID?crypto.randomUUID():`${Date.now()}-${Math.random()}`}
@@ -97,7 +128,7 @@ function normalize(r){return {...r,amount:Number(r.amount),date:String(r.date).s
 function ownerLabel(owner){return ({me:'承瑋',wife:'俐穎',shared:'共同'})[owner]||'共同'}function ownerMatches(r,owner){return owner==='all'||(r.owner||'shared')===owner}function dateMonth(d){return String(d).slice(0,7)}function sorted(arr){return [...arr].sort((a,b)=>b.date.localeCompare(a.date)||String(b.id).localeCompare(String(a.id)))}function notify(message,err=false){$('importMessage').textContent=message;$('syncStatus').textContent=message;$('syncStatus').className='status'+(err?' error':'')}
 function classify(name,details){const t=(name+' '+details.map(x=>x.item).join(' ')).toLowerCase();if(/薪資|salary/.test(t))return'薪資';if(/中油|加油|停車|台灣高鐵|台鐵|uber|捷運|計程車/.test(t))return'交通';if(/醫院|診所|藥局|醫療/.test(t))return'醫療';if(/全聯|家樂福|好市多|超市|生鮮/.test(t))return'食品雜貨';if(/全家|統一超商|便利商店|餐飲|咖啡|餐廳|食堂|飲料|早餐|烘焙/.test(t))return'餐飲';if(/蝦皮|富邦媒體|momo|購物|百貨|商場/.test(t))return'購物';return'其他支出'}
 function parseCSV(text){text=text.replace(/^\uFEFF/,'');const rows=[];let row=[],field='',quotes=false;for(let i=0;i<text.length;i++){const c=text[i];if(quotes){if(c==='"'&&text[i+1]==='"'){field+='"';i++}else if(c==='"')quotes=false;else field+=c}else if(c==='"')quotes=true;else if(c===','){row.push(field);field=''}else if(c==='\n'||c==='\r'){if(c==='\r'&&text[i+1]==='\n')i++;row.push(field);if(row.some(x=>x!==''))rows.push(row);row=[];field=''}else field+=c}if(quotes)throw Error('CSV 引號未正確結束');if(field!==''||row.length){row.push(field);rows.push(row)}return rows}
-function importInvoice(text,owner){if(!['me','wife','shared'].includes(owner))throw Error('請先選擇匯入歸屬');const rows=parseCSV(text);const headers=rows.shift()?.map(x=>x.trim())||[];const required=['消費時間','發票號碼','店家名稱','消費品項','小計','總計'];if(!required.every(h=>headers.includes(h)))throw Error('CSV 欄位不符 Invoice 匯出格式');const pos=h=>headers.indexOf(h),groups=new Map();for(const row of rows){const invoice=(row[pos('發票號碼')]||'').trim();if(!invoice)continue;const merchant=row[pos('店家名稱')]||'';const time=row[pos('消費時間')]||'';const amountText=row[pos('總計')]||'';const details={item:row[pos('消費品項')]||'',subtotal:Number(row[pos('小計')]||0),unitPrice:Number(row[pos('單價')]||0),quantity:Number(row[pos('個數')]||0)};let g=groups.get(invoice);if(!g){g={id:'inv:'+invoice,type:'expense',owner,date:time.slice(0,10).replace(/\//g,'-'),merchant,invoice,amount:null,details:[],category:'',note:'',source:'invoice'};groups.set(invoice,g)}g.details.push(details);if(amountText.trim()!==''){if(g.amount!==null)throw Error(`發票 ${invoice} 有重複總計`);g.amount=Number(amountText.replace(/,/g,''))}}let added=0,skipped=0;const ids=new Set(records.map(r=>r.id));for(const r of groups.values()){if(!Number.isFinite(r.amount)||r.amount===null)throw Error(`發票 ${r.invoice} 缺少有效總計`);if(!/^\d{4}-\d{2}-\d{2}$/.test(r.date))throw Error(`發票 ${r.invoice} 日期格式錯誤`);r.category=classify(r.merchant,r.details);if(ids.has(r.id)){skipped++;continue}records.push(r);ids.add(r.id);added++}save();return {added,skipped,total:groups.size}}
+function importInvoice(text,owner){if(!['me','wife','shared'].includes(owner))throw Error('請先選擇匯入歸屬');if(configured()&&!rulesReady)throw Error('分類規則尚未成功下載，請先到同步設定重新下載規則，以免發票套用錯誤分類');const rows=parseCSV(text);const headers=rows.shift()?.map(x=>x.trim())||[];const required=['消費時間','發票號碼','店家名稱','消費品項','小計','總計'];if(!required.every(h=>headers.includes(h)))throw Error('CSV 欄位不符 Invoice 匯出格式');const pos=h=>headers.indexOf(h),groups=new Map();for(const row of rows){const invoice=(row[pos('發票號碼')]||'').trim();if(!invoice)continue;const merchant=row[pos('店家名稱')]||'';const time=row[pos('消費時間')]||'';const amountText=row[pos('總計')]||'';const details={item:row[pos('消費品項')]||'',subtotal:Number(row[pos('小計')]||0),unitPrice:Number(row[pos('單價')]||0),quantity:Number(row[pos('個數')]||0)};let g=groups.get(invoice);if(!g){g={id:'inv:'+invoice,type:'expense',owner,date:time.slice(0,10).replace(/\//g,'-'),merchant,invoice,amount:null,details:[],category:'',note:'',source:'invoice'};groups.set(invoice,g)}g.details.push(details);if(amountText.trim()!==''){if(g.amount!==null)throw Error(`發票 ${invoice} 有重複總計`);g.amount=Number(amountText.replace(/,/g,''))}}let added=0,skipped=0,ruleApplied=0;const ids=new Set(records.map(r=>r.id));for(const r of groups.values()){if(!Number.isFinite(r.amount)||r.amount===null)throw Error(`發票 ${r.invoice} 缺少有效總計`);if(!/^\d{4}-\d{2}-\d{2}$/.test(r.date))throw Error(`發票 ${r.invoice} 日期格式錯誤`);r.category=classify(r.merchant,r.details);if(ids.has(r.id)){skipped++;continue}const rule=matchingCategoryRule(r);if(rule){r.category=rule.category;r._categoryRuleId=rule.id;ruleApplied++}records.push(r);ids.add(r.id);added++}save();return {added,skipped,ruleApplied,total:groups.size}}
 function goto(tab){document.querySelectorAll('.section').forEach(n=>n.classList.toggle('active',n.id===tab));document.querySelectorAll('.nav button').forEach(n=>n.classList.toggle('active',n.dataset.tab===tab));window.scrollTo({top:0,behavior:'smooth'})}document.querySelectorAll('[data-tab]').forEach(n=>n.onclick=()=>goto(n.dataset.tab));document.querySelectorAll('[data-go]').forEach(n=>n.onclick=()=>goto(n.dataset.go));
 function render(){const owner=$('dashboardOwnerStats').value,current=activeRecords().filter(r=>dateMonth(r.date)===month&&ownerMatches(r,owner)),inc=current.filter(r=>r.type==='income').reduce((n,r)=>n+r.amount,0),exp=current.filter(r=>r.type==='expense').reduce((n,r)=>n+r.amount,0);$('month').value=month;$('sumIncome').textContent=money(inc);$('sumExpense').textContent=money(exp);$('sumBalance').textContent=money(inc-exp);$('sumBalance').className='v '+(inc-exp>=0?'positive':'negative');$('sumRate').textContent=inc>0?((inc-exp)/inc*100).toFixed(1)+'%':'—';$('expenseCount').textContent=current.filter(r=>r.type==='expense').length+' 筆支出';renderTrend();renderCategories(current);renderDashboardList();renderRecordList();renderAnnual();renderCustomCategories();$('footerStatus').textContent='家計簿 v1.5 · '+(settings.url?'已設定 Google Sheets · 修改後請同步上傳':'本機模式 · 尚未同步')}
 function renderTrend(){const months=Array.from({length:6},(_,i)=>{const [y,m]=month.split('-').map(Number),d=new Date(y,m-1-(5-i),1);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`});const live=activeRecords().filter(r=>ownerMatches(r,$('dashboardOwnerStats').value));const data=months.map(m=>({m,income:live.filter(r=>dateMonth(r.date)===m&&r.type==='income').reduce((s,r)=>s+r.amount,0),expense:live.filter(r=>dateMonth(r.date)===m&&r.type==='expense').reduce((s,r)=>s+r.amount,0)}));const max=Math.max(1,...data.flatMap(x=>[x.income,x.expense]));$('trend').innerHTML=data.map(d=>`<div class="bar-group"><div class="bar-pair"><div class="bar income" style="height:${d.income/max*100}%" title="${escapeHtml(d.m)} 收入 ${money(d.income)}"></div><div class="bar expense" style="height:${d.expense/max*100}%" title="${escapeHtml(d.m)} 支出 ${money(d.expense)}"></div></div><div class="bar-label">${Number(d.m.slice(5))}月</div></div>`).join('')}
@@ -113,9 +144,9 @@ function renderCustomCategories(){const defs=categoryDefinitions();$('customCate
 $('addCategory').onclick=()=>{const name=$('newCategoryName').value.trim().replace(/\s+/g,' '),type=$('newCategoryType').value;if(!name||name.length>30)return alert('請輸入 1～30 個字的分類名稱');if(/[<>]/.test(name))return alert('分類名稱不可包含 < 或 >');if(categoriesFor(type).some(x=>x.toLocaleLowerCase()===name.toLocaleLowerCase()))return alert('這個分類已經存在');const today=new Date();const date=`${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;records.push({id:'manual:'+uid(),source:'category-definition',date,type,merchant:name,category:name,amount:0,owner:'shared',details:[],note:'自訂分類'});$('newCategoryName').value='';save();fillCategories(name);alert('已新增分類「'+name+'」。跨裝置使用請記得上傳 Google Sheets。')};
 $('customCategoryList').onclick=e=>{const id=e.target.closest('[data-remove-category]')?.dataset.removeCategory;if(!id)return;const r=categoryDefinitions().find(x=>x.id===id);if(!r||!confirm('移除自訂分類「'+r.category+'」？既有交易會保留原分類。'))return;records=records.map(x=>x.id===id?{...x,deleted:true,deletedAt:new Date().toISOString()}:x);save();fillCategories()};
 function newForm(){editId=null;$('formTitle').textContent='新增一筆記帳';$('recordForm').reset();const d=new Date();$('fDate').value=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;$('fOwner').value=currentUser||'me';fillCategories();goto('add')}
-$('recordForm').onsubmit=e=>{e.preventDefault();const amount=Number($('fAmount').value);if(!Number.isFinite(amount)||amount<=0)return alert('金額必須大於 0');const old=records.find(r=>r.id===editId);const item=normalize({...old,id:editId||'manual:'+uid(),type:$('fType').value,owner:$('fOwner').value,date:$('fDate').value,amount,category:$('fCategory').value,merchant:$('fMerchant').value.trim(),note:$('fNote').value.trim(),source:old?.source||'manual'});if(!item.merchant)return alert('請填寫名稱');if(editId)records=records.map(r=>r.id===editId?item:r);else records.push(item);save();editId=null;goto('records')};
+$('recordForm').onsubmit=e=>{e.preventDefault();const amount=Number($('fAmount').value);if(!Number.isFinite(amount)||amount<=0)return alert('金額必須大於 0');const old=records.find(r=>r.id===editId);const nextCategory=$('fCategory').value;const manuallyChanged=!old||nextCategory!==old.category;const item=normalize({...old,id:editId||'manual:'+uid(),type:$('fType').value,owner:$('fOwner').value,date:$('fDate').value,amount,category:nextCategory,_categoryManual:Boolean(old?old._categoryManual||manuallyChanged:true),merchant:$('fMerchant').value.trim(),note:$('fNote').value.trim(),source:old?.source||'manual'});if(!item.merchant)return alert('請填寫名稱');if(editId)records=records.map(r=>r.id===editId?item:r);else records.push(item);save();editId=null;goto('records')};
 $('recordList').onclick=e=>{const edit=e.target.closest('[data-edit]'),del=e.target.closest('[data-del]');if(edit){const r=records.find(x=>x.id===edit.dataset.edit&&!x.deleted);if(!r)return;editId=r.id;$('formTitle').textContent='編輯記帳';$('fType').value=r.type;$('fOwner').value=r.owner||'shared';$('fDate').value=r.date;$('fAmount').value=r.amount;fillCategories(r.category);$('fMerchant').value=r.merchant;$('fNote').value=r.note||'';goto('add')}if(del){const r=records.find(x=>x.id===del.dataset.del&&!x.deleted);if(r&&confirm(`確定刪除「${r.merchant}」${money(r.amount)}？下次上傳後其他裝置也會同步刪除。`)){records=records.map(x=>x.id===r.id?{...x,deleted:true,deletedAt:new Date().toISOString()}:x);save()}}};$('cancelEdit').onclick=newForm;$('fType').onchange=()=>fillCategories();
-$('csvImport').onchange=async e=>{const file=e.target.files?.[0];if(!file)return;try{const result=importInvoice(await file.text(),$('importOwner').value);$('importMessage').textContent=`匯入完成：新增 ${result.added} 張發票，略過 ${result.skipped} 張重複發票（共 ${result.total} 張）。歸屬：${ownerLabel($('importOwner').value)}。已存在的發票不會更改歸屬，可用下方批次調整。請記得同步上傳。`}catch(err){$('importMessage').textContent='匯入失敗：'+err.message}finally{e.target.value=''}};
+$('csvImport').onchange=async e=>{const file=e.target.files?.[0];if(!file)return;try{const result=importInvoice(await file.text(),$('importOwner').value);$('importMessage').textContent=`匯入完成：新增 ${result.added} 張發票，其中 ${result.ruleApplied} 張套用自訂分類規則；略過 ${result.skipped} 張重複發票（共 ${result.total} 張）。歸屬：${ownerLabel($('importOwner').value)}。已存在的發票不會更改分類；需要整理舊資料請使用「批次修改交易分類」。`}catch(err){$('importMessage').textContent='匯入失敗：'+err.message}finally{e.target.value=''}};
 $('applyBulkOwner').onclick=()=>{const ids=new Set(filteredRecordIds),owner=$('bulkOwner').value;if(!ids.size)return alert('沒有符合條件的交易，請先調整篩選');if(!confirm(`確定將目前篩選的 ${ids.size} 筆交易，全部改成「${ownerLabel(owner)}」嗎？`))return;records=records.map(r=>ids.has(r.id)&&!r.deleted?{...r,owner}:r);save();$('importMessage').textContent=`已將 ${ids.size} 筆交易調整為「${ownerLabel(owner)}」。請到同步設定上傳。`};
 function mergeRecords(local,remote){const map=new Map(local.map(r=>[r.id,r]));for(const r of remote){const prior=map.get(r.id);map.set(r.id,prior?.deleted&&!r.deleted?prior:r)}return [...map.values()]}
 function csvCell(v){const s=String(v??'');return /[",\r\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s}function download(name,content,type){const blob=new Blob(['\uFEFF',content],{type});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),3000)}$('exportCsv').onclick=()=>{const cols=['date','type','merchant','amount','category','owner','invoice','note','source'];download('family-ledger-'+month+'.csv',[cols.join(','),...sorted(activeRecords()).map(r=>cols.map(c=>csvCell(r[c])).join(','))].join('\r\n'),'text/csv;charset=utf-8')};$('downloadJson').onclick=()=>download('family-ledger-backup.json',JSON.stringify({schema:2,records},null,2),'application/json');$('restoreJson').onchange=async e=>{try{const data=JSON.parse(await e.target.files[0].text());if(!Array.isArray(data.records))throw Error('JSON 不含 records');if(!confirm(`要把 ${data.records.length} 筆備份合併到目前資料嗎？已刪除紀錄仍維持刪除。`))return;const imported=[];for(const r of data.records){if(!r.id||!r.date||!r.merchant||!Number.isFinite(Number(r.amount)))throw Error('資料格式錯誤');imported.push(normalize(r))}records=mergeRecords(records,imported);save();alert('還原完成')}catch(err){alert('還原失敗：'+err.message)}finally{e.target.value=''}};
@@ -217,7 +248,7 @@ let pullBusy=false;
 async function refresh(){
   if(pullBusy||syncBusy)return;
   pullBusy=true;
-  try{await pullRemote();await flushPending();}
+  try{await pullRemote();await flushPending();if(!ruleBusy)await loadCategoryRules_();}
   catch(err){cloudIssue='讀取失敗：'+err.message;cloudReady=false;notify(cloudIssue,true);renderSyncNotice();}
   finally{pullBusy=false;renderSyncNotice();}
 }
@@ -423,6 +454,84 @@ $('categoryAuditUpload').onclick=async()=>{
   }catch(err){categoryAuditItems=[];categoryAuditBackupReady=false;$('categoryAuditMessage').textContent=`已確認上傳 ${uploaded} 個；其餘未更動：${err.message}。請重新核對。`;showToast(err.message,true);}
   finally{categoryAuditBusy=false;syncBusy=false;renderCategoryAudit_();await refresh();}
 };
+function renderRuleCategories_(selected){
+  const chosen=selected||$('ruleCategory').value||'餐飲';
+  const categories=categoriesFor('expense',chosen);
+  $('ruleCategory').innerHTML=categories.map(c=>`<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('');
+  $('ruleCategory').value=chosen;
+  const previous=$('bulkCategory').value;
+  $('bulkCategory').innerHTML=categories.map(c=>`<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('');
+  $('bulkCategory').value=categories.includes(previous)?previous:'餐飲';
+}
+function renderCategoryRules_(){
+  $('ruleList').innerHTML=categoryRules.length?categoryRules.map(r=>`<div style="padding:10px 0;border-bottom:1px solid #e6ede7;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap"><span><strong>${escapeHtml(r.keyword)}</strong> · ${r.matchType==='exact'?'完全相同':'包含'} → <strong>${escapeHtml(r.category)}</strong> <span class="mini">${r.scope==='family'?'家庭共用':'個人'}</span></span><span class="actions" style="margin:0"><button class="button light" type="button" data-edit-rule="${escapeHtml(r.id)}">編輯</button><button class="button warn" type="button" data-delete-rule="${escapeHtml(r.id)}">移除</button></span></div>`).join(''):'目前沒有自訂分類規則';
+  $('ruleSaveButton').disabled=ruleBusy||!rulesReady;
+}
+async function loadCategoryRules_(){
+  if(!configured())return;
+  rulesReady=false;$('ruleMessage').textContent='正在讀取雲端分類規則…';renderCategoryRules_();
+  try{
+    const result=await jsonp('rules');
+    if(!result.ok||!Array.isArray(result.rules))throw Error(result.error||'分類規則後端無回應，請確認已部署 CategoryRules.gs 與新版 Code.gs');
+    categoryRules=result.rules;rulesReady=true;
+    $('ruleMessage').textContent=`分類規則已同步：${categoryRules.length} 條。新匯入的發票會自動套用符合的規則；歷史紀錄仍需手動預覽批次修改。`;
+    renderRuleCategories_();renderCategoryRules_();
+  }catch(err){categoryRules=[];rulesReady=false;$('ruleMessage').textContent='尚未載入分類規則：'+err.message;renderCategoryRules_();}
+}
+function clearRuleEdit_(){ruleEditId=null;$('ruleForm').reset();$('ruleSaveButton').textContent='儲存分類規則';renderRuleCategories_();}
+$('rulesReload').onclick=loadCategoryRules_;
+$('settings').parentElement.querySelector('[data-tab="settings"]')?.addEventListener('click',()=>renderRuleCategories_());
+$('ruleCancelEdit').onclick=clearRuleEdit_;
+$('ruleList').onclick=e=>{
+  const edit=e.target.closest('[data-edit-rule]'),del=e.target.closest('[data-delete-rule]');
+  const id=edit?.dataset.editRule||del?.dataset.deleteRule;
+  const rule=categoryRules.find(r=>r.id===id);if(!rule||ruleBusy)return;
+  if(edit){ruleEditId=id;$('ruleKeyword').value=rule.keyword;$('ruleMatchType').value=rule.matchType;renderRuleCategories_(rule.category);$('ruleScope').value=rule.scope==='family'?'family':'personal';$('ruleSaveButton').textContent='更新分類規則';$('ruleKeyword').focus();}
+  if(del){if(!confirm(`確定移除規則「${rule.keyword} → ${rule.category}」？既有交易不會被修改。`))return;saveRuleChange_({id:rule.id,_rev:rule._rev,action:'delete'});}
+};
+async function saveRuleChange_(rule){
+  if(ruleBusy||!rulesReady)return;
+  ruleBusy=true;renderCategoryRules_();$('ruleMessage').textContent='正在保存分類規則到 Google Sheets…';
+  try{
+    await post({rule},'ruleSave');
+    clearRuleEdit_();await loadCategoryRules_();showToast('分類規則已保存至雲端');
+  }catch(err){$('ruleMessage').textContent='儲存失敗，未確認成功：'+err.message+'；請重新下載規則後再檢查。';showToast(err.message,true);}
+  finally{ruleBusy=false;renderCategoryRules_();}
+}
+$('ruleForm').onsubmit=e=>{
+  e.preventDefault();if(!rulesReady||ruleBusy)return;
+  const old=categoryRules.find(r=>r.id===ruleEditId);
+  const rule={id:old?.id||'rule:'+uid(),_rev:old?old._rev:0,action:old?'update':'create',keyword:$('ruleKeyword').value.trim(),matchType:$('ruleMatchType').value,category:$('ruleCategory').value,scope:$('ruleScope').value==='family'?'family':currentUser};
+  if(rule.keyword.length<2)return alert('至少輸入 2 個字的店家關鍵字');
+  saveRuleChange_(rule);
+};
+function bulkCategoryCandidates_(){
+  const ids=new Set(filteredRecordIds),mode=$('bulkCategoryMode').value,target=$('bulkCategory').value;
+  return activeRecords().filter(r=>ids.has(r.id)&&r.type==='expense'&&r.category!==target&&(
+    mode==='all'||mode==='other'&&r.category==='其他支出'||mode==='nonmanual'&&!r._categoryManual
+  ));
+}
+function invalidateBulkPreview_(){bulkPreview=null;$('bulkCategoryApply').disabled=true;$('bulkCategorySummary').textContent='搜尋或選項已變動，請重新預覽影響範圍。';}
+['search','monthFilter','categoryFilter','typeFilter','ownerFilter','bulkCategory','bulkCategoryMode'].forEach(id=>$(id).addEventListener(id==='search'?'input':'change',invalidateBulkPreview_));
+$('bulkCategoryPreview').onclick=()=>{
+  renderRuleCategories_();const candidates=bulkCategoryCandidates_(),target=$('bulkCategory').value;
+  const years=[...new Set(candidates.map(r=>r.date.slice(0,4)))].sort();
+  bulkPreview={ids:candidates.map(r=>r.id),snapshots:new Map(candidates.map(r=>[r.id,JSON.stringify(r)])),target,mode:$('bulkCategoryMode').value,filteredIds:JSON.stringify(filteredRecordIds)};
+  $('bulkCategorySummary').textContent=`即將把 ${candidates.length} 筆支出改為「${target}」，原金額合計 ${money(candidates.reduce((sum,r)=>sum+r.amount,0))}，涉及 ${years.join('、')||'無'} 年。僅涵蓋目前已下載至瀏覽器的交易，請確認搜尋條件與分類正確。`;
+  $('bulkCategoryApply').disabled=!candidates.length;
+};
+$('bulkCategoryApply').onclick=()=>{
+  if(!bulkPreview||syncBusy||syncConflicts.length||pending.size){showToast('請先完成待同步與版本衝突後再批次修改',true);return;}
+  const preview=bulkPreview,nowCandidates=bulkCategoryCandidates_();
+  if(preview.target!==$('bulkCategory').value||preview.mode!==$('bulkCategoryMode').value||preview.filteredIds!==JSON.stringify(filteredRecordIds)||nowCandidates.length!==preview.ids.length||nowCandidates.some(r=>!preview.snapshots.has(r.id)||preview.snapshots.get(r.id)!==JSON.stringify(r))){invalidateBulkPreview_();showToast('交易資料或篩選條件已變更，請重新預覽',true);return;}
+  if(!confirm(`確認將 ${preview.ids.length} 筆交易分類改成「${preview.target}」？交易金額、日期和發票號碼不會改變；這次分類視為手動決定。`))return;
+  const ids=new Set(preview.ids);
+  records=records.map(r=>ids.has(r.id)?{...r,category:preview.target,_categoryManual:true}:r);
+  invalidateBulkPreview_();save();
+  $('bulkCategorySummary').textContent=`已修改 ${ids.size} 筆本機交易分類，正在同步 Google Sheets。請等頂端顯示 0 筆待同步後再換裝置。`;
+  showToast(`已修改 ${ids.size} 筆，等待雲端確認`);
+};
+renderRuleCategories_();renderCategoryRules_();
 window.addEventListener('beforeunload',e=>{if(pending.size){e.preventDefault();e.returnValue='尚有記帳變更未完成雲端同步';}});
 window.addEventListener('online',refresh);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh();});
@@ -495,7 +604,7 @@ $('loginForm').onsubmit=async e=>{
     settings={url,token:''};localStorage.setItem(SETTINGS,JSON.stringify(settings));$('apiUrl').value=url;
     $('loginPassword').value='';$('loginGate').classList.add('hidden');
     $('importOwner').value=currentUser;$('fOwner').value=currentUser;
-    loadedYearSet.clear();await loadYears();await refresh();await loadBudget();render();
+    categoryRules=[];rulesReady=false;loadedYearSet.clear();await loadYears();await refresh();await loadBudget();render();
   }catch(err){settings.url=oldUrl;$('loginError').textContent='登入或載入失敗：'+err.message;}
   finally{$('loginButton').disabled=false;}
 };
@@ -582,9 +691,9 @@ $('saveFund').onclick=async()=>{try{const name=$('fundName').value.trim();if(!na
 $('cancelFundEdit').onclick=()=>{editingFundId='';$('fundFormTitle').textContent='新增基金目標';$('fundName').value='';$('fundTarget').value='';$('fundSaved').value='';};
 $('budgetFunds').onclick=async e=>{const edit=e.target.closest('[data-fund-edit]'),del=e.target.closest('[data-fund-delete]');if(edit){const f=budgetItem(edit.dataset.fundEdit);if(!f)return;editingFundId=f.id;$('fundFormTitle').textContent='編輯基金：'+f.name;$('fundName').value=f.name;$('fundTarget').value=f.amount;$('fundSaved').value=f.saved;return;}if(del){const f=budgetItem(del.dataset.fundDelete);if(!f||!confirm(`確定刪除「${f.name}」基金目標？（稽核會保留紀錄）`))return;try{await saveBudgetRecords([{...f,deleted:true}]);}catch(err){budgetError(err);}}};
 $('saveSettlement').onclick=async()=>{try{const m=$('settlementMonth').value,owner=budgetOwner();if(!/^20\d{2}-(0[1-9]|1[0-2])$/.test(m))throw Error('請選擇結算月份');if(m!==$('budgetMonth').value)throw Error('結算月份須與上方顯示月份相同');if(new Date()<new Date(nextMonthFifth(m)+'T00:00:00')&&!confirm('尚未到次月 5 日，確定已核對銀行餘額並提前結算？'))return;await saveBudgetRecords([{id:`settle:${owner}:${m}`,kind:'settlement',owner,month:m,amount:validBudgetAmount('settlementAmount'),confirmed:true}]);}catch(err){budgetError(err);}};
-const oldRender18=render;render=()=>{oldRender18();if($('budget'))renderBudget();$('footerStatus').textContent=$('footerStatus').textContent.replace(/v1\.7\.2/g,'v1.8.4');renderSyncNotice();};
+const oldRender18=render;render=()=>{oldRender18();if($('budget'))renderBudget();$('footerStatus').textContent=$('footerStatus').textContent.replace(/v1\.7\.2/g,'v1.8.5');renderSyncNotice();};
 fillCategories();render();
-$('footerStatus').textContent='家計簿 v1.8.4 · 雙人預算與儲蓄目標';
+$('footerStatus').textContent='家計簿 v1.8.5 · 雙人預算與儲蓄目標';
 if(configured()){$('loginGate').classList.add('hidden');loadYears().then(refresh).then(loadBudget).catch(err=>{$('loginGate').classList.remove('hidden');$('loginError').textContent=err.message;});}
 else notify('請使用個人帳號登入，系統才會讀取 Google Sheets。');
 })();
