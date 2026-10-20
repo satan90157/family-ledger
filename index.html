@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>家計簿 v1.8.1｜家庭財務</title>
+  <title>家計簿 v1.8.3｜家庭財務</title>
   <meta name="theme-color" content="#132d2a">
   <style>
     :root{font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif;color:#1b312e;background:#f3f6f2;font-size:15px}*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}.shell{max-width:1180px;margin:auto;padding:22px 22px 90px}.header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:25px}.logo{font-size:23px;font-weight:800;letter-spacing:.04em}.logo small{display:block;font-size:12px;font-weight:500;color:#71827c;letter-spacing:.08em}.nav{display:flex;gap:8px;flex-wrap:wrap}.nav button,.pill{border:1px solid #d8e2dc;background:white;color:#36524b;border-radius:13px;padding:10px 15px}.nav button.active{background:#183d36;color:white;border-color:#183d36}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}h1{font-size:28px;margin:0 0 5px}h2{font-size:18px;margin:0 0 16px}p.muted,.muted{color:#71827c}.subtitle{font-size:13px;color:#71827c;margin:0}.button{border:0;border-radius:12px;background:#173e35;color:white;padding:11px 15px;font-weight:650;display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;min-height:43px;line-height:1.4;text-align:center}.button.light{background:#e5eee8;color:#285247}.button.warn{background:#fff0e9;color:#9a4a25}.button.ghost{background:white;color:#1b312e;border:1px solid #d4dfd8}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.card,.panel{background:white;border:1px solid #e0e9e3;border-radius:20px;padding:21px;box-shadow:0 6px 22px #1e47350a}.card .k{font-size:13px;color:#798980}.card .v{font-size:27px;font-weight:800;margin-top:12px;letter-spacing:-.03em}.card .note{font-size:12px;color:#89968e;margin-top:8px}.positive{color:#147a5c}.negative{color:#c36a42}.grid{display:grid;grid-template-columns:1.5fr 1fr;gap:16px;margin-top:16px}.panel{min-width:0}.bars{height:245px;display:flex;gap:12px;align-items:flex-end;padding:12px 0 24px;border-bottom:1px solid #e6ebe6}.bar-group{flex:1;min-width:0;text-align:center;display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:5px;position:relative}.bar-pair{display:flex;align-items:flex-end;justify-content:center;gap:5px;height:100%}.bar{width:min(27px,38%);border-radius:6px 6px 0 0;min-height:0;transition:height .2s}.bar.income{background:#3a9a7c}.bar.expense{background:#e5a079}.bar-label{font-size:11px;color:#819088;position:absolute;bottom:-26px;width:100%}.legend{display:flex;gap:15px;font-size:12px;color:#6b8075;margin-top:38px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}.category{display:flex;gap:13px;align-items:center;margin:12px 0}.category-name{width:75px;flex-shrink:0;font-size:13px}.track{height:11px;background:#eff2ee;border-radius:20px;flex:1;overflow:hidden}.fill{height:100%;background:#62a992;border-radius:20px}.category-value{font-size:13px;text-align:right;width:85px;font-variant-numeric:tabular-nums}.actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-bottom:16px}.backup-actions{display:flex;align-items:stretch;gap:10px;flex-wrap:wrap;margin-top:12px}.backup-actions>.button{flex:0 1 auto}.field{border:1px solid #d5e0d9;border-radius:11px;padding:10px 12px;background:#fff;min-width:0}.actions .field{max-width:180px}.tablewrap{overflow-x:auto}table{border-collapse:collapse;width:100%;text-align:left;white-space:nowrap}th{color:#84948a;font-size:12px;font-weight:550;background:#f7faf7}th,td{padding:13px 10px;border-bottom:1px solid #edf1ed}td{font-size:13px}td strong{font-size:14px}td small{display:block;color:#92a098;max-width:250px;text-overflow:ellipsis;overflow:hidden}.tag{background:#eff5ef;border-radius:8px;padding:5px 8px;color:#4a6e60;font-size:12px}.empty{text-align:center;color:#839389;padding:45px 10px}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.form-grid label{display:flex;flex-direction:column;gap:6px;color:#65786b;font-size:13px}.form-grid .field{width:100%}.full{grid-column:1/-1}.status{background:#eef7ee;color:#2a654e;border-radius:12px;padding:12px 15px;font-size:13px;line-height:1.5}.status.error{background:#fff0ea;color:#a14d2a}.section{display:none}.section.active{display:block}.month{display:flex;align-items:center;gap:8px}.month input{width:145px}.file-button{position:relative;overflow:hidden}.file-button input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}.help{font-size:13px;line-height:1.8;color:#6e8175;overflow-wrap:anywhere}.help code{background:#edf2ee;padding:2px 5px;border-radius:4px;overflow-wrap:anywhere}.row{display:flex;justify-content:space-between;gap:12px;align-items:center}.small{font-size:12px}.sync{font-size:12px;color:#789084}.tooltip{font-size:12px;color:#829289}.donut{height:140px;width:140px;border-radius:50%;background:conic-gradient(#dce8de 0 100%);position:relative;flex-shrink:0}.donut:after{content:"";position:absolute;inset:26px;border-radius:50%;background:white}.donut-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}.total{font-size:26px;font-weight:800}.mini{font-size:12px;color:#7e8f85}.footer{text-align:center;font-size:12px;color:#8a9b91;margin-top:34px}@media(max-width:800px){.shell{padding:15px 13px 80px}.header{display:block}.nav{margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:5px}.nav button{font-size:12px;padding:11px 3px}.cards{grid-template-columns:repeat(2,1fr);gap:9px}.card,.panel{padding:16px;border-radius:17px}.card .v{font-size:22px}.grid{grid-template-columns:1fr}.top{align-items:flex-start}h1{font-size:23px}.form-grid{grid-template-columns:1fr}.month input{width:135px}td,th{padding:11px 8px}.actions .field{max-width:none}.button{padding:11px 13px}}@media(max-width:500px){.backup-actions{flex-direction:column}.backup-actions>.button{width:100%}}
@@ -23,6 +23,7 @@
 <main class="shell">
   <header class="header"><div class="logo">家計簿 <span style="color:#5ba487">◈</span><small>OUR FAMILY FINANCE</small></div><nav class="nav" aria-label="主要頁面"><button data-tab="dashboard" class="active">總覽</button><button data-tab="annual">年度統計</button><button data-tab="records">收支明細</button><button data-tab="add">新增記帳</button><button data-tab="settings">同步設定</button></nav></header>
   <div id="syncBanner" class="sync-banner pending" role="status" aria-live="polite"><span id="syncBannerText">正在檢查雲端同步狀態…</span><button id="syncBannerRetry" class="button light" type="button" hidden>重試同步</button></div>
+  <div id="conflictPanel" class="panel" style="margin-bottom:16px;display:none"><h2>跨裝置資料衝突</h2><p class="help">同一張發票在電腦與手機被修改時，不會自動覆蓋。請先備份，再檢視兩邊內容並逐筆決定；不同分類名稱也可雙向保留。採用本機版本時會經過 Google Sheets 版本檢查，並留下修改紀錄。</p><div id="conflictItems" class="help"></div><div class="actions"><button id="conflictBackup" class="button light" type="button">① 下載本機 JSON 備份</button><button id="conflictUseCloud" class="button light" type="button" disabled>② 雙向合併自訂分類</button><button id="conflictReview" class="button light" type="button" disabled>③ 比較交易差異</button><button id="conflictApply" class="button" type="button" style="display:none">④ 套用逐筆選擇</button></div><p id="conflictMessage" class="mini" role="status" aria-live="polite"></p></div>
   <section id="dashboard" class="section active"><div class="top"><div><h1>家庭財務總覽</h1><p class="subtitle">讓每一筆收支都有跡可循</p></div><div class="month"><button class="pill" id="prevMonth" aria-label="上個月">‹</button><input aria-label="統計月份" class="field" id="month" type="month"><button class="pill" id="nextMonth" aria-label="下個月">›</button></div><label class="month">統計歸屬 <select id="dashboardOwnerStats" class="field"><option value="all">家庭全部</option><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select></label></div>
     <div class="cards"><div class="card"><div class="k">本月收入</div><div class="v positive" id="sumIncome">$0</div><div class="note">已記錄收入</div></div><div class="card"><div class="k">本月支出</div><div class="v" id="sumExpense">$0</div><div class="note" id="expenseCount">0 筆支出</div></div><div class="card"><div class="k">本月結餘</div><div class="v" id="sumBalance">$0</div><div class="note">收入 − 支出</div></div><div class="card"><div class="k">儲蓄率</div><div class="v" id="sumRate">—</div><div class="note">結餘 ÷ 收入</div></div></div>
     <div class="grid"><div class="panel"><div class="row"><h2>最近 6 個月收支趨勢</h2><span class="mini">每月實際記錄</span></div><div id="trend" class="bars" role="img" aria-label="最近六個月收入與支出長條圖"></div><div class="legend"><span><i class="dot" style="background:#3a9a7c"></i>收入</span><span><i class="dot" style="background:#e5a079"></i>支出</span></div></div><div class="panel"><h2>本月支出分類</h2><div id="categories"></div></div></div>
@@ -51,11 +52,32 @@
 const KEY='family-ledger-v1',SETTINGS='family-ledger-settings-v1';const expenseCategories=['餐飲','食品雜貨','交通','購物','居家','醫療','娛樂','水電電信','房貸','貸款','保險','其他支出'];const incomeCategories=['薪資','獎金','投資收入','退款','其他收入'];const colors=['#4e9a83','#e3a07b','#a7ba73','#779cae','#c3a3cc','#b8b0a1','#edc984','#8bafa2','#e3a4a3'];let records=read(KEY,[]),settings=read(SETTINGS,{url:'',token:''}),editId=null;const $=id=>document.getElementById(id);const categoryDefinitions=()=>records.filter(r=>r.source==='category-definition'&&!r.deleted);const activeRecords=()=>records.filter(r=>!r.deleted&&r.source!=='category-definition');const money=n=>'$'+Math.round(Number(n)||0).toLocaleString('zh-TW');const escapeHtml=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const now=new Date();let month=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
 let filteredRecordIds=[];
 const PENDING='family-ledger-pending-v1', pending=new Set(read(PENDING,[]));
-let cloudIssue='',cloudReady=false,legacyMismatch=[];
+let cloudIssue='',cloudReady=false,legacyMismatch=[],syncConflicts=[],conflictBackupReady=false;
+let conflictReview=new Map(),conflictChoices=new Map(),conflictLocalSnapshot=new Map(),conflictReviewBusy=false;
+function clearConflictReview(){conflictReview.clear();conflictChoices.clear();conflictLocalSnapshot.clear();}
+function conflictFieldDiff(a,b){return ['date','type','merchant','amount','category','owner','invoice','note','deleted','details'].filter(k=>JSON.stringify(a?.[k]??null)!==JSON.stringify(b?.[k]??null));}
+function conflictSummary(r){if(!r)return '查無紀錄';return `${r.deleted?'已刪除｜':''}${r.date}｜${r.merchant||'未命名'}｜${r.type==='income'?'收入':'支出'} ${money(r.amount)}｜分類：${r.category||'無'}｜歸屬：${ownerLabel(r.owner)}${r.note?'｜備註：'+r.note:''}${r.invoice?'｜發票：'+r.invoice:''}`;}
+function renderConflictPanel(){
+  const panel=$('conflictPanel');if(!panel)return;
+  panel.style.display=syncConflicts.length?'block':'none';
+  $('conflictUseCloud').disabled=!conflictBackupReady||!syncConflicts.length||conflictReviewBusy;
+  $('conflictReview').disabled=!conflictBackupReady||!syncConflicts.length||conflictReviewBusy;
+  const transactions=syncConflicts.filter(id=>records.find(r=>r.id===id)?.source!=='category-definition');
+  $('conflictApply').style.display=transactions.some(id=>conflictReview.has(id))?'inline-flex':'none';
+  $('conflictApply').disabled=conflictReviewBusy;
+  $('conflictItems').innerHTML=syncConflicts.map(id=>{
+    const local=records.find(r=>r.id===id),server=conflictReview.get(id);
+    if(!server){const name=local?.source==='category-definition'?`自訂分類：${local.category}`:`${local?.merchant||id}／${local?.date||''}`;return `<div style="padding:9px 0;border-bottom:1px solid #e6ede7">${escapeHtml(name)} <span class="mini">${escapeHtml(id.slice(0,20))}…</span></div>`;}
+    const diff=conflictFieldDiff(local,server),onlyCategory=diff.length===1&&diff[0]==='category';
+    const index=transactions.indexOf(id),choice=conflictChoices.get(id)||'';
+    const choices=[['local',onlyCategory?'採用本機分類（其他欄位保留雲端）':'採用本機完整交易'],['cloud',onlyCategory?'採用雲端分類':'採用雲端完整交易']];
+    return `<div style="padding:13px;margin:10px 0;border:1px solid #d8e2dc;border-radius:12px;overflow-wrap:anywhere"><strong>${escapeHtml(local?.merchant||server.merchant||id)}</strong><div class="mini">同一筆 ID：${escapeHtml(id)}｜差異欄位：${escapeHtml(diff.join('、')||'僅版本號不同')}</div><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:9px;margin:10px 0"><div style="padding:10px;background:#f1f7f2;border-radius:9px"><b>本機／手機</b><div>${escapeHtml(conflictSummary(local))}</div></div><div style="padding:10px;background:#fff6ec;border-radius:9px"><b>Google Sheets 雲端</b><div>${escapeHtml(conflictSummary(server))}</div></div></div><div class="mini">請選擇這筆交易的最終內容：</div>${choices.map(([value,label])=>`<label style="display:block;padding:7px 0"><input type="radio" name="conflict-${index}" data-conflict-id="${escapeHtml(id)}" value="${value}" ${choice===value?'checked':''}> ${escapeHtml(label)}</label>`).join('')}<label style="display:block;padding:7px 0"><input type="radio" name="conflict-${index}" data-conflict-id="${escapeHtml(id)}" value="later" ${!choice||choice==='later'?'checked':''}> 暫不處理（兩邊資料原樣保留）</label></div>`;
+  }).join('');
+}
 function renderSyncNotice(){const banner=$('syncBanner'),label=$('syncBannerText'),retry=$('syncBannerRetry');if(!banner)return;const count=pending.size;
  if(cloudIssue||legacyMismatch.length){banner.className='sync-banner error';label.textContent=(cloudIssue||'資料版本有差異')+(legacyMismatch.length?`；${legacyMismatch.length} 筆本機／雲端資料不同，已保留本機內容，請先下載 JSON 備份再確認。`:'')+(count?`（${count} 筆待同步）`:'');retry.hidden=false;}
  else if(count||!cloudReady){banner.className='sync-banner pending';label.textContent=count?`尚有 ${count} 筆記帳修改未獲雲端確認；請等待同步完成，再換裝置。`:'正在核對 Google Sheets，尚未確認資料同步';retry.hidden=!count;}
- else{banner.className='sync-banner';label.textContent='✓ Google Sheets 已連線，所有已提交的記帳修改均已同步';retry.hidden=true;}}
+ else{banner.className='sync-banner';label.textContent='✓ Google Sheets 已連線，所有已提交的記帳修改均已同步';retry.hidden=true;}renderConflictPanel();}
 let snapshot=new Map(records.map(r=>[r.id,JSON.stringify(r)])),syncBusy=false,syncTimer=null;
 function persistPending(){localStorage.setItem(PENDING,JSON.stringify([...pending]));}
 function queueSync(){if(syncTimer)clearTimeout(syncTimer);syncTimer=setTimeout(()=>{syncTimer=null;flushPending();},500);}
@@ -65,7 +87,7 @@ function save(track=true){
   snapshot=new Map(records.map(r=>[r.id,JSON.stringify(r)]));
   localStorage.setItem(KEY,JSON.stringify(records));render();
   if(track&&pending.size)cloudIssue='';renderSyncNotice();
-  $('footerStatus').textContent=`家計簿 v1.6 · ${configured()?'自動同步':'本機模式'} · ${pending.size} 筆待同步`;
+  $('footerStatus').textContent=`家計簿 v1.8.3 · ${configured()?'自動同步':'本機模式'} · ${pending.size} 筆待同步`;
   if(track&&pending.size)queueSync();
 }
 function uid(){return crypto.randomUUID?crypto.randomUUID():`${Date.now()}-${Math.random()}`}
@@ -161,6 +183,7 @@ async function pullRemote(){
 }
 async function flushPending(){
   if(syncBusy||!configured()||!pending.size)return;
+  if(syncConflicts.length){renderSyncNotice();return;}
   syncBusy=true;
   cloudReady=false;renderSyncNotice();
   try{
@@ -178,7 +201,7 @@ async function flushPending(){
         if(unchanged)pending.delete(updated.id);
       }
       save(false);persistPending();
-      if(result.conflicts.length){cloudIssue=`版本衝突：${result.conflicts.length} 筆（${result.conflicts.slice(0,3).join('、')}），雲端未覆蓋；請先下載 JSON 備份。`;notify(cloudIssue,true);showToast('記帳同步失敗：版本衝突',true);renderSyncNotice();return;}
+      if(result.conflicts.length){syncConflicts=[...new Set([...syncConflicts,...result.conflicts])];conflictBackupReady=false;clearConflictReview();cloudIssue=`版本衝突：${syncConflicts.length} 筆，雲端未覆蓋；請使用下方「跨裝置資料衝突」處理。`;notify(cloudIssue,true);showToast('記帳同步失敗：版本衝突',true);renderSyncNotice();return;}
       if(!result.accepted.length)throw Error('後端未確認任何變更');
     }
     notify(`已同步 Google Sheets · ${activeRecords().length} 筆有效資料`);
@@ -203,6 +226,108 @@ $('saveSettings').onclick=()=>{
 $('syncDown').onclick=refresh;
 $('syncUp').onclick=async()=>{await refresh();};
 $('syncBannerRetry').onclick=async()=>{cloudIssue='';renderSyncNotice();await refresh();};
+$('conflictBackup').onclick=()=>{
+  download('family-ledger-phone-conflict-backup-'+new Date().toISOString().slice(0,10)+'.json',JSON.stringify({schema:2,records,pending:[...pending],conflicts:syncConflicts},null,2),'application/json');
+  conflictBackupReady=true;$('conflictMessage').textContent='已要求瀏覽器下載備份。請先到「檔案／下載項目」確認檔案存在，再點下一步。';renderSyncNotice();
+};
+$('conflictUseCloud').onclick=async()=>{
+  if(!conflictBackupReady||!syncConflicts.length||syncBusy)return;
+  if(!confirm(`確認已保存手機 JSON 備份？接下來會雙向合併自訂分類：相同分類去重，不同分類都保留；一般收支交易不會被覆蓋。`))return;
+  const ids=[...syncConflicts],oldValues=new Map(ids.map(id=>[id,JSON.stringify(records.find(r=>r.id===id))]));
+  $('conflictUseCloud').disabled=true;$('conflictMessage').textContent='讀取各年度雲端紀錄中…';
+  try{
+    const years=[...new Set(ids.map(id=>records.find(r=>r.id===id)?.date?.slice(0,4)).filter(y=>/^20\d{2}$/.test(y)))];
+    if(!years.length)throw Error('找不到衝突紀錄年度');
+    const remote=new Map();
+    for(const year of years){const response=await jsonp('list',year);if(!response.ok||!Array.isArray(response.records))throw Error(`${year} 年雲端讀取失敗`);response.records.forEach(r=>remote.set(r.id,normalize(r)));}
+    // All target records must exist before making any local mutation.
+    const missing=ids.filter(id=>!remote.has(id));if(missing.length)throw Error(`${missing.length} 筆找不到雲端版本，已取消操作`);
+    const categoryKey=r=>r.type+'\u0000'+String(r.category||'').trim().toLocaleLowerCase();
+    const cloudCategories=new Set([...remote.values()].filter(r=>r.source==='category-definition'&&!r.deleted).map(categoryKey));
+    let resolved=0,added=0;const remaining=[];
+    for(const id of ids){
+      const index=records.findIndex(r=>r.id===id),local=records[index],server=remote.get(id);
+      if(index<0||JSON.stringify(local)!==oldValues.get(id)||local?.source!=='category-definition'||server?.source!=='category-definition'||local.deleted||server.deleted){remaining.push(id);continue;}
+      // The cloud ID remains authoritative, but a differing phone category gets a new ID.
+      if(categoryKey(local)!==categoryKey(server)&&!cloudCategories.has(categoryKey(local))){
+        const { _rev,_lastEditedBy,_lastEditedAt,...content }=local;
+        const candidate={...content,id:'manual:'+uid()};records.push(candidate);pending.add(candidate.id);cloudCategories.add(categoryKey(candidate));added++;
+      }
+      records[index]=server;pending.delete(id);resolved++;
+    }
+    syncConflicts=remaining;clearConflictReview();persistPending();save(false);
+    cloudIssue=remaining.length?`另外 ${remaining.length} 筆非分類或異常紀錄仍有版本衝突，未擅自覆蓋`:'';
+    conflictBackupReady=false;renderSyncNotice();$('conflictMessage').textContent=`已合併 ${resolved} 筆分類衝突，保留 ${added} 個手機獨有分類，${remaining.length} 筆需要個別確認。`;
+    if(!remaining.length){showToast(`分類已合併，${pending.size} 筆等待雲端確認`);if(pending.size)queueSync();}
+  }catch(err){$('conflictMessage').textContent='沒有更改本機資料：'+err.message;showToast(err.message,true);}
+  finally{renderSyncNotice();}
+};
+async function fetchConflictCloud(ids){
+  const years=[...new Set(ids.map(id=>records.find(r=>r.id===id)?.date?.slice(0,4)).filter(y=>/^20\d{2}$/.test(y)))];
+  if(!years.length)throw Error('找不到衝突交易的年度');
+  const result=new Map();
+  for(const year of years){const data=await jsonp('list',year);if(!data.ok||!Array.isArray(data.records))throw Error(`${year} 年雲端讀取失敗：${data.error||'資料格式不正確'}`);data.records.forEach(r=>result.set(r.id,normalize(r)));}
+  const missing=ids.filter(id=>!result.has(id));if(missing.length)throw Error(`${missing.length} 筆雲端交易找不到相同 ID，無法安全處理`);
+  return result;
+}
+$('conflictItems').onchange=e=>{
+  const radio=e.target.closest('input[data-conflict-id]');if(!radio)return;
+  conflictChoices.set(radio.dataset.conflictId,radio.value);
+};
+$('conflictReview').onclick=async()=>{
+  if(!conflictBackupReady||!syncConflicts.length||conflictReviewBusy||syncBusy)return;
+  const ids=syncConflicts.filter(id=>records.find(r=>r.id===id)?.source!=='category-definition');
+  if(!ids.length){$('conflictMessage').textContent='目前只有自訂分類衝突，請按「雙向合併自訂分類」。';return;}
+  conflictReviewBusy=true;clearConflictReview();$('conflictMessage').textContent='正在讀取 Google Sheets 最新交易，準備逐筆比較…';renderConflictPanel();
+  try{
+    const remote=await fetchConflictCloud(ids);
+    ids.forEach(id=>{conflictReview.set(id,remote.get(id));conflictLocalSnapshot.set(id,JSON.stringify(records.find(r=>r.id===id)));});
+    $('conflictMessage').textContent=`已載入 ${ids.length} 筆交易對照。每筆選擇本機或雲端版本後，按「套用逐筆選擇」；不選的交易不會更動。`;
+    panelScrollConflict();
+  }catch(err){clearConflictReview();$('conflictMessage').textContent='無法讀取對照：'+err.message;showToast(err.message,true);}
+  finally{conflictReviewBusy=false;renderConflictPanel();}
+};
+function panelScrollConflict(){const panel=$('conflictPanel');if(panel&&typeof panel.scrollIntoView==='function')panel.scrollIntoView({behavior:'smooth',block:'start'});}
+$('conflictApply').onclick=async()=>{
+  if(!conflictBackupReady||conflictReviewBusy||syncBusy)return;
+  const ids=syncConflicts.filter(id=>conflictReview.has(id)&&['local','cloud'].includes(conflictChoices.get(id)));
+  if(!ids.length){$('conflictMessage').textContent='請先為至少一筆交易選擇「本機」或「雲端」。';return;}
+  if(!confirm(`要處理 ${ids.length} 筆衝突交易嗎？選擇「本機」會寫回 Google Sheets 並留下稽核紀錄；選擇「雲端」會替換目前裝置的這筆內容。`))return;
+  conflictReviewBusy=true;renderConflictPanel();$('conflictMessage').textContent='檢查雲端版本中，請不要關閉頁面…';
+  let done=0;const failed=[];
+  try{
+    const currentCloud=await fetchConflictCloud(ids);
+    // Refuse all changes if a selected local record or its cloud revision changed after preview.
+    for(const id of ids){
+      const local=records.find(r=>r.id===id),before=conflictReview.get(id),latest=currentCloud.get(id);
+      if(JSON.stringify(local)!==conflictLocalSnapshot.get(id))throw Error(`「${local?.merchant||id}」在比較後又於本機修改，請重新比較`);
+      if(Number(latest._rev||0)!==Number(before._rev||0)||conflictFieldDiff(latest,before).length)throw Error(`「${latest.merchant||id}」雲端已更新，請重新比較後再決定`);
+    }
+    for(const id of ids){
+      const choice=conflictChoices.get(id),index=records.findIndex(r=>r.id===id),local=records[index],server=currentCloud.get(id);
+      if(choice==='cloud'){
+        records[index]=server;pending.delete(id);syncConflicts=syncConflicts.filter(x=>x!==id);done++;
+      }else{
+        const onlyCategory=conflictFieldDiff(local,server).join(',')==='category';
+        const chosen=onlyCategory?{...server,category:local.category}:{...local,_rev:Number(server._rev||0)};
+        // Submit with latest known _rev. Backend refuses a racing update and logs successful edits.
+        const result=await post({records:[chosen]});
+        if(!Array.isArray(result.accepted)||!Array.isArray(result.conflicts))throw Error('後端未回傳版本驗證結果');
+        if(result.conflicts.includes(id)||!result.accepted.some(r=>r.id===id)){failed.push(id);continue;}
+        records[index]=normalize(result.accepted.find(r=>r.id===id));pending.delete(id);syncConflicts=syncConflicts.filter(x=>x!==id);done++;
+      }
+      // Persist each confirmed result, so interrupted connections cannot undo completed decisions.
+      persistPending();save(false);
+    }
+    clearConflictReview();
+    conflictBackupReady=false;
+    cloudIssue=syncConflicts.length?`已處理 ${done} 筆；另外 ${syncConflicts.length} 筆衝突待確認` : '';
+    $('conflictMessage').textContent=`成功處理 ${done} 筆${failed.length?`，其中 ${failed.length} 筆寫回時版本又改變，請重新比較`:''}。其餘未選擇的紀錄不變。`;
+    showToast(`已確認 ${done} 筆衝突交易${syncConflicts.length?'，其餘待處理':''}`);
+    if(!syncConflicts.length&&pending.size)queueSync();
+  }catch(err){clearConflictReview();$('conflictMessage').textContent=`已成功處理 ${done} 筆；其餘未變更：${err.message}。請重新下載備份並比較。`;showToast(err.message,true);}
+  finally{conflictReviewBusy=false;renderSyncNotice();}
+};
 window.addEventListener('beforeunload',e=>{if(pending.size){e.preventDefault();e.returnValue='尚有記帳變更未完成雲端同步';}});
 window.addEventListener('online',refresh);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh();});
@@ -362,9 +487,9 @@ $('saveFund').onclick=async()=>{try{const name=$('fundName').value.trim();if(!na
 $('cancelFundEdit').onclick=()=>{editingFundId='';$('fundFormTitle').textContent='新增基金目標';$('fundName').value='';$('fundTarget').value='';$('fundSaved').value='';};
 $('budgetFunds').onclick=async e=>{const edit=e.target.closest('[data-fund-edit]'),del=e.target.closest('[data-fund-delete]');if(edit){const f=budgetItem(edit.dataset.fundEdit);if(!f)return;editingFundId=f.id;$('fundFormTitle').textContent='編輯基金：'+f.name;$('fundName').value=f.name;$('fundTarget').value=f.amount;$('fundSaved').value=f.saved;return;}if(del){const f=budgetItem(del.dataset.fundDelete);if(!f||!confirm(`確定刪除「${f.name}」基金目標？（稽核會保留紀錄）`))return;try{await saveBudgetRecords([{...f,deleted:true}]);}catch(err){budgetError(err);}}};
 $('saveSettlement').onclick=async()=>{try{const m=$('settlementMonth').value,owner=budgetOwner();if(!/^20\d{2}-(0[1-9]|1[0-2])$/.test(m))throw Error('請選擇結算月份');if(m!==$('budgetMonth').value)throw Error('結算月份須與上方顯示月份相同');if(new Date()<new Date(nextMonthFifth(m)+'T00:00:00')&&!confirm('尚未到次月 5 日，確定已核對銀行餘額並提前結算？'))return;await saveBudgetRecords([{id:`settle:${owner}:${m}`,kind:'settlement',owner,month:m,amount:validBudgetAmount('settlementAmount'),confirmed:true}]);}catch(err){budgetError(err);}};
-const oldRender18=render;render=()=>{oldRender18();if($('budget'))renderBudget();$('footerStatus').textContent=$('footerStatus').textContent.replace(/v1\.7\.2/g,'v1.8.1');renderSyncNotice();};
+const oldRender18=render;render=()=>{oldRender18();if($('budget'))renderBudget();$('footerStatus').textContent=$('footerStatus').textContent.replace(/v1\.7\.2/g,'v1.8.3');renderSyncNotice();};
 fillCategories();render();
-$('footerStatus').textContent='家計簿 v1.8.1 · 雙人預算與儲蓄目標';
+$('footerStatus').textContent='家計簿 v1.8.3 · 雙人預算與儲蓄目標';
 if(configured()){$('loginGate').classList.add('hidden');loadYears().then(refresh).then(loadBudget).catch(err=>{$('loginGate').classList.remove('hidden');$('loginError').textContent=err.message;});}
 else notify('請使用個人帳號登入，系統才會讀取 Google Sheets。');
 })();
