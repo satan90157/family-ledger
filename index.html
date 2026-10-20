@@ -2,14 +2,14 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>家計簿 v1.8｜家庭財務</title>
+  <title>家計簿 v1.8.1｜家庭財務</title>
   <meta name="theme-color" content="#132d2a">
   <style>
     :root{font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif;color:#1b312e;background:#f3f6f2;font-size:15px}*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}.shell{max-width:1180px;margin:auto;padding:22px 22px 90px}.header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:25px}.logo{font-size:23px;font-weight:800;letter-spacing:.04em}.logo small{display:block;font-size:12px;font-weight:500;color:#71827c;letter-spacing:.08em}.nav{display:flex;gap:8px;flex-wrap:wrap}.nav button,.pill{border:1px solid #d8e2dc;background:white;color:#36524b;border-radius:13px;padding:10px 15px}.nav button.active{background:#183d36;color:white;border-color:#183d36}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}h1{font-size:28px;margin:0 0 5px}h2{font-size:18px;margin:0 0 16px}p.muted,.muted{color:#71827c}.subtitle{font-size:13px;color:#71827c;margin:0}.button{border:0;border-radius:12px;background:#173e35;color:white;padding:11px 15px;font-weight:650;display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;min-height:43px;line-height:1.4;text-align:center}.button.light{background:#e5eee8;color:#285247}.button.warn{background:#fff0e9;color:#9a4a25}.button.ghost{background:white;color:#1b312e;border:1px solid #d4dfd8}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.card,.panel{background:white;border:1px solid #e0e9e3;border-radius:20px;padding:21px;box-shadow:0 6px 22px #1e47350a}.card .k{font-size:13px;color:#798980}.card .v{font-size:27px;font-weight:800;margin-top:12px;letter-spacing:-.03em}.card .note{font-size:12px;color:#89968e;margin-top:8px}.positive{color:#147a5c}.negative{color:#c36a42}.grid{display:grid;grid-template-columns:1.5fr 1fr;gap:16px;margin-top:16px}.panel{min-width:0}.bars{height:245px;display:flex;gap:12px;align-items:flex-end;padding:12px 0 24px;border-bottom:1px solid #e6ebe6}.bar-group{flex:1;min-width:0;text-align:center;display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:5px;position:relative}.bar-pair{display:flex;align-items:flex-end;justify-content:center;gap:5px;height:100%}.bar{width:min(27px,38%);border-radius:6px 6px 0 0;min-height:0;transition:height .2s}.bar.income{background:#3a9a7c}.bar.expense{background:#e5a079}.bar-label{font-size:11px;color:#819088;position:absolute;bottom:-26px;width:100%}.legend{display:flex;gap:15px;font-size:12px;color:#6b8075;margin-top:38px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}.category{display:flex;gap:13px;align-items:center;margin:12px 0}.category-name{width:75px;flex-shrink:0;font-size:13px}.track{height:11px;background:#eff2ee;border-radius:20px;flex:1;overflow:hidden}.fill{height:100%;background:#62a992;border-radius:20px}.category-value{font-size:13px;text-align:right;width:85px;font-variant-numeric:tabular-nums}.actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-bottom:16px}.backup-actions{display:flex;align-items:stretch;gap:10px;flex-wrap:wrap;margin-top:12px}.backup-actions>.button{flex:0 1 auto}.field{border:1px solid #d5e0d9;border-radius:11px;padding:10px 12px;background:#fff;min-width:0}.actions .field{max-width:180px}.tablewrap{overflow-x:auto}table{border-collapse:collapse;width:100%;text-align:left;white-space:nowrap}th{color:#84948a;font-size:12px;font-weight:550;background:#f7faf7}th,td{padding:13px 10px;border-bottom:1px solid #edf1ed}td{font-size:13px}td strong{font-size:14px}td small{display:block;color:#92a098;max-width:250px;text-overflow:ellipsis;overflow:hidden}.tag{background:#eff5ef;border-radius:8px;padding:5px 8px;color:#4a6e60;font-size:12px}.empty{text-align:center;color:#839389;padding:45px 10px}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.form-grid label{display:flex;flex-direction:column;gap:6px;color:#65786b;font-size:13px}.form-grid .field{width:100%}.full{grid-column:1/-1}.status{background:#eef7ee;color:#2a654e;border-radius:12px;padding:12px 15px;font-size:13px;line-height:1.5}.status.error{background:#fff0ea;color:#a14d2a}.section{display:none}.section.active{display:block}.month{display:flex;align-items:center;gap:8px}.month input{width:145px}.file-button{position:relative;overflow:hidden}.file-button input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}.help{font-size:13px;line-height:1.8;color:#6e8175;overflow-wrap:anywhere}.help code{background:#edf2ee;padding:2px 5px;border-radius:4px;overflow-wrap:anywhere}.row{display:flex;justify-content:space-between;gap:12px;align-items:center}.small{font-size:12px}.sync{font-size:12px;color:#789084}.tooltip{font-size:12px;color:#829289}.donut{height:140px;width:140px;border-radius:50%;background:conic-gradient(#dce8de 0 100%);position:relative;flex-shrink:0}.donut:after{content:"";position:absolute;inset:26px;border-radius:50%;background:white}.donut-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}.total{font-size:26px;font-weight:800}.mini{font-size:12px;color:#7e8f85}.footer{text-align:center;font-size:12px;color:#8a9b91;margin-top:34px}@media(max-width:800px){.shell{padding:15px 13px 80px}.header{display:block}.nav{margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:5px}.nav button{font-size:12px;padding:11px 3px}.cards{grid-template-columns:repeat(2,1fr);gap:9px}.card,.panel{padding:16px;border-radius:17px}.card .v{font-size:22px}.grid{grid-template-columns:1fr}.top{align-items:flex-start}h1{font-size:23px}.form-grid{grid-template-columns:1fr}.month input{width:135px}td,th{padding:11px 8px}.actions .field{max-width:none}.button{padding:11px 13px}}@media(max-width:500px){.backup-actions{flex-direction:column}.backup-actions>.button{width:100%}}
     .category-value{width:105px;flex-shrink:0;font-variant-numeric:tabular-nums}.category-value small{display:block;margin-top:3px;color:#71827c;font-size:11px}
     @media(max-width:500px){.category{gap:8px}.category-name{width:65px;font-size:12px}.category-value{width:100px;font-size:12px}}
     #loginGate{position:fixed;inset:0;z-index:3000;background:#f3f6f2;display:flex;align-items:center;justify-content:center;padding:20px}#loginGate.hidden{display:none}.login-panel{width:min(430px,100%);padding:28px;background:#fff;border:1px solid #dce8df;border-radius:22px;box-shadow:0 15px 60px #173e351c}.login-panel h1{margin-bottom:15px}.login-panel label{display:block;margin:15px 0 6px}.login-panel .field{width:100%}.login-panel .button{width:100%;margin-top:16px}#loginError{color:#ad4929;margin-top:12px}
-    .budget-controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.budget-controls .field{flex:1;min-width:120px}.budget-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.budget-stat{border-radius:14px;background:#f1f7f2;padding:14px;min-width:0}.budget-stat small{display:block;color:#738a7b}.budget-stat strong{display:block;font-size:22px;overflow-wrap:anywhere;margin-top:8px}.budget-line{margin:14px 0;padding-bottom:12px;border-bottom:1px solid #e6ede7}.budget-line .row{align-items:flex-start}.budget-progress{height:10px;border-radius:20px;background:#e6ede7;overflow:hidden;margin-top:9px}.budget-progress>div{height:100%;background:#5ba487;border-radius:20px}.budget-progress>div.over{background:#d47b58}.budget-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.budget-form label{display:flex;flex-direction:column;gap:5px;color:#627a6e;font-size:13px}.budget-form input,.budget-form select{width:100%}.budget-form .actions{grid-column:1/-1}.budget-pill{display:inline-block;background:#e7f0e9;border-radius:20px;padding:4px 10px;color:#326651;font-size:12px}.budget-muted{color:#70847a;font-size:13px;line-height:1.7}@media(max-width:600px){.budget-summary{grid-template-columns:repeat(2,minmax(0,1fr))}.budget-stat strong{font-size:19px}.budget-form{grid-template-columns:1fr}.budget-controls{flex-direction:column;align-items:stretch}.budget-controls .field{width:100%}}
+    .budget-controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.budget-controls .field{flex:1;min-width:120px}.budget-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.budget-stat{border-radius:14px;background:#f1f7f2;padding:14px;min-width:0}.budget-stat small{display:block;color:#738a7b}.budget-stat strong{display:block;font-size:22px;overflow-wrap:anywhere;margin-top:8px}.budget-line{margin:14px 0;padding-bottom:12px;border-bottom:1px solid #e6ede7}.budget-line .row{align-items:flex-start}.budget-progress{height:10px;border-radius:20px;background:#e6ede7;overflow:hidden;margin-top:9px}.budget-progress>div{height:100%;background:#5ba487;border-radius:20px}.budget-progress>div.over{background:#d47b58}.budget-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.budget-form label{display:flex;flex-direction:column;gap:5px;color:#627a6e;font-size:13px}.budget-form input,.budget-form select{width:100%}.budget-form .actions{grid-column:1/-1}.budget-pill{display:inline-block;background:#e7f0e9;border-radius:20px;padding:4px 10px;color:#326651;font-size:12px}.budget-muted{color:#70847a;font-size:13px;line-height:1.7}.sync-banner{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#e8f3eb;color:#236344;border:1px solid #cde2d3;border-radius:12px;padding:12px 15px;margin-bottom:16px;font-size:13px}.sync-banner.pending{background:#fff6e7;color:#885a26;border-color:#f0d8ae}.sync-banner.error{background:#ffede8;color:#9e432e;border-color:#efc3b6}.sync-banner span{overflow-wrap:anywhere}.sync-banner button{flex-shrink:0}@media(max-width:600px){.budget-summary{grid-template-columns:repeat(2,minmax(0,1fr))}.budget-stat strong{font-size:19px}.budget-form{grid-template-columns:1fr}.budget-controls{flex-direction:column;align-items:stretch}.budget-controls .field{width:100%}}
   </style>
   <style>
     .annual-chart-scroll{overflow-x:auto;overscroll-behavior-x:contain;padding-bottom:5px}.annual-bars{display:flex;align-items:flex-end;height:270px;gap:10px;min-width:640px;border-bottom:1px solid #e6ebe6;padding:15px 8px 28px}.annual-bar-group{flex:1;min-width:0;position:relative;height:100%;display:flex;align-items:flex-end;justify-content:center;gap:4px}.annual-bar{width:38%;max-width:27px;border-radius:6px 6px 0 0;min-height:0}.annual-bar.income{background:#3a9a7c}.annual-bar.expense{background:#e5a079}.annual-bar-label{position:absolute;bottom:-26px;width:100%;text-align:center;color:#7c8c83;font-size:12px}.annual-comparison{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}.comparison-cell{background:#f6f9f6;border-radius:13px;padding:13px}.comparison-cell .value{font-weight:800;font-size:17px;margin-top:7px}.annual-month-table{width:100%;white-space:nowrap}.annual-month-table td,.annual-month-table th{font-variant-numeric:tabular-nums}.annual-month-table td:not(:first-child),.annual-month-table th:not(:first-child){text-align:right}@media(max-width:800px){.nav{grid-template-columns:repeat(5,minmax(0,1fr))}.annual-comparison{grid-template-columns:1fr}.annual-bars{min-width:580px}}
@@ -22,6 +22,7 @@
 <div id="loginGate"><form class="login-panel" id="loginForm"><h1>家庭記帳 · 登入</h1><p class="subtitle">使用個人帳號登入；所有更動會留下操作紀錄。</p><label for="loginUrl">Apps Script 網址（首次設定）</label><input class="field" type="url" id="loginUrl" placeholder="https://script.google.com/macros/s/.../exec" required><label for="loginUser">使用者</label><select class="field" id="loginUser"><option value="me">承瑋</option><option value="wife">俐穎</option></select><label for="loginPassword">密碼</label><input class="field" id="loginPassword" type="password" autocomplete="current-password" required><button class="button" id="loginButton" type="submit">登入</button><p id="loginError" role="alert"></p></form></div>
 <main class="shell">
   <header class="header"><div class="logo">家計簿 <span style="color:#5ba487">◈</span><small>OUR FAMILY FINANCE</small></div><nav class="nav" aria-label="主要頁面"><button data-tab="dashboard" class="active">總覽</button><button data-tab="annual">年度統計</button><button data-tab="records">收支明細</button><button data-tab="add">新增記帳</button><button data-tab="settings">同步設定</button></nav></header>
+  <div id="syncBanner" class="sync-banner pending" role="status" aria-live="polite"><span id="syncBannerText">正在檢查雲端同步狀態…</span><button id="syncBannerRetry" class="button light" type="button" hidden>重試同步</button></div>
   <section id="dashboard" class="section active"><div class="top"><div><h1>家庭財務總覽</h1><p class="subtitle">讓每一筆收支都有跡可循</p></div><div class="month"><button class="pill" id="prevMonth" aria-label="上個月">‹</button><input aria-label="統計月份" class="field" id="month" type="month"><button class="pill" id="nextMonth" aria-label="下個月">›</button></div><label class="month">統計歸屬 <select id="dashboardOwnerStats" class="field"><option value="all">家庭全部</option><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select></label></div>
     <div class="cards"><div class="card"><div class="k">本月收入</div><div class="v positive" id="sumIncome">$0</div><div class="note">已記錄收入</div></div><div class="card"><div class="k">本月支出</div><div class="v" id="sumExpense">$0</div><div class="note" id="expenseCount">0 筆支出</div></div><div class="card"><div class="k">本月結餘</div><div class="v" id="sumBalance">$0</div><div class="note">收入 − 支出</div></div><div class="card"><div class="k">儲蓄率</div><div class="v" id="sumRate">—</div><div class="note">結餘 ÷ 收入</div></div></div>
     <div class="grid"><div class="panel"><div class="row"><h2>最近 6 個月收支趨勢</h2><span class="mini">每月實際記錄</span></div><div id="trend" class="bars" role="img" aria-label="最近六個月收入與支出長條圖"></div><div class="legend"><span><i class="dot" style="background:#3a9a7c"></i>收入</span><span><i class="dot" style="background:#e5a079"></i>支出</span></div></div><div class="panel"><h2>本月支出分類</h2><div id="categories"></div></div></div>
@@ -50,6 +51,11 @@
 const KEY='family-ledger-v1',SETTINGS='family-ledger-settings-v1';const expenseCategories=['餐飲','食品雜貨','交通','購物','居家','醫療','娛樂','水電電信','房貸','貸款','保險','其他支出'];const incomeCategories=['薪資','獎金','投資收入','退款','其他收入'];const colors=['#4e9a83','#e3a07b','#a7ba73','#779cae','#c3a3cc','#b8b0a1','#edc984','#8bafa2','#e3a4a3'];let records=read(KEY,[]),settings=read(SETTINGS,{url:'',token:''}),editId=null;const $=id=>document.getElementById(id);const categoryDefinitions=()=>records.filter(r=>r.source==='category-definition'&&!r.deleted);const activeRecords=()=>records.filter(r=>!r.deleted&&r.source!=='category-definition');const money=n=>'$'+Math.round(Number(n)||0).toLocaleString('zh-TW');const escapeHtml=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const now=new Date();let month=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
 let filteredRecordIds=[];
 const PENDING='family-ledger-pending-v1', pending=new Set(read(PENDING,[]));
+let cloudIssue='',cloudReady=false,legacyMismatch=[];
+function renderSyncNotice(){const banner=$('syncBanner'),label=$('syncBannerText'),retry=$('syncBannerRetry');if(!banner)return;const count=pending.size;
+ if(cloudIssue||legacyMismatch.length){banner.className='sync-banner error';label.textContent=(cloudIssue||'資料版本有差異')+(legacyMismatch.length?`；${legacyMismatch.length} 筆本機／雲端資料不同，已保留本機內容，請先下載 JSON 備份再確認。`:'')+(count?`（${count} 筆待同步）`:'');retry.hidden=false;}
+ else if(count||!cloudReady){banner.className='sync-banner pending';label.textContent=count?`尚有 ${count} 筆記帳修改未獲雲端確認；請等待同步完成，再換裝置。`:'正在核對 Google Sheets，尚未確認資料同步';retry.hidden=!count;}
+ else{banner.className='sync-banner';label.textContent='✓ Google Sheets 已連線，所有已提交的記帳修改均已同步';retry.hidden=true;}}
 let snapshot=new Map(records.map(r=>[r.id,JSON.stringify(r)])),syncBusy=false,syncTimer=null;
 function persistPending(){localStorage.setItem(PENDING,JSON.stringify([...pending]));}
 function queueSync(){if(syncTimer)clearTimeout(syncTimer);syncTimer=setTimeout(()=>{syncTimer=null;flushPending();},500);}
@@ -58,6 +64,7 @@ function save(track=true){
   if(track){for(const r of records)if(snapshot.get(r.id)!==JSON.stringify(r))pending.add(r.id);persistPending();}
   snapshot=new Map(records.map(r=>[r.id,JSON.stringify(r)]));
   localStorage.setItem(KEY,JSON.stringify(records));render();
+  if(track&&pending.size)cloudIssue='';renderSyncNotice();
   $('footerStatus').textContent=`家計簿 v1.6 · ${configured()?'自動同步':'本機模式'} · ${pending.size} 筆待同步`;
   if(track&&pending.size)queueSync();
 }
@@ -135,17 +142,27 @@ async function pullRemote(){
   const data=await jsonp('list',selectedYear);
   if(!data.ok||!Array.isArray(data.records))throw Error(data.error||'讀取失敗');
   const map=new Map(records.map(r=>[r.id,r]));
+  const mismatches=[];
   for(const item of data.records){
     const r=normalize(item);
-    if(!pending.has(r.id))map.set(r.id,r);
+    if(pending.has(r.id))continue;
+    const local=map.get(r.id);
+    if(local&&Number(local._rev||0)===Number(r._rev||0)){
+      const fields=['date','type','merchant','amount','category','invoice','note','source','owner','deleted','details'];
+      if(fields.some(k=>JSON.stringify(local[k]??null)!==JSON.stringify(r[k]??null))){mismatches.push(r.id);continue;}
+    }
+    map.set(r.id,r);
   }
+  legacyMismatch=mismatches;
   records=[...map.values()];save(false);
   loadedYearSet.add(selectedYear);$('loadedYears').textContent='已載入：'+[...loadedYearSet].sort().join('、')+' 年';
   notify(`已讀取 Google Sheets：${activeRecords().length} 筆有效資料${pending.size?' · '+pending.size+' 筆待同步':''}`);
+  cloudReady=true;renderSyncNotice();
 }
 async function flushPending(){
   if(syncBusy||!configured()||!pending.size)return;
   syncBusy=true;
+  cloudReady=false;renderSyncNotice();
   try{
     while(pending.size){
       const ids=[...pending].slice(0,100), batch=ids.map(id=>records.find(r=>r.id===id)).filter(Boolean);
@@ -161,20 +178,21 @@ async function flushPending(){
         if(unchanged)pending.delete(updated.id);
       }
       save(false);persistPending();
-      if(result.conflicts.length){notify(`版本衝突：${result.conflicts.length} 筆未覆蓋雲端，請先備份並確認資料。`,true);return;}
+      if(result.conflicts.length){cloudIssue=`版本衝突：${result.conflicts.length} 筆（${result.conflicts.slice(0,3).join('、')}），雲端未覆蓋；請先下載 JSON 備份。`;notify(cloudIssue,true);showToast('記帳同步失敗：版本衝突',true);renderSyncNotice();return;}
       if(!result.accepted.length)throw Error('後端未確認任何變更');
     }
     notify(`已同步 Google Sheets · ${activeRecords().length} 筆有效資料`);
-  }catch(err){notify(`尚有 ${pending.size} 筆待同步：${err.message}`,true)}
-  finally{syncBusy=false;}
+    cloudIssue='';cloudReady=true;renderSyncNotice();
+  }catch(err){cloudIssue=`尚有 ${pending.size} 筆未同步：${err.message}`;notify(cloudIssue,true);showToast('尚未儲存至雲端，請重試同步',true);renderSyncNotice();}
+  finally{syncBusy=false;renderSyncNotice();}
 }
 let pullBusy=false;
 async function refresh(){
   if(pullBusy||syncBusy)return;
   pullBusy=true;
   try{await pullRemote();await flushPending();}
-  catch(err){notify('讀取失敗：'+err.message,true)}
-  finally{pullBusy=false;}
+  catch(err){cloudIssue='讀取失敗：'+err.message;cloudReady=false;notify(cloudIssue,true);renderSyncNotice();}
+  finally{pullBusy=false;renderSyncNotice();}
 }
 $('saveSettings').onclick=()=>{
   const url=$('apiUrl').value.trim().replace(/\/$/,'');
@@ -184,6 +202,8 @@ $('saveSettings').onclick=()=>{
 };
 $('syncDown').onclick=refresh;
 $('syncUp').onclick=async()=>{await refresh();};
+$('syncBannerRetry').onclick=async()=>{cloudIssue='';renderSyncNotice();await refresh();};
+window.addEventListener('beforeunload',e=>{if(pending.size){e.preventDefault();e.returnValue='尚有記帳變更未完成雲端同步';}});
 window.addEventListener('online',refresh);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh();});
 setInterval(()=>{if(!document.hidden)refresh();},120000);
@@ -342,9 +362,9 @@ $('saveFund').onclick=async()=>{try{const name=$('fundName').value.trim();if(!na
 $('cancelFundEdit').onclick=()=>{editingFundId='';$('fundFormTitle').textContent='新增基金目標';$('fundName').value='';$('fundTarget').value='';$('fundSaved').value='';};
 $('budgetFunds').onclick=async e=>{const edit=e.target.closest('[data-fund-edit]'),del=e.target.closest('[data-fund-delete]');if(edit){const f=budgetItem(edit.dataset.fundEdit);if(!f)return;editingFundId=f.id;$('fundFormTitle').textContent='編輯基金：'+f.name;$('fundName').value=f.name;$('fundTarget').value=f.amount;$('fundSaved').value=f.saved;return;}if(del){const f=budgetItem(del.dataset.fundDelete);if(!f||!confirm(`確定刪除「${f.name}」基金目標？（稽核會保留紀錄）`))return;try{await saveBudgetRecords([{...f,deleted:true}]);}catch(err){budgetError(err);}}};
 $('saveSettlement').onclick=async()=>{try{const m=$('settlementMonth').value,owner=budgetOwner();if(!/^20\d{2}-(0[1-9]|1[0-2])$/.test(m))throw Error('請選擇結算月份');if(m!==$('budgetMonth').value)throw Error('結算月份須與上方顯示月份相同');if(new Date()<new Date(nextMonthFifth(m)+'T00:00:00')&&!confirm('尚未到次月 5 日，確定已核對銀行餘額並提前結算？'))return;await saveBudgetRecords([{id:`settle:${owner}:${m}`,kind:'settlement',owner,month:m,amount:validBudgetAmount('settlementAmount'),confirmed:true}]);}catch(err){budgetError(err);}};
-const oldRender18=render;render=()=>{oldRender18();if($('budget'))renderBudget();$('footerStatus').textContent=$('footerStatus').textContent.replace(/v1\.7\.2/g,'v1.8');};
+const oldRender18=render;render=()=>{oldRender18();if($('budget'))renderBudget();$('footerStatus').textContent=$('footerStatus').textContent.replace(/v1\.7\.2/g,'v1.8.1');renderSyncNotice();};
 fillCategories();render();
-$('footerStatus').textContent='家計簿 v1.8 · 雙人預算與儲蓄目標';
+$('footerStatus').textContent='家計簿 v1.8.1 · 雙人預算與儲蓄目標';
 if(configured()){$('loginGate').classList.add('hidden');loadYears().then(refresh).then(loadBudget).catch(err=>{$('loginGate').classList.remove('hidden');$('loginError').textContent=err.message;});}
 else notify('請使用個人帳號登入，系統才會讀取 Google Sheets。');
 })();
