@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>家計簿 v1.8.3｜家庭財務</title>
+  <title>家計簿 v1.8.4｜家庭財務</title>
   <meta name="theme-color" content="#132d2a">
   <style>
     :root{font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif;color:#1b312e;background:#f3f6f2;font-size:15px}*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}.shell{max-width:1180px;margin:auto;padding:22px 22px 90px}.header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:25px}.logo{font-size:23px;font-weight:800;letter-spacing:.04em}.logo small{display:block;font-size:12px;font-weight:500;color:#71827c;letter-spacing:.08em}.nav{display:flex;gap:8px;flex-wrap:wrap}.nav button,.pill{border:1px solid #d8e2dc;background:white;color:#36524b;border-radius:13px;padding:10px 15px}.nav button.active{background:#183d36;color:white;border-color:#183d36}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}h1{font-size:28px;margin:0 0 5px}h2{font-size:18px;margin:0 0 16px}p.muted,.muted{color:#71827c}.subtitle{font-size:13px;color:#71827c;margin:0}.button{border:0;border-radius:12px;background:#173e35;color:white;padding:11px 15px;font-weight:650;display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;min-height:43px;line-height:1.4;text-align:center}.button.light{background:#e5eee8;color:#285247}.button.warn{background:#fff0e9;color:#9a4a25}.button.ghost{background:white;color:#1b312e;border:1px solid #d4dfd8}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.card,.panel{background:white;border:1px solid #e0e9e3;border-radius:20px;padding:21px;box-shadow:0 6px 22px #1e47350a}.card .k{font-size:13px;color:#798980}.card .v{font-size:27px;font-weight:800;margin-top:12px;letter-spacing:-.03em}.card .note{font-size:12px;color:#89968e;margin-top:8px}.positive{color:#147a5c}.negative{color:#c36a42}.grid{display:grid;grid-template-columns:1.5fr 1fr;gap:16px;margin-top:16px}.panel{min-width:0}.bars{height:245px;display:flex;gap:12px;align-items:flex-end;padding:12px 0 24px;border-bottom:1px solid #e6ebe6}.bar-group{flex:1;min-width:0;text-align:center;display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:5px;position:relative}.bar-pair{display:flex;align-items:flex-end;justify-content:center;gap:5px;height:100%}.bar{width:min(27px,38%);border-radius:6px 6px 0 0;min-height:0;transition:height .2s}.bar.income{background:#3a9a7c}.bar.expense{background:#e5a079}.bar-label{font-size:11px;color:#819088;position:absolute;bottom:-26px;width:100%}.legend{display:flex;gap:15px;font-size:12px;color:#6b8075;margin-top:38px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}.category{display:flex;gap:13px;align-items:center;margin:12px 0}.category-name{width:75px;flex-shrink:0;font-size:13px}.track{height:11px;background:#eff2ee;border-radius:20px;flex:1;overflow:hidden}.fill{height:100%;background:#62a992;border-radius:20px}.category-value{font-size:13px;text-align:right;width:85px;font-variant-numeric:tabular-nums}.actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-bottom:16px}.backup-actions{display:flex;align-items:stretch;gap:10px;flex-wrap:wrap;margin-top:12px}.backup-actions>.button{flex:0 1 auto}.field{border:1px solid #d5e0d9;border-radius:11px;padding:10px 12px;background:#fff;min-width:0}.actions .field{max-width:180px}.tablewrap{overflow-x:auto}table{border-collapse:collapse;width:100%;text-align:left;white-space:nowrap}th{color:#84948a;font-size:12px;font-weight:550;background:#f7faf7}th,td{padding:13px 10px;border-bottom:1px solid #edf1ed}td{font-size:13px}td strong{font-size:14px}td small{display:block;color:#92a098;max-width:250px;text-overflow:ellipsis;overflow:hidden}.tag{background:#eff5ef;border-radius:8px;padding:5px 8px;color:#4a6e60;font-size:12px}.empty{text-align:center;color:#839389;padding:45px 10px}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.form-grid label{display:flex;flex-direction:column;gap:6px;color:#65786b;font-size:13px}.form-grid .field{width:100%}.full{grid-column:1/-1}.status{background:#eef7ee;color:#2a654e;border-radius:12px;padding:12px 15px;font-size:13px;line-height:1.5}.status.error{background:#fff0ea;color:#a14d2a}.section{display:none}.section.active{display:block}.month{display:flex;align-items:center;gap:8px}.month input{width:145px}.file-button{position:relative;overflow:hidden}.file-button input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}.help{font-size:13px;line-height:1.8;color:#6e8175;overflow-wrap:anywhere}.help code{background:#edf2ee;padding:2px 5px;border-radius:4px;overflow-wrap:anywhere}.row{display:flex;justify-content:space-between;gap:12px;align-items:center}.small{font-size:12px}.sync{font-size:12px;color:#789084}.tooltip{font-size:12px;color:#829289}.donut{height:140px;width:140px;border-radius:50%;background:conic-gradient(#dce8de 0 100%);position:relative;flex-shrink:0}.donut:after{content:"";position:absolute;inset:26px;border-radius:50%;background:white}.donut-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}.total{font-size:26px;font-weight:800}.mini{font-size:12px;color:#7e8f85}.footer{text-align:center;font-size:12px;color:#8a9b91;margin-top:34px}@media(max-width:800px){.shell{padding:15px 13px 80px}.header{display:block}.nav{margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:5px}.nav button{font-size:12px;padding:11px 3px}.cards{grid-template-columns:repeat(2,1fr);gap:9px}.card,.panel{padding:16px;border-radius:17px}.card .v{font-size:22px}.grid{grid-template-columns:1fr}.top{align-items:flex-start}h1{font-size:23px}.form-grid{grid-template-columns:1fr}.month input{width:135px}td,th{padding:11px 8px}.actions .field{max-width:none}.button{padding:11px 13px}}@media(max-width:500px){.backup-actions{flex-direction:column}.backup-actions>.button{width:100%}}
@@ -43,7 +43,7 @@
     <div class="grid"><div class="panel"><h2>儲蓄基金</h2><div id="budgetFunds"></div><h2 id="fundFormTitle">新增基金目標</h2><div class="budget-form"><label>名稱<input id="fundName" class="field" maxlength="60" placeholder="例如 旅遊、緊急備用金"></label><label>目標金額<input id="fundTarget" class="field" type="number" min="0" step="1"></label><label>目前已存<input id="fundSaved" class="field" type="number" min="0" step="1"></label><div class="actions"><button id="saveFund" type="button" class="button">儲存基金</button><button id="cancelFundEdit" type="button" class="button ghost">取消編輯</button></div></div></div><div class="panel"><h2>每月儲蓄結算</h2><p class="budget-muted">依記帳推估的「收入－支出」不等於銀行裡真正增加的存款。建議次月 5 日核對帳戶後，手動確認上月實存金額。</p><div id="savingsEstimate" class="budget-summary"></div><div class="budget-form" style="margin-top:16px"><label>結算月份<input id="settlementMonth" class="field" type="month"></label><label>實際存下金額（元）<input id="settlementAmount" class="field" type="number" min="0" step="1"></label><div class="actions"><button id="saveSettlement" type="button" class="button">確認實際存款</button></div></div><div class="budget-muted" id="settlementResult"></div></div></div>
     <div id="budgetMessage" class="status" role="status" aria-live="polite" style="margin-top:16px">尚未讀取預算資料</div>
   </section>
-  <section id="settings" class="section"><div class="top"><div><h1>Google Sheets 自動同步</h1><p class="subtitle">以個人帳號登入；變更逐筆同步並留下操作紀錄</p></div></div><div class="panel"><div class="form-grid"><label class="full">Apps Script 網頁應用程式 URL<input class="field" id="apiUrl" type="url" placeholder="https://script.google.com/macros/s/.../exec"></label><label class="full" style="display:none">舊版金鑰<input class="field" id="apiToken" type="password" autocomplete="off"></label></div><div class="actions" style="margin-top:16px"><button class="button" id="saveSettings">儲存網址</button><button class="button light" id="syncDown">立即讀取雲端</button><button class="button light" id="syncUp">重試待同步資料</button></div><div id="syncStatus" class="status" role="status" aria-live="polite">準備同步中…</div><p class="help">請先將 Apps Script 更新為 v1.7 並部署新版本。原本的 ACCESS_TOKEN 現在只在後端簽署登入憑證，不需要輸入到網站。修改 Google Apps Script URL 後請重新登入。</p></div><div class="panel" style="margin-top:16px"><h2>資料管理</h2><p class="help">資料會暫存在目前瀏覽器，請使用可信任的裝置。登出且無待同步資料時會清除本機記帳快取。升級前請先確認舊資料已同步完成並下載備份。</p><div class="backup-actions"><button class="button ghost" id="downloadJson">下載完整 JSON 備份</button><label class="button light file-button">還原 JSON 備份<input id="restoreJson" type="file" accept=".json,application/json"></label></div></div></section>
+  <section id="settings" class="section"><div class="top"><div><h1>Google Sheets 自動同步</h1><p class="subtitle">以個人帳號登入；變更逐筆同步並留下操作紀錄</p></div></div><div class="panel"><div class="form-grid"><label class="full">Apps Script 網頁應用程式 URL<input class="field" id="apiUrl" type="url" placeholder="https://script.google.com/macros/s/.../exec"></label><label class="full" style="display:none">舊版金鑰<input class="field" id="apiToken" type="password" autocomplete="off"></label></div><div class="actions" style="margin-top:16px"><button class="button" id="saveSettings">儲存網址</button><button class="button light" id="syncDown">立即讀取雲端</button><button class="button light" id="syncUp">重試待同步資料</button></div><div id="syncStatus" class="status" role="status" aria-live="polite">準備同步中…</div><p class="help">請先將 Apps Script 更新為 v1.7 並部署新版本。原本的 ACCESS_TOKEN 現在只在後端簽署登入憑證，不需要輸入到網站。修改 Google Apps Script URL 後請重新登入。</p></div><div class="panel" style="margin-top:16px"><h2>自訂分類完整核對／修復</h2><p class="help">專門修復舊版本留在電腦、但沒有上傳到 Google Sheets 的分類。會比較各年度雲端分類；確認後只補上傳缺少的分類，不會修改任何發票或收支金額。</p><div class="actions"><button id="categoryAuditScan" class="button light" type="button">① 核對本機與雲端分類</button><button id="categoryAuditBackup" class="button ghost" type="button">② 下載本機完整備份</button><button id="categoryAuditUpload" class="button" type="button" disabled>③ 上傳勾選的缺少分類</button></div><p id="categoryAuditMessage" class="help" role="status" aria-live="polite">請在保有完整分類的電腦上執行。</p><div id="categoryAuditResults" class="help"></div></div><div class="panel" style="margin-top:16px"><h2>資料管理</h2><p class="help">資料會暫存在目前瀏覽器，請使用可信任的裝置。登出且無待同步資料時會清除本機記帳快取。升級前請先確認舊資料已同步完成並下載備份。</p><div class="backup-actions"><button class="button ghost" id="downloadJson">下載完整 JSON 備份</button><label class="button light file-button">還原 JSON 備份<input id="restoreJson" type="file" accept=".json,application/json"></label></div></div></section>
   <div class="footer" id="footerStatus">本機模式 · 尚未同步</div>
   <section id="audit" class="section"><div class="top"><div><h1>操作紀錄</h1><p class="subtitle">記錄誰在何時新增、修改或刪除哪筆交易；完整修改前後內容保存在私人 Google Sheets AuditLog。</p></div><button class="button light" id="reloadAudit">重新讀取</button></div><div class="panel" id="auditItems">登入後可查看最近 100 筆操作。</div></section>
 </main>
@@ -53,6 +53,7 @@ const KEY='family-ledger-v1',SETTINGS='family-ledger-settings-v1';const expenseC
 let filteredRecordIds=[];
 const PENDING='family-ledger-pending-v1', pending=new Set(read(PENDING,[]));
 let cloudIssue='',cloudReady=false,legacyMismatch=[],syncConflicts=[],conflictBackupReady=false;
+let missingCloudCategories=new Set(),categoryAuditItems=[],categoryAuditBusy=false,categoryAuditBackupReady=false;
 let conflictReview=new Map(),conflictChoices=new Map(),conflictLocalSnapshot=new Map(),conflictReviewBusy=false;
 function clearConflictReview(){conflictReview.clear();conflictChoices.clear();conflictLocalSnapshot.clear();}
 function conflictFieldDiff(a,b){return ['date','type','merchant','amount','category','owner','invoice','note','deleted','details'].filter(k=>JSON.stringify(a?.[k]??null)!==JSON.stringify(b?.[k]??null));}
@@ -76,6 +77,7 @@ function renderConflictPanel(){
 }
 function renderSyncNotice(){const banner=$('syncBanner'),label=$('syncBannerText'),retry=$('syncBannerRetry');if(!banner)return;const count=pending.size;
  if(cloudIssue||legacyMismatch.length){banner.className='sync-banner error';label.textContent=(cloudIssue||'資料版本有差異')+(legacyMismatch.length?`；${legacyMismatch.length} 筆本機／雲端資料不同，已保留本機內容，請先下載 JSON 備份再確認。`:'')+(count?`（${count} 筆待同步）`:'');retry.hidden=false;}
+ else if(missingCloudCategories.size){banner.className='sync-banner pending';label.textContent=`發現 ${missingCloudCategories.size} 個本機舊分類不在已載入年度的雲端，請到「同步設定 → 自訂分類完整核對／修復」。`;retry.hidden=true;}
  else if(count||!cloudReady){banner.className='sync-banner pending';label.textContent=count?`尚有 ${count} 筆記帳修改未獲雲端確認；請等待同步完成，再換裝置。`:'正在核對 Google Sheets，尚未確認資料同步';retry.hidden=!count;}
  else{banner.className='sync-banner';label.textContent='✓ Google Sheets 已連線，所有已提交的記帳修改均已同步';retry.hidden=true;}renderConflictPanel();}
 let snapshot=new Map(records.map(r=>[r.id,JSON.stringify(r)])),syncBusy=false,syncTimer=null;
@@ -87,7 +89,7 @@ function save(track=true){
   snapshot=new Map(records.map(r=>[r.id,JSON.stringify(r)]));
   localStorage.setItem(KEY,JSON.stringify(records));render();
   if(track&&pending.size)cloudIssue='';renderSyncNotice();
-  $('footerStatus').textContent=`家計簿 v1.8.3 · ${configured()?'自動同步':'本機模式'} · ${pending.size} 筆待同步`;
+  $('footerStatus').textContent=`家計簿 v1.8.4 · ${configured()?'自動同步':'本機模式'} · ${pending.size} 筆待同步`;
   if(track&&pending.size)queueSync();
 }
 function uid(){return crypto.randomUUID?crypto.randomUUID():`${Date.now()}-${Math.random()}`}
@@ -163,6 +165,8 @@ async function pullRemote(){
   if(!configured())return;
   const data=await jsonp('list',selectedYear);
   if(!data.ok||!Array.isArray(data.records))throw Error(data.error||'讀取失敗');
+  const cloudIds=new Set(data.records.map(r=>r.id));
+  missingCloudCategories=new Set(records.filter(r=>r.source==='category-definition'&&!r.deleted&&String(r.date).startsWith(selectedYear+'-')&&!cloudIds.has(r.id)&&!pending.has(r.id)).map(r=>r.id));
   const map=new Map(records.map(r=>[r.id,r]));
   const mismatches=[];
   for(const item of data.records){
@@ -328,6 +332,97 @@ $('conflictApply').onclick=async()=>{
   }catch(err){clearConflictReview();$('conflictMessage').textContent=`已成功處理 ${done} 筆；其餘未變更：${err.message}。請重新下載備份並比較。`;showToast(err.message,true);}
   finally{conflictReviewBusy=false;renderSyncNotice();}
 };
+function categoryKey_(r){return String(r.type||'expense')+'\u0000'+String(r.category||'').trim().toLocaleLowerCase();}
+async function fetchAllCloudCategories_(){
+  const response=await jsonp('years');
+  if(!response.ok||!Array.isArray(response.years))throw Error(response.error||'讀取年度清單失敗');
+  const localYears=records.filter(r=>r.source==='category-definition').map(r=>String(r.date).slice(0,4));
+  const years=[...new Set([...response.years.map(String),...localYears])].filter(y=>/^20\d{2}$/.test(y)).sort();
+  const cloud=new Map();
+  for(const year of years){
+    const result=await jsonp('list',year);
+    if(!result.ok||!Array.isArray(result.records))throw Error(`無法讀取 ${year} 年雲端分類：${result.error||'資料異常'}`);
+    for(const r of result.records)if(r.source==='category-definition')cloud.set(r.id,normalize(r));
+  }
+  return cloud;
+}
+function renderCategoryAudit_(){
+  const missing=categoryAuditItems.filter(x=>x.state==='missing');
+  $('categoryAuditUpload').disabled=categoryAuditBusy||!categoryAuditBackupReady||!missing.length||Boolean(syncConflicts.length)||Boolean(pending.size);
+  $('categoryAuditScan').disabled=categoryAuditBusy;
+  $('categoryAuditBackup').disabled=categoryAuditBusy;
+  $('categoryAuditResults').innerHTML=categoryAuditItems.map(x=>{
+    const local=x.local;
+    let title='';
+    if(x.state==='missing')title='雲端缺少，可勾選補上傳';
+    if(x.state==='same-name')title='雲端已有同名分類（不同 ID），為避免重複不再上傳';
+    if(x.state==='existing')title='ID 已存在雲端';
+    if(x.state==='different')title='同 ID 的內容不同，需另外確認，不自動覆蓋';
+    if(x.state==='deleted')title='雲端此 ID 已被刪除，不自動復原';
+    const checkbox=x.state==='missing'?`<input type="checkbox" data-audit-id="${escapeHtml(local.id)}" checked aria-label="補上傳 ${escapeHtml(local.category)}"> `:'';
+    return `<label style="display:block;padding:9px 0;border-bottom:1px solid #e6ede7;overflow-wrap:anywhere">${checkbox}<strong>${escapeHtml(local.category)}</strong> <span class="mini">${local.type==='income'?'收入':'支出'} · ${escapeHtml(local.date)} · ${escapeHtml(title)}</span></label>`;
+  }).join('');
+}
+$('categoryAuditScan').onclick=async()=>{
+  if(categoryAuditBusy||syncBusy)return;
+  categoryAuditBusy=true;categoryAuditBackupReady=false;categoryAuditItems=[];
+  $('categoryAuditMessage').textContent='核對所有年度中的自訂分類，請稍候…';renderCategoryAudit_();
+  try{
+    const cloud=await fetchAllCloudCategories_();
+    const keys=new Set([...cloud.values()].filter(r=>!r.deleted).map(categoryKey_));
+    categoryAuditItems=categoryDefinitions().map(local=>{
+      const server=cloud.get(local.id);
+      const state=server?(server.deleted?'deleted':categoryKey_(server)===categoryKey_(local)?'existing':'different'):(keys.has(categoryKey_(local))?'same-name':'missing');
+      return {local:{...local},localJSON:JSON.stringify(local),state};
+    });
+    const counts=Object.fromEntries(['missing','same-name','different','deleted','existing'].map(k=>[k,categoryAuditItems.filter(x=>x.state===k).length]));
+    $('categoryAuditMessage').textContent=`本機 ${categoryAuditItems.length} 個分類；雲端缺少 ${counts.missing} 個、雲端同名 ${counts['same-name']} 個、同 ID 不同內容 ${counts.different} 個、雲端已刪除 ${counts.deleted} 個、已同步 ${counts.existing} 個。先下載完整備份，再勾選缺少的分類上傳。`;
+  }catch(err){categoryAuditItems=[];$('categoryAuditMessage').textContent='核對失敗，未更動任何資料：'+err.message;showToast(err.message,true);}
+  finally{categoryAuditBusy=false;renderCategoryAudit_();}
+};
+$('categoryAuditBackup').onclick=()=>{
+  download('family-ledger-category-repair-backup-'+new Date().toISOString().slice(0,10)+'.json',JSON.stringify({schema:2,records,pending:[...pending]},null,2),'application/json');
+  categoryAuditBackupReady=true;
+  $('categoryAuditMessage').textContent+=' 已要求下載 JSON 備份；請確認檔案在下載項目後再上傳。';
+  renderCategoryAudit_();
+};
+$('categoryAuditUpload').onclick=async()=>{
+  if(categoryAuditBusy||syncBusy||syncConflicts.length||pending.size||!categoryAuditBackupReady)return;
+  const chosenIds=new Set([...$('categoryAuditResults').querySelectorAll('input[data-audit-id]:checked')].map(e=>e.dataset.auditId));
+  const selected=categoryAuditItems.filter(x=>x.state==='missing'&&chosenIds.has(x.local.id));
+  if(!selected.length){$('categoryAuditMessage').textContent='請勾選至少一個雲端缺少的分類。';return;}
+  if(!confirm(`確認已保存 JSON 備份？將只補上傳 ${selected.length} 個雲端缺少的自訂分類，不會變更任何發票或收支金額。`))return;
+  categoryAuditBusy=true;syncBusy=true;renderCategoryAudit_();$('categoryAuditMessage').textContent='上傳前再次確認雲端是否已有相同分類…';
+  let uploaded=0;
+  try{
+    for(const item of selected){
+      if(JSON.stringify(records.find(r=>r.id===item.local.id))!==item.localJSON)throw Error(`「${item.local.category}」本機內容已變更，請重新核對`);
+    }
+    // Re-read all years before writing: never duplicate an ID or a logical category.
+    const latest=await fetchAllCloudCategories_(),latestKeys=new Set([...latest.values()].filter(r=>!r.deleted).map(categoryKey_));
+    const toSend=[];
+    for(const item of selected){
+      if(latest.has(item.local.id)||latestKeys.has(categoryKey_(item.local)))continue;
+      const candidate={...item.local};
+      delete candidate._rev;delete candidate._lastEditedBy;delete candidate._lastEditedAt;
+      toSend.push(candidate);latestKeys.add(categoryKey_(candidate));
+    }
+    for(let i=0;i<toSend.length;i+=100){
+      const batch=toSend.slice(i,i+100),result=await post({records:batch});
+      if(!Array.isArray(result.accepted)||!Array.isArray(result.conflicts))throw Error('後端未提供逐筆版本確認');
+      for(const saved of result.accepted){
+        const idx=records.findIndex(r=>r.id===saved.id);
+        if(idx>=0){records[idx]=normalize(saved);pending.delete(saved.id);uploaded++;}
+      }
+      persistPending();save(false);
+      if(result.conflicts.length)throw Error(`${result.conflicts.length} 筆上傳時遇到雲端版本衝突，已停止；不會覆蓋雲端`);
+    }
+    categoryAuditItems=[];categoryAuditBackupReady=false;
+    $('categoryAuditMessage').textContent=`已成功補上傳 ${uploaded} 個分類；${selected.length-uploaded} 個在再次核對時發現雲端已有同名或相同 ID，已安全略過。請在手機按「立即讀取雲端」。`;
+    showToast(`已補上傳 ${uploaded} 個自訂分類`);
+  }catch(err){categoryAuditItems=[];categoryAuditBackupReady=false;$('categoryAuditMessage').textContent=`已確認上傳 ${uploaded} 個；其餘未更動：${err.message}。請重新核對。`;showToast(err.message,true);}
+  finally{categoryAuditBusy=false;syncBusy=false;renderCategoryAudit_();await refresh();}
+};
 window.addEventListener('beforeunload',e=>{if(pending.size){e.preventDefault();e.returnValue='尚有記帳變更未完成雲端同步';}});
 window.addEventListener('online',refresh);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh();});
@@ -487,9 +582,9 @@ $('saveFund').onclick=async()=>{try{const name=$('fundName').value.trim();if(!na
 $('cancelFundEdit').onclick=()=>{editingFundId='';$('fundFormTitle').textContent='新增基金目標';$('fundName').value='';$('fundTarget').value='';$('fundSaved').value='';};
 $('budgetFunds').onclick=async e=>{const edit=e.target.closest('[data-fund-edit]'),del=e.target.closest('[data-fund-delete]');if(edit){const f=budgetItem(edit.dataset.fundEdit);if(!f)return;editingFundId=f.id;$('fundFormTitle').textContent='編輯基金：'+f.name;$('fundName').value=f.name;$('fundTarget').value=f.amount;$('fundSaved').value=f.saved;return;}if(del){const f=budgetItem(del.dataset.fundDelete);if(!f||!confirm(`確定刪除「${f.name}」基金目標？（稽核會保留紀錄）`))return;try{await saveBudgetRecords([{...f,deleted:true}]);}catch(err){budgetError(err);}}};
 $('saveSettlement').onclick=async()=>{try{const m=$('settlementMonth').value,owner=budgetOwner();if(!/^20\d{2}-(0[1-9]|1[0-2])$/.test(m))throw Error('請選擇結算月份');if(m!==$('budgetMonth').value)throw Error('結算月份須與上方顯示月份相同');if(new Date()<new Date(nextMonthFifth(m)+'T00:00:00')&&!confirm('尚未到次月 5 日，確定已核對銀行餘額並提前結算？'))return;await saveBudgetRecords([{id:`settle:${owner}:${m}`,kind:'settlement',owner,month:m,amount:validBudgetAmount('settlementAmount'),confirmed:true}]);}catch(err){budgetError(err);}};
-const oldRender18=render;render=()=>{oldRender18();if($('budget'))renderBudget();$('footerStatus').textContent=$('footerStatus').textContent.replace(/v1\.7\.2/g,'v1.8.3');renderSyncNotice();};
+const oldRender18=render;render=()=>{oldRender18();if($('budget'))renderBudget();$('footerStatus').textContent=$('footerStatus').textContent.replace(/v1\.7\.2/g,'v1.8.4');renderSyncNotice();};
 fillCategories();render();
-$('footerStatus').textContent='家計簿 v1.8.3 · 雙人預算與儲蓄目標';
+$('footerStatus').textContent='家計簿 v1.8.4 · 雙人預算與儲蓄目標';
 if(configured()){$('loginGate').classList.add('hidden');loadYears().then(refresh).then(loadBudget).catch(err=>{$('loginGate').classList.remove('hidden');$('loginError').textContent=err.message;});}
 else notify('請使用個人帳號登入，系統才會讀取 Google Sheets。');
 })();
