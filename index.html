@@ -10,13 +10,15 @@
     @media(max-width:500px){.category{gap:8px}.category-name{width:65px;font-size:12px}.category-value{width:100px;font-size:12px}}
     #loginGate{position:fixed;inset:0;z-index:3000;background:#f3f6f2;display:flex;align-items:center;justify-content:center;padding:20px}#loginGate.hidden{display:none}.login-panel{width:min(430px,100%);padding:28px;background:#fff;border:1px solid #dce8df;border-radius:22px;box-shadow:0 15px 60px #173e351c}.login-panel h1{margin-bottom:15px}.login-panel label{display:block;margin:15px 0 6px}.login-panel .field{width:100%}.login-panel .button{width:100%;margin-top:16px}#loginError{color:#ad4929;margin-top:12px}
     .budget-controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.budget-controls .field{flex:1;min-width:120px}.budget-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.budget-stat{border-radius:14px;background:#f1f7f2;padding:14px;min-width:0}.budget-stat small{display:block;color:#738a7b}.budget-stat strong{display:block;font-size:22px;overflow-wrap:anywhere;margin-top:8px}.budget-line{margin:14px 0;padding-bottom:12px;border-bottom:1px solid #e6ede7}.budget-line .row{align-items:flex-start}.budget-progress{height:10px;border-radius:20px;background:#e6ede7;overflow:hidden;margin-top:9px}.budget-progress>div{height:100%;background:#5ba487;border-radius:20px}.budget-progress>div.over{background:#d47b58}.budget-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.budget-form label{display:flex;flex-direction:column;gap:5px;color:#627a6e;font-size:13px}.budget-form input,.budget-form select{width:100%}.budget-form .actions{grid-column:1/-1}.budget-pill{display:inline-block;background:#e7f0e9;border-radius:20px;padding:4px 10px;color:#326651;font-size:12px}.budget-muted{color:#70847a;font-size:13px;line-height:1.7}.sync-banner{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#e8f3eb;color:#236344;border:1px solid #cde2d3;border-radius:12px;padding:12px 15px;margin-bottom:16px;font-size:13px}.sync-banner.pending{background:#fff6e7;color:#885a26;border-color:#f0d8ae}.sync-banner.error{background:#ffede8;color:#9e432e;border-color:#efc3b6}.sync-banner span{overflow-wrap:anywhere}.sync-banner button{flex-shrink:0}@media(max-width:600px){.budget-summary{grid-template-columns:repeat(2,minmax(0,1fr))}.budget-stat strong{font-size:19px}.budget-form{grid-template-columns:1fr}.budget-controls{flex-direction:column;align-items:stretch}.budget-controls .field{width:100%}}
-  </style>
+   .quick-edit-bar{display:flex;gap:9px;align-items:center;flex-wrap:wrap;padding:12px;margin-bottom:12px;background:#eef6f0;border-radius:12px}.quick-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,180px) minmax(0,180px) auto;gap:10px;align-items:center;padding:14px 6px;border-bottom:1px solid #e4eae4;min-width:0}.quick-row strong{overflow-wrap:anywhere}.quick-row small{display:block;color:#71827c;margin-top:5px;overflow-wrap:anywhere}.quick-row select{width:100%;min-width:0}.quick-row.changed{background:#fff9e9}.quick-details{grid-column:1/-1;color:#63786c;font-size:12px}.quick-details summary{cursor:pointer}.quick-details ul{padding-left:20px}@media(max-width:650px){.quick-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.quick-description,.quick-details{grid-column:1/-1}.quick-amount{text-align:right}.quick-row select{font-size:14px}}
+</style>
   <style>
     .annual-chart-scroll{overflow-x:auto;overscroll-behavior-x:contain;padding-bottom:5px}.annual-bars{display:flex;align-items:flex-end;height:270px;gap:10px;min-width:640px;border-bottom:1px solid #e6ebe6;padding:15px 8px 28px}.annual-bar-group{flex:1;min-width:0;position:relative;height:100%;display:flex;align-items:flex-end;justify-content:center;gap:4px}.annual-bar{width:38%;max-width:27px;border-radius:6px 6px 0 0;min-height:0}.annual-bar.income{background:#3a9a7c}.annual-bar.expense{background:#e5a079}.annual-bar-label{position:absolute;bottom:-26px;width:100%;text-align:center;color:#7c8c83;font-size:12px}.annual-comparison{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}.comparison-cell{background:#f6f9f6;border-radius:13px;padding:13px}.comparison-cell .value{font-weight:800;font-size:17px;margin-top:7px}.annual-month-table{width:100%;white-space:nowrap}.annual-month-table td,.annual-month-table th{font-variant-numeric:tabular-nums}.annual-month-table td:not(:first-child),.annual-month-table th:not(:first-child){text-align:right}@media(max-width:800px){.nav{grid-template-columns:repeat(5,minmax(0,1fr))}.annual-comparison{grid-template-columns:1fr}.annual-bars{min-width:580px}}
     .toast{position:fixed;z-index:1000;left:16px;right:16px;bottom:calc(20px + env(safe-area-inset-bottom));max-width:460px;margin:0 auto;padding:14px 18px;border-radius:13px;background:#173e35;color:white;box-shadow:0 9px 30px #182d2a45;font-weight:650;text-align:center;opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .18s,transform .18s}.toast.show{opacity:1;transform:translateY(0)}.toast.error{background:#9a4a25}
     .filtered-summary{background:#eff6f0;border:1px solid #d7e7dc;border-radius:14px;padding:12px 15px;margin:10px 0 15px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.filtered-summary strong{font-size:20px;font-variant-numeric:tabular-nums}.items-details{margin-top:8px;white-space:normal;font-size:12px;color:#63786c;max-width:400px}.items-details summary{cursor:pointer;color:#285247;font-weight:600}.items-details ul{margin:8px 0;padding-left:20px}.items-details li{padding:3px 0}
     @media(max-width:800px){.tablewrap{overflow-x:visible}table.transaction-table,table.transaction-table tbody{display:block;width:100%;white-space:normal}table.transaction-table thead{display:none}table.transaction-table tr{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:10px;row-gap:5px;background:#fff;border:1px solid #e0e9e3;border-radius:14px;padding:14px;margin-bottom:10px}table.transaction-table td{display:block;border:0;padding:0;min-width:0;white-space:normal}table.transaction-table td:nth-child(1){grid-column:1;grid-row:1 / span 2}table.transaction-table td:nth-child(4){grid-column:2;grid-row:1;font-weight:800!important;text-align:right;font-size:17px}table.transaction-table td:nth-child(2){grid-column:1;grid-row:3}table.transaction-table td:nth-child(3){grid-column:2;grid-row:3;text-align:right;color:#71827c}table.transaction-table td:nth-child(5){grid-column:1 / -1;grid-row:4;margin-top:8px;display:flex;gap:8px}table.transaction-table td:nth-child(5) button{flex:1}table.transaction-table td small{max-width:100%;white-space:normal;overflow-wrap:anywhere}table.transaction-table td strong{overflow-wrap:anywhere} .annual-bars{min-width:0;gap:3px;padding-left:2px;padding-right:2px}.annual-bar-group{gap:2px}.annual-bar{min-width:2px}.annual-bar-label{font-size:10px}}
-  </style>
+   .quick-edit-bar{display:flex;gap:9px;align-items:center;flex-wrap:wrap;padding:12px;margin-bottom:12px;background:#eef6f0;border-radius:12px}.quick-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,180px) minmax(0,180px) auto;gap:10px;align-items:center;padding:14px 6px;border-bottom:1px solid #e4eae4;min-width:0}.quick-row strong{overflow-wrap:anywhere}.quick-row small{display:block;color:#71827c;margin-top:5px;overflow-wrap:anywhere}.quick-row select{width:100%;min-width:0}.quick-row.changed{background:#fff9e9}.quick-details{grid-column:1/-1;color:#63786c;font-size:12px}.quick-details summary{cursor:pointer}.quick-details ul{padding-left:20px}@media(max-width:650px){.quick-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.quick-description,.quick-details{grid-column:1/-1}.quick-amount{text-align:right}.quick-row select{font-size:14px}}
+</style>
 </head>
 <body>
 <div id="loginGate"><form class="login-panel" id="loginForm"><h1>家庭記帳 · 登入</h1><p class="subtitle">使用個人帳號登入；所有更動會留下操作紀錄。</p><label for="loginUrl">Apps Script 網址（首次設定）</label><input class="field" type="url" id="loginUrl" placeholder="https://script.google.com/macros/s/.../exec" required><label for="loginUser">使用者</label><select class="field" id="loginUser"><option value="me">承瑋</option><option value="wife">俐穎</option></select><label for="loginPassword">密碼</label><input class="field" id="loginPassword" type="password" autocomplete="current-password" required><button class="button" id="loginButton" type="submit">登入</button><p id="loginError" role="alert"></p></form></div>
@@ -35,7 +37,7 @@
     <div class="grid"><div class="panel"><div class="row"><h2>12 個月收支趨勢</h2><span class="mini">左右可滑動</span></div><div class="annual-chart-scroll"><div class="annual-bars" id="annualTrend" role="img" aria-label="全年每月收入與支出圖"></div></div><div class="legend"><span><i class="dot" style="background:#3a9a7c"></i>收入</span><span><i class="dot" style="background:#e5a079"></i>支出</span></div></div><div class="panel"><h2>全年支出分類</h2><div id="annualCategories"></div></div></div>
     <div class="panel" style="margin-top:16px"><h2>每月收支明細</h2><div class="tablewrap"><table class="annual-month-table"><thead><tr><th>月份</th><th>收入</th><th>支出</th><th>結餘</th></tr></thead><tbody id="annualMonthlyRows"></tbody><tfoot id="annualMonthlyTotal"></tfoot></table></div></div>
   </section>
-  <section id="records" class="section"><div class="top"><div><h1>收支明細</h1><p class="subtitle">可編輯分類與歸屬，重複發票會自動略過</p></div><div class="actions"><label>這份 CSV 歸屬 <select id="importOwner" class="field"><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select></label><label class="button file-button">匯入 Invoice CSV <input id="csvImport" type="file" accept=".csv,text/csv"></label></div></div><div class="actions"><label>載入年度 <select id="loadYear" class="field"></select></label><button class="button ghost" id="loadYearButton">讀取該年資料</button><span class="mini" id="loadedYears">尚未載入年度</span></div><div class="actions"><input id="search" class="field" placeholder="搜尋店家、品項、備註"><select id="typeFilter" class="field"><option value="all">全部收支</option><option value="expense">僅支出</option><option value="income">僅收入</option></select><select id="monthFilter" class="field"><option value="all">所有月份</option></select><select id="categoryFilter" class="field"><option value="all">所有分類</option></select><select id="ownerFilter" class="field"><option value="all">家庭全部</option><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select><button class="button ghost" id="exportCsv">匯出備份 CSV</button></div><p class="mini" id="recordCount"></p><div class="panel"><div id="recordList"></div></div><div class="panel" style="margin-top:14px"><h2>批次調整歸屬</h2><p class="help">將上方目前篩選出的紀錄改為指定歸屬，適合處理舊版匯入的發票。請先確認篩選筆數。</p><div class="actions"><select id="bulkOwner" class="field"><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select><button id="applyBulkOwner" class="button ghost">套用至目前篩選結果</button></div></div><p class="help" id="importMessage"></p></section>
+  <section id="records" class="section"><div class="top"><div><h1>收支明細</h1><p class="subtitle">可編輯分類與歸屬，重複發票會自動略過</p></div><div class="actions"><label>這份 CSV 歸屬 <select id="importOwner" class="field"><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select></label><label class="button file-button">匯入 Invoice CSV <input id="csvImport" type="file" accept=".csv,text/csv"></label></div></div><div class="actions"><label>載入年度 <select id="loadYear" class="field"></select></label><button class="button ghost" id="loadYearButton">讀取該年資料</button><span class="mini" id="loadedYears">尚未載入年度</span></div><div class="actions"><input id="search" class="field" placeholder="搜尋店家、品項、備註"><select id="typeFilter" class="field"><option value="all">全部收支</option><option value="expense">僅支出</option><option value="income">僅收入</option></select><select id="monthFilter" class="field"><option value="all">所有月份</option></select><select id="categoryFilter" class="field"><option value="all">所有分類</option></select><select id="ownerFilter" class="field"><option value="all">家庭全部</option><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select><button class="button ghost" id="exportCsv">匯出備份 CSV</button></div><div id="quickEditBar" class="quick-edit-bar"><strong id="quickEditCount">目前 0 筆未儲存</strong><button id="quickEditSave" class="button" type="button" disabled>儲存全部修改</button><button id="quickEditDiscard" class="button ghost" type="button" disabled>復原全部</button><span class="mini" id="quickEditMessage">修改先暫存在這台裝置，按儲存才會更新雲端。</span></div><p class="mini" id="recordCount"></p><div class="panel"><div id="recordList"></div></div><div class="panel" style="margin-top:14px"><h2>批次調整歸屬</h2><p class="help">將上方目前篩選出的紀錄改為指定歸屬，適合處理舊版匯入的發票。請先確認篩選筆數。</p><div class="actions"><select id="bulkOwner" class="field"><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select><button id="applyBulkOwner" class="button ghost">套用至目前篩選結果</button></div></div><p class="help" id="importMessage"></p></section>
   <section id="add" class="section"><div class="top"><div><h1 id="formTitle">新增一筆記帳</h1><p class="subtitle">收入、現金支出、貸款與固定費用都可以記</p></div></div><div class="panel"><form id="recordForm" class="form-grid"><label>收支類型<select id="fType" class="field"><option value="expense">支出</option><option value="income">收入</option></select></label><label>歸屬<select id="fOwner" class="field"><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select></label><label>日期<input id="fDate" class="field" type="date" required></label><label>金額（NT$）<input id="fAmount" class="field" type="number" min="0.01" step="0.01" required placeholder="例如 1200"></label><label>分類<select id="fCategory" class="field"></select></label><label class="full">名稱 / 店家<input id="fMerchant" class="field" required maxlength="120" placeholder="例如 房貸、全家、薪資"></label><label class="full">備註<input id="fNote" class="field" maxlength="500" placeholder="選填"></label><div class="full actions"><button class="button" type="submit">儲存記帳</button><button class="button ghost" type="button" id="cancelEdit">取消編輯</button></div></form></div><div class="panel" style="margin-top:16px"><h2>管理自訂分類</h2><p class="help">新增收入或支出分類，例如「寵物」、「孝親費」、「旅遊」。分類會隨資料同步至 Google Sheets；移除分類不會刪除既有交易。</p><div class="actions"><select id="newCategoryType" class="field" aria-label="自訂分類類型"><option value="expense">支出分類</option><option value="income">收入分類</option></select><input id="newCategoryName" class="field" maxlength="30" placeholder="新分類名稱" aria-label="新分類名稱"><button class="button light" id="addCategory" type="button">新增分類</button></div><div id="customCategoryList" class="help"></div></div></section>
   <section id="budget" class="section"><div class="top"><div><h1>預算與儲蓄目標</h1><p class="subtitle">依個人／共同管理額度，確認月底是否真的存到錢</p></div><div class="budget-controls"><input class="field" id="budgetMonth" type="month" aria-label="預算月份"><select class="field" id="budgetOwner" aria-label="預算歸屬"><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select></div></div>
     <div class="panel"><div class="row"><h2>本月預算概況</h2><span id="budgetState" class="budget-pill">讀取中</span></div><div id="budgetStats" class="budget-summary"></div><div id="budgetTotalProgress" class="budget-progress"><div style="width:0"></div></div><p class="budget-muted" id="budgetCoverage"></p></div>
@@ -587,6 +589,7 @@ const nav=document.querySelector('.nav');
 const budgetNav=document.createElement('button');budgetNav.dataset.tab='budget';budgetNav.textContent='預算目標';budgetNav.onclick=async()=>{goto('budget');try{await loadBudget();}catch(err){budgetStatus('預算資料讀取失敗：'+err.message,true);}};nav.appendChild(budgetNav);
 const auditNav=document.createElement('button');auditNav.dataset.tab='audit';auditNav.textContent='操作紀錄';auditNav.onclick=()=>{goto('audit');loadAudit();};nav.appendChild(auditNav);
 const logoutNav=document.createElement('button');logoutNav.textContent='登出';logoutNav.onclick=()=>{
+  if(quickDraft.size)return showToast('仍有未儲存的快速編輯，請先儲存或復原',true);
   if(pending.size)return showToast('仍有待同步資料，請先完成同步，避免資料遺失',true);
   session='';currentUser='';sessionStorage.removeItem('ledgerSession17');sessionStorage.removeItem('ledgerUser17');
   localStorage.removeItem(KEY);localStorage.removeItem(PENDING);records=[];pending.clear();
@@ -601,7 +604,7 @@ $('loginForm').onsubmit=async e=>{
     const result=await post({username:$('loginUser').value,password:$('loginPassword').value},'login');
     session=result.session;currentUser=result.user;
     sessionStorage.setItem('ledgerSession17',session);sessionStorage.setItem('ledgerUser17',currentUser);
-    settings={url,token:''};localStorage.setItem(SETTINGS,JSON.stringify(settings));$('apiUrl').value=url;
+    settings={url,token:''};localStorage.setItem(SETTINGS,JSON.stringify(settings));$('apiUrl').value=url;restoreQuickDraft();
     $('loginPassword').value='';$('loginGate').classList.add('hidden');
     $('importOwner').value=currentUser;$('fOwner').value=currentUser;
     categoryRules=[];rulesReady=false;loadedYearSet.clear();await loadYears();await refresh();await loadBudget();render();
@@ -691,9 +694,83 @@ $('saveFund').onclick=async()=>{try{const name=$('fundName').value.trim();if(!na
 $('cancelFundEdit').onclick=()=>{editingFundId='';$('fundFormTitle').textContent='新增基金目標';$('fundName').value='';$('fundTarget').value='';$('fundSaved').value='';};
 $('budgetFunds').onclick=async e=>{const edit=e.target.closest('[data-fund-edit]'),del=e.target.closest('[data-fund-delete]');if(edit){const f=budgetItem(edit.dataset.fundEdit);if(!f)return;editingFundId=f.id;$('fundFormTitle').textContent='編輯基金：'+f.name;$('fundName').value=f.name;$('fundTarget').value=f.amount;$('fundSaved').value=f.saved;return;}if(del){const f=budgetItem(del.dataset.fundDelete);if(!f||!confirm(`確定刪除「${f.name}」基金目標？（稽核會保留紀錄）`))return;try{await saveBudgetRecords([{...f,deleted:true}]);}catch(err){budgetError(err);}}};
 $('saveSettlement').onclick=async()=>{try{const m=$('settlementMonth').value,owner=budgetOwner();if(!/^20\d{2}-(0[1-9]|1[0-2])$/.test(m))throw Error('請選擇結算月份');if(m!==$('budgetMonth').value)throw Error('結算月份須與上方顯示月份相同');if(new Date()<new Date(nextMonthFifth(m)+'T00:00:00')&&!confirm('尚未到次月 5 日，確定已核對銀行餘額並提前結算？'))return;await saveBudgetRecords([{id:`settle:${owner}:${m}`,kind:'settlement',owner,month:m,amount:validBudgetAmount('settlementAmount'),confirmed:true}]);}catch(err){budgetError(err);}};
+
+// v1.8.6 phase 1: independent durable drafts. Do not reuse the legacy pending delta queue.
+const quickDraftKey=()=>`family-ledger-quick-v186:${currentUser}:${settings.url}`;
+let quickDraft=new Map(),quickBusy=false;
+function restoreQuickDraft(){
+  try{const data=JSON.parse(localStorage.getItem(quickDraftKey())||'[]');quickDraft=new Map(Array.isArray(data)?data.filter(x=>x&&typeof x.id==='string').map(x=>[x.id,x]):[]);}catch{quickDraft=new Map();}
+  quickStatus();
+}
+function quickStatus(message){
+  const size=quickDraft.size;
+  $('quickEditCount').textContent=`目前 ${size} 筆未儲存`;
+  $('quickEditSave').disabled=!size||quickBusy;
+  $('quickEditDiscard').disabled=!size||quickBusy;
+  $('search').disabled=Boolean(size)||quickBusy;
+  $('quickEditMessage').textContent=message||(quickBusy?'正在等待雲端確認…':size?'草稿已保存在本機，儲存或復原後可切換頁面。':'修改先暫存，儲存後才寫入雲端。');
+  localStorage.setItem(quickDraftKey(),JSON.stringify([...quickDraft.values()]));
+}
+function quickChange(id,field,value){
+  if(quickBusy)return;
+  const r=records.find(x=>x.id===id&&!x.deleted);if(!r)return;
+  const old=quickDraft.get(id)||{id,year:r.date.slice(0,4),base:{owner:r.owner,category:r.category},fields:{}};
+  const fields={...old.fields};
+  if(value===old.base[field])delete fields[field];else fields[field]=value;
+  if(Object.keys(fields).length)quickDraft.set(id,{...old,fields});else quickDraft.delete(id);
+  quickStatus();renderRecordList();
+}
+function quickOptions(items,selected){return items.map(v=>`<option value="${escapeHtml(v)}" ${v===selected?'selected':''}>${escapeHtml(v)}</option>`).join('');}
+const oldRenderTable186=renderTable;
+renderTable=function(id,data,editable){
+  if(!editable)return oldRenderTable186(id,data,editable);
+  if(!data.length){$(id).innerHTML='<div class="empty">目前沒有符合條件的紀錄</div>';return;}
+  $(id).innerHTML=data.map(r=>{
+    const fields=quickDraft.get(r.id)?.fields||{},owner=fields.owner??r.owner,category=fields.category??r.category;
+    const detail=(r.details||[]).map(x=>`<li>${escapeHtml(x.item||x.name||JSON.stringify(x))}</li>`).join('');
+    return `<div class="quick-row ${Object.keys(fields).length?'changed':''}"><div class="quick-description"><strong>${escapeHtml(r.merchant)}</strong><small>${escapeHtml(r.date)} ${escapeHtml(r.invoice||'')} · ${escapeHtml(r.type==='income'?'收入':'支出')} ${money(r.amount)}</small></div><label>歸屬<select class="field" data-quick-id="${escapeHtml(r.id)}" data-quick-field="owner" ${quickBusy?'disabled':''}>${[['me','承瑋'],['wife','俐穎'],['shared','共同']].map(([v,n])=>`<option value="${v}" ${v===owner?'selected':''}>${n}</option>`).join('')}</select></label><label>分類<select class="field" data-quick-id="${escapeHtml(r.id)}" data-quick-field="category" ${quickBusy?'disabled':''}>${quickOptions(categoriesFor(r.type,category),category)}</select></label><div class="quick-amount"><span class="mini">${Object.keys(fields).length?'已修改':''}</span></div>${detail?`<details class="quick-details"><summary>查看發票品項（${r.details.length}）</summary><ul>${detail}</ul></details>`:''}</div>`;
+  }).join('');
+};
+$('recordList').addEventListener('change',e=>{const select=e.target.closest('[data-quick-id]');if(select)quickChange(select.dataset.quickId,select.dataset.quickField,select.value);});
+$('quickEditDiscard').onclick=()=>{if(quickBusy||!confirm(`復原 ${quickDraft.size} 筆未儲存的修改？`))return;quickDraft.clear();quickStatus();renderRecordList();};
+$('quickEditSave').onclick=async()=>{
+  if(quickBusy||!quickDraft.size)return;
+  if(!configured()){quickStatus('未登入雲端，草稿仍保留。');return;}
+  if(pending.size||syncBusy||syncConflicts.length){quickStatus('原有同步尚未完成，請先完成同步或處理衝突。');return;}
+  quickBusy=true;quickStatus();
+  try{
+    const patches=[...quickDraft.values()].map(({id,year,fields})=>({id,year,fields}));
+    for(let i=0;i<patches.length;i+=100){
+      const part=patches.slice(i,i+100),result=await post({patches:part},'patchBatch');
+      if(!result.ok||!Array.isArray(result.accepted)||result.accepted.length!==part.length)throw Error('後端未確認全部修改');
+      // Apply only after the backend confirms each patch.
+      for(const accepted of result.accepted){
+        const patch=part.find(p=>p.id===accepted.id),record=records.find(r=>r.id===accepted.id);
+        if(!patch||!record)throw Error('回傳交易 ID 不一致');
+        Object.assign(record,patch.fields,{_rev:accepted._rev,_categoryManual:('category' in patch.fields)?true:record._categoryManual});
+        snapshot.set(record.id,JSON.stringify(record));quickDraft.delete(record.id);
+      }
+      localStorage.setItem(KEY,JSON.stringify(records));quickStatus();
+    }
+    cloudIssue='';cloudReady=true;quickStatus('✓ 全部修改已獲雲端確認');renderRecordList();renderSyncNotice();
+  }catch(err){quickStatus('儲存未完成：'+err.message+'。其餘草稿已保留，請檢查後重試。');}
+  finally{quickBusy=false;quickStatus(quickDraft.size?'部分修改尚未完成，請再儲存':'✓ 已確認同步完成');renderRecordList();}
+};
+const gotoBeforeQuick=goto;
+goto=function(tab){if(quickDraft.size&&tab!=='records'){quickStatus('請先儲存全部或復原全部，才能切換頁面。');return;}gotoBeforeQuick(tab);};
+for(const id of ['loadYearButton','loadYear','typeFilter','monthFilter','categoryFilter','ownerFilter','applyBulkOwner','bulkCategoryApply']){
+  const el=$(id);if(!el)continue;
+  el.addEventListener(id==='loadYearButton'||id.startsWith('apply')||id==='bulkCategoryApply'?'click':'change',e=>{
+    if(!quickDraft.size)return;
+    e.preventDefault();e.stopImmediatePropagation();quickStatus('先儲存全部或復原全部，才能切換篩選或執行其他修改。');renderRecordList();
+  },true);
+}
+window.addEventListener('beforeunload',e=>{if(!quickDraft.size)return;e.preventDefault();e.returnValue='';});
+restoreQuickDraft();
+
 const oldRender18=render;render=()=>{oldRender18();if($('budget'))renderBudget();$('footerStatus').textContent=$('footerStatus').textContent.replace(/v1\.7\.2/g,'v1.8.5');renderSyncNotice();};
 fillCategories();render();
-$('footerStatus').textContent='家計簿 v1.8.5 · 雙人預算與儲蓄目標';
+$('footerStatus').textContent='家計簿 v1.8.6 開發版 · 快速編輯';
 if(configured()){$('loginGate').classList.add('hidden');loadYears().then(refresh).then(loadBudget).catch(err=>{$('loginGate').classList.remove('hidden');$('loginError').textContent=err.message;});}
 else notify('請使用個人帳號登入，系統才會讀取 Google Sheets。');
 })();
