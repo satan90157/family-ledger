@@ -195,10 +195,12 @@ function post(payload,action='delta'){
 }
 $('apiUrl').value=settings.url;$('apiToken').value=settings.token;
 function configured(){return validUrl(settings.url)&&Boolean(session)}
+const yearVersionsV186 = new Map();
 async function pullRemote(){
   if(!configured())return;
   const data=await jsonp('list',selectedYear);
   if(!data.ok||!Array.isArray(data.records))throw Error(data.error||'讀取失敗');
+  if(typeof data.version==='string')yearVersionsV186.set(selectedYear,data.version);
   const cloudIds=new Set(data.records.map(r=>r.id));
   missingCloudCategories=new Set(records.filter(r=>r.source==='category-definition'&&!r.deleted&&String(r.date).startsWith(selectedYear+'-')&&!cloudIds.has(r.id)&&!pending.has(r.id)).map(r=>r.id));
   const map=new Map(records.map(r=>[r.id,r]));
@@ -251,7 +253,27 @@ let pullBusy=false;
 async function refresh(){
   if(pullBusy||syncBusy)return;
   pullBusy=true;
-  try{await pullRemote();await flushPending();if(!ruleBusy)await loadCategoryRules_();}
+  try{
+    // Never replace the currently displayed record list while quick-edit drafts exist.
+    if(quickDraft.size || quickBusy){
+      $('syncStatus').textContent='快速編輯草稿尚未儲存，雲端更新將於完成後檢查';
+      return;
+    }
+    // Pending legacy delta records must still use their existing conflict workflow.
+    // Version checks only avoid needless full-year downloads, not pending writes.
+    if(configured() && yearVersionsV186.has(selectedYear)){
+      const check=await jsonp('version',selectedYear);
+      if(!check.ok || typeof check.version!=='string')throw Error(check.error||'無法取得雲端版本');
+      if(check.version!==yearVersionsV186.get(selectedYear)){
+        $('syncStatus').textContent='與雲端同步中…';
+        await pullRemote();
+      } else {
+        cloudReady=true;renderSyncNotice();
+      }
+    }else await pullRemote();
+    await flushPending();
+    if(!ruleBusy)await loadCategoryRules_();
+  }
   catch(err){cloudIssue='讀取失敗：'+err.message;cloudReady=false;notify(cloudIssue,true);renderSyncNotice();}
   finally{pullBusy=false;renderSyncNotice();}
 }
@@ -721,7 +743,7 @@ async function manualActionV186(id,action){
   if(!result.ok||result.record?.id!==id)throw Error(result.error||'後端未確認更新');
   const saved=normalize(result.record);records=records.map(r=>r.id===id?saved:r);
   snapshot.set(id,JSON.stringify(saved));localStorage.setItem(KEY,JSON.stringify(records));
-  render();renderManualTrashV186();showToast(action==='delete'?'已刪除手動交易，可至回收區恢復':'手動交易已恢復');
+  yearVersionsV186.delete(saved.date.slice(0,4));render();renderManualTrashV186();showToast(action==='delete'?'已刪除手動交易，可至回收區恢復':'手動交易已恢復');
  }catch(err){showToast('未完成操作：'+err.message+'，資料未從本機刪除。',true);}
  finally{manualActionBusy=false;renderManualTrashV186();}
 }
@@ -783,7 +805,7 @@ $('quickEditSave').onclick=async()=>{
     }
     cloudIssue='';cloudReady=true;quickStatus('✓ 全部修改已獲雲端確認');renderRecordList();renderSyncNotice();
   }catch(err){quickStatus('儲存未完成：'+err.message+'。其餘草稿已保留，請檢查後重試。');}
-  finally{quickBusy=false;quickStatus(quickDraft.size?'部分修改尚未完成，請再儲存':'✓ 已確認同步完成');renderRecordList();}
+  finally{quickBusy=false;quickStatus(quickDraft.size?'部分修改尚未完成，請再儲存':'✓ 已確認同步完成');renderRecordList();if(!quickDraft.size){yearVersionsV186.delete(selectedYear);await refresh();}}
 };
 const gotoBeforeQuick=goto;
 goto=function(tab){if(quickDraft.size&&tab!=='records'){quickStatus('請先儲存全部或復原全部，才能切換頁面。');return;}gotoBeforeQuick(tab);};
@@ -797,7 +819,7 @@ for(const id of ['loadYearButton','loadYear','typeFilter','monthFilter','categor
 window.addEventListener('beforeunload',e=>{if(!quickDraft.size)return;e.preventDefault();e.returnValue='';});
 restoreQuickDraft();
 
-const oldRender18=render;render=()=>{oldRender18();if($('budget'))renderBudget();$('footerStatus').textContent=$('footerStatus').textContent.replace(/v1\.7\.2/g,'v1.8.5');renderSyncNotice();};
+const oldRender18=render;render=()=>{oldRender18();if($('budget'))renderBudget();$('footerStatus').textContent=$('footerStatus').textContent.replace(/v1\.7\.2/g,'v1.8.6');renderSyncNotice();};
 fillCategories();render();
 $('footerStatus').textContent='家計簿 v1.8.6 開發版 · 快速編輯';
 if(configured()){$('loginGate').classList.add('hidden');loadYears().then(refresh).then(loadBudget).catch(err=>{$('loginGate').classList.remove('hidden');$('loginError').textContent=err.message;});}
