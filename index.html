@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>家計簿 v1.8.6.3｜家庭財務</title>
+  <title>家計簿 v1.8.6.4｜家庭財務</title>
   <meta name="theme-color" content="#111114">
   <style>
     :root{font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif;color:#1b312e;background:#f3f6f2;font-size:15px}*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}.shell{max-width:1180px;margin:auto;padding:22px 22px 90px}.header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:25px}.logo{font-size:23px;font-weight:800;letter-spacing:.04em}.logo small{display:block;font-size:12px;font-weight:500;color:#71827c;letter-spacing:.08em}.nav{display:flex;gap:8px;flex-wrap:wrap}.nav button,.pill{border:1px solid #d8e2dc;background:white;color:#36524b;border-radius:13px;padding:10px 15px}.nav button.active{background:#183d36;color:white;border-color:#183d36}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}h1{font-size:28px;margin:0 0 5px}h2{font-size:18px;margin:0 0 16px}p.muted,.muted{color:#71827c}.subtitle{font-size:13px;color:#71827c;margin:0}.button{border:0;border-radius:12px;background:#173e35;color:white;padding:11px 15px;font-weight:650;display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;min-height:43px;line-height:1.4;text-align:center}.button.light{background:#e5eee8;color:#285247}.button.warn{background:#fff0e9;color:#9a4a25}.button.ghost{background:white;color:#1b312e;border:1px solid #d4dfd8}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.card,.panel{background:white;border:1px solid #e0e9e3;border-radius:20px;padding:21px;box-shadow:0 6px 22px #1e47350a}.card .k{font-size:13px;color:#798980}.card .v{font-size:27px;font-weight:800;margin-top:12px;letter-spacing:-.03em}.card .note{font-size:12px;color:#89968e;margin-top:8px}.positive{color:#147a5c}.negative{color:#c36a42}.grid{display:grid;grid-template-columns:1.5fr 1fr;gap:16px;margin-top:16px}.panel{min-width:0}.bars{height:245px;display:flex;gap:12px;align-items:flex-end;padding:12px 0 24px;border-bottom:1px solid #e6ebe6}.bar-group{flex:1;min-width:0;text-align:center;display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:5px;position:relative}.bar-pair{display:flex;align-items:flex-end;justify-content:center;gap:5px;height:100%}.bar{width:min(27px,38%);border-radius:6px 6px 0 0;min-height:0;transition:height .2s}.bar.income{background:#3a9a7c}.bar.expense{background:#e5a079}.bar-label{font-size:11px;color:#819088;position:absolute;bottom:-26px;width:100%}.legend{display:flex;gap:15px;font-size:12px;color:#6b8075;margin-top:38px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}.category{display:flex;gap:13px;align-items:center;margin:12px 0}.category-name{width:75px;flex-shrink:0;font-size:13px}.track{height:11px;background:#eff2ee;border-radius:20px;flex:1;overflow:hidden}.fill{height:100%;background:#62a992;border-radius:20px}.category-value{font-size:13px;text-align:right;width:85px;font-variant-numeric:tabular-nums}.actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-bottom:16px}.backup-actions{display:flex;align-items:stretch;gap:10px;flex-wrap:wrap;margin-top:12px}.backup-actions>.button{flex:0 1 auto}.field{border:1px solid #d5e0d9;border-radius:11px;padding:10px 12px;background:#fff;min-width:0}.actions .field{max-width:180px}.tablewrap{overflow-x:auto}table{border-collapse:collapse;width:100%;text-align:left;white-space:nowrap}th{color:#84948a;font-size:12px;font-weight:550;background:#f7faf7}th,td{padding:13px 10px;border-bottom:1px solid #edf1ed}td{font-size:13px}td strong{font-size:14px}td small{display:block;color:#92a098;max-width:250px;text-overflow:ellipsis;overflow:hidden}.tag{background:#eff5ef;border-radius:8px;padding:5px 8px;color:#4a6e60;font-size:12px}.empty{text-align:center;color:#839389;padding:45px 10px}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.form-grid label{display:flex;flex-direction:column;gap:6px;color:#65786b;font-size:13px}.form-grid .field{width:100%}.full{grid-column:1/-1}.status{background:#eef7ee;color:#2a654e;border-radius:12px;padding:12px 15px;font-size:13px;line-height:1.5}.status.error{background:#fff0ea;color:#a14d2a}.section{display:none}.section.active{display:block}.month{display:flex;align-items:center;gap:8px}.month input{width:145px}.file-button{position:relative;overflow:hidden}.file-button input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}.help{font-size:13px;line-height:1.8;color:#6e8175;overflow-wrap:anywhere}.help code{background:#edf2ee;padding:2px 5px;border-radius:4px;overflow-wrap:anywhere}.row{display:flex;justify-content:space-between;gap:12px;align-items:center}.small{font-size:12px}.sync{font-size:12px;color:#789084}.tooltip{font-size:12px;color:#829289}.donut{height:140px;width:140px;border-radius:50%;background:conic-gradient(#dce8de 0 100%);position:relative;flex-shrink:0}.donut:after{content:"";position:absolute;inset:26px;border-radius:50%;background:white}.donut-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}.total{font-size:26px;font-weight:800}.mini{font-size:12px;color:#7e8f85}.footer{text-align:center;font-size:12px;color:#8a9b91;margin-top:34px}@media(max-width:800px){.shell{padding:15px 13px 80px}.header{display:block}.nav{margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:5px}.nav button{font-size:12px;padding:11px 3px}.cards{grid-template-columns:repeat(2,1fr);gap:9px}.card,.panel{padding:16px;border-radius:17px}.card .v{font-size:22px}.grid{grid-template-columns:1fr}.top{align-items:flex-start}h1{font-size:23px}.form-grid{grid-template-columns:1fr}.month input{width:135px}td,th{padding:11px 8px}.actions .field{max-width:none}.button{padding:11px 13px}}@media(max-width:500px){.backup-actions{flex-direction:column}.backup-actions>.button{width:100%}}
@@ -21,7 +21,7 @@
    .quick-edit-bar{display:flex;gap:9px;align-items:center;flex-wrap:wrap;padding:12px;margin-bottom:12px;background:#eef6f0;border-radius:12px}.quick-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,180px) minmax(0,180px) auto;gap:10px;align-items:center;padding:14px 6px;border-bottom:1px solid #e4eae4;min-width:0}.quick-row strong{overflow-wrap:anywhere}.quick-row small{display:block;color:#71827c;margin-top:5px;overflow-wrap:anywhere}.quick-row select{width:100%;min-width:0}.quick-row.changed{background:#fff9e9}.quick-details{grid-column:1/-1;color:#63786c;font-size:12px}.quick-details summary{cursor:pointer}.quick-details ul{padding-left:20px}@media(max-width:650px){.quick-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.quick-description,.quick-details{grid-column:1/-1}.quick-amount{text-align:right}.quick-row select{font-size:14px}}
 </style>
 <style>
-/* v1.8.6.3 — Obsidian & champagne gold, improved amount contrast */
+/* v1.8.6.4 — Obsidian & champagne gold, improved amount contrast */
 :root{color-scheme:dark;--bg:#111114;--surface:#1a1a20;--surface2:#222229;--stroke:#39363a;--fg:#f1ece2;--muted:#b0a99c;--gold:#d3b573;--gold2:#f0d8a1;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif!important;color:var(--fg)!important;background:var(--bg)!important}
 body{background:radial-gradient(ellipse at 88% 0%,#30291e 0,transparent 38%),var(--bg);color:var(--fg)}
 .shell{max-width:1200px}.logo{color:var(--gold2);letter-spacing:.03em}.logo small,.subtitle,.muted,p.muted,.card .k,.card .note,.mini,.tooltip,.sync,.footer,.help,.budget-muted,.quick-row small,.quick-details,.category-value small{color:var(--muted)!important}
@@ -42,9 +42,9 @@ th{background:#29262a;color:#c7b796}th,td{border-color:#3c3839}td small{color:#a
 </style>
 </head>
 <body>
-<div id="loginGate"><form class="login-panel" id="loginForm"><h1>家庭記帳 · 登入 <span class="version-chip">v1.8.6.3</span></h1><p class="subtitle">使用個人帳號登入；所有更動會留下操作紀錄。</p><p class="login-version" aria-label="目前前端版本">前端版本 v1.8.6.3｜同步測試版</p><label for="loginUrl">Apps Script 網址（首次設定）</label><input class="field" type="url" id="loginUrl" placeholder="https://script.google.com/macros/s/.../exec" required><label for="loginUser">使用者</label><select class="field" id="loginUser"><option value="me">承瑋</option><option value="wife">俐穎</option></select><label for="loginPassword">密碼</label><input class="field" id="loginPassword" type="password" autocomplete="current-password" required><button class="button" id="loginButton" type="submit">登入</button><p id="loginError" role="alert"></p></form></div>
+<div id="loginGate"><form class="login-panel" id="loginForm"><h1>家庭記帳 · 登入 <span class="version-chip">v1.8.6.4</span></h1><p class="subtitle">使用個人帳號登入；所有更動會留下操作紀錄。</p><p class="login-version" aria-label="目前前端版本">前端版本 v1.8.6.4｜同步測試版</p><label for="loginUrl">Apps Script 網址（首次設定）</label><input class="field" type="url" id="loginUrl" placeholder="https://script.google.com/macros/s/.../exec" required><label for="loginUser">使用者</label><select class="field" id="loginUser"><option value="me">承瑋</option><option value="wife">俐穎</option></select><label for="loginPassword">密碼</label><input class="field" id="loginPassword" type="password" autocomplete="current-password" required><button class="button" id="loginButton" type="submit">登入</button><p id="loginError" role="alert"></p></form></div>
 <main class="shell">
-  <header class="header"><div class="logo">家計簿 <span style="color:#d3b573">◈</span><small>OUR FAMILY FINANCE · v1.8.6.3</small></div><nav class="nav" aria-label="主要頁面"><button data-tab="dashboard" class="active">總覽</button><button data-tab="annual">年度統計</button><button data-tab="records">收支明細</button><button data-tab="add">新增記帳</button><button data-tab="settings">同步設定</button></nav></header>
+  <header class="header"><div class="logo">家計簿 <span style="color:#d3b573">◈</span><small>OUR FAMILY FINANCE · v1.8.6.4</small></div><nav class="nav" aria-label="主要頁面"><button data-tab="dashboard" class="active">總覽</button><button data-tab="annual">年度統計</button><button data-tab="records">收支明細</button><button data-tab="add">新增記帳</button><button data-tab="settings">同步設定</button></nav></header>
   <div id="syncBanner" class="sync-banner pending" role="status" aria-live="polite"><span id="syncBannerText">正在檢查雲端同步狀態…</span><button id="syncBannerRetry" class="button light" type="button" hidden>重試同步</button></div>
   <div id="conflictPanel" class="panel" style="margin-bottom:16px;display:none"><h2>跨裝置資料衝突</h2><p class="help">同一張發票在電腦與手機被修改時，不會自動覆蓋。請先備份，再檢視兩邊內容並逐筆決定；不同分類名稱也可雙向保留。採用本機版本時會經過 Google Sheets 版本檢查，並留下修改紀錄。</p><div id="conflictItems" class="help"></div><div class="actions"><button id="conflictBackup" class="button light" type="button">① 下載本機 JSON 備份</button><button id="conflictUseCloud" class="button light" type="button" disabled>② 雙向合併自訂分類</button><button id="conflictReview" class="button light" type="button" disabled>③ 比較交易差異</button><button id="conflictApply" class="button" type="button" style="display:none">④ 套用逐筆選擇</button></div><p id="conflictMessage" class="mini" role="status" aria-live="polite"></p></div>
   <section id="dashboard" class="section active"><div class="top"><div><h1>家庭財務總覽</h1><p class="subtitle">讓每一筆收支都有跡可循</p></div><div class="month"><button class="pill" id="prevMonth" aria-label="上個月">‹</button><input aria-label="統計月份" class="field" id="month" type="month"><button class="pill" id="nextMonth" aria-label="下個月">›</button></div><label class="month">統計歸屬 <select id="dashboardOwnerStats" class="field"><option value="all">家庭全部</option><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select></label></div>
@@ -201,6 +201,27 @@ function adjustMonth(n){const [y,m]=month.split('-').map(Number),d=new Date(y,m-
 function validUrl(url){return /^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec$/.test(url)}
 let session=sessionStorage.getItem('ledgerSession17')||'',currentUser=sessionStorage.getItem('ledgerUser17')||'',selectedYear=String(new Date().getFullYear());
 const loadedYearSet=new Set();
+// Retry only idempotent cloud READ operations. A POST must never be replayed blindly.
+const delayReadV1864_ = ms => new Promise(resolve=>setTimeout(resolve,ms));
+async function readWithRetryV1864_(action,year,attempts=3){
+  let last;
+  for(let i=0;i<attempts;i++){
+    try{
+      const response=await jsonp(action,year);
+      if(!response||response.ok!==true)throw Error(response?.error||`${action} 讀取失敗`);
+      return response;
+    }catch(err){
+      last=err;
+      if(i+1<attempts)await delayReadV1864_(600*(i+1));
+    }
+  }
+  throw Error(`${action} 已重試 ${attempts} 次：${last?.message||'未知錯誤'}`);
+}
+function showLoginProgressV1864_(message){
+  $('loginError').textContent=message;
+  $('syncStatus').textContent=message;
+}
+
 function jsonp(action,year,requestId){return new Promise((resolve,reject)=>{if(!validUrl(settings.url)||(!session&&action!=='status'))return reject(Error('請先登入'));const callback='ledgerCallback'+uid().replace(/[^a-zA-Z0-9]/g,'');const script=document.createElement('script');const timer=setTimeout(()=>finish(Error('讀取逾時')),18000);function finish(err,data){clearTimeout(timer);delete window[callback];script.remove();err?reject(err):resolve(data)}window[callback]=data=>finish(null,data);script.onerror=()=>finish(Error('無法讀取，請確認網頁應用程式已部署'));script.src=settings.url+'?action='+encodeURIComponent(action)+'&session='+encodeURIComponent(session)+'&year='+encodeURIComponent(year||selectedYear)+'&nonce='+encodeURIComponent(requestId||'')+'&callback='+callback+'&_='+Date.now();document.body.appendChild(script)})}
 function post(payload,action='delta'){
   return new Promise((resolve,reject)=>{
@@ -241,7 +262,7 @@ function configured(){return validUrl(settings.url)&&Boolean(session)}
 const yearVersionsV186 = new Map();
 async function pullRemote(){
   if(!configured())return;
-  const data=await jsonp('list',selectedYear);
+  const data=await readWithRetryV1864_('list',selectedYear);
   if(!data.ok||!Array.isArray(data.records))throw Error(data.error||'讀取失敗');
   if(typeof data.version==='string')yearVersionsV186.set(selectedYear,data.version);
   const cloudIds=new Set(data.records.map(r=>r.id));
@@ -293,19 +314,20 @@ async function flushPending(){
   finally{syncBusy=false;renderSyncNotice();}
 }
 let pullBusy=false;
-async function refresh(){
-  if(pullBusy||syncBusy)return;
+async function refresh(options={}){
+  if(pullBusy||syncBusy){if(options.strict)throw Error('同步正在執行中，請稍後重試');return;}
   pullBusy=true;
   try{
     // Never replace the currently displayed record list while quick-edit drafts exist.
     if(quickDraft.size || quickBusy){
       $('syncStatus').textContent='快速編輯草稿尚未儲存，雲端更新將於完成後檢查';
+      if(options.strict)throw Error('仍有未儲存的快速編輯，請先完成或復原');
       return;
     }
     // Pending legacy delta records must still use their existing conflict workflow.
     // Version checks only avoid needless full-year downloads, not pending writes.
-    if(configured() && yearVersionsV186.has(selectedYear)){
-      const check=await jsonp('version',selectedYear);
+    if(configured() && loadedYearSet.has(selectedYear) && yearVersionsV186.has(selectedYear)){
+      const check=await readWithRetryV1864_('version',selectedYear);
       if(!check.ok || typeof check.version!=='string')throw Error(check.error||'無法取得雲端版本');
       if(check.version!==yearVersionsV186.get(selectedYear)){
         $('syncStatus').textContent='與雲端同步中…';
@@ -317,7 +339,7 @@ async function refresh(){
     await flushPending();
     if(!ruleBusy)await loadCategoryRules_();
   }
-  catch(err){cloudIssue='讀取失敗：'+err.message;cloudReady=false;notify(cloudIssue,true);renderSyncNotice();}
+  catch(err){cloudIssue='讀取失敗：'+err.message;cloudReady=false;notify(cloudIssue,true);renderSyncNotice();if(options.strict)throw err;}
   finally{pullBusy=false;renderSyncNotice();}
 }
 $('saveSettings').onclick=()=>{
@@ -671,14 +693,26 @@ $('loginForm').onsubmit=async e=>{
     session=result.session;currentUser=result.user;
     sessionStorage.setItem('ledgerSession17',session);sessionStorage.setItem('ledgerUser17',currentUser);
     settings={url,token:''};localStorage.setItem(SETTINGS,JSON.stringify(settings));$('apiUrl').value=url;restoreQuickDraft();
-    $('loginPassword').value='';$('loginGate').classList.add('hidden');
     $('importOwner').value=currentUser;$('fOwner').value=currentUser;
-    categoryRules=[];rulesReady=false;loadedYearSet.clear();await loadYears();await refresh();await loadBudget();render();
-  }catch(err){settings.url=oldUrl;$('loginError').textContent='登入或載入失敗：'+err.message;}
+    categoryRules=[];rulesReady=false;loadedYearSet.clear();yearVersionsV186.clear();
+    showLoginProgressV1864_('登入成功，正在取得年度列表…');
+    await loadYears();
+    showLoginProgressV1864_('正在從雲端載入交易資料，失敗時會自動重試…');
+    await refresh({strict:true});
+    if(!loadedYearSet.has(selectedYear))throw Error('交易載入未完成，請重試');
+    $('loginPassword').value='';$('loginGate').classList.add('hidden');
+    showLoginProgressV1864_('交易載入完成');
+    render();
+    try{await loadBudget();}catch(err){budgetStatus('交易已載入，但預算資料讀取失敗：'+err.message,true);}
+  }catch(err){
+    if(!session){settings.url=oldUrl;}
+    $('loginGate').classList.remove('hidden');
+    $('loginError').textContent='無法完成登入資料載入：'+err.message+'。交易沒有被清空；請再按登入重試。';
+  }
   finally{$('loginButton').disabled=false;}
 };
 async function loadYears(){
-  const result=await jsonp('years');if(!result.ok)throw Error(result.error||'年度列表讀取失敗');
+  const result=await readWithRetryV1864_('years');if(!Array.isArray(result.years))throw Error('年度列表格式錯誤');
   const years=[...new Set([String(new Date().getFullYear()),...result.years])].sort().reverse();
   $('loadYear').innerHTML=years.map(y=>`<option value="${y}">${y} 年</option>`).join('');
   $('loadYear').value=selectedYear;
@@ -862,10 +896,26 @@ for(const id of ['loadYearButton','loadYear','typeFilter','monthFilter','categor
 window.addEventListener('beforeunload',e=>{if(!quickDraft.size)return;e.preventDefault();e.returnValue='';});
 restoreQuickDraft();
 
-const oldRender18=render;render=()=>{oldRender18();if($('budget'))renderBudget();$('footerStatus').textContent=$('footerStatus').textContent.replace(/v1\.7\.2/g,'v1.8.6');renderSyncNotice();};
+const oldRender18=render;render=()=>{oldRender18();if($('budget'))renderBudget();$('footerStatus').textContent=$('footerStatus').textContent.replace(/v1\.7\.2/g,'v1.8.6.4');renderSyncNotice();};
 fillCategories();render();
-$('footerStatus').textContent='家計簿 v1.8.6 開發版 · 快速編輯';
-if(configured()){$('loginGate').classList.add('hidden');loadYears().then(refresh).then(loadBudget).catch(err=>{$('loginGate').classList.remove('hidden');$('loginError').textContent=err.message;});}
+$('footerStatus').textContent='家計簿 v1.8.6.4 · 同步穩定測試版';
+if(configured()){
+  $('loginGate').classList.remove('hidden');
+  showLoginProgressV1864_('正在驗證既有登入，載入雲端資料…');
+  (async()=>{
+    try{
+      await loadYears();
+      await refresh({strict:true});
+      if(!loadedYearSet.has(selectedYear))throw Error('交易載入未完成');
+      $('loginGate').classList.add('hidden');
+      try{await loadBudget();}catch(err){budgetStatus('預算讀取失敗：'+err.message,true);}
+    }catch(err){
+      cloudReady=false;renderSyncNotice();
+      $('loginGate').classList.remove('hidden');
+      $('loginError').textContent='雲端交易讀取失敗：'+err.message+'。請重新登入重試；本機資料未清除。';
+    }
+  })();
+}
 else notify('請使用個人帳號登入，系統才會讀取 Google Sheets。');
 })();
 </script></body></html>
