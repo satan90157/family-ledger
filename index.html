@@ -390,6 +390,8 @@ async function readWithRetryV1864_(action,year,attempts=3){
       return response;
     }catch(err){
       last=err;
+      // A revoked/expired session cannot become valid by retrying the same token.
+      if(/登入已過期|登入已失效|請重新登入/.test(String(err?.message||'')))throw err;
       if(i+1<attempts)await delayReadV1864_(600*(i+1));
     }
   }
@@ -440,7 +442,9 @@ function configured(){return validUrl(settings.url)&&Boolean(session)}
 const yearVersionsV186 = new Map();
 async function pullRemote(){
   if(!configured())return;
-  const data=await readWithRetryV1864_('list',selectedYear);
+  const requestedSession=session, requestedYear=selectedYear;
+  const data=await readWithRetryV1864_('list',requestedYear);
+  if(session!==requestedSession||selectedYear!==requestedYear)throw Error('登入或年度已變更，已取消舊資料回應');
   if(!data.ok||!Array.isArray(data.records))throw Error(data.error||'讀取失敗');
   if(typeof data.version==='string')yearVersionsV186.set(selectedYear,data.version);
   const cloudIds=new Set(data.records.map(r=>r.id));
@@ -492,8 +496,18 @@ async function flushPending(){
   finally{syncBusy=false;renderSyncNotice();}
 }
 let pullBusy=false;
+async function waitForSyncIdleV1864_(timeoutMs=35000){
+  const began=Date.now();
+  while(pullBusy||syncBusy){
+    if(Date.now()-began>=timeoutMs)throw Error('前一個同步尚未結束；請檢查網路連線並重新登入');
+    await delayReadV1864_(150);
+  }
+}
 async function refresh(options={}){
-  if(pullBusy||syncBusy){if(options.strict)throw Error('同步正在執行中，請稍後重試');return;}
+  if(pullBusy||syncBusy){
+    if(!options.strict)return;
+    await waitForSyncIdleV1864_();
+  }
   pullBusy=true;
   try{
     // Never replace the currently displayed record list while quick-edit drafts exist.
@@ -863,8 +877,10 @@ const logoutNav=document.createElement('button');logoutNav.textContent='登出';
   $('loginPassword').value='';$('loginGate').classList.remove('hidden');render();
 };nav.appendChild(logoutNav);
 $('loginUrl').value=settings.url;
+let authGenerationV1864_=0;
 $('loginForm').onsubmit=async e=>{
-  e.preventDefault();const url=$('loginUrl').value.trim().replace(/\/$/,'');
+  e.preventDefault();const generation=++authGenerationV1864_;
+  const url=$('loginUrl').value.trim().replace(/\/$/,'');
   if(!validUrl(url)){ $('loginError').textContent='Apps Script 網址格式不正確';return; }
   const oldUrl=settings.url;settings.url=url;$('loginButton').disabled=true;$('loginError').textContent='驗證中…';
   try{
@@ -876,22 +892,28 @@ $('loginForm').onsubmit=async e=>{
     categoryRules=[];rulesReady=false;loadedYearSet.clear();yearVersionsV186.clear();
     showLoginProgressV1864_('登入成功，正在取得年度列表…');
     await loadYears();
+    if(generation!==authGenerationV1864_)return;
     showLoginProgressV1864_('正在從雲端載入交易資料，失敗時會自動重試…');
     await refresh({strict:true});
+    if(generation!==authGenerationV1864_)return;
     if(!loadedYearSet.has(selectedYear))throw Error('交易載入未完成，請重試');
     $('loginPassword').value='';$('loginGate').classList.add('hidden');
     showLoginProgressV1864_('交易載入完成');
     render();
     try{await loadBudget();}catch(err){budgetStatus('交易已載入，但預算資料讀取失敗：'+err.message,true);}
   }catch(err){
+    if(generation!==authGenerationV1864_)return;
     if(!session){settings.url=oldUrl;}
     $('loginGate').classList.remove('hidden');
     $('loginError').textContent='無法完成登入資料載入：'+err.message+'。交易沒有被清空；請再按登入重試。';
   }
-  finally{$('loginButton').disabled=false;}
+  finally{if(generation===authGenerationV1864_)$('loginButton').disabled=false;}
 };
 async function loadYears(){
-  const result=await readWithRetryV1864_('years');if(!Array.isArray(result.years))throw Error('年度列表格式錯誤');
+  const requestedSession=session;
+  const result=await readWithRetryV1864_('years');
+  if(session!==requestedSession)throw Error('登入已更新，已取消舊年度清單');
+  if(!Array.isArray(result.years))throw Error('年度列表格式錯誤');
   const years=[...new Set([String(new Date().getFullYear()),...result.years])].sort().reverse();
   $('loadYear').innerHTML=years.map(y=>`<option value="${y}">${y} 年</option>`).join('');
   $('loadYear').value=selectedYear;
@@ -1080,16 +1102,20 @@ const oldRender18=render;render=()=>{oldRender18();if($('budget'))renderBudget()
 fillCategories();render();
 $('footerStatus').textContent='家計簿 v1.8.6.12.10-RC5 · 退休整合測試候選';
 if(configured()){
+  const bootstrapGeneration=authGenerationV1864_;
   $('loginGate').classList.remove('hidden');
   showLoginProgressV1864_('正在驗證既有登入，載入雲端資料…');
   (async()=>{
     try{
       await loadYears();
+      if(bootstrapGeneration!==authGenerationV1864_)return;
       await refresh({strict:true});
+      if(bootstrapGeneration!==authGenerationV1864_)return;
       if(!loadedYearSet.has(selectedYear))throw Error('交易載入未完成');
       $('loginGate').classList.add('hidden');
       try{await loadBudget();}catch(err){budgetStatus('預算讀取失敗：'+err.message,true);}
     }catch(err){
+      if(bootstrapGeneration!==authGenerationV1864_)return;
       cloudReady=false;renderSyncNotice();
       $('loginGate').classList.remove('hidden');
       $('loginError').textContent='雲端交易讀取失敗：'+err.message+'。請重新登入重試；本機資料未清除。';
