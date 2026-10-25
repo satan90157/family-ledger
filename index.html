@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>家計簿 v1.8.6.12.10-RC5｜家庭財務</title>
+  <title>家計簿 v1.8.6.12.9｜家庭財務</title>
   <meta name="theme-color" content="#111114">
   <style>
     :root{font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif;color:#1b312e;background:#f3f6f2;font-size:15px}*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}.shell{max-width:1180px;margin:auto;padding:22px 22px 90px}.header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:25px}.logo{font-size:23px;font-weight:800;letter-spacing:.04em}.logo small{display:block;font-size:12px;font-weight:500;color:#71827c;letter-spacing:.08em}.nav{display:flex;gap:8px;flex-wrap:wrap}.nav button,.pill{border:1px solid #d8e2dc;background:white;color:#36524b;border-radius:13px;padding:10px 15px}.nav button.active{background:#183d36;color:white;border-color:#183d36}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}h1{font-size:28px;margin:0 0 5px}h2{font-size:18px;margin:0 0 16px}p.muted,.muted{color:#71827c}.subtitle{font-size:13px;color:#71827c;margin:0}.button{border:0;border-radius:12px;background:#173e35;color:white;padding:11px 15px;font-weight:650;display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;min-height:43px;line-height:1.4;text-align:center}.button.light{background:#e5eee8;color:#285247}.button.warn{background:#fff0e9;color:#9a4a25}.button.ghost{background:white;color:#1b312e;border:1px solid #d4dfd8}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.card,.panel{background:white;border:1px solid #e0e9e3;border-radius:20px;padding:21px;box-shadow:0 6px 22px #1e47350a}.card .k{font-size:13px;color:#798980}.card .v{font-size:27px;font-weight:800;margin-top:12px;letter-spacing:-.03em}.card .note{font-size:12px;color:#89968e;margin-top:8px}.positive{color:#147a5c}.negative{color:#c36a42}.grid{display:grid;grid-template-columns:1.5fr 1fr;gap:16px;margin-top:16px}.panel{min-width:0}.bars{height:245px;display:flex;gap:12px;align-items:flex-end;padding:12px 0 24px;border-bottom:1px solid #e6ebe6}.bar-group{flex:1;min-width:0;text-align:center;display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:5px;position:relative}.bar-pair{display:flex;align-items:flex-end;justify-content:center;gap:5px;height:100%}.bar{width:min(27px,38%);border-radius:6px 6px 0 0;min-height:0;transition:height .2s}.bar.income{background:#3a9a7c}.bar.expense{background:#e5a079}.bar-label{font-size:11px;color:#819088;position:absolute;bottom:-26px;width:100%}.legend{display:flex;gap:15px;font-size:12px;color:#6b8075;margin-top:38px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}.category{display:flex;gap:13px;align-items:center;margin:12px 0}.category-name{width:75px;flex-shrink:0;font-size:13px}.track{height:11px;background:#eff2ee;border-radius:20px;flex:1;overflow:hidden}.fill{height:100%;background:#62a992;border-radius:20px}.category-value{font-size:13px;text-align:right;width:85px;font-variant-numeric:tabular-nums}.actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-bottom:16px}.backup-actions{display:flex;align-items:stretch;gap:10px;flex-wrap:wrap;margin-top:12px}.backup-actions>.button{flex:0 1 auto}.field{border:1px solid #d5e0d9;border-radius:11px;padding:10px 12px;background:#fff;min-width:0}.actions .field{max-width:180px}.tablewrap{overflow-x:auto}table{border-collapse:collapse;width:100%;text-align:left;white-space:nowrap}th{color:#84948a;font-size:12px;font-weight:550;background:#f7faf7}th,td{padding:13px 10px;border-bottom:1px solid #edf1ed}td{font-size:13px}td strong{font-size:14px}td small{display:block;color:#92a098;max-width:250px;text-overflow:ellipsis;overflow:hidden}.tag{background:#eff5ef;border-radius:8px;padding:5px 8px;color:#4a6e60;font-size:12px}.empty{text-align:center;color:#839389;padding:45px 10px}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.form-grid label{display:flex;flex-direction:column;gap:6px;color:#65786b;font-size:13px}.form-grid .field{width:100%}.full{grid-column:1/-1}.status{background:#eef7ee;color:#2a654e;border-radius:12px;padding:12px 15px;font-size:13px;line-height:1.5}.status.error{background:#fff0ea;color:#a14d2a}.section{display:none}.section.active{display:block}.month{display:flex;align-items:center;gap:8px}.month input{width:145px}.file-button{position:relative;overflow:hidden}.file-button input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}.help{font-size:13px;line-height:1.8;color:#6e8175;overflow-wrap:anywhere}.help code{background:#edf2ee;padding:2px 5px;border-radius:4px;overflow-wrap:anywhere}.row{display:flex;justify-content:space-between;gap:12px;align-items:center}.small{font-size:12px}.sync{font-size:12px;color:#789084}.tooltip{font-size:12px;color:#829289}.donut{height:140px;width:140px;border-radius:50%;background:conic-gradient(#dce8de 0 100%);position:relative;flex-shrink:0}.donut:after{content:"";position:absolute;inset:26px;border-radius:50%;background:white}.donut-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}.total{font-size:26px;font-weight:800}.mini{font-size:12px;color:#7e8f85}.footer{text-align:center;font-size:12px;color:#8a9b91;margin-top:34px}@media(max-width:800px){.shell{padding:15px 13px 80px}.header{display:block}.nav{margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:5px}.nav button{font-size:12px;padding:11px 3px}.cards{grid-template-columns:repeat(2,1fr);gap:9px}.card,.panel{padding:16px;border-radius:17px}.card .v{font-size:22px}.grid{grid-template-columns:1fr}.top{align-items:flex-start}h1{font-size:23px}.form-grid{grid-template-columns:1fr}.month input{width:135px}td,th{padding:11px 8px}.actions .field{max-width:none}.button{padding:11px 13px}}@media(max-width:500px){.backup-actions{flex-direction:column}.backup-actions>.button{width:100%}}
@@ -13,7 +13,6 @@
    .quick-edit-bar{display:flex;gap:9px;align-items:center;flex-wrap:wrap;padding:12px;margin-bottom:12px;background:#eef6f0;border-radius:12px}.quick-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,180px) minmax(0,180px) auto;gap:10px;align-items:center;padding:14px 6px;border-bottom:1px solid #e4eae4;min-width:0}.quick-row strong{overflow-wrap:anywhere}.quick-row small{display:block;color:#71827c;margin-top:5px;overflow-wrap:anywhere}.quick-row select{width:100%;min-width:0}.quick-row.changed{background:#fff9e9}.quick-details{grid-column:1/-1;color:#63786c;font-size:12px}.quick-details summary{cursor:pointer}.quick-details ul{padding-left:20px}@media(max-width:650px){.quick-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.quick-description,.quick-details{grid-column:1/-1}.quick-amount{text-align:right}.quick-row select{font-size:14px}}
  .version-chip{display:inline-block;vertical-align:middle;padding:5px 9px;margin-left:5px;border-radius:10px;background:#e2f2e7;color:#185c39;font-size:13px;font-weight:700;white-space:nowrap}.login-version{color:#395d49;font-size:13px;font-weight:600;text-align:left}
 .planning-family-group{border-bottom:1px solid #493e35;margin:8px 0}.planning-family-group>summary{cursor:pointer;padding:14px 6px;color:#FFE09A;font-weight:700;line-height:1.5}.planning-family-group>.planning-row{padding-left:12px}.planning-family-group>summary:hover{background:rgba(255,224,154,.05)}@media(max-width:600px){.planning-family-group>summary{font-size:14px;padding:12px 4px}.planning-family-group>.planning-row{padding-left:0}}
-[hidden]{display:none!important;}
 </style>
   <style>
     .annual-chart-scroll{overflow-x:auto;overscroll-behavior-x:contain;padding-bottom:5px}.annual-bars{display:flex;align-items:flex-end;height:270px;gap:10px;min-width:640px;border-bottom:1px solid #e6ebe6;padding:15px 8px 28px}.annual-bar-group{flex:1;min-width:0;position:relative;height:100%;display:flex;align-items:flex-end;justify-content:center;gap:4px}.annual-bar{width:38%;max-width:27px;border-radius:6px 6px 0 0;min-height:0}.annual-bar.income{background:#3a9a7c}.annual-bar.expense{background:#e5a079}.annual-bar-label{position:absolute;bottom:-26px;width:100%;text-align:center;color:#7c8c83;font-size:12px}.annual-comparison{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}.comparison-cell{background:#f6f9f6;border-radius:13px;padding:13px}.comparison-cell .value{font-weight:800;font-size:17px;margin-top:7px}.annual-month-table{width:100%;white-space:nowrap}.annual-month-table td,.annual-month-table th{font-variant-numeric:tabular-nums}.annual-month-table td:not(:first-child),.annual-month-table th:not(:first-child){text-align:right}@media(max-width:800px){.nav{grid-template-columns:repeat(5,minmax(0,1fr))}.annual-comparison{grid-template-columns:1fr}.annual-bars{min-width:580px}}
@@ -23,7 +22,7 @@
    .quick-edit-bar{display:flex;gap:9px;align-items:center;flex-wrap:wrap;padding:12px;margin-bottom:12px;background:#eef6f0;border-radius:12px}.quick-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,180px) minmax(0,180px) auto;gap:10px;align-items:center;padding:14px 6px;border-bottom:1px solid #e4eae4;min-width:0}.quick-row strong{overflow-wrap:anywhere}.quick-row small{display:block;color:#71827c;margin-top:5px;overflow-wrap:anywhere}.quick-row select{width:100%;min-width:0}.quick-row.changed{background:#fff9e9}.quick-details{grid-column:1/-1;color:#63786c;font-size:12px}.quick-details summary{cursor:pointer}.quick-details ul{padding-left:20px}@media(max-width:650px){.quick-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.quick-description,.quick-details{grid-column:1/-1}.quick-amount{text-align:right}.quick-row select{font-size:14px}}
 </style>
 <style>
-/* v1.8.6.12.10 — Obsidian & champagne gold, improved amount contrast */
+/* v1.8.6.12.9 — Obsidian & champagne gold, improved amount contrast */
 :root{color-scheme:dark;--bg:#111114;--surface:#1a1a20;--surface2:#222229;--stroke:#39363a;--fg:#f1ece2;--muted:#b0a99c;--gold:#d3b573;--gold2:#f0d8a1;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif!important;color:var(--fg)!important;background:var(--bg)!important}
 body{background:radial-gradient(ellipse at 88% 0%,#30291e 0,transparent 38%),var(--bg);color:var(--fg)}
 .shell{max-width:1200px}.logo{color:var(--gold2);letter-spacing:.03em}.logo small,.subtitle,.muted,p.muted,.card .k,.card .note,.mini,.tooltip,.sync,.footer,.help,.budget-muted,.quick-row small,.quick-details,.category-value small{color:var(--muted)!important}
@@ -44,130 +43,11 @@ th{background:#29262a;color:#c7b796}th,td{border-color:#3c3839}td small{color:#a
 </style>
 <style>
 .ai-review-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:12px;margin:15px 0}.ai-review-card{border:1px solid #5a4b38;border-radius:14px;padding:15px;background:#252327;min-width:0}.ai-review-header{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}.ai-three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:12px 0}.ai-three>div{display:flex;flex-direction:column;gap:5px;overflow-wrap:anywhere}.ai-review-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.ai-review-actions label{display:flex;flex-direction:column;gap:5px}.ai-review-actions select{width:100%}#aiStudio .actions{gap:10px}@media(max-width:650px){.ai-review-actions{grid-template-columns:1fr}.ai-three b{font-size:13px}.nav{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
-</style><style id="ui18610">:root{--money-default:#FFE09A;--money-negative:#FF8D83;--money-balance:#6EE7B7;--money-rate:#7DD3FC}.money-default{color:var(--money-default)!important}.money-negative,.money-expense{color:var(--money-negative)!important}.money-balance{color:var(--money-balance)!important}.money-rate{color:var(--money-rate)!important}#sumExpense,#annualExpense{color:var(--money-negative)!important}#sumRate,#annualRate{color:var(--money-rate)!important}#sumBalance.positive,#annualBalance.positive{color:var(--money-balance)!important}#sumBalance.negative,#annualBalance.negative{color:var(--money-negative)!important}.annual-total-row{background:#302a25!important;color:#f8e6bb;font-weight:800}.saving-short{background:#50302d!important}.saving-short td:first-child{border-left:3px solid var(--money-negative)}.trend-summary{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}.trend-summary span{border:1px solid #554b3d;border-radius:9px;padding:8px;color:#e7d4ac;font-size:12px}.sync-banner.sync-healthy{width:max-content;max-width:100%;padding:5px 10px!important;margin:0 0 8px auto!important;border-radius:18px;font-size:11px;background:transparent!important;border:1px solid #5a4a32!important;color:#d6bd87!important}.sync-banner.sync-healthy button{display:none}.annual-month-table{white-space:normal}.annual-month-table td{font-variant-numeric:tabular-nums}#aiReviewImportResults18610 .review-row{border-bottom:1px solid #50473e;padding:9px 0;overflow-wrap:anywhere}#auditItems .audit-entry{border-bottom:1px solid #50473e;padding:12px 0}button[title]{cursor:help}@media(max-width:650px){.annual-month-table{min-width:630px}.trend-summary span{width:calc(50% - 5px)}}</style><style id="ui18611">.planning-grid-head,.planning-row{display:grid;grid-template-columns:1.6fr 1fr 1fr auto;gap:12px;align-items:center}.planning-grid-head{font-size:12px;color:var(--muted);border-bottom:1px solid var(--border,#554936);padding:12px 4px}.planning-row{padding:13px 4px;border-bottom:1px solid #4a413a}.planning-row input{width:100%;min-width:0}.planning-fields{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:8px}.planning-fields label,.retire-controls label{font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:5px}.planning-mobile-label{display:none}.planning-new{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:9px;margin-top:15px}.planning-summary{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0}.planning-summary>div,.retire-cards>div{background:#252329;border:1px solid #514536;border-radius:12px;padding:13px;flex:1;min-width:140px}.retire-controls{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.retire-controls .field{width:100%}.retire-cards{display:flex;flex-wrap:wrap;gap:10px;margin:15px 0}.retire-chart svg{display:block;width:100%;height:auto;max-height:300px}.retire-chart{overflow:hidden}.planning-row details{grid-column:1/-1}.planning-row summary{cursor:pointer}.planning-row strong{overflow-wrap:anywhere}.planning-row .mini{display:block;overflow-wrap:anywhere}.budget-family-note{padding:12px;background:#302c28;border-radius:9px;color:#f0d39d}@media(max-width:720px){.planning-grid-head{display:none}.planning-row{display:flex;flex-direction:column;align-items:stretch;gap:9px;background:#242127;border:1px solid #4d433d;padding:13px;margin:10px 0;border-radius:13px}.planning-mobile-label{display:block;font-size:11px;color:var(--muted)}.planning-row .planning-fields{grid-template-columns:repeat(2,minmax(0,1fr))}.planning-new{grid-template-columns:1fr}.retire-controls{grid-template-columns:repeat(2,minmax(0,1fr))}.retire-cards>div{min-width:40%}.planning-row button{min-height:44px}.retire-chart{max-width:100%}}@media(max-width:380px){.retire-controls{grid-template-columns:1fr}}.annual-planning-chart{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:6px;align-items:end;height:220px;padding:16px 0 25px;border-bottom:1px solid #514536}.annual-planning-chart>div{height:100%;display:flex;gap:3px;align-items:end;justify-content:center;position:relative}.annual-planning-chart b{display:block;min-width:5px;width:30%;border-radius:5px 5px 0 0}.annual-planning-chart label{position:absolute;bottom:-23px;font-size:11px;color:#b9aa93}.planning-legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;margin-top:35px}.planning-legend span:before{content:'■ ';color:var(--gold2)}.planning-legend span:last-child:before{color:#FF8D83} .strategy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:10px 0}.strategy-grid label{display:flex;flex-direction:column;gap:6px;font-size:12px}.strategy-scale{align-self:center;font-size:12px;color:#cfbd9d}.planning-reason{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:5px 12px;color:#cdbd9e;font-size:11px;line-height:1.5}.planning-reason a{color:#7DD3FC}@media(max-width:650px){.strategy-grid{grid-template-columns:1fr}.planning-reason{display:block}.planning-reason span{display:block}.strategy-scale{word-break:break-word}} </style><script id="retirementEngineRC5">
-/* Family Ledger RC5: deterministic monthly retirement engine.
-   Currency is nominal TWD; real values are in purchasing power at baseMonth (2026-10).
-   No DOM/storage/network access. For browser and Node regression tests. */
-(function (root, factory) {
-  const api = factory();
-  if (typeof module !== 'undefined' && module.exports) module.exports = api;
-  if (root) root.LedgerRetirementEngine = api;
-})(typeof window !== 'undefined' ? window : null, function () {
-  'use strict';
-  const ymd = s => { const m=String(s||'').match(/^(\d{4})-(\d{2})(?:-(\d{2}))?$/);return m?{y:+m[1],m:+m[2],d:+(m[3]||1)}:null; };
-  const monthInt=s=>{const d=ymd(s);return d&&d.m>=1&&d.m<=12?d.y*12+d.m-1:NaN;};
-  const monthString=n=>`${Math.floor(n/12)}-${String(n%12+1).padStart(2,'0')}`;
-  const retireMonth=(birth,age)=>{const d=ymd(birth);return d?monthInt(`${d.y+age}-${String(d.m).padStart(2,'0')}`):NaN;};
-  const num=(v,fallback=0)=>Number.isFinite(Number(v))&&v!==''&&v!==null&&v!==undefined?Number(v):fallback;
-  const safe=n=>Math.max(0,num(n));
-  function normalize(p,month){
-    const age=safe(p.age||0),birth=p.birthDate||`${Math.floor(month/12-age)}-${String(month%12+1).padStart(2,'0')}-01`;
-    const retire=retireMonth(birth,num(p.retireAge,65)),horizon=retireMonth(birth,num(p.horizon,95));
-    return {...p,birthDate:birth,retireMonth:retire,horizonMonth:horizon,ageStart:Math.max(0,(month-monthInt(birth))/12),
-      monthly:safe(p.monthly),principal:safe(p.principal),salary:safe(p.salary),salaryGrowth:num(p.salaryGrowth,0),annualReturn:num(p.annualReturn,6),
-      annualBonusNet:safe(p.annualBonusNet),laborRetireBalance:safe(p.laborRetireBalance),laborRetireWage:safe(p.laborRetireWage),
-      laborEmployerPct:safe(p.laborEmployerPct??6),laborFundReturn:num(p.laborFundReturn,2),publicFundBalance:safe(p.publicFundBalance),
-      publicPensionBase:safe(p.publicPensionBase),publicFundReturn:num(p.publicFundReturn,2),publicContributionPct:safe(p.publicContributionPct??15),
-      publicEmployerShare:num(p.publicEmployerShare,65),laborInsuranceYears:p.laborInsuranceYears===null||p.laborInsuranceYears===undefined?null:safe(p.laborInsuranceYears),
-      insuredWage:safe(p.insuredWage),formalSwitchMonth:p.formalSwitchDate?monthInt(p.formalSwitchDate):Infinity,
-      employmentType:p.employmentType||'private',retireFundsUnlockAge:num(p.retireFundsUnlockAge,65),
-      passive:safe(p.passive),pension:safe(p.pension),pensionAge:num(p.pensionAge,65)};
-  }
-  function laborPension(wage,years){if(!Number.isFinite(years)||years<15||!wage)return 0;
-    return Math.max(wage*years*.00775+3000,wage*years*.0155);
-  }
-  function run(args){
-    const start=monthInt(args.asOf||'2026-10'),base=monthInt(args.baseMonth||'2026-10');
-    if(!Number.isFinite(start)||!Number.isFinite(base)||base>start)throw Error('試算起點與購買力基準月份不合法');
-    const p=(args.people||[]).map(x=>normalize(x,start));if(p.length!==2)throw Error('需要兩人的退休資料');
-    const inflation=Math.max(0,num(args.inflationRate,2)+num(args.inflationStress,0))/100;
-    const target=safe(args.householdGoalReal||20000000),pct=num(args.allocationMePct,50);
-    if(pct<0||pct>100)throw Error('退休目標分配比例錯誤');
-    const end=Math.max(...p.map(x=>x.horizonMonth),...p.map(x=>x.retireMonth));
-    if(end-start>1200||end<start)throw Error('退休期間不合理');
-    let investments=p.map(x=>x.principal),labor=p.map(x=>x.laborRetireBalance),publicFunds=p.map(x=>x.publicFundBalance);
-    let reserve=0,shortfall=0,firstExhaustMonth=null,firstRetirement=null,afterBoth=null;
-    const laborYears=p.map(x=>x.laborInsuranceYears);const timeline=[],points=[];
-    for(let month=start;month<=end;month++){
-      const t=month-start,year=t/12,ix=month-base,price=Math.pow(1+inflation,ix/12);
-      let payroll=0,pensionCash=0,policyCash=0,contrib=0,bonus=0,expense=0,employerDeposit=0,publicSelfDeduct=0;
-      const live=p.map((x,i)=>month<x.retireMonth);
-      const eligible=p.map((x,i)=>month>=x.retireMonth),ages=p.map(x=>Math.max(0,(month-monthInt(x.birthDate))/12));
-      if(t){
-        for(let i=0;i<2;i++){
-          investments[i]*=Math.pow(1+Math.max(-.99,p[i].annualReturn/100+num(args.returnDelta,0)/100-num(args.returnStress,0)/100),1/12);
-          labor[i]*=Math.pow(1+Math.max(-.99,p[i].laborFundReturn/100),1/12);
-          publicFunds[i]*=Math.pow(1+Math.max(-.99,p[i].publicFundReturn/100),1/12);
-        }
-      }
-      const laborMonthlyBenefit=p.map((x,i)=>month>=retireMonth(x.birthDate,65)&&laborYears[i]!==null?laborPension(x.insuredWage,laborYears[i]):0);
-      // Keep restricted retirement accounts distinct until their configured unlock month;
-      // this is an availability scenario, not a legal guarantee of lump-sum payment.
-      for(let i=0;i<2;i++)if(month===retireMonth(p[i].birthDate,p[i].retireFundsUnlockAge)){
-        reserve+=labor[i]+publicFunds[i];labor[i]=0;publicFunds[i]=0;
-      }
-      for(let i=0;i<2;i++){
-        const x=p[i],formal=x.employmentType==='public'||(month>=x.formalSwitchMonth&&x.employmentType==='proxy'),working=live[i];
-        if(working){
-          let s=x.salary*Math.pow(1+x.salaryGrowth/100,year);
-          // Proxy -> public school formal teacher is a scenario, not a confirmed appointment.
-          // The current proxy take-home is used as a provisional net salary until a formal salary is provided.
-          if(formal&&x.formalNetSalary>0)s=x.formalNetSalary*Math.pow(1+x.salaryGrowth/100,year);
-          if(formal&&!(x.formalNetSalary>0))s=Math.max(0,s-x.publicPensionBase*2*x.publicContributionPct/100*(1-x.publicEmployerShare/100));
-          payroll+=s;
-          contrib+=x.monthly;
-          investments[i]+=x.monthly; // transfer from cash, not additional total wealth
-          if(formal){
-            const total=x.publicPensionBase*2*x.publicContributionPct/100;
-            publicFunds[i]+=total;
-            publicSelfDeduct+=total*(1-x.publicEmployerShare/100);
-            employerDeposit+=total*x.publicEmployerShare/100;
-          }else{
-            const dep=x.laborRetireWage*x.laborEmployerPct/100;
-            labor[i]+=dep;employerDeposit+=dep;
-            if(laborYears[i]!==null)laborYears[i]+=1/12;
-          }
-        }
-        // Independent insurance benefits; do not also capitalise future pension payments as assets.
-        pensionCash+=ages[i]>=x.pensionAge&&x.pension>0?x.pension:laborMonthlyBenefit[i]; // manual pension OVERRIDES auto labor estimate, never adds twice
-        policyCash+=x.passive;
-        if(working&&month%12===11&&Math.floor(month/12)>Math.floor(start/12))bonus+=x.annualBonusNet;
-      }
-      expense=safe(args.livingToday??60000)*price;
-      const available=payroll+bonus+pensionCash+policyCash-expense-contrib;
-      reserve+=available;
-      if(reserve<0){let due=-reserve;reserve=0;for(let i=0;i<2;i++){const take=Math.min(investments[i],due);investments[i]-=take;due-=take;}
-        if(due>0){shortfall+=due;if(firstExhaustMonth===null)firstExhaustMonth=month;}}
-      const liquid=investments.reduce((z,v)=>z+v,0)+reserve;
-      const restricted=labor.reduce((z,v)=>z+v,0)+publicFunds.reduce((z,v)=>z+v,0);
-      const wealth=liquid+restricted;
-      const goal=target*price,real=wealth/price;
-      const row={month:t,calendarMonth:monthString(month),calendarYear:Math.floor(month/12),ageM:ages[0],ageW:ages[1],investments:[...investments],
-        cashReserve:reserve,sharedInvestment:0,laborFunds:[...labor],publicFunds:[...publicFunds],asset:wealth,liquid,restricted,
-        goalNominal:goal,goalReal:target,real,short:Math.max(0,goal-wealth),salary:payroll,bonus,pension:pensionCash,expense,policy:policyCash,
-        employerDeposit,publicSelfDeduct,monthlyTransfers:contrib,working:[...live],shortfall};
-      timeline.push(row);
-      if(!firstRetirement&&!live[0])firstRetirement={...row,assets:wealth,cashNonWork:pensionCash+policyCash};
-      if(!afterBoth&&!live[0]&&!live[1])afterBoth={...row,assets:wealth,cashNonWork:pensionCash+policyCash};
-      if(t%12===0||month===end)points.push({age:ages[0],asset:wealth,expense,work:payroll,passive:pensionCash+policyCash,short:shortfall});
-    }
-    const checkpoint=(who)=>{const idx=Math.max(0,Math.min(timeline.length-1,p[who].retireMonth-start)),row=timeline[idx];
-      return {...row,retirementDate:monthString(p[who].retireMonth),met:row.asset>=row.goalNominal,realGap:Math.max(0,row.goalReal-row.real)};};
-    const atMe=checkpoint(0),atWife=checkpoint(1),last=timeline.at(-1);
-    return {timeline,points,people:p,inflation,firstRetirement,afterBoth,passiveNow:timeline[0].pension+timeline[0].policy,
-      totalShort:shortfall,ending:last.asset,initial:timeline[0].asset,medical:safe(args.medicalToday??2000000)*Math.pow(1+inflation,(p[0].retireMonth-base)/12),
-      income:p.map(x=>x.salary),checkpoints:{me:atMe,wife:atWife},goalReal:target,asOf:monthString(start),baseMonth:monthString(base),
-      firstExhaustMonth:firstExhaustMonth===null?null:monthString(firstExhaustMonth),missingInsurance:p.map((x,i)=>x.laborInsuranceYears===null?(i?'wife':'me'):null).filter(Boolean),
-      formalSalaryProvisional:p.some(x=>x.employmentType==='proxy'&&Number.isFinite(x.formalSwitchMonth)&&!(x.formalNetSalary>0))};
-  }
-  return Object.freeze({run,laborPension,monthInt,monthString,retireMonth});
-});
-
-</script></head>
+</style><style id="ui18610">:root{--money-default:#FFE09A;--money-negative:#FF8D83;--money-balance:#6EE7B7;--money-rate:#7DD3FC}.money-default{color:var(--money-default)!important}.money-negative,.money-expense{color:var(--money-negative)!important}.money-balance{color:var(--money-balance)!important}.money-rate{color:var(--money-rate)!important}#sumExpense,#annualExpense{color:var(--money-negative)!important}#sumRate,#annualRate{color:var(--money-rate)!important}#sumBalance.positive,#annualBalance.positive{color:var(--money-balance)!important}#sumBalance.negative,#annualBalance.negative{color:var(--money-negative)!important}.annual-total-row{background:#302a25!important;color:#f8e6bb;font-weight:800}.saving-short{background:#50302d!important}.saving-short td:first-child{border-left:3px solid var(--money-negative)}.trend-summary{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}.trend-summary span{border:1px solid #554b3d;border-radius:9px;padding:8px;color:#e7d4ac;font-size:12px}.sync-banner.sync-healthy{width:max-content;max-width:100%;padding:5px 10px!important;margin:0 0 8px auto!important;border-radius:18px;font-size:11px;background:transparent!important;border:1px solid #5a4a32!important;color:#d6bd87!important}.sync-banner.sync-healthy button{display:none}.annual-month-table{white-space:normal}.annual-month-table td{font-variant-numeric:tabular-nums}#aiReviewImportResults18610 .review-row{border-bottom:1px solid #50473e;padding:9px 0;overflow-wrap:anywhere}#auditItems .audit-entry{border-bottom:1px solid #50473e;padding:12px 0}button[title]{cursor:help}@media(max-width:650px){.annual-month-table{min-width:630px}.trend-summary span{width:calc(50% - 5px)}}</style><style id="ui18611">.planning-grid-head,.planning-row{display:grid;grid-template-columns:1.6fr 1fr 1fr auto;gap:12px;align-items:center}.planning-grid-head{font-size:12px;color:var(--muted);border-bottom:1px solid var(--border,#554936);padding:12px 4px}.planning-row{padding:13px 4px;border-bottom:1px solid #4a413a}.planning-row input{width:100%;min-width:0}.planning-fields{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:8px}.planning-fields label,.retire-controls label{font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:5px}.planning-mobile-label{display:none}.planning-new{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:9px;margin-top:15px}.planning-summary{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0}.planning-summary>div,.retire-cards>div{background:#252329;border:1px solid #514536;border-radius:12px;padding:13px;flex:1;min-width:140px}.retire-controls{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.retire-controls .field{width:100%}.retire-cards{display:flex;flex-wrap:wrap;gap:10px;margin:15px 0}.retire-chart svg{display:block;width:100%;height:auto;max-height:300px}.retire-chart{overflow:hidden}.planning-row details{grid-column:1/-1}.planning-row summary{cursor:pointer}.planning-row strong{overflow-wrap:anywhere}.planning-row .mini{display:block;overflow-wrap:anywhere}.budget-family-note{padding:12px;background:#302c28;border-radius:9px;color:#f0d39d}@media(max-width:720px){.planning-grid-head{display:none}.planning-row{display:flex;flex-direction:column;align-items:stretch;gap:9px;background:#242127;border:1px solid #4d433d;padding:13px;margin:10px 0;border-radius:13px}.planning-mobile-label{display:block;font-size:11px;color:var(--muted)}.planning-row .planning-fields{grid-template-columns:repeat(2,minmax(0,1fr))}.planning-new{grid-template-columns:1fr}.retire-controls{grid-template-columns:repeat(2,minmax(0,1fr))}.retire-cards>div{min-width:40%}.planning-row button{min-height:44px}.retire-chart{max-width:100%}}@media(max-width:380px){.retire-controls{grid-template-columns:1fr}}.annual-planning-chart{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:6px;align-items:end;height:220px;padding:16px 0 25px;border-bottom:1px solid #514536}.annual-planning-chart>div{height:100%;display:flex;gap:3px;align-items:end;justify-content:center;position:relative}.annual-planning-chart b{display:block;min-width:5px;width:30%;border-radius:5px 5px 0 0}.annual-planning-chart label{position:absolute;bottom:-23px;font-size:11px;color:#b9aa93}.planning-legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;margin-top:35px}.planning-legend span:before{content:'■ ';color:var(--gold2)}.planning-legend span:last-child:before{color:#FF8D83} .strategy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:10px 0}.strategy-grid label{display:flex;flex-direction:column;gap:6px;font-size:12px}.strategy-scale{align-self:center;font-size:12px;color:#cfbd9d}.planning-reason{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:5px 12px;color:#cdbd9e;font-size:11px;line-height:1.5}.planning-reason a{color:#7DD3FC}@media(max-width:650px){.strategy-grid{grid-template-columns:1fr}.planning-reason{display:block}.planning-reason span{display:block}.strategy-scale{word-break:break-word}} </style></head>
 <body>
-<div id="loginGate"><form class="login-panel" id="loginForm"><h1>家庭記帳 · 登入 <span class="version-chip">v1.8.6.12.10-RC5</span></h1><p class="subtitle">使用個人帳號登入；所有更動會留下操作紀錄。</p><p class="login-version" aria-label="目前前端版本">前端版本 v1.8.6.12.10-RC5｜退休整合測試候選</p><label for="loginUrl">Apps Script 網址（首次設定）</label><input class="field" type="url" id="loginUrl" placeholder="https://script.google.com/macros/s/.../exec" required><label for="loginUser">使用者</label><select class="field" id="loginUser"><option value="me">承瑋</option><option value="wife">俐穎</option></select><label for="loginPassword">密碼</label><input class="field" id="loginPassword" type="password" autocomplete="current-password" required><button class="button" id="loginButton" type="submit">登入</button><p id="loginError" role="alert"></p></form></div>
+<div id="loginGate"><form class="login-panel" id="loginForm"><h1>家庭記帳 · 登入 <span class="version-chip">v1.8.7.1</span></h1><p class="subtitle">使用個人帳號登入；所有更動會留下操作紀錄。</p><p class="login-version" aria-label="目前前端版本">前端版本 v1.8.7.1｜以 v1.8.6.12.9 為基底</p><label for="loginUrl">Apps Script 網址（首次設定）</label><input class="field" type="url" id="loginUrl" name="ledgerApiUrl" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://script.google.com/macros/s/.../exec" required><input type="text" id="loginUsernameHint" name="username" autocomplete="username" value="me" hidden aria-hidden="true" tabindex="-1"><label for="loginUser">使用者</label><select class="field" id="loginUser" onchange="document.getElementById('loginUsernameHint').value=this.value"><option value="me">承瑋</option><option value="wife">俐穎</option></select><label for="loginPassword">密碼</label><input class="field" id="loginPassword" type="password" autocomplete="current-password" required><button class="button" id="loginButton" type="submit">登入</button><p id="loginError" role="alert"></p></form></div>
 <main class="shell">
-  <header class="header"><div class="logo">家計簿 <span style="color:#d3b573">◈</span><small>OUR FAMILY FINANCE · v1.8.6.12.10-RC5</small></div><nav class="nav" aria-label="主要頁面"><button data-tab="dashboard" class="active">總覽</button><button data-tab="annual">年度統計</button><button data-tab="records">收支明細</button><button data-tab="aiStudio">✦ AI 智慧整理</button><button data-tab="add">新增記帳</button><button data-tab="settings">同步設定</button></nav></header>
+  <header class="header"><div class="logo">家計簿 <span style="color:#d3b573">◈</span><small>OUR FAMILY FINANCE · v1.8.7.1</small></div><nav class="nav" aria-label="主要頁面"><button data-tab="dashboard" class="active">總覽</button><button data-tab="annual">年度統計</button><button data-tab="records">收支明細</button><button data-tab="aiStudio">✦ AI 智慧整理</button><button data-tab="add">新增記帳</button><button data-tab="settings">同步設定</button></nav></header>
   <div id="syncBanner" class="sync-banner pending" role="status" aria-live="polite"><span id="syncBannerText">正在檢查雲端同步狀態…</span><button id="syncBannerRetry" class="button light" type="button" hidden>重試同步</button></div>
   <div id="conflictPanel" class="panel" style="margin-bottom:16px;display:none"><h2>跨裝置資料衝突</h2><p class="help">同一張發票在電腦與手機被修改時，不會自動覆蓋。請先備份，再檢視兩邊內容並逐筆決定；不同分類名稱也可雙向保留。採用本機版本時會經過 Google Sheets 版本檢查，並留下修改紀錄。</p><div id="conflictItems" class="help"></div><div class="actions"><button id="conflictBackup" class="button light" type="button">① 下載本機 JSON 備份</button><button id="conflictUseCloud" class="button light" type="button" disabled>② 雙向合併自訂分類</button><button id="conflictReview" class="button light" type="button" disabled>③ 比較交易差異</button><button id="conflictApply" class="button" type="button" style="display:none">④ 套用逐筆選擇</button></div><p id="conflictMessage" class="mini" role="status" aria-live="polite"></p></div>
   <section id="dashboard" class="section active"><div class="top"><div><h1>家庭財務總覽</h1><p class="subtitle">讓每一筆收支都有跡可循</p></div><div class="month"><button class="pill" id="prevMonth" aria-label="上個月">‹</button><input aria-label="統計月份" class="field" id="month" type="month"><button class="pill" id="nextMonth" aria-label="下個月">›</button></div><label class="month">統計歸屬 <select id="dashboardOwnerStats" class="field"><option value="all">家庭全部</option><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select></label></div>
@@ -178,70 +58,40 @@ th{background:#29262a;color:#c7b796}th,td{border-color:#3c3839}td small{color:#a
   <section id="annual" class="section"><div class="top"><div><h1>年度財務統計</h1><p class="subtitle">檢視全年現金流、每月變化與前一年比較</p></div><label class="month">統計年度 <select id="annualYear" class="field" aria-label="統計年度"></select></label><label class="month">統計歸屬 <select id="annualOwner" class="field"><option value="all">家庭全部</option><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select></label></div>
     <div class="cards"><div class="card"><div class="k">全年收入</div><div class="v positive" id="annualIncome">$0</div><div class="note">本年度所有收入</div></div><div class="card"><div class="k">全年支出</div><div class="v" id="annualExpense">$0</div><div class="note" id="annualExpenseCount">0 筆支出</div></div><div class="card"><div class="k">全年結餘</div><div class="v" id="annualBalance">$0</div><div class="note">收入 − 支出</div></div><div class="card"><div class="k">全年儲蓄率</div><div class="v" id="annualRate">—</div><div class="note">結餘 ÷ 收入</div></div></div>
     <div class="panel" style="margin-top:16px"><h2>與前一年比較</h2><div id="annualCompare" class="annual-comparison"></div><p class="mini" id="annualCompareNote"></p><p class="help">注意：統計僅包含已記錄的收支。若沒有匯入所有月份，全年金額與年增率都不是完整年度的實際結果。</p></div>
-    <div class="grid"><div class="panel"><div class="row"><h2>12 個月收支趨勢</h2><span class="mini">左右可滑動</span></div><div class="annual-chart-scroll"><div class="annual-bars" id="annualTrend" role="img" aria-label="全年每月收入與支出圖"></div></div><div class="legend"><span><i class="dot" style="background:#FFE09A"></i>收入</span><span><i class="dot" style="background:#FF8D83"></i>支出</span></div><div id="annualTrendSummarySecondary" class="trend-summary" aria-live="polite"></div></div><div class="panel"><div class="row"><h2 id="annualCategoryTitle">全年支出分類</h2><select id="annualCategoryMode" class="field" aria-label="全年分類切換"><option value="expense">支出</option><option value="income">收入</option></select></div><div id="annualCategories"></div></div></div>
+    <div class="grid"><div class="panel"><div class="row"><h2>12 個月收支趨勢</h2><span class="mini">左右可滑動</span></div><div class="annual-chart-scroll"><div class="annual-bars" id="annualTrend" role="img" aria-label="全年每月收入與支出圖"></div></div><div class="legend"><span><i class="dot" style="background:#FFE09A"></i>收入</span><span><i class="dot" style="background:#FF8D83"></i>支出</span></div><div id="annualTrendSummary" class="trend-summary" aria-live="polite"></div></div><div class="panel"><div class="row"><h2 id="annualCategoryTitle">全年支出分類</h2><select id="annualCategoryMode" class="field" aria-label="全年分類切換"><option value="expense">支出</option><option value="income">收入</option></select></div><div id="annualCategories"></div></div></div>
     <div class="panel" style="margin-top:16px"><h2>每月收支明細</h2><div class="tablewrap"><table class="annual-month-table"><thead><tr><th>月份</th><th>收入</th><th>支出</th><th>結餘</th><th>儲蓄目標／狀態</th></tr></thead><tbody id="annualMonthlyRows"></tbody><tfoot id="annualMonthlyTotal"></tfoot></table></div></div>
 <div class="panel" style="margin-top:16px"><h2>年度預算 vs 實際支出</h2><div id="annualBudgetComparison"></div><p class="budget-muted">按年度／歸屬比對；未設定的月份不假設有預算。年度預留款不重複計入已支付費用。</p></div>  </section>
-  <section id="records" class="section"><div class="top"><div><h1>收支明細</h1><p class="subtitle">可編輯分類與歸屬，重複發票會自動略過</p></div><div class="actions"><label>這份 CSV 歸屬 <select id="importOwner" class="field"><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select></label><label>匯入方式 <select class="field" id="monthlyImportMode"><option value="rules">原有分類規則（直接匯入）</option><option value="ai">AI 離線建議（暫不入帳）</option></select></label><label class="button file-button">匯入 Invoice CSV <input id="csvImport" type="file" accept=".csv,text/csv"></label></div></div><div class="actions"><label>載入年度 <select id="loadYear" class="field"></select></label><button class="button ghost" id="loadYearButton">讀取該年資料</button><span class="mini" id="loadedYears">尚未載入年度</span></div><div class="actions"><input id="search" class="field" placeholder="搜尋店家、品項、備註"><select id="typeFilter" class="field"><option value="all">全部收支</option><option value="expense">僅支出</option><option value="income">僅收入</option></select><select id="monthFilter" class="field"><option value="all">所有月份</option></select><select id="categoryFilter" class="field"><option value="all">所有分類</option></select><select id="ownerFilter" class="field"><option value="all">家庭全部</option><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select><button class="button ghost" id="exportCsv">匯出備份 CSV</button></div><div class="actions" style="margin:8px 0"><button class="button ghost" id="manualTrashToggle" type="button">手動交易回收區</button></div><div id="manualTrash" class="panel" hidden></div><div id="quickEditBar" class="quick-edit-bar"><strong id="quickEditCount">目前 0 筆未儲存</strong><button id="quickEditSave" class="button" type="button" disabled>儲存全部修改</button><button id="quickEditDiscard" class="button ghost" type="button" disabled>復原全部</button><span class="mini" id="quickEditMessage">修改先暫存在這台裝置，按儲存才會更新雲端。</span></div><p class="mini" id="recordCount"></p><div class="panel"><div id="recordList"></div></div><div class="panel" style="margin-top:14px"><h2>批次調整歸屬</h2><p class="help">將上方目前篩選出的紀錄改為指定歸屬，適合處理舊版匯入的發票。請先確認篩選筆數。</p><div class="actions"><select id="bulkOwner" class="field"><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select><button id="applyBulkOwner" class="button ghost">套用至目前篩選結果</button></div></div><p class="help" id="importMessage"></p></section>
-<section id="aiStudio" class="section"><div class="top"><div><h1>✦ AI 智慧整理</h1><p class="subtitle">離線分析 → 自動雲端比對 → 人工審核 → 安全備份與受控發布。</p></div></div><div class="panel" style="margin:14px 0"><h2>AI 歷史整理｜安全匯出（v1.8.6.12.10）</h2><p class="help">從正式雲端逐年度讀取資料，下載單一 ZIP（內含完整交易 CSV 與原始基準 JSON）；不會修改雲端資料。請將兩份檔案妥善保管。CSV 供 AI 建議分類，JSON 作為往後驗證修改的基準。</p><div class="actions"><button class="button" id="aiExportV1865" type="button">匯出全部年度供 AI 整理（ZIP）</button></div><p id="aiExportStatusV1865" class="help" role="status" aria-live="polite">尚未匯出（可點按按鈕開始）。</p></div><div class="panel" id="aiReviewImport18610" style="margin:14px 0"><h2>匯入已審核的 AI-REVIEW.json</h2><p class="help">選取「AI 智慧整理 → 人工審核工作區 → 下載人工審核決策 JSON」產生的檔案，系統立即讀取 2025/2026 等相關年度最新雲端交易並比較分類。只有已審核變更才可發布。若沒有衝突，可在比對後確認執行後端備份與發布。</p><label class="button file-button">選擇 AI-REVIEW.json <input id="aiReviewImportFile18610" type="file" accept=".json,application/json"></label><div id="aiReviewImportStatus18610" class="help" role="status">尚未選擇檔案。</div><div id="aiReviewImportResults18610"></div><div class="actions"><button class="button" id="aiPublishButton18610" type="button" hidden>確認備份並套用已審核分類</button></div></div><div class="panel" style="margin:14px 0" id="aiReviewV1868"><h2>AI 分類建議｜安全比對預覽（v1.8.6.12.10）</h2><p class="help">先選原始匯出基準 JSON，再選 AI 逐筆分類建議 CSV。僅檢查資料及讀取最新雲端；不會寫入任何交易或建立分類。請勿把 AI 統計 JSON 誤當匯出基準。</p><div class="actions"><label>原始基準 JSON <input class="field" id="aiBaselineV1868" type="file" accept=".json,application/json"></label><label>分類建議 CSV <input class="field" id="aiSuggestionV1868" type="file" accept=".csv,text/csv"></label><button class="button" type="button" id="aiPreviewV1868">驗證並與雲端比對</button></div><p class="help" id="aiPreviewStatusV1868" role="status" aria-live="polite">尚未驗證。</p><div id="aiPreviewResultV1868"></div></div><div class="panel" id="aiReviewEditor" style="margin:14px 0" hidden><h2>人工審核工作區</h2><p class="help">選擇接受、保留、待確認或自行指定分類；決策先保存在本機及下載檔案；需另外匯入 AI-REVIEW 才會出現受控發布確認。期間雲端衝突一律不能自動套用。</p><div class="actions"><label>查看 <select id="aiReviewFilter" class="field"><option value="changes">建議修改</option><option value="pending">待人工確認</option><option value="unchanged">維持原分類</option><option value="conflicts">雲端衝突／異常</option><option value="all">全部</option></select></label><input id="aiReviewSearch" class="field" placeholder="搜尋店家／商品／交易ID" aria-label="搜尋 AI 審核交易"><label>每頁 <select id="aiReviewPageSize" class="field"><option value="30">30</option><option value="60">60</option></select></label></div><div id="aiReviewStats" class="help"></div><div id="aiReviewCards" class="ai-review-grid"></div><div class="actions"><button id="aiReviewPrev" class="button ghost" type="button">上一頁</button><span id="aiReviewPageInfo" class="mini"></span><button id="aiReviewNext" class="button ghost" type="button">下一頁</button></div><div class="actions"><button class="button" id="aiReviewExportDecision" type="button">下載人工審核決策 JSON</button><button class="button ghost" id="aiReviewExportCsv" type="button">下載實際分類變更 CSV</button><button class="button ghost" id="aiReviewClear" type="button">清除此份審核草稿</button></div><p class="help" id="aiReviewEditorStatus" role="status" aria-live="polite">尚未審核。</p></div></section>
+  <section id="records" class="section"><div class="top"><div><h1>收支明細</h1><p class="subtitle">可編輯分類與歸屬，重複發票會自動略過</p></div><div class="actions"><label>這份 CSV 歸屬 <select id="importOwner" class="field"><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select></label><label>匯入方式 <select class="field" id="monthlyImportMode"><option value="rules">原有分類規則（直接匯入）</option><option value="ai">AI 離線建議（暫不入帳）</option></select></label><label class="button file-button">匯入 Invoice CSV <input id="csvImport" type="file" accept=".csv,text/csv"></label></div></div><div class="actions"><label>載入年度 <select id="loadYear" class="field"></select></label><button class="button ghost" id="loadYearButton">讀取該年資料</button><span class="mini" id="loadedYears">尚未載入年度</span></div><div class="actions"><input id="search" class="field" type="search" name="ledgerTransactionKeywords" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="搜尋店家、品項、備註"><select id="typeFilter" class="field"><option value="all">全部收支</option><option value="expense">僅支出</option><option value="income">僅收入</option></select><select id="monthFilter" class="field"><option value="all">所有月份</option></select><select id="categoryFilter" class="field"><option value="all">所有分類</option></select><select id="ownerFilter" class="field"><option value="all">家庭全部</option><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select><button class="button ghost" id="exportCsv">匯出備份 CSV</button></div><div class="actions" style="margin:8px 0"><button class="button ghost" id="manualTrashToggle" type="button">手動交易回收區</button></div><div id="manualTrash" class="panel" hidden></div><div id="quickEditBar" class="quick-edit-bar"><strong id="quickEditCount">目前 0 筆未儲存</strong><button id="quickEditSave" class="button" type="button" disabled>儲存全部修改</button><button id="quickEditDiscard" class="button ghost" type="button" disabled>復原全部</button><span class="mini" id="quickEditMessage">修改先暫存在這台裝置，按儲存才會更新雲端。</span></div><p class="mini" id="recordCount"></p><div class="panel"><div id="recordList"></div></div><div class="panel" style="margin-top:14px"><h2>批次調整歸屬</h2><p class="help">將上方目前篩選出的紀錄改為指定歸屬，適合處理舊版匯入的發票。請先確認篩選筆數。</p><div class="actions"><select id="bulkOwner" class="field"><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select><button id="applyBulkOwner" class="button ghost">套用至目前篩選結果</button></div></div><p class="help" id="importMessage"></p></section>
+<section id="aiStudio" class="section"><div class="top"><div><h1>✦ AI 智慧整理</h1><p class="subtitle">離線分析 → 自動雲端比對 → 人工審核 → 安全備份與受控發布。</p></div></div><div class="panel" style="margin:14px 0"><h2>AI 歷史整理｜安全匯出（v1.8.6.12.9）</h2><p class="help">從正式雲端逐年度讀取資料，下載單一 ZIP（內含完整交易 CSV 與原始基準 JSON）；不會修改雲端資料。請將兩份檔案妥善保管。CSV 供 AI 建議分類，JSON 作為往後驗證修改的基準。</p><div class="actions"><button class="button" id="aiExportV1865" type="button">匯出全部年度供 AI 整理（ZIP）</button></div><p id="aiExportStatusV1865" class="help" role="status" aria-live="polite">尚未匯出（可點按按鈕開始）。</p></div><div class="panel" id="aiReviewImport18610" style="margin:14px 0"><h2>匯入已審核的 AI-REVIEW.json</h2><p class="help">選取「AI 智慧整理 → 人工審核工作區 → 下載人工審核決策 JSON」產生的檔案，系統立即讀取 2025/2026 等相關年度最新雲端交易並比較分類。只有已審核變更才可發布。若沒有衝突，可在比對後確認執行後端備份與發布。</p><label class="button file-button">選擇 AI-REVIEW.json <input id="aiReviewImportFile18610" type="file" accept=".json,application/json"></label><div id="aiReviewImportStatus18610" class="help" role="status">尚未選擇檔案。</div><div id="aiReviewImportResults18610"></div><div class="actions"><button class="button" id="aiPublishButton18610" type="button" hidden>確認備份並套用已審核分類</button></div></div><div class="panel" style="margin:14px 0" id="aiReviewV1868"><h2>AI 分類建議｜安全比對預覽（v1.8.6.12.9）</h2><p class="help">先選原始匯出基準 JSON，再選 AI 逐筆分類建議 CSV。僅檢查資料及讀取最新雲端；不會寫入任何交易或建立分類。請勿把 AI 統計 JSON 誤當匯出基準。</p><div class="actions"><label>原始基準 JSON <input class="field" id="aiBaselineV1868" type="file" accept=".json,application/json"></label><label>分類建議 CSV <input class="field" id="aiSuggestionV1868" type="file" accept=".csv,text/csv"></label><button class="button" type="button" id="aiPreviewV1868">驗證並與雲端比對</button></div><p class="help" id="aiPreviewStatusV1868" role="status" aria-live="polite">尚未驗證。</p><div id="aiPreviewResultV1868"></div></div><div class="panel" id="aiReviewEditor" style="margin:14px 0" hidden><h2>人工審核工作區</h2><p class="help">選擇接受、保留、待確認或自行指定分類；決策先保存在本機及下載檔案；需另外匯入 AI-REVIEW 才會出現受控發布確認。期間雲端衝突一律不能自動套用。</p><div class="actions"><label>查看 <select id="aiReviewFilter" class="field"><option value="changes">建議修改</option><option value="pending">待人工確認</option><option value="unchanged">維持原分類</option><option value="conflicts">雲端衝突／異常</option><option value="all">全部</option></select></label><input id="aiReviewSearch" class="field" placeholder="搜尋店家／商品／交易ID" aria-label="搜尋 AI 審核交易"><label>每頁 <select id="aiReviewPageSize" class="field"><option value="30">30</option><option value="60">60</option></select></label></div><div id="aiReviewStats" class="help"></div><div id="aiReviewCards" class="ai-review-grid"></div><div class="actions"><button id="aiReviewPrev" class="button ghost" type="button">上一頁</button><span id="aiReviewPageInfo" class="mini"></span><button id="aiReviewNext" class="button ghost" type="button">下一頁</button></div><div class="actions"><button class="button" id="aiReviewExportDecision" type="button">下載人工審核決策 JSON</button><button class="button ghost" id="aiReviewExportCsv" type="button">下載實際分類變更 CSV</button><button class="button ghost" id="aiReviewClear" type="button">清除此份審核草稿</button></div><p class="help" id="aiReviewEditorStatus" role="status" aria-live="polite">尚未審核。</p></div></section>
   <section id="add" class="section"><div class="top"><div><h1 id="formTitle">新增一筆記帳</h1><p class="subtitle">收入、現金支出、貸款與固定費用都可以記</p></div></div><div class="panel"><form id="recordForm" class="form-grid"><label>收支類型<select id="fType" class="field"><option value="expense">支出</option><option value="income">收入</option></select></label><label>歸屬<select id="fOwner" class="field"><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select></label><label>日期<input id="fDate" class="field" type="date" required></label><label>金額（NT$）<input id="fAmount" class="field" type="number" min="0.01" step="0.01" required placeholder="例如 1200"></label><label>分類<select id="fCategory" class="field"></select></label><label class="full">名稱 / 店家<input id="fMerchant" class="field" required maxlength="120" placeholder="例如 房貸、全家、薪資"></label><label class="full">備註<input id="fNote" class="field" maxlength="500" placeholder="選填"></label><div class="full actions"><button class="button" type="submit">儲存記帳</button><button class="button ghost" type="button" id="cancelEdit">取消編輯</button></div></form></div><div class="panel" style="margin-top:16px"><h2>管理自訂分類</h2><p class="help">新增收入或支出分類，例如「寵物」、「孝親費」、「旅遊」。分類會隨資料同步至 Google Sheets；移除分類不會刪除既有交易。</p><div class="actions"><select id="newCategoryType" class="field" aria-label="自訂分類類型"><option value="expense">支出分類</option><option value="income">收入分類</option></select><input id="newCategoryName" class="field" maxlength="30" placeholder="新分類名稱" aria-label="新分類名稱"><button class="button light" id="addCategory" type="button">新增分類</button></div><div id="customCategoryList" class="help"></div></div></section>
-  <section id="budget" class="section"><div class="top"><div><h1>預算與儲蓄目標</h1><p class="subtitle">承瑋與俐穎各自設定，家庭合計自動加總；交易的「共同消費」另行統計</p></div><div class="budget-controls"><input class="field" id="budgetMonth" type="month" aria-label="預算月份"><select class="field" id="budgetOwner" aria-label="預算歸屬"><option value="me">承瑋</option><option value="wife">俐穎</option><option value="all">家庭合計（承瑋＋俐穎）</option></select></div></div>
+  <section id="budget" class="section"><div class="top"><div><h1>預算與儲蓄目標</h1><p class="subtitle">預算只分承瑋與俐穎，家庭＝兩人加總；共同交易在個人視角各算一半、家庭視角只算一次</p></div><div class="budget-controls"><input class="field" id="budgetMonth" type="month" aria-label="預算月份"><select class="field" id="budgetOwner" aria-label="預算歸屬"><option value="me">承瑋</option><option value="wife">俐穎</option><option value="all">家庭（兩人加總）</option></select></div></div>
     <div class="panel"><div class="row"><h2>本月預算概況</h2><span id="budgetState" class="budget-pill">讀取中</span></div><div id="budgetStats" class="budget-summary"></div><div id="budgetTotalProgress" class="budget-progress"><div style="width:0"></div></div><p class="budget-muted" id="budgetCoverage"></p></div>
     <div class="grid"><div class="panel"><h2>設定每月預算</h2><div class="budget-form"><label>每月總預算（元）<input id="budgetTotalInput" type="number" class="field" min="0" step="1"></label><label>每月預計存款（元）<input id="monthlySavingInput" type="number" class="field" min="0" step="1"></label><div class="actions"><button id="saveBudgetBasics" class="button" type="button">儲存兩項設定</button></div></div><p class="budget-muted">月預算與預計存款持續沿用到以後月份；如需更改請重新儲存。0 表示尚未設定。</p></div><div class="panel"><h2>分類預算</h2><div id="budgetCategoryLines"></div><div class="budget-form"><label>支出分類<select id="budgetCategorySelect" class="field"></select></label><label>每月額度（元）<input id="budgetCategoryAmount" type="number" class="field" min="0" step="1" placeholder="輸入 0 可移除額度"></label><div class="actions"><button id="saveCategoryBudget" class="button light" type="button">儲存分類額度</button></div></div></div></div>
     <div class="grid"><div class="panel"><h2>儲蓄基金</h2><div id="budgetFunds"></div><h2 id="fundFormTitle">新增基金目標</h2><div class="budget-form"><label>名稱<input id="fundName" class="field" maxlength="60" placeholder="例如 旅遊、緊急備用金"></label><label>目標金額<input id="fundTarget" class="field" type="number" min="0" step="1"></label><label>目前已存<input id="fundSaved" class="field" type="number" min="0" step="1"></label><div class="actions"><button id="saveFund" type="button" class="button">儲存基金</button><button id="cancelFundEdit" type="button" class="button ghost">取消編輯</button></div></div></div><div class="panel"><h2>每月儲蓄結算</h2><p class="budget-muted">依記帳推估的「收入－支出」不等於銀行裡真正增加的存款。建議次月 5 日核對帳戶後，手動確認上月實存金額。</p><div id="savingsEstimate" class="budget-summary"></div><div class="budget-form" style="margin-top:16px"><label>結算月份<input id="settlementMonth" class="field" type="month"></label><label>實際存下金額（元）<input id="settlementAmount" class="field" type="number" min="0" step="1"></label><div class="actions"><button id="saveSettlement" type="button" class="button">確認實際存款</button></div></div><div class="budget-muted" id="settlementResult"></div></div></div>
 
- <div class="panel" id="planningPanel" style="margin-top:16px"><div class="row" style="flex-wrap:wrap"><div><h2>理財配置與年度預留</h2><p class="budget-muted">金額以新台幣計。AI 建議與實際設定分開儲存；家庭預算＝承瑋＋俐穎；交易 shared 屬共同消費，並非第三份預算。</p></div><button class="button light" id="planningSeed" type="button">補齊預算項目</button><button class="button light" id="planningDedupe" type="button">整理重複項目</button></div>
- <p class="budget-muted" style="margin:8px 0">緊急預備金、旅遊基金與聚餐基金依承瑋或俐穎負擔。舊版「shared」預算必須先指定負責人，不會自動拆分或計入家庭合計。按「載入建議初始項目」後會自動切換至「家庭全部」，讓你立即看見所有項目；按「儲存理財配置」才會同步到 Google Sheets。AI 建議必須先匯出資料交給 AI 分析，再匯入建議 JSON；如尚未匯入，可先查看系統參考預算（不等同 AI 分析）。</p><p class="budget-muted" style="margin:10px 0">提醒：此處管理的是預算與預計儲蓄，不是銀行帳單匯入。現有「收支明細 → 匯入 Invoice CSV」僅支援電子發票格式；銀行對帳單 CSV 匯入功能尚未實作，請勿將銀行 CSV 放入發票匯入區。</p><div class="panel" id="strategyPanel" style="padding:14px;margin:12px 0"><h3>理財強度與系統建議</h3><p class="budget-muted">切換時只試算，不會覆蓋已確認的實際金額。點「採用建議、同步上方預算並儲存」會以可恢復的單一交易識別碼寫入詳細配置及上方本月預算，並進行雙表回讀；僅調整光譜不會修改現有設定。夫妻補助 $20,000 是內部轉帳，不計入家庭總消費。</p><div class="strategy-grid"><label>承瑋實領月收入（試算）<input class="field" id="strategySalaryMe" type="number" min="0" placeholder="讀取薪資入帳或手動輸入" value=""></label><label>俐穎實領月收入（試算）<input class="field" id="strategySalaryWife" type="number" min="0" placeholder="讀取薪資入帳或手動輸入" value=""></label></div><div class="strategy-grid"><label>理財光譜：<strong id="strategyModeLabel">平衡</strong><input id="strategyMode" type="range" min="0" max="4" step="1" value="2" style="width:100%"></label><div class="strategy-scale">寬鬆　·　舒適　·　平衡　·　嚴謹　·　積極</div></div><div class="actions"><button class="button light" id="strategyRecommend" type="button">產生全部項目參考比例</button><button class="button" id="strategyApply" type="button">採用建議、同步上方預算並儲存</button><button class="button light" id="financeRecoverButton" type="button" hidden>恢復未完成的雙表同步</button></div><p class="budget-muted">所得稅建議是以歷史薪資及獎金作年度概算的保守準備金，不等於五月應補繳稅額；實際需扣除扣繳稅款，並核對所得憑單、股利、保險及列舉扣除等。已自行設定為 $0 的實際金額不會被建議功能擅自覆蓋。</p><div id="strategyWarning" role="status" aria-live="polite"></div></div><p class="budget-muted">上方「本月預算」讀取 BudgetData；下方詳細項目讀取 PlanningData。採用並儲存時會同步兩者：固定、彈性及年度預留計入支出預算；退休、緊急、旅遊基金計入預計存款，內部補助不重複列帳；原 shared 預算需手動指定負責人後才會納入計算。</p><div id="planningLegacyWarning" class="status error" role="status" aria-live="polite" hidden></div><div class="planning-summary" id="planningSummary"></div><div class="planning-grid-head"><span>項目／性質</span><span>AI 建議 %／金額</span><span>實際 %／預算金額</span><span>設定</span></div><div id="planningRows"></div>
+ <div class="panel" id="planningPanel" style="margin-top:16px"><div class="row" style="flex-wrap:wrap"><div><h2>理財配置與年度預留</h2><p class="budget-muted">金額以新台幣計。AI 建議與實際設定分開儲存；家庭全部只做彙總，不重複計帳。</p></div><button class="button light" id="planningSeed" type="button">補齊預算項目</button><button class="button light" id="planningDedupe" type="button">整理重複項目</button><button class="button" id="planningMigrateV2" type="button">整理成預算 v2</button></div><div id="planningMigratePreview" role="region" aria-live="polite"></div>
+ <p class="budget-muted" style="margin:8px 0">每個項目只屬於承瑋或俐穎；舊版「共同」項目只供查閱，請用「整理成預算 v2」轉換（停用不刪除）。按「儲存理財配置」才會同步到 Google Sheets。AI 建議必須先匯出資料交給 AI 分析，再匯入建議 JSON；如尚未匯入，可先查看系統參考預算（不等同 AI 分析）。</p><p class="budget-muted" style="margin:10px 0">提醒：此處管理的是預算與預計儲蓄，不是銀行帳單匯入。現有「收支明細 → 匯入 Invoice CSV」僅支援電子發票格式；銀行對帳單 CSV 匯入功能尚未實作，請勿將銀行 CSV 放入發票匯入區。</p><div class="panel" id="strategyPanel" style="padding:14px;margin:12px 0"><h3>理財強度與系統建議</h3><p class="budget-muted">切換時只試算，不會覆蓋已確認的實際金額。點「採用建議、同步上方預算並儲存」會在確認後直接將建議值寫入詳細配置，並同步上方本月預算及預計存款；僅調整光譜不會修改現有設定。夫妻補助 $20,000 是內部轉帳，不計入家庭總消費。</p><div class="strategy-grid"><label>承瑋實領月收入（試算）<input class="field" id="strategySalaryMe" type="number" min="0" value="74700"></label><label>俐穎實領月收入（試算）<input class="field" id="strategySalaryWife" type="number" min="0" value="66216"></label></div><div class="strategy-grid"><label>理財光譜：<strong id="strategyModeLabel">平衡</strong><input id="strategyMode" type="range" min="0" max="4" step="1" value="2" style="width:100%"></label><div class="strategy-scale">寬鬆　·　舒適　·　平衡　·　嚴謹　·　積極</div></div><div class="actions"><button class="button light" id="strategyRecommend" type="button">產生全部項目參考比例</button><button class="button" id="strategyApply" type="button">採用建議、同步上方預算並儲存</button></div><p class="budget-muted">所得稅建議是以 CSV 薪資及獎金作年度概算的保守準備金，不等於五月應補繳稅額；實際需扣除扣繳稅款，並核對所得憑單、股利、保險及列舉扣除等。已自行設定為 $0 的實際金額不會被建議功能擅自覆蓋。</p><div id="strategyWarning" role="status" aria-live="polite"></div></div><p class="budget-muted">上方「本月預算」讀取 BudgetData；下方詳細項目讀取 PlanningData。採用並儲存時會同步兩者：固定、彈性及年度預留計入支出預算；退休、緊急、旅遊基金計入預計存款，內部補助不重複列帳。</p><div class="planning-summary" id="planningSummary"></div><label class="mini" style="display:inline-flex;gap:6px;align-items:center;margin:6px 0"><input type="checkbox" id="planningShowZero"> 顯示 0 元項目</label><div class="planning-grid-head"><span>項目／性質</span><span>AI 建議 %／金額</span><span>實際 %／預算金額</span><span>設定</span></div><div id="planningRows"></div>
  <details style="margin:10px 0"><summary>管理已停用項目（可恢復）</summary><div id="planningInactive"></div></details><div class="planning-new"><input class="field" id="planningNewName" maxlength="50" placeholder="新增項目名稱，例如旅遊基金"><select class="field" id="planningNewType"><option value="variable">每月彈性預算</option><option value="fixed">固定月費</option><option value="annual">年度預留</option><option value="fund">基金／投資</option></select><select class="field" id="planningNewOwner"><option value="me">承瑋</option><option value="wife">俐穎</option></select><button class="button" id="planningAdd" type="button">新增項目</button></div>
  <div class="panel" style="margin:14px 0;padding:14px"><h3>先看系統參考配置（不等同 AI 建議）</h3><p class="budget-muted">可直接列出已盤點的每月金額；投資、旅遊與預備金的比例需要收入基準。這是初步試算，不會修改目前設定，也不會自動儲存。</p><div class="actions" style="align-items:end;flex-wrap:wrap"><label style="display:flex;flex-direction:column;gap:5px">家庭每月實領收入（選填）<input class="field" id="planningIncomeBasis" type="number" min="0" step="1000" placeholder="例如 140000；不知道可留空"></label><button class="button light" id="planningQuickSuggest" type="button">顯示參考金額與比例</button></div><div id="planningQuickResult" role="status" aria-live="polite"></div></div>
 <div class="actions" style="margin-top:13px"><button class="button" id="planningSave" type="button">儲存理財配置</button><button class="button light" id="planningExport" type="button">匯出供 AI 分析 JSON</button><label class="button light file-button">匯入 AI 建議 JSON<input id="planningImport" type="file" accept=".json,application/json"></label></div><p class="budget-muted" id="planningMessage">尚未載入理財配置</p></div>
     <div id="budgetMessage" class="status" role="status" aria-live="polite" style="margin-top:16px">尚未讀取預算資料</div>
   </section>
-<section id="retirement" class="section"><div class="top"><div><h1>退休規劃</h1><p class="subtitle">動態複利模擬、通膨調整與退休資金缺口；所有數值均為試算，不保證投資報酬。</p></div></div><div class="panel" id="incomeRetirementPanel" style="margin:12px 0;padding:13px">
-<h3>薪資與獎金自動連動（讀取已載入的收支交易）</h3>
-<p class="budget-muted">固定薪資從既有「新增記帳」的薪資收入、最近已載入的不同月份取中位數，至少兩個月才自動提供退休工作月收入。Bonus、年終及加班費分開；歷史獎金不會重複加進現在的投資本金。未載入的年度不會自動猜測。</p>
-<div id="incomeLinkedSummary" role="status" aria-live="polite">正在核對薪資入帳資料…</div>
-<p class="budget-muted">固定本薪、勞保月投保薪資、勞退月提繳工資與銀行實領是不同資料。個人實際金額應由登入後的雲端設定或薪資入帳記錄取得，不直接寫在公開 GitHub Pages 的程式碼中。</p>
-</div>
-<div class="panel"><div class="row"><h2>退休參數</h2><select id="retireOwner" class="field" aria-label="退休試算對象"><option value="me">承瑋</option><option value="wife">俐穎</option><option value="all">家庭全部</option></select></div><div class="panel" id="retireHouseholdGoalPanel" style="margin:12px 0;padding:12px"><h3>家庭退休資產目標（唯一設定來源）</h3><p class="budget-muted">家庭目標是 2026 年購買力 $20,000,000，退休時依通膨換算等值名目金額；2053／2065 各自達 65 歲時皆驗證，承瑋與俐穎預設各 50%。舊版資料首次載入僅顯示推算值，不會自動寫回；按下「儲存家庭目標」才會建立明確設定。</p><div class="retire-controls"><label>家庭退休總目標（今日幣值）<input class="field" id="retireGoalTotal" type="number" min="0" step="10000" value="20000000"></label><label>承瑋分配比例 %<input class="field" id="retireGoalMePct" type="number" min="0" max="100" step="0.1" value="50"></label></div><p class="budget-muted" id="retireGoalPreview" aria-live="polite">承瑋 $10,000,000；俐穎 $10,000,000</p><div class="actions"><button class="button" type="button" id="retireGoalSave">儲存家庭目標</button></div><p id="retireGoalStatus" class="budget-muted" role="status">尚未確認雲端設定</p></div><div class="retire-controls"><label>目前年齡<input class="field" id="retireAgeNow" type="number" min="0" max="100" readonly aria-readonly="true" title="自出生日期自動推算"></label><label>退休年齡<input class="field" id="retireAgeGoal" type="number" min="20" max="100"></label><label>目前可投資本金（不含勞退／公教專戶）<input class="field" id="retirePrincipal" type="number" min="0" step="1000"></label><label>每月退休投入（自動連動預算）<input class="field" id="retireMonthly" type="number" min="0" readonly aria-readonly="true" title="從預算與儲蓄目標 → 退休投資讀取，請於預算頁修改"></label><label>預估年化報酬率 %<input class="field" id="retireReturn" type="number" min="-20" max="30" step="0.01"></label><label>報酬率快速調整<input id="retireSlider" type="range" min="0" max="15" step="0.1"></label><label>預估通膨率 %<input class="field" id="retireInflation" type="number" min="0" max="15" step="0.01"></label><label>目標退休資產（今日幣值）<input class="field" id="retireTarget" type="number" min="0" step="10000"></label></div><p class="budget-muted" id="retireMonthlySource">每月投入自動讀取「預算與儲蓄目標 → 退休投資」，請在預算頁修改；家庭投入只彙總承瑋與俐穎；舊 shared 投入須指定負責人。</p><details class="panel" style="padding:12px;margin:12px 0"><summary style="font-weight:700;cursor:pointer">進階設定：生活費、薪資、保單、提領及壓力參數（點擊展開）</summary><h3>家庭退休生活費及非工作現金流</h3><p class="budget-muted">夫妻各有自己的退休年齡；一方退休不代表另一方停止工作。保單及利息請依實際合約輸入，股息與投資報酬不得重複計算。</p><div class="retire-controls">
+<section id="retirement" class="section"><div class="top"><div><h1>退休規劃</h1><p class="subtitle">動態複利模擬、通膨調整與退休資金缺口；所有數值均為試算，不保證投資報酬。</p></div></div><div class="panel"><div class="row"><h2>退休參數</h2><select id="retireOwner" class="field" aria-label="退休試算對象"><option value="me">承瑋</option><option value="wife">俐穎</option><option value="all">家庭全部</option></select></div><div class="retire-controls"><label>目前年齡<input class="field" id="retireAgeNow" type="number" min="0" max="100"></label><label>退休年齡<input class="field" id="retireAgeGoal" type="number" min="20" max="100"></label><label>目前退休投資本金<input class="field" id="retirePrincipal" type="number" min="0" step="1000"></label><label>每月退休投入（自動連動預算）<input class="field" id="retireMonthly" type="number" min="0" readonly aria-readonly="true" title="從預算與儲蓄目標 → 退休投資讀取，請於預算頁修改"></label><label>預估年化報酬率 %<input class="field" id="retireReturn" type="number" min="-20" max="30" step="0.01"></label><label>報酬率快速調整<input id="retireSlider" type="range" min="0" max="15" step="0.1"></label><label>預估通膨率 %<input class="field" id="retireInflation" type="number" min="0" max="15" step="0.01"></label><label>目標退休資產（今日幣值）<input class="field" id="retireTarget" type="number" min="0" step="10000"></label></div><p class="budget-muted" id="retireMonthlySource">每月投入自動讀取「預算與儲蓄目標 → 退休投資」，請在預算頁修改；共同投入在家庭總額只計一次。</p><details class="panel" style="padding:12px;margin:12px 0"><summary style="font-weight:700;cursor:pointer">進階設定：生活費、薪資、保單、提領及壓力參數（點擊展開）</summary><h3>家庭退休生活費及非工作現金流</h3><p class="budget-muted">夫妻各有自己的退休年齡；一方退休不代表另一方停止工作。保單及利息請依實際合約輸入，股息與投資報酬不得重複計算。</p><div class="retire-controls">
 <label>目前家庭每月生活費（今日幣值）<input class="field" id="retireLiving" type="number" min="0" value="60000"></label>
-<div class="full" style="grid-column:1/-1"><p class="budget-muted" id="retireLivingBudgetRef">尚未載入預算明細。預算是目前開銷參考，退休前已清償的貸款不應永久計入退休生活費。</p><button id="retireUseBudgetLiving" type="button" class="button ghost">採用目前預算支出作為生活費試算（不直接儲存）</button></div>
 <label>退休醫療緊急準備金（今日幣值）<input class="field" id="retireMedical" type="number" min="0" value="2000000"></label>
 <label>退休時目標提領率 %<input class="field" id="retireWithdraw" type="number" min="1" max="8" step="0.01" value="3.5"></label>
 <label>壓力情境：額外通膨 %<input class="field" id="retireStress" type="number" min="0" max="5" step="0.01" value="1"></label>
 <label>個人月實領薪資（工作期間）<input class="field" id="retireSalary" type="number" min="0" value="0"></label>
-<label style="display:flex;align-items:center;gap:7px">依交易自動連動月實領（至少 2 個月份）<input id="retireSalaryLink" type="checkbox" checked></label>
-<label>未來每年獎金實領試算（不含固定月薪；預設 0）<input class="field" id="retireAnnualBonusNet" type="number" min="0" step="1" value="0"></label>
-<div class="full actions"><button id="retireUseActualBonus" class="button ghost" type="button">以已入帳獎金建立未來情境（需確認）</button></div>
-<p class="full budget-muted" id="retireIncomeSourceStatus">已入帳獎金只用於歷史分析；未確認明年仍會發放相同金額前，不會自行重複預測。</p>
 <label>個人薪資年成長率 %<input class="field" id="retireSalaryGrowth" type="number" min="-5" max="15" step="0.01" value="1"></label>
 <label>目前投資現金殖利率 %（已含於總報酬）<input class="field" id="retireYield" type="number" min="0" max="20" step="0.01" value="3"></label>
 <label>個人每月利息及保單持續給付<input class="field" id="retirePassive" type="number" min="0" value="0"></label>
-<label>手動核定每月退休給付（若填入，取代自動勞保估算）<input class="field" id="retirePension" type="number" min="0" value="0"></label>
+<label>個人勞保／勞退預估每月給付<input class="field" id="retirePension" type="number" min="0" value="0"></label>
 <label>個人給付開始年齡<input class="field" id="retirePensionAge" type="number" min="40" max="95" value="65"></label>
-<label>夫妻各自模擬至此年齡（至少涵蓋雙方退休）<input class="field" id="retireHorizon" type="number" min="75" max="110" value="95"></label>
-</div>
-<details class="panel" style="padding:12px;margin:12px 0"><summary style="cursor:pointer;font-weight:700">進階：職涯、勞保勞退、公保退撫（個人）</summary>
-<p class="budget-muted">個人設定儲存於登入後的 PlanningData；公開 HTML 不包含夫妻的實際薪資或生日。只有實際已核定資料可填入「已知」欄。2027 轉正式教師屬情境；正式教師新薪級及淨額未確認時保留試算警告。勞保年資不得由就保年資直接推定。</p>
-<div class="retire-controls">
-<label>出生日期<input class="field" id="retireBirthDate" type="date"></label>
-<label>職涯類型<select class="field" id="retireEmploymentType"><option value="private">民間企業（勞保／勞退）</option><option value="proxy">代理教師（可模擬轉正式）</option><option value="public">公校正式教師（退撫個人專戶）</option></select></label>
-<label>轉任正式教師日期（情境）<input class="field" id="retireFormalSwitchDate" type="month"></label>
-<label>固定本薪（稅前，僅薪資結構參考）<input class="field" id="retireGrossBasePay" type="number" min="0"></label>
-<label>勞保月投保薪資<input class="field" id="retireInsuredWage" type="number" min="0"></label>
-<label>勞保實際累積年資（未查到留空）<input class="field" id="retireLaborInsuranceYears" type="number" min="0" step="0.01" placeholder="尚未確認"></label>
-<label>勞退月提繳工資<input class="field" id="retireLaborRetireWage" type="number" min="0"></label>
-<label>勞退雇主提繳 %<input class="field" id="retireLaborEmployerPct" type="number" min="0" max="20" step="0.1"></label>
-<label>勞退新制目前專戶餘額（含已分配收益）<input class="field" id="retireLaborRetireBalance" type="number" min="0"></label>
-<label>勞退專戶獨立年化報酬率 %<input class="field" id="retireLaborFundReturn" type="number" min="-10" max="20" step="0.1"></label>
-<label>公教退撫計算本俸（非月應發總額）<input class="field" id="retirePublicPensionBase" type="number" min="0"></label>
-<label>公教個人專戶目前餘額<input class="field" id="retirePublicFundBalance" type="number" min="0"></label>
-<label>公教個人專戶獨立年化報酬率 %<input class="field" id="retirePublicFundReturn" type="number" min="-10" max="20" step="0.1"></label>
-<label>正式教師任用後月實領（尚未核定可留空）<input class="field" id="retireFormalNetSalary" type="number" min="0" placeholder="待核定"></label>
-</div><p class="budget-muted">勞退雇主提繳不是個人實領薪資；公教退撫提繳採本俸×2×15%，由政府65%／本人35%分攤的模擬參數。公保給付未核定不得自動當作年金。專戶在法定請領前列為受限制資產，提領年齡採情境，非資格保證。</p></details>
-<p class="budget-muted">通膨預設 <strong>2%</strong>（2026 年購買力基準，長期假設可調）；保留小數兩位與完整計算精度。金額為未來名目值。</p></details><div class="actions"><button class="button" id="retireSave" type="button">儲存退休設定</button></div><div id="retireCashflow" class="panel" style="margin:12px 0;padding:12px"></div><div id="retireCards" class="retire-cards"></div><div id="retireGraph" class="retire-chart"></div><div id="retireScenarios"></div><p class="budget-muted" id="retireStatus">更動任一參數即時更新試算。家庭全部以兩人各自假設加總，不可修改彙總結果。</p></div></section>
+<label>模擬到俐穎年齡<input class="field" id="retireHorizon" type="number" min="75" max="110" value="95"></label>
+</div><p class="budget-muted">通膨預設 <strong>2.03%</strong>（2026 年央行全年 CPI 預測參考，非長期保證）；保留小數兩位與完整計算精度。金額為未來名目值。</p></details><div class="actions"><button class="button" id="retireSave" type="button">儲存退休設定</button></div><div id="retireCheckpointsV1871" class="panel" style="margin:12px 0;padding:12px"></div><div id="retireCashflow" class="panel" style="margin:12px 0;padding:12px"></div><div id="retireCards" class="retire-cards"></div><div id="retireGraph" class="retire-chart"></div><div id="retireScenarios"></div><p class="budget-muted" id="retireStatus">更動任一參數即時更新試算。家庭全部以兩人各自假設加總，不可修改彙總結果。</p></div></section>
   <section id="settings" class="section"><div class="top"><div><h1>同步與資料安全</h1><p class="subtitle">正常同步由系統自動完成；需要時才使用進階維護工具。</p></div></div>
 <div class="panel"><h2>雲端連線</h2><div id="syncStatus" class="status" role="status" aria-live="polite">準備同步中…</div><div class="actions" style="margin-top:12px"><button class="button light" id="syncDown" type="button" title="立即重新取得雲端交易；不會覆寫雲端資料。">重新讀取雲端</button><button class="button light" id="syncUp" type="button" title="有同步失敗時重試送出待同步資料；沒有待同步資料則無須操作。">重試待同步資料</button></div><p class="help">通常無須手動操作，若同步失敗請依畫面提示處理。</p></div>
-<details class="panel" style="margin-top:16px"><summary style="cursor:pointer;font-weight:700">進階連線設定（更換 Apps Script 網址）</summary><div style="margin-top:16px"><div class="form-grid"><label class="full">Apps Script 網頁應用程式 URL<input class="field" id="apiUrl" type="url" placeholder="https://script.google.com/macros/s/.../exec"></label><label class="full" style="display:none">舊版金鑰<input class="field" id="apiToken" type="password" autocomplete="off"></label></div><div class="actions" style="margin-top:12px"><button class="button" id="saveSettings">儲存網址</button></div><p class="help">僅在後端部署網址變更時使用。變更後可能需要重新登入；此處不必填入 ACCESS_TOKEN。</p></div></details>
+<details class="panel" style="margin-top:16px"><summary style="cursor:pointer;font-weight:700">進階連線設定（更換 Apps Script 網址）</summary><div style="margin-top:16px"><div class="form-grid"><label class="full">Apps Script 網頁應用程式 URL<input class="field" id="apiUrl" type="url" name="ledgerApiUrlSetting" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://script.google.com/macros/s/.../exec"></label><label class="full" style="display:none">舊版金鑰<input class="field" id="apiToken" type="password" autocomplete="off"></label></div><div class="actions" style="margin-top:12px"><button class="button" id="saveSettings">儲存網址</button></div><p class="help">僅在後端部署網址變更時使用。變更後可能需要重新登入；此處不必填入 ACCESS_TOKEN。</p></div></details>
 <details class="panel" style="margin-top:16px"><summary style="cursor:pointer;font-weight:700">舊版分類修復（僅故障時使用）</summary><div style="margin-top:16px"><p class="help">修復舊版本留在電腦、未上傳至 Google Sheets 的分類；先核對、下載本機備份，再由你勾選要補上的分類。不會修改發票與交易金額。</p><div class="actions"><button id="categoryAuditScan" class="button light" type="button">① 核對本機與雲端分類</button><button id="categoryAuditBackup" class="button ghost" type="button">② 下載本機完整備份</button><button id="categoryAuditUpload" class="button" type="button" disabled>③ 上傳勾選的缺少分類</button></div><p id="categoryAuditMessage" class="help" role="status" aria-live="polite">僅在確認舊裝置有缺少的自訂分類時操作。</p><div id="categoryAuditResults" class="help"></div></div></details>
 <details class="panel" style="margin-top:16px"><summary style="cursor:pointer;font-weight:700">進階資料備份與還原</summary><div style="margin-top:16px"><p class="help">下載 JSON 是本機可用資料的離線副本，不能取代正式雲端備份。還原舊 JSON 可能產生覆寫與同步衝突；請先確認雲端同步完成並保存最新備份。</p><div class="backup-actions"><button class="button ghost" id="downloadJson">下載完整 JSON 備份</button><label class="button light file-button">還原 JSON 備份<input id="restoreJson" type="file" accept=".json,application/json"></label></div></div></details></section>
   <div class="footer" id="footerStatus">本機模式 · 尚未同步</div>
@@ -342,9 +192,8 @@ function save(track=true){
   snapshot=new Map(records.map(r=>[r.id,JSON.stringify(r)]));
   localStorage.setItem(KEY,JSON.stringify(records));render();
   if(track&&pending.size)cloudIssue='';renderSyncNotice();
-  $('footerStatus').textContent=`家計簿 v1.8.6.12.10-RC5 · ${configured()?'自動同步':'本機模式'} · ${pending.size} 筆待同步`;
+  $('footerStatus').textContent=`家計簿 v1.8.5 · ${configured()?'自動同步':'本機模式'} · ${pending.size} 筆待同步`;
   if(track&&pending.size)queueSync();
-  window.dispatchEvent(new Event('ledger-records-updated'));
 }
 function uid(){return crypto.randomUUID?crypto.randomUUID():`${Date.now()}-${Math.random()}`}
 function canDeleteManual(r){return !!r && /^manual:[\w:.-]{1,120}$/.test(String(r.id||"")) && (r.source==="manual" || !r.source) && !r.invoice && r.source!=="category-definition";}
@@ -357,7 +206,7 @@ function goto(tab){document.querySelectorAll('.section').forEach(n=>n.classList.
 function render(){const owner=$('dashboardOwnerStats').value,current=activeRecords().filter(r=>dateMonth(r.date)===month&&ownerMatches(r,owner)),inc=current.filter(r=>r.type==='income').reduce((n,r)=>n+r.amount,0),exp=current.filter(r=>r.type==='expense').reduce((n,r)=>n+r.amount,0);$('month').value=month;$('sumIncome').textContent=money(inc);$('sumExpense').textContent=money(exp);$('sumBalance').textContent=money(inc-exp);$('sumBalance').className='v '+(inc-exp>=0?'positive':'negative');$('sumRate').textContent=inc>0?((inc-exp)/inc*100).toFixed(1)+'%':'—';$('expenseCount').textContent=current.filter(r=>r.type==='expense').length+' 筆支出';renderTrend();renderCategories(current);renderDashboardList();renderRecordList();renderAnnual();renderCustomCategories();$('footerStatus').textContent='家計簿 v1.5 · '+(settings.url?'已設定 Google Sheets · 修改後請同步上傳':'本機模式 · 尚未同步')}
 function renderTrend(){const months=Array.from({length:6},(_,i)=>{const [y,m]=month.split('-').map(Number),d=new Date(y,m-1-(5-i),1);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`});const live=activeRecords().filter(r=>ownerMatches(r,$('dashboardOwnerStats').value));const data=months.map(m=>({m,income:live.filter(r=>dateMonth(r.date)===m&&r.type==='income').reduce((s,r)=>s+r.amount,0),expense:live.filter(r=>dateMonth(r.date)===m&&r.type==='expense').reduce((s,r)=>s+r.amount,0)}));const max=Math.max(1,...data.flatMap(x=>[x.income,x.expense]));$('trend').innerHTML=data.map(d=>`<div class="bar-group"><div class="bar-pair"><div class="bar income" style="height:${d.income/max*100}%" title="${escapeHtml(d.m)} 收入 ${money(d.income)}"></div><div class="bar expense" style="height:${d.expense/max*100}%" title="${escapeHtml(d.m)} 支出 ${money(d.expense)}"></div></div><div class="bar-label">${Number(d.m.slice(5))}月</div></div>`).join('')}
 function renderCategories(current,target='categories'){const mode=target==='annualCategories'&&$('annualCategoryMode')?$('annualCategoryMode').value:'expense';if(target==='annualCategories')$('annualCategoryTitle').textContent=mode==='income'?'全年收入分類':'全年支出分類';const map=new Map();current.filter(r=>r.type===mode).forEach(r=>map.set(r.category,(map.get(r.category)||0)+r.amount));const list=[...map].sort((a,b)=>b[1]-a[1]),total=list.reduce((n,x)=>n+x[1],0);if(!total){$(target).innerHTML=`<div class="empty">目前沒有${mode==='income'?'收入':'支出'}資料<br><small>匯入 CSV 或新增記帳即可開始</small></div>`;return}let acc=0;const stops=list.map(([cat,v],i)=>{const start=acc;acc+=v/total*100;return `${colors[i%colors.length]} ${start}% ${acc}%`});$(target).innerHTML=`<div class="donut-row"><div class="donut" style="background:conic-gradient(${stops.join(',')})"></div><div><div class="mini">${mode==='income'?'收入':'支出'}總額</div><div class="total">${money(total)}</div><div class="mini">${list.length} 個分類</div></div></div>`+list.map(([cat,v],i)=>`<div class="category"><span class="category-name">${categoryLabel(cat)}</span><div class="track"><div class="fill" style="width:${v/total*100}%;background:${colors[i%colors.length]}"></div></div><span class="category-value">${money(v)}<small>${(v/total*100).toFixed(1)}%</small></span></div>`).join('')}
-function renderAnnual(){const all=activeRecords(),live=all.filter(r=>ownerMatches(r,$('annualOwner').value)),years=[...new Set([now.getFullYear(),...all.map(r=>Number(r.date.slice(0,4))).filter(Number.isFinite)])].sort((a,b)=>b-a),select=$('annualYear'),old=Number(select.value)||now.getFullYear();select.innerHTML=years.map(y=>`<option value="${y}">${y} 年</option>`).join('');select.value=years.includes(old)?String(old):String(years[0]);const year=Number(select.value),current=live.filter(r=>r.date.startsWith(year+'-')),previous=live.filter(r=>r.date.startsWith((year-1)+'-'));const sum=(arr,type)=>arr.filter(r=>r.type===type).reduce((v,r)=>v+r.amount,0),inc=sum(current,'income'),exp=sum(current,'expense'),prevInc=sum(previous,'income'),prevExp=sum(previous,'expense');$('annualIncome').textContent=money(inc);$('annualExpense').textContent=money(exp);$('annualBalance').textContent=money(inc-exp);$('annualBalance').className='v '+(inc-exp>=0?'positive':'negative');$('annualRate').textContent=inc>0?((inc-exp)/inc*100).toFixed(1)+'%':'—';$('annualExpenseCount').textContent=current.filter(r=>r.type==='expense').length+' 筆支出';const yoy=(curr,prev)=>prev===0?'無法計算（前一年為 0）':`${curr-prev>=0?'+':''}${((curr-prev)/Math.abs(prev)*100).toFixed(1)}%`;const diffs=[['收入變化',inc,prevInc],['支出變化',exp,prevExp],['結餘變化',inc-exp,prevInc-prevExp]];$('annualCompare').innerHTML=diffs.map(([name,value,prev])=>`<div class="comparison-cell"><div class="mini">${name} · 相較 ${year-1} 年</div><div class="value">${yoy(value,prev)}</div><div class="mini">本年 ${money(value)} ／ 去年 ${money(prev)}</div></div>`).join('');$('annualCompareNote').textContent=previous.length===0?`${year-1} 年尚無紀錄，無法做有意義的年增率比較。`:'年增率以去年的對應全年總額為基準；若去年為零則不計算。';const data=Array.from({length:12},(_,i)=>{const m=`${year}-${String(i+1).padStart(2,'0')}`,rows=current.filter(r=>dateMonth(r.date)===m);return {label:i+1,income:sum(rows,'income'),expense:sum(rows,'expense')}});const max=Math.max(1,...data.flatMap(x=>[x.income,x.expense]));$('annualTrend').innerHTML=data.map(d=>`<div class="annual-bar-group"><div class="annual-bar income" style="height:${d.income/max*100}%" title="${d.label}月 收入 ${money(d.income)}"></div><div class="annual-bar expense" style="height:${d.expense/max*100}%" title="${d.label}月 支出 ${money(d.expense)}"></div><div class="annual-bar-label">${d.label}月</div></div>`).join('');$('annualMonthlyRows').innerHTML=data.map(d=>{const balance=d.income-d.expense;const ym=year+'-'+String(d.label).padStart(2,'0');const plan=annualSavingPlan18610($('annualOwner').value);const localNow=new Date();const todayMonth=localNow.getFullYear()+'-'+String(localNow.getMonth()+1).padStart(2,'0');const completed=ym<todayMonth;const failed=completed&&plan>0&&balance<plan;return `<tr class="${failed?'saving-short':''}"><td>${d.label} 月</td><td class="money-default">${money(d.income)}</td><td class="money-expense">${money(d.expense)}</td><td class="${balance<0?'money-negative':'money-balance'}">${money(balance)}</td><td>${plan?(completed?(failed?`<span class=\"money-negative\">未達標 · 差 ${money(plan-balance)}</span>`:'已達標'):'本月進行中'):'未設定'} </td></tr>`}).join('');$('annualMonthlyTotal').innerHTML=`<tr class="annual-total-row"><td>全年合計</td><td class="money-default">${money(inc)}</td><td class="money-expense">${money(exp)}</td><td class="${inc-exp<0?'money-negative':'money-balance'}">${money(inc-exp)}</td><td>—</td></tr>`;renderCategories(current,'annualCategories');const populated=data.filter(d=>d.income||d.expense);const avg=(field)=>populated.length?populated.reduce((n,d)=>n+d[field],0)/populated.length:0;const maxExpense=populated.length?[...populated].sort((a,b)=>b.expense-a.expense)[0]:null;$('annualTrendSummarySecondary').innerHTML=`<span>有紀錄月份：${populated.length}</span><span>平均月收入：${money(avg('income'))}</span><span>平均月支出：${money(avg('expense'))}</span><span>最高支出：${maxExpense?maxExpense.label+' 月':'—'}</span><span>赤字月份：${populated.filter(d=>d.income<d.expense).length}</span>`;window.renderAnnualPlanning18611?.(year,data,$('annualOwner').value);}
+function renderAnnual(){const all=activeRecords(),live=all.filter(r=>ownerMatches(r,$('annualOwner').value)),years=[...new Set([now.getFullYear(),...all.map(r=>Number(r.date.slice(0,4))).filter(Number.isFinite)])].sort((a,b)=>b-a),select=$('annualYear'),old=Number(select.value)||now.getFullYear();select.innerHTML=years.map(y=>`<option value="${y}">${y} 年</option>`).join('');select.value=years.includes(old)?String(old):String(years[0]);const year=Number(select.value),current=live.filter(r=>r.date.startsWith(year+'-')),previous=live.filter(r=>r.date.startsWith((year-1)+'-'));const sum=(arr,type)=>arr.filter(r=>r.type===type).reduce((v,r)=>v+r.amount,0),inc=sum(current,'income'),exp=sum(current,'expense'),prevInc=sum(previous,'income'),prevExp=sum(previous,'expense');$('annualIncome').textContent=money(inc);$('annualExpense').textContent=money(exp);$('annualBalance').textContent=money(inc-exp);$('annualBalance').className='v '+(inc-exp>=0?'positive':'negative');$('annualRate').textContent=inc>0?((inc-exp)/inc*100).toFixed(1)+'%':'—';$('annualExpenseCount').textContent=current.filter(r=>r.type==='expense').length+' 筆支出';const yoy=(curr,prev)=>prev===0?'無法計算（前一年為 0）':`${curr-prev>=0?'+':''}${((curr-prev)/Math.abs(prev)*100).toFixed(1)}%`;const diffs=[['收入變化',inc,prevInc],['支出變化',exp,prevExp],['結餘變化',inc-exp,prevInc-prevExp]];$('annualCompare').innerHTML=diffs.map(([name,value,prev])=>`<div class="comparison-cell"><div class="mini">${name} · 相較 ${year-1} 年</div><div class="value">${yoy(value,prev)}</div><div class="mini">本年 ${money(value)} ／ 去年 ${money(prev)}</div></div>`).join('');$('annualCompareNote').textContent=previous.length===0?`${year-1} 年尚無紀錄，無法做有意義的年增率比較。`:'年增率以去年的對應全年總額為基準；若去年為零則不計算。';const data=Array.from({length:12},(_,i)=>{const m=`${year}-${String(i+1).padStart(2,'0')}`,rows=current.filter(r=>dateMonth(r.date)===m);return {label:i+1,income:sum(rows,'income'),expense:sum(rows,'expense')}});const max=Math.max(1,...data.flatMap(x=>[x.income,x.expense]));$('annualTrend').innerHTML=data.map(d=>`<div class="annual-bar-group"><div class="annual-bar income" style="height:${d.income/max*100}%" title="${d.label}月 收入 ${money(d.income)}"></div><div class="annual-bar expense" style="height:${d.expense/max*100}%" title="${d.label}月 支出 ${money(d.expense)}"></div><div class="annual-bar-label">${d.label}月</div></div>`).join('');$('annualMonthlyRows').innerHTML=data.map(d=>{const balance=d.income-d.expense;const ym=year+'-'+String(d.label).padStart(2,'0');const plan=annualSavingPlan18610($('annualOwner').value);const localNow=new Date();const todayMonth=localNow.getFullYear()+'-'+String(localNow.getMonth()+1).padStart(2,'0');const completed=ym<todayMonth;const failed=completed&&plan>0&&balance<plan;return `<tr class="${failed?'saving-short':''}"><td>${d.label} 月</td><td class="money-default">${money(d.income)}</td><td class="money-expense">${money(d.expense)}</td><td class="${balance<0?'money-negative':'money-balance'}">${money(balance)}</td><td>${plan?(completed?(failed?`<span class=\"money-negative\">未達標 · 差 ${money(plan-balance)}</span>`:'已達標'):'本月進行中'):'未設定'} </td></tr>`}).join('');$('annualMonthlyTotal').innerHTML=`<tr class="annual-total-row"><td>全年合計</td><td class="money-default">${money(inc)}</td><td class="money-expense">${money(exp)}</td><td class="${inc-exp<0?'money-negative':'money-balance'}">${money(inc-exp)}</td><td>—</td></tr>`;renderCategories(current,'annualCategories');const populated=data.filter(d=>d.income||d.expense);const avg=(field)=>populated.length?populated.reduce((n,d)=>n+d[field],0)/populated.length:0;const maxExpense=populated.length?[...populated].sort((a,b)=>b.expense-a.expense)[0]:null;$('annualTrendSummary').innerHTML=`<span>有紀錄月份：${populated.length}</span><span>平均月收入：${money(avg('income'))}</span><span>平均月支出：${money(avg('expense'))}</span><span>最高支出：${maxExpense?maxExpense.label+' 月':'—'}</span><span>赤字月份：${populated.filter(d=>d.income<d.expense).length}</span>`;window.renderAnnualPlanning18611?.(year,data,$('annualOwner').value);}
 function renderTable(id,data,editable){if(!data.length){$(id).innerHTML='<div class="empty">目前沒有符合條件的紀錄</div>';return}$(id).innerHTML='<div class="tablewrap"><table><thead><tr><th>日期 / 名稱</th><th>分類</th><th>歸屬</th><th>金額</th>'+(editable?'<th>操作</th>':'')+'</tr></thead><tbody>'+data.map(r=>`<tr><td><strong>${escapeHtml(r.merchant)}</strong><small>${escapeHtml(r.date)} ${r.invoice?' · '+escapeHtml(r.invoice):''}</small>${r.details?.length?`<small>${escapeHtml(r.details.slice(0,3).map(x=>x.item).join('、'))}${r.details.length>3?'…':''}</small>`:''}</td><td><span class="tag category-tag">${categoryLabel(r.category)}</span></td><td>${ownerLabel(r.owner)}</td><td style="font-weight:700;color:${r.type==='income'?'#FFE09A':'#FF8D83'}">${r.type==='income'?'+':'−'}${money(r.amount)}</td>${editable?`<td><button class="button light" data-edit="${escapeHtml(r.id)}">編輯</button> ${canDeleteManual(r)?`<button class="button warn" data-del="${escapeHtml(r.id)}">刪除</button>`:""}</td>`:''}</tr>`).join('')+'</tbody></table></div>'}
 function updateSelect(id,values,allText){const element=$(id),previous=element.value;element.innerHTML=`<option value="all">${allText}</option>`+values.map(x=>`<option value="${escapeHtml(x)}">${escapeHtml(x)}</option>`).join('');element.value=values.includes(previous)?previous:'all'}
 function renderDashboardList(){const live=activeRecords();updateSelect('dashboardMonthFilter',[...new Set(live.map(r=>dateMonth(r.date)))].sort().reverse(),'所有月份');updateSelect('dashboardCategoryFilter',[...new Set(live.map(r=>r.category))].sort(),'所有分類');const mo=$('dashboardMonthFilter').value,category=$('dashboardCategoryFilter').value,type=$('dashboardTypeFilter').value;const filtered=sorted(live).filter(r=>(mo==='all'||dateMonth(r.date)===mo)&&(category==='all'||r.category===category)&&(type==='all'||r.type===type)&&ownerMatches(r,$('dashboardOwnerFilter').value));$('dashboardCount').textContent=`共 ${filtered.length} 筆紀錄 · 可持續往下捲動查看`;renderTable('recent',filtered,false)}
@@ -379,6 +228,7 @@ function adjustMonth(n){const [y,m]=month.split('-').map(Number),d=new Date(y,m-
 function validUrl(url){return /^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec$/.test(url)}
 let session=sessionStorage.getItem('ledgerSession17')||'',currentUser=sessionStorage.getItem('ledgerUser17')||'',selectedYear=String(new Date().getFullYear());
 const loadedYearSet=new Set();
+const cloudYearCountsV1871=new Map(); // year -> active records the cloud returned for that year
 // Retry only idempotent cloud READ operations. A POST must never be replayed blindly.
 const delayReadV1864_ = ms => new Promise(resolve=>setTimeout(resolve,ms));
 async function readWithRetryV1864_(action,year,attempts=3){
@@ -390,8 +240,6 @@ async function readWithRetryV1864_(action,year,attempts=3){
       return response;
     }catch(err){
       last=err;
-      // A revoked/expired session cannot become valid by retrying the same token.
-      if(/登入已過期|登入已失效|請重新登入/.test(String(err?.message||'')))throw err;
       if(i+1<attempts)await delayReadV1864_(600*(i+1));
     }
   }
@@ -442,9 +290,7 @@ function configured(){return validUrl(settings.url)&&Boolean(session)}
 const yearVersionsV186 = new Map();
 async function pullRemote(){
   if(!configured())return;
-  const requestedSession=session, requestedYear=selectedYear;
-  const data=await readWithRetryV1864_('list',requestedYear);
-  if(session!==requestedSession||selectedYear!==requestedYear)throw Error('登入或年度已變更，已取消舊資料回應');
+  const data=await readWithRetryV1864_('list',selectedYear);
   if(!data.ok||!Array.isArray(data.records))throw Error(data.error||'讀取失敗');
   if(typeof data.version==='string')yearVersionsV186.set(selectedYear,data.version);
   const cloudIds=new Set(data.records.map(r=>r.id));
@@ -463,8 +309,10 @@ async function pullRemote(){
   }
   legacyMismatch=mismatches;
   records=[...map.values()];save(false);
-  loadedYearSet.add(selectedYear);$('loadedYears').textContent='已載入：'+[...loadedYearSet].sort().join('、')+' 年';
-  notify(`已讀取 Google Sheets：${activeRecords().length} 筆有效資料${pending.size?' · '+pending.size+' 筆待同步':''}`);
+  const cloudActiveV1871=data.records.filter(r=>!r.deleted&&r.source!=='category-definition').length;
+  loadedYearSet.add(selectedYear);cloudYearCountsV1871.set(selectedYear,cloudActiveV1871);
+  $('loadedYears').textContent='已載入：'+[...loadedYearSet].sort().map(y=>cloudYearCountsV1871.has(y)?`${y} 年（雲端 ${cloudYearCountsV1871.get(y)} 筆）`:`${y} 年`).join('、');
+  notify(`已讀取 ${selectedYear} 年雲端：${cloudActiveV1871} 筆有效 · 已載入 ${[...loadedYearSet].sort().join('、')} 年合計 ${activeRecords().length} 筆${pending.size?' · '+pending.size+' 筆待同步':''}`);
   cloudReady=true;renderSyncNotice();
 }
 async function flushPending(){
@@ -496,18 +344,8 @@ async function flushPending(){
   finally{syncBusy=false;renderSyncNotice();}
 }
 let pullBusy=false;
-async function waitForSyncIdleV1864_(timeoutMs=35000){
-  const began=Date.now();
-  while(pullBusy||syncBusy){
-    if(Date.now()-began>=timeoutMs)throw Error('前一個同步尚未結束；請檢查網路連線並重新登入');
-    await delayReadV1864_(150);
-  }
-}
 async function refresh(options={}){
-  if(pullBusy||syncBusy){
-    if(!options.strict)return;
-    await waitForSyncIdleV1864_();
-  }
+  if(pullBusy||syncBusy){if(options.strict)throw Error('同步正在執行中，請稍後重試');return;}
   pullBusy=true;
   try{
     // Never replace the currently displayed record list while quick-edit drafts exist.
@@ -877,10 +715,8 @@ const logoutNav=document.createElement('button');logoutNav.textContent='登出';
   $('loginPassword').value='';$('loginGate').classList.remove('hidden');render();
 };nav.appendChild(logoutNav);
 $('loginUrl').value=settings.url;
-let authGenerationV1864_=0;
 $('loginForm').onsubmit=async e=>{
-  e.preventDefault();const generation=++authGenerationV1864_;
-  const url=$('loginUrl').value.trim().replace(/\/$/,'');
+  e.preventDefault();const url=$('loginUrl').value.trim().replace(/\/$/,'');
   if(!validUrl(url)){ $('loginError').textContent='Apps Script 網址格式不正確';return; }
   const oldUrl=settings.url;settings.url=url;$('loginButton').disabled=true;$('loginError').textContent='驗證中…';
   try{
@@ -889,31 +725,25 @@ $('loginForm').onsubmit=async e=>{
     sessionStorage.setItem('ledgerSession17',session);sessionStorage.setItem('ledgerUser17',currentUser);
     settings={url,token:''};localStorage.setItem(SETTINGS,JSON.stringify(settings));$('apiUrl').value=url;restoreQuickDraft();
     $('importOwner').value=currentUser;$('fOwner').value=currentUser;
-    categoryRules=[];rulesReady=false;loadedYearSet.clear();yearVersionsV186.clear();
+    categoryRules=[];rulesReady=false;loadedYearSet.clear();cloudYearCountsV1871.clear();yearVersionsV186.clear();
     showLoginProgressV1864_('登入成功，正在取得年度列表…');
     await loadYears();
-    if(generation!==authGenerationV1864_)return;
     showLoginProgressV1864_('正在從雲端載入交易資料，失敗時會自動重試…');
     await refresh({strict:true});
-    if(generation!==authGenerationV1864_)return;
     if(!loadedYearSet.has(selectedYear))throw Error('交易載入未完成，請重試');
     $('loginPassword').value='';$('loginGate').classList.add('hidden');
     showLoginProgressV1864_('交易載入完成');
     render();
     try{await loadBudget();}catch(err){budgetStatus('交易已載入，但預算資料讀取失敗：'+err.message,true);}
   }catch(err){
-    if(generation!==authGenerationV1864_)return;
     if(!session){settings.url=oldUrl;}
     $('loginGate').classList.remove('hidden');
     $('loginError').textContent='無法完成登入資料載入：'+err.message+'。交易沒有被清空；請再按登入重試。';
   }
-  finally{if(generation===authGenerationV1864_)$('loginButton').disabled=false;}
+  finally{$('loginButton').disabled=false;}
 };
 async function loadYears(){
-  const requestedSession=session;
-  const result=await readWithRetryV1864_('years');
-  if(session!==requestedSession)throw Error('登入已更新，已取消舊年度清單');
-  if(!Array.isArray(result.years))throw Error('年度列表格式錯誤');
+  const result=await readWithRetryV1864_('years');if(!Array.isArray(result.years))throw Error('年度列表格式錯誤');
   const years=[...new Set([String(new Date().getFullYear()),...result.years])].sort().reverse();
   $('loadYear').innerHTML=years.map(y=>`<option value="${y}">${y} 年</option>`).join('');
   $('loadYear').value=selectedYear;
@@ -948,25 +778,29 @@ const budgetItem=id=>budgetData.find(r=>r.id===id&&!r.deleted);
 const budgetAmount=id=>Number(budgetItem(id)?.amount||0);
 const budgetStatus=(message,error=false)=>{const el=$('budgetMessage');el.textContent=message;el.className='status'+(error?' error':'')};
 const validBudgetAmount=id=>{const value=Number($(id).value);if($(id).value.trim()===''||!Number.isSafeInteger(value)||value<0||value>1000000000)throw Error('請填寫 0～10 億之間的整數金額');return value};
+// Budget owners are 承瑋/俐穎 only. A shared transaction counts half to each person and once for the family.
+function budgetShareV1871(r,owner){const o=r.owner||'shared';if(owner==='all')return 1;if(o===owner)return 1;return o==='shared'?0.5:0;}
+window.budgetShareV1871=budgetShareV1871;
 function budgetProgress(pct){return `<div class="budget-progress"><div class="${pct>100?'over':''}" style="width:${Math.max(0,Math.min(100,pct))}%"></div></div>`;}
 function renderBudget(){
  const owner=budgetOwner(),m=$('budgetMonth').value||month;
- const expRows=activeRecords().filter(r=>r.type==='expense'&&r.date.startsWith(m)&&(owner==='all'||(r.owner||'shared')===owner));
- const incRows=activeRecords().filter(r=>r.type==='income'&&r.date.startsWith(m)&&(owner==='all'||(r.owner||'shared')===owner));
- const spent=expRows.reduce((s,r)=>s+r.amount,0),income=incRows.reduce((s,r)=>s+r.amount,0);
+ const share=r=>budgetShareV1871(r,owner);
+ const expRows=activeRecords().filter(r=>r.type==='expense'&&r.date.startsWith(m)&&share(r)>0);
+ const incRows=activeRecords().filter(r=>r.type==='income'&&r.date.startsWith(m)&&share(r)>0);
+ const spent=expRows.reduce((s,r)=>s+r.amount*share(r),0),income=incRows.reduce((s,r)=>s+r.amount*share(r),0);
  const cap=owner==='all'?['me','wife'].reduce((s,o)=>s+budgetAmount(`budget:${o}:all`),0):budgetAmount(`budget:${owner}:all`),plan=owner==='all'?['me','wife'].reduce((s,o)=>s+budgetAmount(`plan:${o}`),0):budgetAmount(`plan:${owner}`),remaining=cap-spent;
  $('budgetStats').innerHTML=`<div class="budget-stat"><small>每月預算</small><strong>${cap?money(cap):'尚未設定'}</strong></div><div class="budget-stat"><small>${escapeHtml(m)} 已支出</small><strong>${money(spent)}</strong></div><div class="budget-stat"><small>可用餘額</small><strong style="color:${remaining<0?'#FF8D83':'#FFE09A'}">${cap?money(remaining):'—'}</strong></div>`;
  $('budgetTotalProgress').innerHTML=`<div class="${cap&&spent>cap?'over':''}" style="width:${cap?Math.min(100,spent/cap*100):0}%"></div>`;
  $('budgetState').textContent=!cap?'未設定預算':spent>cap?'已超支':`使用 ${Math.round(spent/cap*100)}%`;
- $('budgetCoverage').textContent=`${m} 已載入交易：收入 ${money(income)}、支出 ${money(spent)}。家庭預算為承瑋＋俐穎；家庭實支包含 me、wife 及獨立的 shared 共同消費各一次。個人實支不含 shared，尚未按付款責任攤提。`;
+ $('budgetCoverage').textContent=`${m} 已載入記帳：收入 ${money(income)}、支出 ${money(spent)}。僅計算已載入該年度的交易；共同交易在個人視角各算一半，家庭視角只算一次。`;
  $('budgetTotalInput').value=cap||'';$('monthlySavingInput').value=plan||'';['saveBudgetBasics','saveCategoryBudget','saveFund','saveSettlement','budgetTotalInput','monthlySavingInput'].forEach(id=>$(id).disabled=owner==='all');
- const categoryData=new Map();expRows.forEach(r=>categoryData.set(r.category,(categoryData.get(r.category)||0)+r.amount));
- const caps=budgetData.filter(r=>!r.deleted&&r.kind==='budget'&&(owner==='all'?['me','wife'].includes(r.owner):r.owner===owner)&&r.category!=='all');
+ const categoryData=new Map();expRows.forEach(r=>categoryData.set(r.category,(categoryData.get(r.category)||0)+r.amount*share(r)));
+ const caps=budgetData.filter(r=>!r.deleted&&r.kind==='budget'&&(owner==='all'||r.owner===owner)&&r.category!=='all');
  const categories=[...new Set([...categoryData.keys(),...caps.map(r=>r.category)])].sort((a,b)=>(categoryData.get(b)||0)-(categoryData.get(a)||0));
- $('budgetCategoryLines').innerHTML=categories.length?categories.map(c=>{const used=categoryData.get(c)||0,limit=owner==='all'?['me','wife'].reduce((s,o)=>s+budgetAmount(`budget:${o}:${encodeURIComponent(c)}`),0):budgetAmount(`budget:${owner}:${encodeURIComponent(c)}`),pct=limit?used/limit*100:0;return `<div class="budget-line"><div class="row"><strong>${escapeHtml(c)}</strong><span class="mini">${money(used)} ／ ${limit?money(limit):'未設額度'}</span></div>${limit?budgetProgress(pct):''}<div class="mini">${limit?(pct>100?'超支 '+money(used-limit):'使用 '+Math.round(pct)+'%'):'可新增分類預算'}</div></div>`}).join(''):'<p class="budget-muted">目前沒有分類支出或分類預算。</p>';
+ $('budgetCategoryLines').innerHTML=categories.length?categories.map(c=>{const used=categoryData.get(c)||0,limit=budgetAmount(`budget:${owner}:${encodeURIComponent(c)}`),pct=limit?used/limit*100:0;return `<div class="budget-line"><div class="row"><strong>${escapeHtml(c)}</strong><span class="mini">${money(used)} ／ ${limit?money(limit):'未設額度'}</span></div>${limit?budgetProgress(pct):''}<div class="mini">${limit?(pct>100?'超支 '+money(used-limit):'使用 '+Math.round(pct)+'%'):'可新增分類預算'}</div></div>`}).join(''):'<p class="budget-muted">目前沒有分類支出或分類預算。</p>';
  const select=$('budgetCategorySelect'),old=select.value;select.innerHTML=categoriesFor('expense').map(c=>`<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('');if([...select.options].some(o=>o.value===old))select.value=old;
- const funds=budgetData.filter(r=>!r.deleted&&r.kind==='fund'&&(owner==='all'?['me','wife'].includes(r.owner):r.owner===owner));
- $('budgetFunds').innerHTML=funds.length?funds.map(f=>{const pct=f.amount?f.saved/f.amount*100:0;return `<div class="budget-line"><div class="row"><div><strong>${escapeHtml(f.name)}${owner==='all'?'（'+(f.owner==='me'?'承瑋':'俐穎')+'）':''}</strong><div class="mini">已存 ${money(f.saved)} ／ 目標 ${money(f.amount)}</div></div><div class="actions">${owner==='all'?'':`<button class="button light" data-fund-edit="${escapeHtml(f.id)}" type="button">編輯</button><button class="button warn" data-fund-delete="${escapeHtml(f.id)}" type="button">刪除</button>`}</div></div>${budgetProgress(pct)}<div class="mini">達成 ${Math.round(pct)}%</div></div>`}).join(''):'<p class="budget-muted">還沒有基金目標，可先新增「旅遊基金」或「緊急備用金」。</p>';
+ const funds=budgetData.filter(r=>!r.deleted&&r.kind==='fund'&&(owner==='all'||r.owner===owner));
+ $('budgetFunds').innerHTML=funds.length?funds.map(f=>{const pct=f.amount?f.saved/f.amount*100:0;return `<div class="budget-line"><div class="row"><div><strong>${escapeHtml(f.name)}</strong><div class="mini">已存 ${money(f.saved)} ／ 目標 ${money(f.amount)}</div></div><div class="actions"><button class="button light" data-fund-edit="${escapeHtml(f.id)}" type="button">編輯</button><button class="button warn" data-fund-delete="${escapeHtml(f.id)}" type="button">刪除</button></div></div>${budgetProgress(pct)}<div class="mini">達成 ${Math.round(pct)}%</div></div>`}).join(''):'<p class="budget-muted">還沒有基金目標，可先新增「旅遊基金」或「緊急備用金」。</p>';
  const confirmed=owner==='all'?null:budgetItem(`settle:${owner}:${m}`),estimate=income-spent;
  $('savingsEstimate').innerHTML=`<div class="budget-stat"><small>預計存款</small><strong>${plan?money(plan):'未設定'}</strong></div><div class="budget-stat"><small>記帳推估結餘</small><strong>${money(estimate)}</strong></div><div class="budget-stat"><small>已確認實存</small><strong>${confirmed?money(confirmed.amount):'未結算'}</strong></div>`;
  $('settlementResult').textContent=confirmed?`${m} 已確認實存 ${money(confirmed.amount)}，${plan?`相較原計畫 ${confirmed.amount>=plan?'多存':'少存'} ${money(Math.abs(confirmed.amount-plan))}`:'尚未設定預計存款'}。`:`${m} 尚未確認實際存款（建議 ${nextMonthFifth(m)} 後核對）。`;
@@ -974,7 +808,7 @@ function renderBudget(){
  $('settlementAmount').value=confirmed?confirmed.amount:'';
 }
 function nextMonthFifth(m){const [y,mo]=m.split('-').map(Number),d=new Date(y,mo,5);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-05`;}
-async function loadBudget(){if(!configured())return;const result=await jsonp('budget');if(!result.ok)throw Error(result.error||'無法讀取預算');budgetData=result.settings||[];renderBudget();budgetStatus(budgetData.some(x=>x.owner==='shared'&&!x.deleted&&Number(x.amount)>0)?'已讀取預算；舊 shared BudgetData 仍保留原始紀錄、不納入家庭合計。請核對待歸屬項目，歷史資料不會自動刪除。':'已同步最新預算與基金設定');await loadPlanning18611();}
+async function loadBudget(){if(!configured())return;const result=await jsonp('budget');if(!result.ok)throw Error(result.error||'無法讀取預算');budgetData=result.settings||[];renderBudget();budgetStatus('已同步最新預算與基金設定');await loadPlanning18611();}
 async function saveBudgetRecords(items){
  if(budgetBusy)throw Error('正在儲存，請稍候');if(!configured())throw Error('請先登入雲端帳號');
  budgetBusy=true;budgetStatus('正在同步至 Google Sheets…');
@@ -997,6 +831,8 @@ $('budgetFunds').onclick=async e=>{const edit=e.target.closest('[data-fund-edit]
 $('saveSettlement').onclick=async()=>{try{const m=$('settlementMonth').value,owner=budgetOwner();if(!/^20\d{2}-(0[1-9]|1[0-2])$/.test(m))throw Error('請選擇結算月份');if(m!==$('budgetMonth').value)throw Error('結算月份須與上方顯示月份相同');if(new Date()<new Date(nextMonthFifth(m)+'T00:00:00')&&!confirm('尚未到次月 5 日，確定已核對銀行餘額並提前結算？'))return;await saveBudgetRecords([{id:`settle:${owner}:${m}`,kind:'settlement',owner,month:m,amount:validBudgetAmount('settlementAmount'),confirmed:true}]);}catch(err){budgetError(err);}};
 
 window.activeRecords=activeRecords;window.jsonp=jsonp;window.post=post;window.renderBudget=renderBudget;
+// The planning script runs in its own closure and cannot assign this script's budgetData directly.
+window.setBudgetDataV1871=v=>{budgetData=Array.isArray(v)?v:[];};
 // v1.8.6 phase 1: independent durable drafts. Do not reuse the legacy pending delta queue.
 const quickDraftKey=()=>`family-ledger-quick-v186:${currentUser}:${settings.url}`;
 let manualActionBusy=false;
@@ -1098,24 +934,20 @@ for(const id of ['loadYearButton','loadYear','typeFilter','monthFilter','categor
 window.addEventListener('beforeunload',e=>{if(!quickDraft.size)return;e.preventDefault();e.returnValue='';});
 restoreQuickDraft();
 
-const oldRender18=render;render=()=>{oldRender18();if($('budget'))renderBudget();$('footerStatus').textContent=$('footerStatus').textContent.replace(/v1\.7\.2|v1\.8\.5/g,'v1.8.6.12.10-RC5');renderSyncNotice();};
+const oldRender18=render;render=()=>{oldRender18();if($('budget'))renderBudget();$('footerStatus').textContent=$('footerStatus').textContent.replace(/v1\.7\.2/g,'v1.8.6.12.9');renderSyncNotice();};
 fillCategories();render();
-$('footerStatus').textContent='家計簿 v1.8.6.12.10-RC5 · 退休整合測試候選';
+$('footerStatus').textContent='家計簿 v1.8.6.12.9 · 同步穩定測試版';
 if(configured()){
-  const bootstrapGeneration=authGenerationV1864_;
   $('loginGate').classList.remove('hidden');
   showLoginProgressV1864_('正在驗證既有登入，載入雲端資料…');
   (async()=>{
     try{
       await loadYears();
-      if(bootstrapGeneration!==authGenerationV1864_)return;
       await refresh({strict:true});
-      if(bootstrapGeneration!==authGenerationV1864_)return;
       if(!loadedYearSet.has(selectedYear))throw Error('交易載入未完成');
       $('loginGate').classList.add('hidden');
       try{await loadBudget();}catch(err){budgetStatus('預算讀取失敗：'+err.message,true);}
     }catch(err){
-      if(bootstrapGeneration!==authGenerationV1864_)return;
       cloudReady=false;renderSyncNotice();
       $('loginGate').classList.remove('hidden');
       $('loginError').textContent='雲端交易讀取失敗：'+err.message+'。請重新登入重試；本機資料未清除。';
@@ -1125,7 +957,7 @@ if(configured()){
 else notify('請使用個人帳號登入，系統才會讀取 Google Sheets。');
 ;
 
-// v1.8.6.12.10: single local ZIP download avoids browsers blocking consecutive downloads.
+// v1.8.6.12.9: single local ZIP download avoids browsers blocking consecutive downloads.
 // ZIP store format (no compression), no external CDN or library, UTF-8 filenames.
 function zipU16_(v){return [v&255,(v>>>8)&255]}
 function zipU32_(v){return [v&255,(v>>>8)&255,(v>>>16)&255,(v>>>24)&255]}
@@ -1150,7 +982,7 @@ function downloadAiZipV1866_(name,blob){
   try{link.click()}finally{link.remove();setTimeout(()=>URL.revokeObjectURL(url),60000)}
 }
 
-// v1.8.6.12.10: immutable cloud snapshot for offline AI classification. No production writes.
+// v1.8.6.12.9: immutable cloud snapshot for offline AI classification. No production writes.
 async function exportAICloudSnapshotV1865_(){
   const btn=$('aiExportV1865'),status=$('aiExportStatusV1865');
   if(btn.disabled)return;
@@ -1199,7 +1031,7 @@ async function exportAICloudSnapshotV1865_(){
 }
 $('aiExportV1865').onclick=()=>exportAICloudSnapshotV1865_().catch(err=>{ $('aiExportStatusV1865').textContent='匯出未完成：'+String(err.message||err);console.warn('AI export failed:',err); });
 
-// v1.8.6.12.10: review-only three-way compare; intentionally NO write API.
+// v1.8.6.12.9: review-only three-way compare; intentionally NO write API.
 let aiReviewResultsV1868=[];
 const aiImmutableV1868=['id','date','type','merchant','amount','owner','invoice','note','source','details'];
 function aiRowsAsObjectsV1868(raw){
@@ -1217,7 +1049,7 @@ function aiPreviewTableV1868(rows){
   box.innerHTML=`<p class="help"><strong>${escapeHtml(counts)}</strong></p><p class="help">最多顯示前 250 筆非維持項目，完整結果可按下方下載。請至下方人工審核工作區修改決策；不會寫入雲端。</p><div class="tablewrap"><table><thead><tr><th>交易</th><th>原分類</th><th>AI 建議</th><th>雲端分類</th><th>判定</th></tr></thead><tbody>${shown.map(r=>`<tr><td><strong>${escapeHtml(r.merchant)}</strong><small>${escapeHtml(r.id)}</small></td><td>${escapeHtml(r.original)}</td><td>${escapeHtml(r.suggested)}</td><td>${escapeHtml(r.cloud)}</td><td>${escapeHtml(r.status)}</td></tr>`).join('')}</tbody></table></div><button class="button ghost" id="aiDownloadPreviewV1868" type="button">下載完整比對結果 CSV</button>`;
   $('aiDownloadPreviewV1868').onclick=()=>{
     const columns=['id','merchant','original','suggested','cloud','status','reason'];
-    download('family-ledger-ai-preview-v1.8.6.12.10.csv',[columns.join(','),...rows.map(r=>columns.map(key=>csvCell(r[key])).join(','))].join('\r\n'),'text/csv;charset=utf-8');
+    download('family-ledger-ai-preview-v1.8.6.12.9.csv',[columns.join(','),...rows.map(r=>columns.map(key=>csvCell(r[key])).join(','))].join('\r\n'),'text/csv;charset=utf-8');
   };
 }
 async function aiPreviewV1868_(){
@@ -1274,7 +1106,7 @@ async function aiPreviewV1868_(){
 $('aiPreviewV1868').onclick=()=>aiPreviewV1868_().catch(err=>{$('aiPreviewStatusV1868').textContent='驗證中止：'+String(err.message||err);console.error('AI review failed',err)});
 
 
-// v1.8.6.12.10 — offline-only decisions, no Apps Script write endpoint.
+// v1.8.6.12.9 — offline-only decisions, no Apps Script write endpoint.
 let aiReviewDraftIdV1869='',aiReviewChoicesV1869={},aiReviewPageV1869=0;
 function aiDraftKeyV1869(id){return 'family-ledger-ai-review-v1869:'+id}
 function aiReviewGroupV1869(r){
@@ -1311,8 +1143,8 @@ $('aiReviewExportDecision').onclick=()=>{if(!aiReviewDraftIdV1869)return;downloa
 $('aiReviewExportCsv').onclick=()=>{const rows=aiDecisionsV1869().filter(r=>r.change),cols=['id','baselineCategory','cloudCategory','targetCategory','decision','reason'];download('family-ledger-AI-CHANGES-'+aiReviewDraftIdV1869+'.csv',[cols.join(','),...rows.map(r=>cols.map(k=>csvCell(r[k])).join(','))].join('\r\n'),'text/csv;charset=utf-8');$('aiReviewEditorStatus').textContent=`已匯出 ${rows.length} 筆人工決定的分類變更，尚未寫入 Google Sheets。`};
 $('aiReviewClear').onclick=()=>{if(!confirm('確定清除這份 AI 審核草稿？不會修改帳本。'))return;aiReviewChoicesV1869={};localStorage.removeItem(aiDraftKeyV1869(aiReviewDraftIdV1869));aiRenderEditorV1869()};
 
-// v1.8.6.12.10 - safe read-only Review import; no new write API.
-function annualSavingPlan18610(owner){if(owner==='all')return ['me','wife'].reduce((n,o)=>n+Number(budgetData.find(b=>b.id==='plan:'+o&&!b.deleted)?.amount||0),0);return Number(budgetData.find(b=>b.id==='plan:'+owner&&!b.deleted)?.amount||0)}
+// v1.8.6.12.9 - safe read-only Review import; no new write API.
+function annualSavingPlan18610(owner){if(owner==='all')return ['me','wife','shared'].reduce((n,o)=>n+Number(budgetData.find(b=>b.id==='plan:'+o&&!b.deleted)?.amount||0),0);return Number(budgetData.find(b=>b.id==='plan:'+owner&&!b.deleted)?.amount||0)}
 let aiReadyReview18610=null;const aiPublishButton18610=$('aiPublishButton18610');const aiReviewInput18610=$('aiReviewImportFile18610');
 aiReviewInput18610.onchange=async function(){const file=this.files?.[0];if(!file)return;const status=$('aiReviewImportStatus18610'),out=$('aiReviewImportResults18610');out.innerHTML='';aiReadyReview18610=null;aiPublishButton18610.hidden=true;status.textContent='正在驗證審核檔…';try{
  const data=JSON.parse(await file.text());if(data.schema!=='family-ledger-ai-review-v1'||!Array.isArray(data.decisions)||!data.exportId)throw Error('這不是人工審核決策 JSON。正確來源：AI 智慧整理 → 人工審核工作區 →「下載人工審核決策 JSON」（AI-REVIEW-*.json）。');
@@ -1339,35 +1171,51 @@ for(const [id,msg] of Object.entries({'quickEditSave':'一次寫入已編輯的�
 }
 
 // Export only authenticated networking helpers to the planning module.
-window.ledgerPlanningBridge = Object.freeze({jsonp, post, activeRecords, applyBudgetSnapshot(settings){budgetData=settings;renderBudget();}});
-window.ledgerIncomeBridge=Object.freeze({
- list:()=>activeRecords(), parseCSV,
- importReviewed(batch){
-  if(!Array.isArray(batch)||!batch.length||batch.length>300)throw Error('一次限 1～300 筆收入交易');
-  if(syncBusy||syncConflicts.length||quickDraft.size||quickBusy)throw Error('存在同步、衝突或快速編輯草稿；請先完成，避免資料覆蓋');
-  const used=new Set(records.map(r=>r.id)),amountKeys=new Set();
-  for(const r of batch){
-   if(!/^manual:income:[a-f0-9]{16}$/.test(r.id)||r.type!=='income'||!['me','wife'].includes(r.owner)||!/^20\d{2}-\d{2}-\d{2}$/.test(r.date)||!Number.isSafeInteger(r.amount)||r.amount<=0||r.amount>1e9||String(r.merchant||'').length>120||!['salary','yearend','bonus','overtime','other'].includes(r._incomeKind)||used.has(r.id))throw Error('薪獎匯入欄位不合法、ID 衝突或已匯入；請重新預覽');
-   const key=[r.owner,r.date,r.amount].join('|');if(amountKeys.has(key))throw Error('同一批有同日、同歸屬、同金額的疑似重複收入，請拆批核對');amountKeys.add(key);
-   used.add(r.id);
-  }
-  // Duplicate protection covers manually entered identical bank deposits, not just repeated CSV IDs.
-  for(const r of batch){if(records.some(x=>!x.deleted&&x.type==='income'&&x.owner===r.owner&&x.date===r.date&&Number(x.amount)===r.amount))throw Error('帳本已有同日期、歸屬、金額及名稱的收入；請人工檢查，不可重複入帳');}
-  records.push(...batch.map(r=>normalize({...r,source:'manual',_categoryManual:true,_rev:0})));save();
-  return {count:batch.length,pending:pending.size};
- }
-});
+window.ledgerPlanningBridge = Object.freeze({jsonp, post, activeRecords});
 })();
-</script><script id="logic18611">
+</script><script id="retireCheckV1871">
+/* v1.8.7.1 家庭退休雙時點檢查(純計算,無 DOM、無網路;單元測試直接載入本段)。
+   規則(2026-10-25 使用者確認):目標 = 2026 年購買力 2,000 萬,通膨 2%;
+   檢查時點 = 承瑋 65 歲(2053-05)、俐穎 65 歲(2065-05);
+   計入資產 = 退休投資 + 勞退專戶 + 轉正後公提專戶,不含結餘現金;
+   每月投入只讀預算的「退休投資」(承瑋、俐穎各一筆),在各自退休月停止。 */
+(function(root){'use strict';
+const mi=s=>{const m=/^(\d{4})-(\d{2})/.exec(String(s||''));return m?Number(m[1])*12+Number(m[2])-1:NaN;};
+const ms=n=>`${Math.floor(n/12)}-${String(n%12+1).padStart(2,'0')}`;
+const num=(v,d=0)=>Number.isFinite(Number(v))&&v!==null&&v!==''?Number(v):d;
+function person(p){const birth=mi(p.birthDate);if(!Number.isFinite(birth))throw Error('缺少出生年月:'+(p.owner||''));
+ return {owner:p.owner,retire:birth+12*num(p.retireAge,65),monthly:Math.max(0,num(p.monthly)),principal:Math.max(0,num(p.principal)),
+  laborBalance:Math.max(0,num(p.laborRetireBalance)),laborDeposit:Math.max(0,num(p.laborRetireWage))*num(p.laborEmployerPct,6)/100,laborReturn:num(p.laborFundReturn,2),
+  publicBalance:Math.max(0,num(p.publicFundBalance)),publicDeposit:Math.max(0,num(p.publicPensionBase))*2*num(p.publicContributionPct,15)/100,publicReturn:num(p.publicFundReturn,2),
+  switchAt:p.employmentType==='public'?-Infinity:(p.employmentType==='proxy'&&p.formalSwitchDate?mi(p.formalSwitchDate):Infinity)};}
+// 逐月:先依各帳戶報酬成長,再存入當月投入(與 RC5 引擎相同順序);勞退/公提不在 65 歲轉為不生息現金。
+function project(args){const start=mi(args.asOf),base=mi(args.baseMonth||'2026-10'),ret=num(args.annualReturn)/100,infl=num(args.inflation,2)/100,goal=num(args.goalReal,2e7);
+ const ps=args.people.map(person),end=Math.max(...ps.map(p=>p.retire));if(!(end>=start))throw Error('退休時點早於試算起點');
+ const st=ps.map(p=>({inv:p.principal,labor:p.laborBalance,pub:p.publicBalance})),out={};
+ for(let m=start;m<=end;m++){
+  if(m>start)ps.forEach((p,i)=>{st[i].inv*=Math.pow(1+ret,1/12);st[i].labor*=Math.pow(1+p.laborReturn/100,1/12);st[i].pub*=Math.pow(1+p.publicReturn/100,1/12);});
+  ps.forEach((p,i)=>{if(m<p.retire){st[i].inv+=p.monthly;if(m>=p.switchAt)st[i].pub+=p.publicDeposit;else st[i].labor+=p.laborDeposit;}});
+  for(const p of ps)if(m===p.retire){const assets=st.reduce((a,x)=>a+x.inv+x.labor+x.pub,0),goalNominal=goal*Math.pow(1+infl,(m-base)/12);
+   out[p.owner]={date:ms(m),assets,goalNominal,met:assets>=goalNominal,real:assets/Math.pow(1+infl,(m-base)/12)};}
+ }return out;}
+// 兩時點都達標所需的每月總投入(維持目前兩人比例;結果對投入是線性,可精確求解)。
+function requiredMonthly(args){const ratio=args.people.map(p=>Math.max(0,num(p.monthly))),sum=ratio.reduce((a,b)=>a+b,0),w=sum>0?ratio.map(x=>x/sum):args.people.map(()=>1/args.people.length);
+ const zero=project({...args,people:args.people.map(p=>({...p,monthly:0}))}),unit=project({...args,people:args.people.map((p,i)=>({...p,monthly:w[i]}))});
+ let need=0;for(const k of Object.keys(zero)){const per=unit[k].assets-zero[k].assets;need=Math.max(need,per>0?(zero[k].goalNominal-zero[k].assets)/per:Infinity);}
+ return {total:Math.max(0,need),split:Object.fromEntries(args.people.map((p,i)=>[p.owner,Math.max(0,need)*w[i]]))};}
+root.LedgerRetireCheckV1871=Object.freeze({project,requiredMonthly,MAIN_RETURN:11.79,ALT_RETURN:7});
+})(typeof window!=='undefined'?window:globalThis);
+</script>
+<script id="logic18611">
 (function(){'use strict';
 const {jsonp,post,activeRecords}=window.ledgerPlanningBridge;
-const $=id=>document.getElementById(id), OWNER=['me','wife'];
+const $=id=>document.getElementById(id), OWNER=['me','wife','shared'];
 const fmt=n=>'$'+Math.round(n).toLocaleString('en-US');
 const types={fixed:'每月固定',annual:'年度預留',variable:'彈性預算',fund:'基金／投資'};
 const defaults=[
- ['房貸','fixed','me',23460,'房貸'],['車貸','fixed','me',5493,'車貸'],['信貸','fixed','me',13160,'貸款'],['社區管理費','fixed','me',2187,'居家'],['網路費','fixed','me',400,'水電電信'],['手機費','fixed','me',1000,'水電電信'],['水電天然氣','variable','me',2000,'水電電信'],
+ ['房貸','fixed','me',23460,'房貸'],['車貸','fixed','me',5493,'車貸'],['信貸','fixed','me',13160,'貸款'],['社區管理費','fixed','shared',2187,'居家'],['網路費','fixed','shared',400,'水電電信'],['手機費','fixed','me',1000,'水電電信'],['水電天然氣','variable','shared',2000,'水電電信'],
  ['汽車牌照稅','annual','me',11230,'交通',4],['機車牌照稅','annual','me',800,'交通',4],['汽車養管費','annual','me',6180,'交通',7],['機車養管費','annual','me',600,'交通',7],['汽車保險','annual','me',13000,'保險',7],
- ['中醫－承瑋','variable','me',3500,'醫療'],['中醫－俐穎','variable','wife',11000,'醫療'],['日常餐飲－承瑋','variable','me',8000,'餐飲'],['日常餐飲－俐穎','variable','wife',8000,'餐飲'],['共同食品餐飲','variable','me',2000,'餐飲'],['聚餐基金','fund','me',3000,'餐飲'],['緊急預備金','fund','me',0,''],['退休投資－承瑋','fund','me',4000,''],['退休投資－俐穎','fund','wife',6000,''],['旅遊基金','fund','me',0,''],['美妝保養','variable','wife',0,'購物'],['服裝鞋包','variable','wife',0,'購物'],['娛樂興趣','variable','me',0,'娛樂'],['汽車保養','fund','me',900,'交通'],['所得稅準備金','annual','me',240000,'',5]
+ ['中醫－承瑋','variable','me',3500,'醫療'],['中醫－俐穎','variable','wife',11000,'醫療'],['日常餐飲－承瑋','variable','me',8000,'餐飲'],['日常餐飲－俐穎','variable','wife',8000,'餐飲'],['共同食品餐飲','variable','shared',2000,'餐飲'],['聚餐基金','fund','shared',3000,'餐飲'],['緊急預備金','fund','shared',0,''],['退休投資－承瑋','fund','me',4000,''],['退休投資－俐穎','fund','wife',6000,''],['旅遊基金','fund','shared',0,''],['美妝保養','variable','wife',0,'購物'],['服裝鞋包','variable','wife',0,'購物'],['娛樂興趣','variable','me',0,'娛樂'],['汽車保養','fund','me',900,'交通'],['所得稅準備金','annual','shared',240000,'',5]
 ];
 let rows=[], profile=[], loaded=false, busy=false;
 const ownerSel=()=> $('budgetOwner').value;
@@ -1396,7 +1244,8 @@ const guidance={
  '所得稅準備金':{me:0,wife:0,shared:null,reason:'115 年度（2026）夫妻合併申報概算：依 1～9 月 CSV 的薪資及獎金推估、2026 年免稅與扣除額試算，年預留先抓 $240,000（每月 $20,000）；此為偏保守的應納稅額準備，不等於五月實際應補稅額，須扣除已扣繳稅額等。參考財政部 115 年度公告。',source:'https://www.mof.gov.tw/singlehtml/384fb3077bb349ea973e7fc6f13b6974%3FcntId%3D34b463dc8f1b49f29d440d92a6fd5139'},
  '家庭補助':{me:0,wife:null,shared:0,reason:'夫妻約定俐穎每月至少轉入家庭 $20,000，屬內部資金移轉，不列家庭費用或收入。'}
 };
-function seed(){const current=defaults.map(([name,type,owner,amount,category,dueMonth])=>({name:canonicalPlanName(name),type,owner,amount,category:category||'',dueMonth:dueMonth||0}));const result=[];
+function seed(){return V2_SPEC.map(x=>({id:'planitem:'+crypto.randomUUID(),kind:'item',name:x.name,type:x.type,owner:x.owner,amount:x.amount,category:x.category,dueMonth:x.dueMonth,aiPct:null,aiAmount:null,actualPct:null,active:true,_rev:0}));}
+function seedLegacy186(){const current=defaults.map(([name,type,owner,amount,category,dueMonth])=>({name:canonicalPlanName(name),type,owner,amount,category:category||'',dueMonth:dueMonth||0}));const result=[];
  const canonical=[...new Map([...catalogExtra.map(([name,type,amount,category])=>[canonicalPlanName(name),{name:canonicalPlanName(name),type,category,dueMonth:0}]),...current.map(r=>[r.name,{name:r.name,type:r.type,category:r.category,dueMonth:r.dueMonth}])]).values()];
  for(const c of canonical){for(const owner of OWNER){let found=current.find(x=>x.name===c.name&&x.owner===owner);let ext=catalogExtra.find(x=>x[0]===c.name),amt=found?found.amount:(owner==='me'&&ext?ext[2]:0);if(c.name==='家庭補助')amt=owner==='wife'?20000:0;
   if(c.name==='緊急預備金')amt=owner==='me'?4000:owner==='wife'?3000:0;
@@ -1405,41 +1254,76 @@ function seed(){const current=defaults.map(([name,type,owner,amount,category,due
   if(c.name==='美妝保養')amt=owner==='wife'?2400:owner==='me'?800:0;
   if(c.name==='服裝鞋包')amt=owner==='wife'?2400:owner==='me'?1600:0;
   if(c.name==='娛樂興趣')amt=owner==='wife'?1800:owner==='me'?2400:0;
-  if(c.name==='日常餐飲')amt=owner==='me'?8000:8000;
-  if(c.name==='聚餐基金')amt=owner==='me'?3000:0;
+  if(c.name==='日常餐飲')amt=owner==='me'?8000:owner==='wife'?8000:2000;
+  if(c.name==='聚餐基金')amt=owner==='shared'?3000:0;
   if(c.name==='汽車保養')amt=owner==='me'?900:0;
-  if(c.name==='所得稅準備金')amt=owner==='me'?240000:0;
+  if(c.name==='所得稅準備金')amt=owner==='shared'?240000:0;
   result.push({id:'planitem:'+crypto.randomUUID(),kind:'item',name:c.name,type:c.type,owner,amount:Math.round(amt),category:c.category||'',dueMonth:found?.dueMonth||c.dueMonth||0,aiPct:null,aiAmount:null,actualPct:null,active:true,_rev:0});
  }}return result;}
 
 function monthly(r){return r.type==='annual'?Number(r.amount||0)/12:Number(r.amount||0)}
-function legacySharedBudgetRows(){return rows.filter(r=>r.owner==='shared'&&r.active!==false&&Number(r.amount)>0);}
-function showLegacyBudgetNotice(){
- const list=legacySharedBudgetRows(),el=$('planningLegacyWarning');el.hidden=!list.length;
- if(list.length)el.textContent='仍有 '+list.length+' 筆舊版 shared 預算未指定承擔者（合計 '+fmt(list.reduce((s,r)=>s+monthly(r),0))+'／月）。家庭預算與退休試算不計入這些金額；請在下方「舊版待歸屬」逐筆指定承瑋／俐穎後，再儲存理財配置。原始 ID 與稽核版本均保留。';
-}
-function relevant(){return rows.filter(r=>r.active!==false&&['me','wife'].includes(r.owner)&&(ownerSel()==='all'||r.owner===ownerSel()));}
-
-function syncRows(){const owner=ownerSel(),rs=relevant();showLegacyBudgetNotice();const total=rs.reduce((s,r)=>s+(r.name==='家庭補助'?0:monthly(r)),0);$('planningSummary').innerHTML=`<div>當前視角 <strong>${owner==='all'?'家庭全部':owner==='me'?'承瑋':owner==='wife'?'俐穎':'家庭合計'}</strong></div><div>每月預定安排 <strong>${fmt(total)}</strong></div><div>年度準備金／月 <strong>${fmt(rs.filter(x=>x.type==='annual').reduce((a,x)=>a+monthly(x),0))}</strong></div>`;
- $('planningInactive').innerHTML=rows.filter(x=>x.active===false).map(x=>`<div class="row" style="padding:7px"><span>${esc(x.name)}（${x.owner}）</span><button type="button" class="button light" data-reactivate="${x.id}">恢復</button></div>`).join('')||'<p class="mini">目前沒有停用項目</p>';$('planningRows').innerHTML=rs.map(r=>{const estimate=proposed.get(r.id),ai=r.aiPct===null?(estimate?'系統參考 '+(estimate.percentage===null?'—':estimate.percentage.toFixed(2)+'%'):'尚未產生參考值'):Number(r.aiPct).toFixed(2)+'%',actual=r.actualPct===null?'—':Number(r.actualPct).toFixed(1)+'%';return `<div class="planning-row" data-id="${r.id}"><div><strong>${esc(r.name)}</strong><span class="mini">${types[r.type]} · ${r.owner==='me'?'承瑋':r.owner==='wife'?'俐穎':'家庭合計'}${r.dueMonth?' · '+r.dueMonth+'月繳款':''}</span></div><div><span class="planning-mobile-label">AI 建議</span>${ai}<span class="mini">${r.aiAmount===null?(estimate?'參考 '+fmt(estimate.amount)+'／月':'按「產生全部項目參考比例」'):fmt(r.aiAmount)}</span></div><div><span class="planning-mobile-label">實際安排</span>${actual}<strong style="display:block">${fmt(monthly(r))}／月</strong></div><div style="display:flex;gap:6px;flex-wrap:wrap"><button class="button light" data-edit="${r.id}" type="button">編輯</button><button class="button ghost" data-off="${r.id}" type="button">停用</button></div></div>`}).join('')||'<p class="budget-muted">此視角尚無項目，請新增或載入初始項目。</p>';
+// ---- v1.8.7.1 預算 v2(使用者 2026-10-25 確認的清單)。amount:annual = 全年金額,其餘 = 每月金額。 ----
+const V2_SPEC=[
+ ['房貸','fixed','me',23460,'房貸',0],['車貸','fixed','me',5493,'車貸',0],['信貸','fixed','me',13160,'貸款',0],
+ ['社區管理費','fixed','me',2187,'居家',0],['網路費','fixed','me',400,'水電電信',0],['手機費','fixed','me',1000,'水電電信',0],
+ ['家庭補助','fixed','wife',20000,'家庭內轉帳',0],['水電天然氣','variable','me',2000,'水電電信',0],
+ ['日常餐飲','variable','me',10000,'餐飲',0],['日常餐飲','variable','wife',10000,'餐飲',0],
+ ['中醫','variable','me',3500,'醫療',0],['中醫','variable','wife',11000,'醫療',0],
+ ['汽車加油','variable','me',3000,'交通',0],['停車及通行','variable','me',500,'交通',0],['汽車清潔雜費','variable','me',200,'交通',0],
+ ['服裝鞋包','variable','me',1600,'購物',0],['服裝鞋包','variable','wife',1200,'購物',0],
+ ['美妝保養','variable','me',800,'購物',0],['美妝保養','variable','wife',800,'購物',0],['娛樂興趣','variable','wife',1800,'娛樂',0],
+ ['汽車牌照稅','annual','me',11230,'交通',4],['機車牌照稅','annual','me',800,'交通',4],['汽車養管費','annual','me',6180,'交通',7],
+ ['機車養管費','annual','me',600,'交通',7],['汽車保險','annual','me',13000,'保險',7],['所得稅準備金','annual','me',50000,'',5],
+ ['緊急預備金','fund','me',4000,'',0],['緊急預備金','fund','wife',3000,'',0],['旅遊基金','fund','me',1600,'',0],['旅遊基金','fund','wife',1800,'',0],
+ ['大餐基金','fund','me',1500,'餐飲',0],['大餐基金','fund','wife',1500,'餐飲',0],['汽車保養維修','fund','me',1100,'交通',0],
+ ['退休投資','fund','me',5500,'',0],['退休投資','fund','wife',8300,'',0]
+].map(([name,type,owner,amount,category,dueMonth])=>({name,type,owner,amount,category,dueMonth}));
+// 舊名稱 → v2 名稱(合併或改名);其餘名稱維持原樣。
+const V2_RENAME={'日常餐飲－承瑋':'日常餐飲','日常餐飲－俐穎':'日常餐飲','共同食品餐飲':'日常餐飲','中醫－承瑋':'中醫','中醫－俐穎':'中醫','聚餐基金':'大餐基金','汽車輪胎基金':'汽車保養維修','汽車維修準備':'汽車保養維修','汽車保養':'汽車保養維修','汽車定期保養':'汽車保養維修','退休投資－承瑋':'退休投資','退休投資－俐穎':'退休投資'};
+const v2Name=name=>V2_RENAME[String(name||'').trim()]||String(name||'').trim();
+function v2Monthly(name,owner){const x=V2_SPEC.find(v=>v.name===v2Name(name)&&v.owner===owner);return x?(x.type==='annual'?x.amount/12:x.amount):null;}
+// 產生遷移草稿:每個 v2 項目保留一筆(優先有金額、版本較新者)並改成 v2 值;其餘啟用中的列一律停用,不刪除。
+function planV2Migration(current){
+ const draft=clone(current),used=new Set(),changes=[],created=[],disabled=[];
+ for(const spec of V2_SPEC){
+  const cands=draft.filter(r=>r.active!==false&&!used.has(r.id)&&r.owner===spec.owner&&v2Name(r.name)===spec.name)
+   .sort((a,b)=>(Number(b.amount>0)-Number(a.amount>0))||(Number(b.name===spec.name)-Number(a.name===spec.name))||(Number(b._rev||0)-Number(a._rev||0)));
+  let r=cands[0];
+  if(!r){r={id:'planitem:'+crypto.randomUUID(),kind:'item',name:spec.name,type:spec.type,owner:spec.owner,amount:spec.amount,category:spec.category,dueMonth:spec.dueMonth,aiPct:null,aiAmount:null,actualPct:null,active:true,_rev:0};draft.push(r);created.push(r);used.add(r.id);continue;}
+  used.add(r.id);
+  const before={name:r.name,type:r.type,amount:Number(r.amount||0),category:r.category||'',dueMonth:r.dueMonth||0};
+  Object.assign(r,{name:spec.name,type:spec.type,amount:spec.amount,category:spec.category,dueMonth:spec.dueMonth,active:true,actualPct:null});
+  if(before.name!==r.name||before.type!==r.type||before.amount!==r.amount||before.category!==r.category||before.dueMonth!==r.dueMonth)changes.push({r,before});
  }
-// Legacy shared planning records are neither deleted nor silently counted as a third budget.
-function renderLegacyAssignment(){
- let box=$('legacyBudgetAssignmentRC3');
- if(!box){box=document.createElement('div');box.id='legacyBudgetAssignmentRC3';box.className='panel';box.style.marginTop='12px';$('planningRows').insertAdjacentElement('afterend',box);}
- const legacy=legacySharedBudgetRows();box.hidden=!legacy.length;
- if(!legacy.length){box.replaceChildren();return;}
- box.innerHTML='<h3>舊版 shared 預算：待指定負責人（未計入家庭合計）</h3><p class="budget-muted">此處的 shared 是舊版預算歸屬，與交易共同消費無關。選擇後只修改本機草稿；儲存前可復原，原始 ID 與歷史版本保留。</p>'+legacy.map(r=>`<div class="row" style="padding:9px 0;gap:9px;flex-wrap:wrap"><span>${esc(r.name)}：${fmt(monthly(r))}／月</span><button class="button light" type="button" data-assign-legacy="${esc(r.id)}" data-to="me">指定承瑋</button><button class="button light" type="button" data-assign-legacy="${esc(r.id)}" data-to="wife">指定俐穎</button></div>`).join('');
+ for(const r of draft)if(r.active!==false&&!used.has(r.id)){r.active=false;disabled.push(r);}
+ return {draft,changes,created,disabled};
 }
-$('planningRows').addEventListener('click',()=>setTimeout(renderLegacyAssignment,0));
-// The panel is outside planningRows and rebuilt after every sync.
-document.addEventListener('click',e=>{const button=e.target.closest('[data-assign-legacy]');if(!button)return;const r=rows.find(x=>x.id===button.dataset.assignLegacy);if(!r||r.owner!=='shared'||!['me','wife'].includes(button.dataset.to))return;
- if(!confirm('將「'+r.name+'」的預算責任改為'+(button.dataset.to==='me'?'承瑋':'俐穎')+'？不會改動交易 shared 歸屬；需另按儲存才會寫入雲端。'))return;
- r.owner=button.dataset.to;proposed.clear();syncRows();renderLegacyAssignment();renderRetire();$('planningMessage').textContent='已在本機指定預算負責人，尚未寫入雲端。';});
-const syncRowsOriginalRC3=syncRows;syncRows=function(){syncRowsOriginalRC3();renderLegacyAssignment();};
+function v2Totals(items){const out={me:{expense:0,saving:0},wife:{expense:0,saving:0}};for(const r of items){if(r.active===false||!out[r.owner]||r.name==='家庭補助')continue;if(r.type==='fund')out[r.owner].saving+=monthly(r);else out[r.owner].expense+=monthly(r);}return out;}
+let pendingV2=null;
+function renderV2Preview(){
+ const el=$('planningMigratePreview');if(!pendingV2){el.innerHTML='';return;}
+ const {changes,created,disabled,draft}=pendingV2,t=v2Totals(draft),who=o=>o==='me'?'承瑋':o==='wife'?'俐穎':'共同';
+ const line=(a,b)=>`<li>${a}${b?` <span class="mini">${b}</span>`:''}</li>`;
+ el.innerHTML=`<div class="panel" style="padding:14px;margin:12px 0"><h3>預算 v2 整理預覽(尚未寫入)</h3>
+ <p class="budget-muted">確認後才會用「儲存理財配置」寫入 Google Sheets;停用的項目不會刪除,可在「管理已停用項目」恢復。每筆都有版本檢查與操作紀錄。</p>
+ <p><strong>整理後每月支出</strong>:承瑋 ${fmt(t.me.expense)}、俐穎 ${fmt(t.wife.expense)},家庭 ${fmt(t.me.expense+t.wife.expense)}(不含基金與家庭補助)。<br><strong>每月存入基金</strong>:承瑋 ${fmt(t.me.saving)}、俐穎 ${fmt(t.wife.saving)}。</p>
+ <details open><summary>修改 ${changes.length} 筆</summary><ul>${changes.map(c=>line(`${esc(who(c.r.owner))}｜${esc(c.before.name)}${c.before.name!==c.r.name?' → '+esc(c.r.name):''}`,`${fmt(c.before.amount)} → ${fmt(c.r.amount)}${c.r.type==='annual'?' /年':' /月'}`)).join('')}</ul></details>
+ <details><summary>新增 ${created.length} 筆</summary><ul>${created.map(r=>line(`${esc(who(r.owner))}｜${esc(r.name)}`,fmt(r.amount)+(r.type==='annual'?' /年':' /月'))).join('')||'<li>無</li>'}</ul></details>
+ <details><summary>停用 ${disabled.length} 筆(其中金額大於 0 的 ${disabled.filter(r=>Number(r.amount)>0).length} 筆)</summary><ul>${disabled.slice().sort((a,b)=>Number(b.amount||0)-Number(a.amount||0)).map(r=>line(`${esc(who(r.owner))}｜${esc(r.name)}`,fmt(Number(r.amount||0))+(r.type==='annual'?' /年':' /月'))).join('')}</ul></details>
+ <div class="actions" style="margin-top:10px"><button class="button" id="planningMigrateConfirm" type="button">確認並儲存</button><button class="button ghost" id="planningMigrateCancel" type="button">取消</button></div></div>`;
+ $('planningMigrateConfirm').onclick=async()=>{if(!pendingV2)return;rows=pendingV2.draft;pendingV2=null;renderV2Preview();syncRows();await $('planningSave').onclick();};
+ $('planningMigrateCancel').onclick=()=>{pendingV2=null;renderV2Preview();$('planningMessage').textContent='已取消預算 v2 整理,沒有任何變更。';};
+}
+
+function relevant(){const showZero=$('planningShowZero')?.checked;return rows.filter(r=>r.active!==false&&(ownerSel()==='all'||r.owner===ownerSel())&&(showZero||Number(r.amount)>0));}
+function syncRows(){const owner=ownerSel(),rs=relevant(),total=rs.reduce((s,r)=>s+(r.name==='家庭補助'?0:monthly(r)),0);$('planningSummary').innerHTML=`<div>當前視角 <strong>${owner==='all'?'家庭全部':owner==='me'?'承瑋':owner==='wife'?'俐穎':'共同'}</strong></div><div>每月預定安排 <strong>${fmt(total)}</strong></div><div>年度準備金／月 <strong>${fmt(rs.filter(x=>x.type==='annual').reduce((a,x)=>a+monthly(x),0))}</strong></div>`;
+ $('planningInactive').innerHTML=rows.filter(x=>x.active===false).map(x=>`<div class="row" style="padding:7px"><span>${esc(x.name)}（${x.owner}）</span><button type="button" class="button light" data-reactivate="${x.id}">恢復</button></div>`).join('')||'<p class="mini">目前沒有停用項目</p>';$('planningRows').innerHTML=rs.map(r=>{const estimate=proposed.get(r.id),ai=r.aiPct===null?(estimate?'系統參考 '+(estimate.percentage===null?'—':estimate.percentage.toFixed(2)+'%'):'尚未產生參考值'):Number(r.aiPct).toFixed(2)+'%',actual=r.actualPct===null?'—':Number(r.actualPct).toFixed(1)+'%';return `<div class="planning-row" data-id="${r.id}"><div><strong>${esc(r.name)}</strong><span class="mini">${types[r.type]} · ${r.owner==='me'?'承瑋':r.owner==='wife'?'俐穎':'共同'}${r.dueMonth?' · '+r.dueMonth+'月繳款':''}</span></div><div><span class="planning-mobile-label">AI 建議</span>${ai}<span class="mini">${r.aiAmount===null?(estimate?'參考 '+fmt(estimate.amount)+'／月':'按「產生全部項目參考比例」'):fmt(r.aiAmount)}</span></div><div><span class="planning-mobile-label">實際安排</span>${actual}<strong style="display:block">${fmt(monthly(r))}／月</strong></div><div style="display:flex;gap:6px;flex-wrap:wrap"><button class="button light" data-edit="${r.id}" type="button">編輯</button><button class="button ghost" data-off="${r.id}" type="button">停用</button></div></div>`}).join('')||'<p class="budget-muted">此視角尚無項目，請新增或載入初始項目。</p>';
+ }
 function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function edit(id){const r=rows.find(x=>x.id===id);if(!r)return;const name=prompt('項目名稱',r.name);if(name===null)return;if(!name.trim()||name.length>50)return alert('名稱需為 1～50 字');const amt=prompt(r.type==='annual'?'全年需繳金額':'每月預計金額',String(r.amount));if(amt===null)return;const amount=Number(amt);if(!Number.isSafeInteger(amount)||amount<0||amount>1e9)return alert('金額格式不正確');const pct=prompt('實際採用比例 %（可空白，代表按固定金額配置）',r.actualPct===null?'':String(r.actualPct));if(pct===null)return;const actualPct=pct.trim()===''?null:Number(pct);if(actualPct!==null&&(!Number.isFinite(actualPct)||actualPct<0||actualPct>100))return alert('比例需介於 0～100');r.name=name.trim();r.amount=actualPct!==null&&r.type!=='annual'&&r.type!=='fixed'?Math.round((Number($(r.owner==='me'?'strategySalaryMe':r.owner==='wife'?'strategySalaryWife':'strategySalaryMe').value)||0)*(r.owner==='shared'?(1+(Number($('strategySalaryWife').value)||0)/Math.max(1,Number($('strategySalaryMe').value)||1)):1)*actualPct/100):amount;r.actualPct=actualPct;syncRows();$('planningMessage').textContent='有尚未儲存的修改，請按「儲存理財配置」。';}
 $('planningInactive').addEventListener('click',e=>{const id=e.target.closest('[data-reactivate]')?.dataset.reactivate;if(id){const r=rows.find(x=>x.id===id);if(r){r.active=true;syncRows();$('planningMessage').textContent='項目已恢復，尚未儲存。';}}});$('planningRows').addEventListener('click',e=>{const id=e.target.closest('[data-edit]')?.dataset.edit;if(id){edit(id);return;}const off=e.target.closest('[data-off]')?.dataset.off;if(off){const r=rows.find(x=>x.id===off);if(r&&confirm('停用「'+r.name+'」？歷史交易不會被刪除。')){r.active=false;syncRows();$('planningMessage').textContent='項目已停用，尚未儲存。';}}});
+$('planningShowZero').addEventListener('change',()=>syncRows());
+$('planningMigrateV2').onclick=()=>{if(!loaded)return alert('請先讀取理財配置');pendingV2=planV2Migration(rows);renderV2Preview();$('planningMessage').textContent='已產生預算 v2 整理預覽,請核對後按「確認並儲存」。';};
 $('planningSeed').onclick=()=>{if(rows.length&&!confirm('已存在配置。只會補入缺少名稱與歸屬的預設項目，是否繼續？'))return;const keys=new Set(rows.filter(r=>r.active!==false).map(planKey));const added=seed().filter(x=>!keys.has(planKey(x)));rows.push(...added);$('budgetOwner').value='all';syncRows();$('planningMessage').textContent=`新增 ${added.length} 個預設項目，已切換到「家庭全部」，請往上查看「緊急預備金」。尚未儲存；請按「儲存理財配置」。歷史交易不會變動。`;};
 $('planningQuickSuggest').onclick=()=>{
  const income=Number($('planningIncomeBasis').value),hasIncome=$('planningIncomeBasis').value.trim()!==''&&Number.isFinite(income)&&income>0;
@@ -1455,192 +1339,84 @@ $('planningQuickSuggest').onclick=()=>{
  $('planningQuickResult').innerHTML=html;
 };
 $('planningAdd').onclick=()=>{const name=$('planningNewName').value.trim();if(!name||name.length>50)return alert('請輸入 1～50 字的名稱');rows.push({id:'planitem:'+crypto.randomUUID(),kind:'item',name,type:$('planningNewType').value,owner:$('planningNewOwner').value,amount:0,aiAmount:null,aiPct:null,actualPct:null,category:'',dueMonth:0,active:true,_rev:0});$('planningNewName').value='';syncRows();renderRetire();$('planningMessage').textContent='新增項目尚未儲存。';};
-window.loadPlanning18611=async function(){if(!sessionStorage.getItem('ledgerSession17'))return;const r=await jsonp('planning');if(!r.ok)throw Error(r.error||'讀取理財設定失敗');rows=r.items||[];profile=r.profiles||[];loaded=true;syncRows();renderHouseholdRetirementGoals();if(typeof recommend==='function')recommend();renderRetire();window.renderAnnualPlanning18611?.();if(r.financePending?.pending){
- financePendingUi18613(r.financePending.txId);
- $('planningMessage').textContent='警告：財務雙表同步尚未完成（'+r.financePending.state+'）。'+(r.financePending.txId?'請按「恢復未完成的雙表同步」。':'請由交易發起者恢復。');
- }else $('planningMessage').textContent='已讀取 Google Sheets 理財配置';};
-$('planningSave').onclick=async()=>{if(busy)return;busy=true;try{
- const input=rows.map(x=>({...x,kind:'item'}));
- const {cloud}=await financeSaveTogether18613(input);
- rows=cloud.items;profile=cloud.profiles||profile;
- syncRows();renderHouseholdRetirementGoals();renderRetire();
- $('planningMessage').textContent='詳細配置及上方預算已使用可恢復交易儲存，並完成雙表回讀核對。';
- alert('雙表已回讀核對；若中斷可使用交易恢復功能。');
- }catch(e){$('planningMessage').textContent='儲存未確認完整成功：'+e.message;alert(e.message)}finally{busy=false}};
+window.loadPlanning18611=async function(){if(!sessionStorage.getItem('ledgerSession17'))return;const r=await jsonp('planning');if(!r.ok)throw Error(r.error||'讀取理財設定失敗');rows=r.items||[];profile=r.profiles||[];loaded=true;syncRows();if(typeof recommend==='function')recommend();renderRetire();window.renderAnnualPlanning18611?.();$('planningMessage').textContent='已讀取 Google Sheets 理財配置';};
+$('planningSave').onclick=async()=>{if(busy)return;busy=true;try{const rs=rows.map(x=>({...x,kind:'item'}));const result=await post({items:rs},'planningSave');if(!result.ok||result.conflicts?.length)throw Error(result.conflicts?.length?'其他裝置已修改理財配置，請重新讀取後核對':'儲存失敗');await loadPlanning18611();await synchronizeHeadlineBudgets186129(rows);alert('理財配置及上方月預算均已儲存且回讀確認')}catch(e){$('planningMessage').textContent='儲存失敗：'+e.message;alert(e.message)}finally{busy=false}};
 $('planningExport').onclick=()=>{const data={schema:'family-ledger-finance-analysis-v1',exportedAt:new Date().toISOString(),instruction:'請依財務資料提出各項理財配置建議。回傳 schema=family-ledger-finance-recommendations-v1，items 陣列須包含 id, aiPct, aiAmount。比例分母需明確列出，勿修改原始交易。',agreement:'俐穎每月至少提供20000元家庭補助，其餘主要由承瑋負擔；家庭內轉帳不可重複列收入',items:rows,retirement:profile,transactions:typeof activeRecords==='function'?activeRecords():[]};const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='family-ledger-FINANCE-ANALYSIS-'+new Date().toISOString().slice(0,10)+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000)};
 $('planningImport').onchange=async e=>{const f=e.target.files?.[0];if(!f)return;try{const data=JSON.parse(await f.text());if(data.schema!=='family-ledger-finance-recommendations-v1'||!Array.isArray(data.items))throw Error('這不是 AI 財務建議 JSON。請從「預算與儲蓄目標 → 匯出供 AI 分析 JSON」取得原始檔，讓 AI 依其格式產生建議，再匯入。');const byId=new Map(rows.map(x=>[x.id,x]));let changed=0;for(const item of data.items){const r=byId.get(item.id);if(!r)continue;const pct=Number(item.aiPct),amt=Number(item.aiAmount);if(!Number.isFinite(pct)||pct<0||pct>100||!Number.isFinite(amt)||amt<0||amt>1e9)throw Error('建議欄位無效：'+item.id);r.aiPct=pct;r.aiAmount=amt;changed++;}syncRows();$('planningMessage').textContent=`讀入 ${changed} 筆 AI 建議，尚未儲存，實際採用值未改動。`;if(!changed)throw Error('沒有符合目前項目 ID 的建議，請使用同一次匯出的分析資料。')}catch(err){alert(err.message)}finally{e.target.value=''}};
-const baseProfile=who=>({id:'retire:'+who,kind:'retire',owner:who,age:who==='me'?38:26,retireAge:65,principal:0,monthly:0,annualReturn:6,inflation:2,target:10000000,salary:0,salaryLinkEnabled:true,annualBonusNet:0,_rev:0}); // Personal payroll settings belong in authenticated PlanningData or imported records, never public source.
+const baseProfile=who=>({id:'retire:'+who,kind:'retire',owner:who,age:who==='me'?38:26,retireAge:65,principal:0,monthly:0,annualReturn:6,inflation:2.03,target:10000000,_rev:0});
 function getP(who){return profile.find(p=>p.owner===who)||baseProfile(who)}
 // The planning budget is the single source of truth for retirement contributions.
 function retirementContribution(who){
- return rows.filter(r=>r.active!==false&&['me','wife'].includes(who)&&r.owner===who&&canonicalPlanName(r.name)==='退休投資')
+ return rows.filter(r=>r.active!==false&&r.owner===who&&canonicalPlanName(r.name)==='退休投資')
   .reduce((sum,r)=>sum+Math.max(0,monthly(r)),0);
 }
 function retirementProfile(who){return {...getP(who),monthly:retirementContribution(who)};}
-function householdRetirementContribution(){return OWNER.reduce((sum,o)=>sum+retirementContribution(o),0);}
+function householdRetirementContribution(){return ['me','wife'].reduce((sum,o)=>sum+retirementContribution(o),0);}
 function retirementGoals(){
  const m=getP('me'),w=getP('wife');
- const previousMe=Math.max(0,Number(m.target)||0),previousW=Math.max(0,Number(w.target)||0);
- // Legacy migration reads explicit personal targets; equal amounts imply NOTHING.
- // No network write is triggered during migration. Explicit settings live only on retire:me.
- const explicit=Number.isSafeInteger(m.householdGoalTotal)&&m.householdGoalTotal>=0&&
-   Number.isFinite(m.householdGoalMePct)&&m.householdGoalMePct>=0&&m.householdGoalMePct<=100;
- const household=explicit?m.householdGoalTotal:previousMe+previousW;
- const ratio=explicit?m.householdGoalMePct:(household?previousMe/household*100:50);
- const me=Math.round(household*ratio/100);
- return {household,me,wife:household-me,mePct:ratio,explicit};
+ const a=Math.max(0,Number(m.target)||0),b=Math.max(0,Number(w.target)||0);
+ // Old versions stored the whole household target on BOTH members; do not double it.
+ if(a===b && a>0)return {household:a,me:a/2,wife:a/2};
+ return {household:a+b,me:a,wife:b};
 }
-function renderHouseholdRetirementGoals(){
- const g=retirementGoals();
- $('retireGoalTotal').value=g.household;
- $('retireGoalMePct').value=Number(g.mePct.toFixed(2));
- updateRetirementGoalPreview();
- $('retireGoalStatus').textContent=g.explicit?'已讀取雲端明確的家庭退休目標':'舊版個人目標推算預覽（尚未遷移儲存）';
-}
-function updateRetirementGoalPreview(){
- const total=Number($('retireGoalTotal').value),pct=Number($('retireGoalMePct').value);
- const ok=Number.isSafeInteger(total)&&total>=0&&total<=1e10&&Number.isFinite(pct)&&pct>=0&&pct<=100;
- const me=ok?Math.round(total*pct/100):0;
- $('retireGoalPreview').textContent=ok?'承瑋 '+fmt(me)+'；俐穎 '+fmt(total-me)+'（合計 '+fmt(total)+'）':'目標金額或比例無效';
- $('retireGoalSave').disabled=!ok;
-}
-['retireGoalTotal','retireGoalMePct'].forEach(id=>$(id).addEventListener('input',updateRetirementGoalPreview));
-$('retireGoalSave').onclick=async()=>{
- if(busy)return;
- const total=Number($('retireGoalTotal').value),pct=Number($('retireGoalMePct').value);
- if(!Number.isSafeInteger(total)||total<0||total>1e10||!Number.isFinite(pct)||pct<0||pct>100)return alert('家庭目標或分配比例不合法');
- // Retain the latest profile fields and revision for optimistic concurrency control.
- const old=getP('me');
- const next={...old,kind:'retire',id:'retire:me',owner:'me',householdGoalTotal:total,householdGoalMePct:pct};
- busy=true;$('retireGoalSave').disabled=true;
- $('retireGoalStatus').textContent='家庭目標正在儲存並回讀比對…';
- try{
-  const res=await post({profiles:[next]},'planningSave');
-  if(!res.ok||res.conflicts?.length||res.count!==1)throw Error('家庭目標未獲後端完整確認，可能有其他裝置更新');
-  const live=await jsonp('planning');
-  if(!live.ok||!Array.isArray(live.profiles))throw Error('已送出但無法讀回雲端');
-  const saved=live.profiles.find(p=>p.id==='retire:me');
-  if(!saved||saved.householdGoalTotal!==total||saved.householdGoalMePct!==pct)throw Error('回讀目標與寫入值不一致');
-  profile=live.profiles;
-  renderHouseholdRetirementGoals();renderRetire();
-  $('retireGoalStatus').textContent='家庭目標已完成雲端回讀比對';
- }catch(e){$('retireGoalStatus').textContent='儲存未確認成功：'+e.message+'。請重新讀取雲端核對，勿直接重送';}
- finally{busy=false;updateRetirementGoalPreview();}
-};
 function linkedRetirementTarget(who){return retirementGoals()[who];}
 
-function renderRetire(){const owner=$('retireOwner').value,ps=owner==='all'?[retirementProfile('me'),retirementProfile('wife')]:[retirementProfile(owner)],p=ps[0];const names=['AgeNow','AgeGoal','Principal','Monthly','Return','Inflation','Target'],vals=[p.birthDate?Math.max(0,(()=>{const d=new Date(p.birthDate+'T00:00:00'),n=new Date();return n.getFullYear()-d.getFullYear()-(n.getMonth()<d.getMonth()||(n.getMonth()===d.getMonth()&&n.getDate()<d.getDate())?1:0)})()):p.age,p.retireAge,p.principal,owner==='all'?householdRetirementContribution():p.monthly,p.annualReturn,p.inflation,owner==='all'?retirementGoals().household:linkedRetirementTarget(owner)];names.forEach((n,i)=>{$('retire'+n).value=vals[i];$('retire'+n).disabled=owner==='all'});$('retireMonthly').readOnly=true; $('retireInflation').value=getP('me').inflation??2;$('retireInflation').disabled=owner!=='me'; $('retireTarget').readOnly=true; $('retireTarget').title='家庭目標依個人預設各半；避免重複計算，目標調整將在預算頁集中管理'; $('retireMonthlySource').textContent='從預算頁連動：承瑋 '+fmt(retirementContribution('me'))+'／月、俐穎 '+fmt(retirementContribution('wife'))+'／月；家庭合計 '+fmt(householdRetirementContribution())+'／月。'+(legacySharedBudgetRows().some(x=>canonicalPlanName(x.name)==='退休投資')?' 警告：舊 shared 退休投入尚待指定負責人，未計入試算。':''); $('retireSlider').value=p.annualReturn;$('retireSlider').disabled=owner==='all';$('retireSave').disabled=owner==='all';showRetire();}
+function future(p,elapsed){const r=Math.pow(1+Number(p.annualReturn)/100,1/12)-1,n=Math.max(0,Math.round(elapsed*12)),factor=Math.pow(1+r,n);return Number(p.principal)*factor+(r?Number(p.monthly)*(factor-1)/r:Number(p.monthly)*n)}
+function calculate(p){const y=Math.max(0,p.retireAge-p.age),nominal=future(p,y),real=nominal/Math.pow(1+p.inflation/100,y);return {nominal,real,short:Math.max(0,Number(p.target)-real),years:y}}
+function renderRetire(){const owner=$('retireOwner').value,ps=owner==='all'?[retirementProfile('me'),retirementProfile('wife')]:[retirementProfile(owner)],p=ps[0];const names=['AgeNow','AgeGoal','Principal','Monthly','Return','Inflation','Target'],vals=[p.age,p.retireAge,p.principal,owner==='all'?householdRetirementContribution():p.monthly,p.annualReturn,p.inflation,owner==='all'?retirementGoals().household:linkedRetirementTarget(owner)];names.forEach((n,i)=>{$('retire'+n).value=vals[i];$('retire'+n).disabled=owner==='all'});$('retireMonthly').readOnly=true; $('retireTarget').readOnly=true; $('retireTarget').title='家庭目標依個人預設各半；避免重複計算，目標調整將在預算頁集中管理'; $('retireMonthlySource').textContent='從預算頁連動：承瑋 '+fmt(retirementContribution('me'))+'／月、俐穎 '+fmt(retirementContribution('wife'))+'／月；家庭合計 '+fmt(householdRetirementContribution())+'／月。若未顯示預期金額，請先確認預算已成功同步。'; $('retireSlider').value=p.annualReturn;$('retireSlider').disabled=owner==='all';$('retireSave').disabled=owner==='all';showRetire();renderCheckpointsV1871();}
 function inputs(){const base=getP($('retireOwner').value);return {...base,age:Number($('retireAgeNow').value),retireAge:Number($('retireAgeGoal').value),principal:Number($('retirePrincipal').value),monthly:retirementContribution($('retireOwner').value),annualReturn:Number($('retireReturn').value),inflation:Number($('retireInflation').value),target:Number($('retireTarget').value)}}
-function retirementSnapshot18613(result,owner,atMonth){
- const point=result.timeline[Math.max(0,Math.min(result.timeline.length-1,Math.round(atMonth)))];
- const goal=retirementGoals();
- // The personal share of household liquid reserve is a planning allocation, not an ownership assertion.
- const alloc=owner==='me'?goal.mePct/100:(100-goal.mePct)/100;
- const i=owner==='me'?0:1;
- const nominal=owner==='all'?point.asset:point.investments[i]+point.laborFunds[i]+point.publicFunds[i]+point.cashReserve*alloc;
- const index=point.goalNominal/Math.max(1,result.goalReal);
- const real=nominal/index;
- const target=owner==='all'?goal.household:goal[owner];
- return {nominal,real,target,nominalTarget:target*index,short:Math.max(0,target-real),month:point.month,date:point.calendarMonth,liquid:point.liquid,restricted:point.restricted};
+function showRetire(){const owner=$('retireOwner').value;const ps=owner==='all'?[retirementProfile('me'),retirementProfile('wife')]:[inputs()];if(ps.some(p=>!Number.isFinite(p.annualReturn)||p.annualReturn<=-100||p.retireAge<p.age||p.monthly<0||p.principal<0)){return $('retireStatus').textContent='退休設定超出有效範圍'}const cs=ps.map(calculate),total=k=>cs.reduce((s,x)=>s+x[k],0),nominal=total('nominal'),real=total('real'),target=owner==='all'?retirementGoals().household:linkedRetirementTarget(owner),short=Math.max(0,target-real);$('retireCards').innerHTML=`<div>退休時名目資產<strong style="display:block;font-size:20px">${fmt(nominal)}</strong></div><div>換算今日購買力<strong style="display:block;font-size:20px">${fmt(real)}</strong></div><div>退休目標（今日幣值）<strong style="display:block;font-size:20px">${fmt(target)}</strong></div><div>目標資金缺口<strong style="display:block;font-size:20px;color:${short?'#FF8D83':'#6EE7B7'}">${fmt(short)}</strong></div>`;
+const N=25,series=Array.from({length:N+1},(_,i)=>{const t=i/N;return ps.reduce((sum,p)=>sum+future(p,Math.max(0,p.retireAge-p.age)*t)/Math.pow(1+p.inflation/100,Math.max(0,p.retireAge-p.age)*t),0)}),max=Math.max(1,target,...series),path=series.map((v,i)=>`${i?'L':'M'}${20+i*660/N},${245-v/max*205}`).join(' '),goalY=245-target/max*205;
+$('retireGraph').innerHTML=`<svg viewBox="0 0 710 280" role="img" aria-label="退休資產成長與目標線"><line x1="20" x2="690" y1="245" y2="245" stroke="#8b7f73"/><line x1="20" x2="690" y1="${goalY}" y2="${goalY}" stroke="#FF8D83" stroke-dasharray="7 5"/><path d="${path}" fill="none" stroke="#6EE7B7" stroke-width="4" stroke-linecap="round"/><text x="20" y="265" fill="#e1d1a9">目前</text><text x="620" y="265" fill="#e1d1a9">退休年</text><text x="24" y="${Math.max(16,goalY-9)}" fill="#FF8D83">今日幣值目標</text></svg>`;
+const rates=[-2,0,2];$('retireScenarios').innerHTML='<h3>報酬率敏感度（年化 ±2%）</h3><div class="planning-summary">'+rates.map(delta=>{const val=ps.reduce((a,p)=>{const temp={...p,annualReturn:Math.max(-20,Math.min(30,p.annualReturn+delta))};return a+calculate(temp).real},0);return `<div>${delta===0?'基準':delta<0?'保守':'樂觀'}<strong style="display:block">${fmt(val)}</strong></div>`}).join('')+'</div>';
 }
-function showRetire(){
- const owner=$('retireOwner').value;
- const result=scenario(owner,0); // the sole calculation engine for charts, gap and cashflow
- const [me,wife]=result.people;
- const monthM=result.checkpoints.me.month;
- const monthW=result.checkpoints.wife.month;
- const at=owner==='all'?monthM:owner==='me'?monthM:monthW;
- const view=retirementSnapshot18613(result,owner,at);
- const assets=result.timeline.filter((x,i)=>i%12===0||i===result.timeline.length-1);
- const series=assets.filter(p=>p.month<=at).map(p=>retirementSnapshot18613(result,owner,p.month).real);
- if(!series.length)series.push(view.real);
- const max=Math.max(1,view.target,...series);
- const path=series.map((v,i)=>`${i?'L':'M'}${20+i*660/Math.max(1,series.length-1)},${245-v/max*205}`).join(' ');
- const goalY=245-view.target/max*205;
- $('retireCards').innerHTML=`<div>統一模擬：退休時名目金融資產<strong style="display:block;font-size:20px">${fmt(view.nominal)}</strong></div><div>退休時今日幣值金融資產<strong style="display:block;font-size:20px">${fmt(view.real)}</strong></div><div>退休時名目目標<strong style="display:block;font-size:20px">${fmt(view.nominalTarget)}</strong></div><div>2026 年購買力目標<strong style="display:block;font-size:20px">${fmt(view.target)}</strong></div><div>與目標差額<strong style="display:block;font-size:20px">${fmt(view.short)}</strong></div>`;
- $('retireGraph').innerHTML=`<svg viewBox="0 0 710 280" role="img" aria-label="同一逐月現金流引擎的退休資產曲線"><line x1="20" x2="690" y1="245" y2="245" stroke="#8b7f73"/><line x1="20" x2="690" y1="${goalY}" y2="${goalY}" stroke="#FF8D83" stroke-dasharray="7 5"/><path d="${path}" fill="none" stroke="#6EE7B7" stroke-width="4"/><text x="20" y="265" fill="#e1d1a9">現在</text><text x="570" y="265" fill="#e1d1a9">${view.date} 檢查</text></svg>`;
- const alternatives=[-2,0,2].map(delta=>{
-  const r=scenario(owner,0,delta); // change return assumption without altering inflation
-  const a=retirementSnapshot18613(r,owner,at);
-  return {delta,real:a.real};
- });
- $('retireScenarios').innerHTML='<h3>年化報酬率敏感度（±2%；通膨不變）</h3><div class="planning-summary">'+alternatives.map(x=>`<div>${x.delta===0?'基準':x.delta<0?'保守':'樂觀'}<strong style="display:block">${fmt(x.real)}</strong></div>`).join('')+'</div>';
- const missing=['me','wife'].filter(who=>{const p=getP(who),linked=window.ledgerIncomeLink?.monthly(who);return (!Number.isFinite(p.salary)||(!p.salary&&!linked?.ready))||!Number.isFinite(p.principal)});
- $('retireStatus').textContent=missing.length?'試算尚缺 '+missing.map(w=>w==='me'?'承瑋':'俐穎').join('、')+'的已確認薪資或本金設定，資產缺口僅供情境參考。':'圖表與缺口均取自同一逐月模擬、共用同一時間軸。個人帳為投資本金加上按目標比例假設分配的共同資產與家庭現金，並非法律持有權。';
-}
+
+// v1.8.7.1 家庭退休雙時點檢查:投入讀預算「退休投資」,主線 11.79%(五檔 ETF 平均年化配息率),對照 7%。
+function renderCheckpointsV1871(){const el=$('retireCheckpointsV1871');if(!el)return;const E=window.LedgerRetireCheckV1871;
+ try{const now=new Date(),asOf=`${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
+  const people=['me','wife'].map(w=>({...getP(w),owner:w,monthly:retirementContribution(w)}));
+  const run=r=>({p:E.project({people,asOf,baseMonth:'2026-10',annualReturn:r,inflation:2,goalReal:2e7}),need:E.requiredMonthly({people,asOf,baseMonth:'2026-10',annualReturn:r,inflation:2,goalReal:2e7})});
+  const a=run(E.MAIN_RETURN),b=run(E.ALT_RETURN),wan=n=>(n/1e4).toLocaleString('en-US',{maximumFractionDigits:0})+' 萬';
+  const row=(k,label)=>`<tr><td>${a.p[k].date}<br><span class="mini">${label} 65 歲</span></td><td>${wan(a.p[k].goalNominal)}</td><td style="color:${a.p[k].met?'#6EE7B7':'#FF8D83'}">${wan(a.p[k].assets)}<br>${a.p[k].met?'達標':'未達'}</td><td style="color:${b.p[k].met?'#6EE7B7':'#FF8D83'}">${wan(b.p[k].assets)}<br>${b.p[k].met?'達標':'未達'}</td></tr>`;
+  const cm=retirementContribution('me'),cw=retirementContribution('wife');
+  el.innerHTML=`<h3>家庭退休目標檢查(2026 年購買力 2,000 萬,通膨 2%)</h3><div class="tablewrap"><table style="font-size:13px;width:100%"><thead><tr><th>時點</th><th>目標<br><span class="mini">當年金額</span></th><th>主線<br><span class="mini">${E.MAIN_RETURN}%</span></th><th>對照<br><span class="mini">${E.ALT_RETURN}%</span></th></tr></thead><tbody>${row('me','承瑋')}${row('wife','俐穎')}</tbody></table></div>
+  <p>目前每月退休投資(預算):承瑋 ${fmt(cm)}、俐穎 ${fmt(cw)},合計 ${fmt(cm+cw)}。兩個時點都達標約需每月 <strong>${fmt(a.need.total)}</strong>(主線)／<strong>${fmt(b.need.total)}</strong>(對照),依目前兩人比例分配。</p>
+  <p class="budget-muted">計入:退休投資、勞退專戶、俐穎轉正後的公提專戶;不含結餘現金。主線報酬是 0056、00878、00919、00927、00981A 的 2026 年平均年化配息率,偏樂觀;資本利得另行追蹤。勞保年金因年資未確認不計入。</p>`;
+ }catch(e){el.innerHTML='<p class="budget-muted">退休雙時點檢查無法計算:'+esc(e.message)+'</p>';}}
 $('retireOwner').onchange=renderRetire;['AgeNow','AgeGoal','Principal','Return','Inflation','Target'].forEach(n=>$('retire'+n).addEventListener('input',()=>{if(n==='Return')$('retireSlider').value=$('retireReturn').value;showRetire()}));$('retireSlider').oninput=()=>{$('retireReturn').value=$('retireSlider').value;showRetire()};
-// Retirement save handler is registered once in the extended cashflow module.
-window.renderAnnualPlanning18611=function(){const el=$('annualBudgetComparison');if(!el)return;const year=Number($('annualYear').value),owner=$('annualOwner').value,items=rows.filter(x=>x.active!==false&&['me','wife'].includes(x.owner)&&(owner==='all'||x.owner===owner)&&x.type!=='fund'&&x.name!=='家庭補助');const cap=items.reduce((s,x)=>s+monthly(x),0),record=typeof activeRecords==='function'?activeRecords():[];const totals=Array.from({length:12},(_,i)=>record.filter(r=>r.type==='expense'&&r.date.startsWith(year+'-'+String(i+1).padStart(2,'0'))&&(owner==='all'||(r.owner||'shared')===owner)).reduce((a,r)=>a+Number(r.amount||0),0));if(!items.length){el.innerHTML=owner==='shared'?'<p class="budget-muted">交易「共同」為獨立共同消費，沒有第三份預算；請在家庭合計視角比較夫妻總預算與所有交易實支。</p>':'<p class="budget-muted">尚未設定理財項目。請在「預算目標」載入及儲存初始項目，才能進行比較。</p>';return;}const max=Math.max(1,cap,...totals);el.innerHTML=`<div class="annual-planning-chart">${totals.map((v,i)=>`<div><b style="height:${cap/max*100}%;background:#D7B777" title="預算 ${fmt(cap)}"></b><b style="height:${v/max*100}%;background:#FF8D83" title="實際 ${fmt(v)}"></b><label>${i+1}月</label></div>`).join('')}</div><div class="planning-legend"><span>每月預算 ${fmt(cap)}</span><span>實際支出</span></div><p class="budget-muted">此圖使用所有設定項目的當月預算合計；分類歸屬、預留與帳本分類並非逐筆綁定，請以總額比較為主。</p>`;};
+$('retireSave').onclick=async()=>{if($('retireOwner').value==='all')return;const p=inputs();if([p.age,p.retireAge,p.principal,p.monthly,p.annualReturn,p.inflation,p.target].some(v=>!Number.isFinite(v))||p.age<0||p.age>100||p.retireAge<p.age||p.retireAge>100||p.principal<0||p.monthly<0||p.target<0||p.annualReturn< -20||p.annualReturn>30||p.inflation<0||p.inflation>15)return alert('請檢查年齡、金額及報酬率');try{p.monthly=getP($('retireOwner').value).monthly; p.target=getP($('retireOwner').value).target; const result=await post({profiles:[p]},'planningSave');if(!result.ok||result.conflicts?.length)throw Error('資料已由其他裝置修改，請重新載入');await loadPlanning18611();$('retireStatus').textContent='退休設定已同步到 Google Sheets'}catch(e){alert('儲存失敗：'+e.message)}};
+window.renderAnnualPlanning18611=function(){const el=$('annualBudgetComparison');if(!el)return;const year=Number($('annualYear').value),owner=$('annualOwner').value,items=rows.filter(x=>x.active!==false&&(owner==='all'||x.owner===owner)&&x.type!=='fund'&&x.name!=='家庭補助');const cap=items.reduce((s,x)=>s+monthly(x),0),record=typeof activeRecords==='function'?activeRecords():[];const totals=Array.from({length:12},(_,i)=>record.filter(r=>r.type==='expense'&&r.date.startsWith(year+'-'+String(i+1).padStart(2,'0'))).reduce((a,r)=>a+Number(r.amount||0)*window.budgetShareV1871(r,owner),0));if(!items.length){el.innerHTML='<p class="budget-muted">尚未設定理財項目。請在「預算目標」載入及儲存初始項目，才能進行比較。</p>';return;}const max=Math.max(1,cap,...totals);el.innerHTML=`<div class="annual-planning-chart">${totals.map((v,i)=>`<div><b style="height:${cap/max*100}%;background:#D7B777" title="預算 ${fmt(cap)}"></b><b style="height:${v/max*100}%;background:#FF8D83" title="實際 ${fmt(v)}"></b><label>${i+1}月</label></div>`).join('')}</div><div class="planning-legend"><span>每月預算 ${fmt(cap)}</span><span>實際支出</span></div><p class="budget-muted">此圖使用所有設定項目的當月預算合計；分類歸屬、預留與帳本分類並非逐筆綁定，請以總額比較為主。</p>`;};
 const oldRenderBudget=window.renderBudget;const owner=$('budgetOwner');owner.addEventListener('change',syncRows);$('annualYear').addEventListener('change',()=>renderAnnualPlanning18611());$('annualOwner').addEventListener('change',()=>renderAnnualPlanning18611());
-// Intercept budget writes in household aggregate mode; only me/wife are actual budget owners.
-['saveBudgetBasics','saveCategoryBudget','saveFund','saveSettlement'].forEach(id=>$(id).addEventListener('click',e=>{if(owner.value==='all'){e.stopImmediatePropagation();alert('家庭合計只彙總承瑋與俐穎，請切換個人預算後修改。')}},true));
+// Intercept old budget save actions only in family aggregate mode. The normal three owners retain original behaviour.
+['saveBudgetBasics','saveCategoryBudget','saveFund','saveSettlement'].forEach(id=>$(id).addEventListener('click',e=>{if(owner.value==='all'){e.stopImmediatePropagation();alert('家庭全部只彙總三種歸屬，請切換承瑋／俐穎／共同後修改。')}},true));
 
 const profileExtraKeys=['Salary','SalaryGrowth','Yield','Passive','Pension','PensionAge'];
 const familyExtraKeys=['Living','Medical','Withdraw','Stress','Horizon'];
 const modeNames=['寬鬆','舒適','平衡','嚴謹','積極'],modeFactors=[0.65,0.85,1,1.25,1.5];
 let proposed=new Map();
-function profileWithExtras(who){const p=retirementProfile(who);return {...p,salaryLinkEnabled:p.salaryLinkEnabled!==false,annualBonusNet:Math.max(0,Number(p.annualBonusNet)||0),salary:p.salary??0,salaryGrowth:p.salaryGrowth??1,yieldPct:p.yieldPct??3,passive:p.passive??0,pension:p.pension??0,pensionAge:p.pensionAge??65,living:p.living??60000,medical:p.medical??2000000,withdraw:p.withdraw??3.5,stress:p.stress??1,horizon:p.horizon??95};}
-function currentRetirementLivingBudgetReference(){
- const eligible=rows.filter(r=>r.active!==false&&['me','wife'].includes(r.owner)&&r.type!=='fund'&&canonicalPlanName(r.name)!=='退休投資'&&r.name!=='家庭補助');
- const monthlyCost=eligible.reduce((s,x)=>s+Math.max(0,monthly(x)),0);
- return {count:eligible.length,monthlyCost};
-}
-function updateRetirementLivingBudgetReference(){
- const data=currentRetirementLivingBudgetReference(),el=$('retireLivingBudgetRef'),btn=$('retireUseBudgetLiving');if(!el||!btn)return;
- el.textContent=data.count?'目前兩人預算的固定／彈性及年度開銷參考：'+fmt(data.monthlyCost)+'／月，共 '+data.count+' 項。尚未扣除未來已清償貸款或工作期間才有的費用；不會自動覆蓋既有退休生活費。':'目前沒有已啟用的兩人預算支出項目；不採用零元作為退休生活費。';
- btn.disabled=!data.count||$('retireOwner').value!=='me';
-}
-function updateExtraInputs(){const who=$('retireOwner').value,p=profileWithExtras(who==='all'?'me':who);$('retireSalaryLink').checked=p.salaryLinkEnabled; $('retireSalaryLink').disabled=who==='all';$('retireAnnualBonusNet').value=p.annualBonusNet;$('retireAnnualBonusNet').disabled=who==='all';$('retireUseActualBonus').disabled=who==='all';for(const k of profileExtraKeys){const attr={Salary:'salary',SalaryGrowth:'salaryGrowth',Yield:'yieldPct',Passive:'passive',Pension:'pension',PensionAge:'pensionAge'}[k];$('retire'+k).value=p[attr];$('retire'+k).disabled=who==='all'}const linked=who==='all'?null:window.ledgerIncomeLink?.monthly(who);if(who!=='all'&&p.salaryLinkEnabled&&linked?.ready){$('retireSalary').value=linked.amount;$('retireSalary').readOnly=true;}else $('retireSalary').readOnly=false;for(const k of familyExtraKeys){const attr=k.toLowerCase();$('retire'+k).value=profileWithExtras('me')[attr];$('retire'+k).disabled=who!=='me'} writeRetirementDetailInputs(p,who==='all'); updateRetirementLivingBudgetReference(); }
-const retirementDetailMap={BirthDate:'birthDate',EmploymentType:'employmentType',FormalSwitchDate:'formalSwitchDate',GrossBasePay:'grossBasePay',InsuredWage:'insuredWage',LaborInsuranceYears:'laborInsuranceYears',LaborRetireWage:'laborRetireWage',LaborEmployerPct:'laborEmployerPct',LaborRetireBalance:'laborRetireBalance',LaborFundReturn:'laborFundReturn',PublicPensionBase:'publicPensionBase',PublicFundBalance:'publicFundBalance',PublicFundReturn:'publicFundReturn',FormalNetSalary:'formalNetSalary'};
-const retirementDetailText=new Set(['birthDate','employmentType','formalSwitchDate']);
-function readRetirementDetailInputs(p){for(const [suffix,key] of Object.entries(retirementDetailMap)){
- const el=$('retire'+suffix); if(!el)continue;
- if(retirementDetailText.has(key)){p[key]=el.value||'';continue;}
- p[key]=key==='laborInsuranceYears'&&!el.value.trim()?null:el.value.trim()===''?undefined:Number(el.value);
-}return p;}
-function writeRetirementDetailInputs(p,all){for(const [suffix,key] of Object.entries(retirementDetailMap)){
- const el=$('retire'+suffix);if(!el)continue;el.value=p[key]===null||p[key]===undefined?'':p[key];el.disabled=all;
-}}
-function scenario(ownerMode,stress=0,returnDelta=0){
- const m=profileWithExtras('me'),w=profileWithExtras('wife');
- if(ownerMode!=='all'){
-  const p=profileWithExtras(ownerMode);
-  for(const k of profileExtraKeys){const key={Salary:'salary',SalaryGrowth:'salaryGrowth',Yield:'yieldPct',Passive:'passive',Pension:'pension',PensionAge:'pensionAge'}[k];p[key]=Number($('retire'+k).value)}
-  for(const k of familyExtraKeys)p[k.toLowerCase()]=Number($('retire'+k).value);
-  readRetirementDetailInputs(p);
-  p.salaryLinkEnabled=$('retireSalaryLink').checked;p.annualBonusNet=Number($('retireAnnualBonusNet').value)||0;
-  const editing=ownerMode==='me'?m:w;Object.assign(editing,p,inputs());readRetirementDetailInputs(editing);
- }
- for(const [who,x] of [['me',m],['wife',w]]){const linked=window.ledgerIncomeLink?.monthly(who);if(x.salaryLinkEnabled!==false&&linked?.ready)x.salary=linked.amount;}
- return LedgerRetirementEngine.run({people:[m,w],asOf:(()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')})(),baseMonth:'2026-10',householdGoalReal:retirementGoals().household,
-  allocationMePct:retirementGoals().mePct,inflationRate:m.inflation,livingToday:m.living,medicalToday:m.medical,
-  inflationStress:stress,returnStress:stress*.5,returnDelta});
-}
+function profileWithExtras(who){const p=retirementProfile(who);return {...p,salary:p.salary??0,salaryGrowth:p.salaryGrowth??1,yieldPct:p.yieldPct??3,passive:p.passive??0,pension:p.pension??0,pensionAge:p.pensionAge??65,living:p.living??60000,medical:p.medical??2000000,withdraw:p.withdraw??3.5,stress:p.stress??1,horizon:p.horizon??95};}
+function updateExtraInputs(){const who=$('retireOwner').value,p=profileWithExtras(who==='all'?'me':who);for(const k of profileExtraKeys){const attr={Salary:'salary',SalaryGrowth:'salaryGrowth',Yield:'yieldPct',Passive:'passive',Pension:'pension',PensionAge:'pensionAge'}[k];$('retire'+k).value=p[attr];$('retire'+k).disabled=who==='all'}for(const k of familyExtraKeys){const attr=k.toLowerCase();$('retire'+k).value=p[attr];$('retire'+k).disabled=who==='all'} }
+function scenario(ownerMode,stress=0){const m=profileWithExtras('me'),w=profileWithExtras('wife');if(ownerMode!=='all'){const p=profileWithExtras(ownerMode);for(const k of profileExtraKeys){const key={Salary:'salary',SalaryGrowth:'salaryGrowth',Yield:'yieldPct',Passive:'passive',Pension:'pension',PensionAge:'pensionAge'}[k];p[key]=Number($('retire'+k).value)}for(const k of familyExtraKeys)p[k.toLowerCase()]=Number($('retire'+k).value);if(ownerMode==='me')Object.assign(m,p);else Object.assign(w,p);Object.assign(ownerMode==='me'?m:w,inputs()); (ownerMode==='me'?m:w).monthly=retirementContribution(ownerMode);}
+const p=[m,w],inflation=(m.inflation+stress)/100,rate=p.map(x=>Math.max(-0.99,x.annualReturn/100-stress*.5/100)),horizon=Math.min(110,Math.max(75,m.horizon||95)),months=Math.max(0,Math.round((horizon-w.age)*12)),assets=p.map(x=>Math.max(0,x.principal||0)),initial=assets.reduce((a,b)=>a+b,0);let firstDeficit=null,totalShort=0,firstRetirement=null,afterBoth=null,passiveNow=0,points=[],minAsset=Infinity;
+for(let t=0;t<=months;t++) {const year=t/12,ageM=m.age+year,ageW=w.age+year,working=p.map((x,i)=>(i===0?ageM:ageW)<x.retireAge),salary=p.reduce((s,x,i)=>s+(working[i]?Math.max(0,x.salary||0)*Math.pow(1+(x.salaryGrowth||0)/100,year):0),0),pension=p.reduce((s,x,i)=>s+((i===0?ageM:ageW)>=x.pensionAge?x.pension||0:0),0),policy=p.reduce((s,x)=>s+(x.passive||0),0),dividend=assets.reduce((s,a,i)=>s+a*Math.max(0,p[i].yieldPct||0)/1200,0),expense=(m.living||60000)*Math.pow(1+inflation,year),earned=salary+pension+policy;
+const cashNonWork=pension+policy+dividend;let gap=expense-earned;const invested=assets.reduce((s,a)=>s+a,0);if(!firstRetirement&&!working[0])firstRetirement={ageM,assets:invested,cashNonWork,salary,expense};if(!afterBoth&&!working[0]&&!working[1])afterBoth={ageM,assets:invested,cashNonWork,salary,expense};
+if(t===0)passiveNow=cashNonWork;
+if(gap>cashNonWork+1&&firstDeficit===null&&!working[0])firstDeficit={ageM,monthly:gap-cashNonWork};
+if(t>0){for(let i=0;i<2;i++){assets[i]*=Math.pow(1+rate[i],1/12);if(working[i])assets[i]+=Math.max(0,p[i].monthly||0);}}
+let withdrawal=Math.max(0,gap);if(withdrawal>0){for(let i=0;i<2;i++){const take=Math.min(assets[i],withdrawal);assets[i]-=take;withdrawal-=take;}if(withdrawal>0)totalShort+=withdrawal;}else assets[0]+=-gap;
+const a=assets[0]+assets[1];minAsset=Math.min(minAsset,a);if(t%12===0)points.push({age:Math.round(ageM),asset:a,expense,passive:cashNonWork,work:salary,short:withdrawal});}
+return {points,firstRetirement,afterBoth,passiveNow,totalShort,ending:assets[0]+assets[1],initial,medical:m.medical*Math.pow(1+inflation,Math.max(0,m.retireAge-m.age)),income:p.map(x=>x.salary)};}
 function renderCashflow(){const el=$('retireCashflow');if(!el)return;const owner=$('retireOwner').value;const res=scenario(owner,0),stress=scenario(owner,Number($('retireStress').value)||1),last=res.points.at(-1),short=res.totalShort>0||res.ending<res.medical;const fmt2=n=>fmt(Number(n)||0);const goalYear=res.firstRetirement,retW=res.afterBoth;
 let years=res.points.filter((p,i)=>i%5===0||i===res.points.length-1);const max=Math.max(1,...years.map(p=>p.asset),res.medical);const svg=`<svg viewBox="0 0 680 210" role="img" aria-label="退休投資資產未來變化折線圖"><line x1="20" y1="170" x2="655" y2="170" stroke="#988775"/><polyline fill="none" stroke="#6EE7B7" stroke-width="3" points="${res.points.map((p,i)=>`${20+i*635/Math.max(1,res.points.length-1)},${170-p.asset/max*140}`).join(' ')}"/><text x="20" y="195" fill="#e8dbb7">現在</text><text x="545" y="195" fill="#e8dbb7">承瑋約 ${last?.age||0} 歲</text></svg>`;
-el.innerHTML=`<h3>雙人退休現金流（逐月試算）</h3><div class="planning-summary"><div>承瑋退休檢查 ${res.checkpoints.me.retirementDate}<strong style="display:block">${fmt2(res.checkpoints.me.asset)} ／ ${fmt2(res.checkpoints.me.goalNominal)}</strong><span class="mini">${res.checkpoints.me.met?'達標':'未達標'} · 2026 年購買力目標 ${fmt2(res.goalReal)}</span></div><div>俐穎退休檢查 ${res.checkpoints.wife.retirementDate}<strong style="display:block">${fmt2(res.checkpoints.wife.asset)} ／ ${fmt2(res.checkpoints.wife.goalNominal)}</strong><span class="mini">${res.checkpoints.wife.met?'達標':'未達標'} · 2026 年購買力目標 ${fmt2(res.goalReal)}</span></div></div><div class="planning-summary"><div>目前非工作月現金流<strong style="display:block">${fmt2(res.passiveNow)}</strong></div><div>承瑋退休時其他工作收入<strong style="display:block">${fmt2(goalYear?.salary||0)}</strong></div><div>俐穎也退休時非工作收入<strong style="display:block">${fmt2(retW?.cashNonWork||0)}</strong></div><div>模擬期末資產<strong style="display:block;color:${short?'#FF8D83':'#6EE7B7'}">${fmt2(res.ending)}</strong></div></div>${svg}<p class="budget-muted">${goalYear?'承瑋約 '+goalYear.ageM.toFixed(0)+' 歲退休時，俐穎薪資仍繼續計入。':'承瑋尚未進入退休階段。'} ${retW?'雙方都退休約在承瑋 '+retW.ageM.toFixed(0)+' 歲。':''} 現金股息為資產總報酬的一部分，未額外加到投資報酬；此處股息僅表示可分配的現金流能力，實際提領按生活缺口扣減資產。</p><div class="${short?'budget-family-note':''}" role="status"><strong>${short?'⚠️ 退休現金流存在缺口':'此組假設下未出現資產耗盡（未經實際收入核定）'}</strong><p>期末資產 ${fmt2(res.ending)}；醫療準備金需求 ${fmt2(res.medical)}。壓力情境（通膨加 ${$('retireStress').value}%、報酬率下降其一半個百分點）：期末資產 ${fmt2(stress.ending)}。${stress.totalShort>0?'壓力情境可能在退休期間出現資產不足。':''}</p></div><p class="budget-muted">2026 年購買力目標依通膨換算；勞保未知年資不自動計入年金；代理教師轉正式為情境、正式薪級及公保給付待核定。模擬假設每月等比例通膨、固定報酬、給付持續到期末；實際保單一次金、給付期限、稅費及配息時間尚未逐筆建模，請勿當作保證結果。</p>`;
+el.innerHTML=`<h3>雙人退休現金流（逐月試算）</h3><div class="planning-summary"><div>目前非工作月現金流<strong style="display:block">${fmt2(res.passiveNow)}</strong></div><div>承瑋退休時其他工作收入<strong style="display:block">${fmt2(goalYear?.salary||0)}</strong></div><div>俐穎也退休時非工作收入<strong style="display:block">${fmt2(retW?.cashNonWork||0)}</strong></div><div>模擬期末資產<strong style="display:block;color:${short?'#FF8D83':'#6EE7B7'}">${fmt2(res.ending)}</strong></div></div>${svg}<p class="budget-muted">${goalYear?'承瑋約 '+goalYear.ageM.toFixed(0)+' 歲退休時，俐穎薪資仍繼續計入。':'承瑋尚未進入退休階段。'} ${retW?'雙方都退休約在承瑋 '+retW.ageM.toFixed(0)+' 歲。':''} 現金股息為資產總報酬的一部分，未額外加到投資報酬；此處股息僅表示可分配的現金流能力，實際提領按生活缺口扣減資產。</p><div class="${short?'budget-family-note':''}" role="status"><strong>${short?'⚠️ 退休現金流存在缺口':'基準試算尚未出現資產耗盡'}</strong><p>期末資產 ${fmt2(res.ending)}；醫療準備金需求 ${fmt2(res.medical)}。壓力情境（通膨加 ${$('retireStress').value}%、報酬率下降其一半個百分點）：期末資產 ${fmt2(stress.ending)}。${stress.totalShort>0?'壓力情境可能在退休期間出現資產不足。':''}</p></div><p class="budget-muted">模擬假設每月等比例通膨、固定報酬、給付持續到期末；實際保單一次金、給付期限、稅費及配息時間尚未逐筆建模，請勿當作保證結果。</p>`;
 }
 const previousRenderRetire=renderRetire;renderRetire=function(){previousRenderRetire();updateExtraInputs();renderCashflow()};
 const previousShowRetire=showRetire;showRetire=function(){previousShowRetire();renderCashflow()};
-$('retireOwner').onchange=()=>renderRetire(); // RC5: bind the final wrapper, not the earlier function object.
-$('retireUseBudgetLiving').onclick=()=>{const r=currentRetirementLivingBudgetReference();if(!r.count||$('retireOwner').value!=='me')return;if(!confirm('將目前的預算開銷 '+fmt(r.monthlyCost)+'／月當作家庭生活費試算？貸款清償後的費用變化尚需自行調整，這次不會直接寫入雲端。'))return;$('retireLiving').value=Math.round(r.monthlyCost);showRetire();};
-for(const k of [...profileExtraKeys,...familyExtraKeys])$('retire'+k).addEventListener('input',()=>showRetire());
-for(const suffix of Object.keys(retirementDetailMap))$('retire'+suffix)?.addEventListener('input',()=>{
- if(suffix==='BirthDate'){
-  const d=$('retireBirthDate').value;
-  if(d){const today=new Date(),born=new Date(d+'T00:00:00');
-   $('retireAgeNow').value=Math.max(0,today.getFullYear()-born.getFullYear()-((today.getMonth()<born.getMonth()||(today.getMonth()===born.getMonth()&&today.getDate()<born.getDate()))?1:0));}
- }
- showRetire();
-});
-$('retireSalaryLink').addEventListener('change',()=>{const who=$('retireOwner').value;if(who==='all')return;const link=window.ledgerIncomeLink?.monthly(who);if($('retireSalaryLink').checked&&link?.ready){$('retireSalary').value=link.amount;$('retireSalary').readOnly=true;}else{$('retireSalary').value=Number(getP(who).salary||0);$('retireSalary').readOnly=false;}renderCashflow();});
-$('retireAnnualBonusNet').addEventListener('input',renderCashflow);
-$('retireUseActualBonus').onclick=()=>{const who=$('retireOwner').value;if(who==='all')return;const data=window.ledgerIncomeLink?.annual(who);if(!data||!data.total){alert('目前載入的交易沒有可辨識的年終或 Bonus 入帳，不能直接預估。');return;}if(!confirm('僅將 '+data.year+' 年已入帳獎金 '+fmt(data.total)+' 作為未來每年「實領」假設；獎金不保證，可能需要再扣除稅費。是否只更新試算草稿？'))return;$('retireAnnualBonusNet').value=data.total;renderCashflow();$('retireIncomeSourceStatus').textContent='以 '+data.year+' 年已入帳獎金 '+fmt(data.total)+' 作為未來每年的試算草稿，尚未儲存。';};
+for(const k of [...profileExtraKeys,...familyExtraKeys])$('retire'+k).addEventListener('input',()=>renderCashflow());
 const previousRetireSave=$('retireSave').onclick;
-$('retireSave').onclick=async()=>{const who=$('retireOwner').value;if(who==='all')return;const p=inputs();for(const k of profileExtraKeys){const attr={Salary:'salary',SalaryGrowth:'salaryGrowth',Yield:'yieldPct',Passive:'passive',Pension:'pension',PensionAge:'pensionAge'}[k];p[attr]=Number($('retire'+k).value)}for(const k of familyExtraKeys)p[k.toLowerCase()]=Number($('retire'+k).value);readRetirementDetailInputs(p);p.salaryLinkEnabled=$('retireSalaryLink').checked;p.annualBonusNet=Number($('retireAnnualBonusNet').value);if(p.birthDate&&!/^\d{4}-\d{2}-\d{2}$/.test(p.birthDate))return alert('出生日期格式有誤');if(p.formalSwitchDate&&!/^\d{4}-\d{2}$/.test(p.formalSwitchDate))return alert('轉任日期格式有誤');if(!Number.isSafeInteger(p.annualBonusNet)||p.annualBonusNet<0||p.annualBonusNet>1e9)return alert('年度獎金實領試算應為 0～10 億的整數');if(p.salaryLinkEnabled)p.salary=Number(getP(who).salary||0);if(Object.values(p).some(v=>typeof v==='number'&&!Number.isFinite(v)))return alert('請確認退休設定均為有效數字');if(p.inflation<0||p.inflation>15||p.retireAge<p.age)return alert('退休年齡或通膨率不合理');try{p.monthly=getP(who).monthly; p.target=getP(who).target; const r=await post({profiles:[p]},'planningSave');if(!r.ok||r.conflicts?.length)throw Error('設定衝突或保存失敗');await loadPlanning18611();$('retireStatus').textContent='退休設定與現金流假設已儲存'}catch(e){alert('儲存失敗：'+e.message)}};
-function recommend(){const index=Number($('strategyMode').value),factor=modeFactors[index];$('strategyModeLabel').textContent=modeNames[index];const incomes={me:Number($('strategySalaryMe').value)||0,wife:Number($('strategySalaryWife').value)||0};proposed.clear();let committed=0, monthlyPlans=0;
-for(const r of rows.filter(r=>r.active!==false&&['me','wife'].includes(r.owner))){const base=guidance[canonicalPlanName(r.name)],pct=base?.[r.owner],fixed=r.type==='fixed'||r.type==='annual';let amount=monthly(r);if(pct!==undefined&&pct!==null&&!fixed){const adjustable=['娛樂興趣','旅遊基金','服裝鞋包','美妝保養','退休投資','緊急預備金'].includes(r.name);const weight=adjustable?(r.type==='fund'?factor:2-factor):1;amount=Math.max(0,Math.round(incomes[r.owner]*pct/100*Math.max(.3,weight)))}if(canonicalPlanName(r.name)==='汽車保養'&&r.owner==='me'&&amount===0)amount=900;
-if(r.name==='所得稅準備金'&&r.owner==='me'&&amount===0)amount=20000;
+$('retireSave').onclick=async()=>{const who=$('retireOwner').value;if(who==='all')return;const p=inputs();for(const k of profileExtraKeys){const attr={Salary:'salary',SalaryGrowth:'salaryGrowth',Yield:'yieldPct',Passive:'passive',Pension:'pension',PensionAge:'pensionAge'}[k];p[attr]=Number($('retire'+k).value)}for(const k of familyExtraKeys)p[k.toLowerCase()]=Number($('retire'+k).value);if(Object.values(p).some(v=>typeof v==='number'&&!Number.isFinite(v)))return alert('請確認退休設定均為有效數字');if(p.inflation<0||p.inflation>15||p.retireAge<p.age)return alert('退休年齡或通膨率不合理');try{p.monthly=getP(who).monthly; p.target=getP(who).target; const r=await post({profiles:[p]},'planningSave');if(!r.ok||r.conflicts?.length)throw Error('設定衝突或保存失敗');await loadPlanning18611();$('retireStatus').textContent='退休設定與現金流假設已儲存'}catch(e){alert('儲存失敗：'+e.message)}};
+function recommend(){const index=Number($('strategyMode').value),factor=modeFactors[index];$('strategyModeLabel').textContent=modeNames[index];const incomes={me:Number($('strategySalaryMe').value)||0,wife:Number($('strategySalaryWife').value)||0,shared:(Number($('strategySalaryMe').value)||0)+(Number($('strategySalaryWife').value)||0)};proposed.clear();let committed=0, monthlyPlans=0;
+for(const r of rows.filter(r=>r.active!==false)){const base=guidance[canonicalPlanName(r.name)],pct=base?.[r.owner],fixed=r.type==='fixed'||r.type==='annual';let amount=monthly(r);if(pct!==undefined&&pct!==null&&!fixed){const adjustable=['娛樂興趣','旅遊基金','服裝鞋包','美妝保養','退休投資','緊急預備金'].includes(r.name);const weight=adjustable?(r.type==='fund'?factor:2-factor):1;amount=Math.max(0,Math.round(incomes[r.owner]*pct/100*Math.max(.3,weight)))}if(canonicalPlanName(r.name)==='汽車保養'&&r.owner==='me'&&amount===0)amount=900;
 // Confirmed household payment responsibility. These are recommendations only;
 // do not silently overwrite previously saved amounts.
 const ownerFixedRecommendations={
@@ -1658,151 +1434,96 @@ if(Object.prototype.hasOwnProperty.call(ownerFixedRecommendations,nm)){
 }
 if(nm==='中醫－承瑋')amount=r.owner==='me'?3500:0;
 if(nm==='中醫－俐穎')amount=r.owner==='wife'?11000:0;
-if(nm==='所得稅準備金')amount=r.owner==='me'?20000:0;
+{const v2=v2Monthly(nm,r.owner);if(v2!==null){const adjustable=['娛樂興趣','旅遊基金','服裝鞋包','美妝保養','退休投資','緊急預備金'].includes(v2Name(nm));amount=Math.round(v2*(adjustable?Math.max(.3,r.type==='fund'?factor:2-factor):1));}else if(r.owner==='shared')amount=0;}
 if(nm==='家庭補助')amount=r.owner==='wife'?20000:0;
 const denom=incomes[r.owner],suggestion={amount,percentage:denom>0?amount/denom*100:null,reason:base?.reason||'依已知帳單／交易歷史預設金額；其他情況須依實際明細調整。'};proposed.set(r.id,suggestion);if(r.owner!=='wife'||r.name!=='家庭補助')monthlyPlans+=amount;committed++;}
-const totalIncome=incomes.me+incomes.wife;const doubleCountNote='家庭補助不列家庭整體新增收入與支出；預算家庭合計僅承瑋＋俐穎，交易 shared 為獨立共同消費。舊 shared 預算須指定責任後才列入家庭合計。';$('strategyWarning').innerHTML=`<p class="budget-muted">已產生 ${committed} 項建議。家庭實領基準 ${fmt(totalIncome)}，其中生活費與基金的分母依歸屬不同。${esc(doubleCountNote)}</p>${monthlyPlans>totalIncome?'<p style="color:#FF8D83">⚠️ 各項建議合計已超過目前試算收入，請先削減彈性項目，不能直接套用。</p>':''}<p class="budget-muted">退休是否達標請查看「退休規劃」的夫妻雙時間軸壓力測試。切換光譜不會改動正式帳本。</p>`;syncRows();}
+const totalIncome=incomes.me+incomes.wife;const doubleCountNote='家庭補助不列家庭整體新增收入與支出；上述項目存在個人與共同歸屬規劃重疊的可能，正式家庭彙總要依支付責任逐項核對。';$('strategyWarning').innerHTML=`<p class="budget-muted">已產生 ${committed} 項建議。家庭實領基準 ${fmt(totalIncome)}，其中生活費與基金的分母依歸屬不同。${esc(doubleCountNote)}</p>${monthlyPlans>totalIncome?`<p style="color:#FF8D83">⚠️ 建議配置合計 ${fmt(monthlyPlans)} 超過你填的試算收入 ${fmt(totalIncome)}(多 ${fmt(monthlyPlans-totalIncome)})。這是「建議值 vs 試算收入」的比較,與實際消費無關;實際支出是否超過實際收入,請看上方「本月預算概況」。</p>`:`<p class="budget-muted">建議配置合計 ${fmt(monthlyPlans)},試算收入 ${fmt(totalIncome)},尚餘 ${fmt(totalIncome-monthlyPlans)}。</p>`}<p class="budget-muted">退休是否達標請查看「退休規劃」的夫妻雙時間軸壓力測試。切換光譜不會改動正式帳本。</p>`;syncRows();}
 $('strategyMode').addEventListener('input',recommend);$('strategyRecommend').onclick=recommend;
 // The detailed planning table (PlanningData) and headline monthly budget (BudgetData)
 // are separate stores.  A confirmed recommendation must update and verify both.
 function planningBudgetTotals186129(items){
  const owners=['me','wife'];
  const out=Object.fromEntries(owners.map(o=>[o,{expense:0,saving:0}]));
- const seen=new Map(),ambiguous=[];
+ const seen=new Set();
  for(const r of items){
-  if(r.active===false)continue;
-  if(r.owner==='shared'){if(Number(r.amount)>0)throw Error('舊版 shared 預算尚未指定承擔者：'+r.name+'（'+r.id+'）；請先於待歸屬區逐筆指定承瑋或俐穎。');continue;}
-  if(!out[r.owner])throw Error('預算歸屬錯誤：'+r.id);
-  const name=canonicalPlanName(r.name),amount=monthly(r),key=r.owner+'|'+name;
-  if(!Number.isFinite(amount)||amount<0)throw Error('預算金額無效：'+r.name);
-  // Names are hints, NOT financial identities. Never silently delete a second ID.
-  if(seen.has(key)&&amount>0&&seen.get(key).amount>0){
-   ambiguous.push(r.owner+'／'+name+'（'+seen.get(key).id+'、'+r.id+'）');
-  }else seen.set(key,{id:r.id,amount});
-  if(name==='家庭補助')continue;
+  if(r.active===false||!out[r.owner])continue;
+  const name=canonicalPlanName(r.name),key=r.owner+'|'+name;
+  // Duplicate legacy names must not inflate the headline budget.
+  if(seen.has(key))continue;
+  seen.add(key);
+  const amount=monthly(r);
+  if(name==='家庭補助')continue; // Household transfer is neither consumption nor income.
   if(r.type==='fund'){
-   if(['緊急預備金','退休投資','旅遊基金'].includes(name))out[r.owner].saving+=amount;
-  }else if(['fixed','variable','annual'].includes(r.type))out[r.owner].expense+=amount;
+   // Funds are planned saving / allocations, not money already spent.
+   out[r.owner].saving+=amount;
+   continue;
+  }
+  if(['fixed','variable','annual'].includes(r.type))out[r.owner].expense+=amount;
  }
- if(ambiguous.length)throw Error('發現可能重複或跨歸屬的預算，已停止自動覆寫上方預算；請逐筆確認，不會自動刪除：'+ambiguous.slice(0,6).join('；'));
- // Preserve fractional monthly reserves: e.g. 11,230 / 12 is not an integer.
- for(const o of owners){out[o].expense=Math.round(out[o].expense*1e8)/1e8;out[o].saving=Math.round(out[o].saving*1e8)/1e8;}
+ for(const o of owners){out[o].expense=Math.round(out[o].expense);out[o].saving=Math.round(out[o].saving)}
  return out;
 }
-function verifyPlanningItems18613(expected,actual){
- const map=new Map(actual.map(x=>[x.id,x]));
- const bad=expected.filter(x=>{const y=map.get(x.id);return !y||x.owner!==y.owner||x.type!==y.type||Number(x.amount)!==Number(y.amount)||Number(y._rev)!==Number(x._rev||0)+1;});
- if(bad.length)throw Error('PlanningData 回讀或版本號不一致：'+bad.slice(0,6).map(x=>x.id).join('、'));
- return true;
-}
-// Durable WAL protocol on GAS.  This is recoverable two-sheet consistency,
-// not a native Google Sheets ACID transaction.
-const FINANCE_PENDING_KEY='ledgerFinancePendingTxV2';
-function financePendingUi18613(txId){
- const button=$('financeRecoverButton');button.hidden=!txId;
- if(txId)sessionStorage.setItem(FINANCE_PENDING_KEY,txId);
- else sessionStorage.removeItem(FINANCE_PENDING_KEY);
-}
-function financePayload18613(items,settings){
- const totals=planningBudgetTotals186129(items),previous=new Map(settings.filter(r=>!r.deleted).map(r=>[r.id,r]));
- const records=[];
+async function synchronizeHeadlineBudgets186129(items){
+ const totals=planningBudgetTotals186129(items);
+ const res=await jsonp('budget');
+ if(!res.ok||!Array.isArray(res.settings))throw Error('讀取本月預算主檔失敗，詳細理財配置已保存，但上方預算尚未同步');
+ const previous=new Map(res.settings.filter(r=>!r.deleted).map(r=>[r.id,r]));
+ const payload=[];
  for(const owner of ['me','wife']){
   for(const spec of [
    {id:'budget:'+owner+':all',kind:'budget',category:'all',amount:totals[owner].expense},
    {id:'plan:'+owner,kind:'plan',amount:totals[owner].saving}
   ]){
    const old=previous.get(spec.id);
-   records.push({...old,...spec,owner,deleted:false,_rev:Number(old?._rev||0)});
+   payload.push({...old,...spec,owner,_rev:Number(old?._rev||0)});
   }
  }
- return {records,totals};
+ const write=await post({records:payload},'budgetSave');
+ if(!write.ok||write.conflicts?.length||write.count!==payload.length)throw Error('詳細理財配置已保存，但上方預算更新失敗或衝突；請勿反覆重送，先重新讀取雲端');
+ const verify=await jsonp('budget');
+ if(!verify.ok||!Array.isArray(verify.settings))throw Error('詳細配置已保存，預算更新已送出，但無法回讀驗證');
+ const confirmed=new Map(verify.settings.filter(r=>!r.deleted).map(r=>[r.id,r]));
+ const bad=payload.filter(r=>Number(confirmed.get(r.id)?.amount)!==r.amount);
+ if(bad.length)throw Error('上方預算有 '+bad.length+' 筆未通過回讀驗證：'+bad.map(r=>r.id).join('、'));
+ window.setBudgetDataV1871(verify.settings);
+ renderBudget();
+ return totals;
 }
-async function financeVerify18613(items,budgetRecords){
- const [planning,budget]=await Promise.all([jsonp('planning'),jsonp('budget')]);
- if(!planning.ok||!Array.isArray(planning.items)||!budget.ok||!Array.isArray(budget.settings))throw Error('寫入已完成，但無法從兩份工作表讀回核對');
- verifyPlanningItems18613(items,planning.items);
- const map=new Map(budget.settings.map(r=>[r.id,r]));
- const bad=budgetRecords.filter(x=>{
-  const r=map.get(x.id);
-  return !r||r.owner!==x.owner||r.kind!==x.kind||Math.abs(Number(r.amount)-Number(x.amount))>1e-7||Number(r._rev)!==Number(x._rev)+1;
- });
- if(bad.length)throw Error('BudgetData 金額／歸屬／版本回讀不一致：'+bad.slice(0,5).map(x=>x.id).join('、'));
- window.ledgerPlanningBridge.applyBudgetSnapshot(budget.settings);
- return {cloud:planning,budget:budget.settings};
-}
-async function financeSaveTogether18613(items){
- planningBudgetTotals186129(items); // Validate ambiguity before any API write.
- const state=await jsonp('financeState');
- if(!state.ok)throw Error(state.error||'無法確認交易狀態');
- if(state.pending){financePendingUi18613(state.txId);throw Error(state.error||('前一次交易 '+state.txId+' 尚未完成；先按「恢復未完成的雙表同步」'));}
- const budgetBefore=await jsonp('budget');
- if(!budgetBefore.ok||!Array.isArray(budgetBefore.settings))throw Error('無法取得原始 BudgetData 快照');
- const {records,totals}=financePayload18613(items,budgetBefore.settings);
- const txId='fin:'+crypto.randomUUID().replace(/-/g,'');
- financePendingUi18613(txId); // Remember the ID BEFORE the POST; timeout is ambiguous.
- try{
-  const result=await post({txId,items,records},'financeApply');
-  if(!result.ok||result.state!=='COMPLETE')throw Error(result.error||'交易尚未完成：'+(result.state||'UNKNOWN'));
-  const verified=await financeVerify18613(items,records);
-  financePendingUi18613(null);
-  return {...verified,totals,txId};
- }catch(e){
-  try{const st=await jsonp('financeState',{txId});if(st.state==='NONE'||st.state==='CONFLICT')financePendingUi18613(null);}
-  catch(_){/* Preserve txId when server status is unknowable. */}
-  throw e;
- }
-}
-$('financeRecoverButton').onclick=async()=>{
- if(busy)return;
- busy=true;$('financeRecoverButton').disabled=true;
- try{
-  let txId=sessionStorage.getItem(FINANCE_PENDING_KEY);
-  if(!txId){const pending=await jsonp('financeState');txId=pending.txId;}
-  if(!txId)throw Error('目前沒有待恢復的交易');
-  const status=await jsonp('financeState',{txId});
-  if(status.state==='NEEDS_REVIEW'||status.state==='PREPARING')throw Error('交易需要人工確認：'+status.error);
-  const result=await post({txId},'financeRecover');
-  if(!result.ok||result.state!=='COMPLETE')throw Error(result.error||'恢復未完成');
-  const [p,b]=await Promise.all([jsonp('planning'),jsonp('budget')]);
-  if(!p.ok||!b.ok||!Array.isArray(p.items)||!Array.isArray(b.settings))throw Error('已恢復資料，但回讀失敗；請重新讀取雲端核對');
-  // The server verified every journal entry against authoritative sheets.
-  rows=p.items;profile=p.profiles||profile;
-  window.ledgerPlanningBridge.applyBudgetSnapshot(b.settings);
-  syncRows();renderRetire();renderHouseholdRetirementGoals();
-  financePendingUi18613(null);
-  $('planningMessage').textContent='交易 '+txId+' 已完成恢復，兩份工作表已回讀。';
-  alert('已恢復並核對雙表資料，交易 '+txId);
- }catch(err){$('planningMessage').textContent='交易恢復尚未通過驗證：'+err.message;alert('交易恢復失敗：'+err.message);}
- finally{busy=false;$('financeRecoverButton').disabled=false;}
-};
-// On reload a pending transaction remains visible. Do not auto-replay writes.
-financePendingUi18613(sessionStorage.getItem(FINANCE_PENDING_KEY));
 $('strategyApply').onclick=async()=>{
  if(busy)return;
- if(['strategySalaryMe','strategySalaryWife'].some(id=>{const s=$(id).value.trim();return !s||!Number.isFinite(Number(s))||Number(s)<0;}))return alert('夫妻實領月收入尚未完整確認。請先匯入至少兩個月份薪資，或輸入確認的月實領，不能用 0 元收入採用預算建議。');
  // 建議值是試算，必須明確採用後才轉入正式預算欄位。
  recommend();
  const eligible=rows.filter(r=>r.active!==false&&proposed.has(r.id));
  if(!eligible.length)return alert('沒有可採用的建議，請先產生參考比例。');
- const changes=eligible.filter(r=>{const x=proposed.get(r.id);return Number(x.amount)>0||Number(r.amount)===0;}).map(r=>{const x=proposed.get(r.id);return {id:r.id,name:r.name,owner:r.owner,amount:Math.round(r.type==='annual'?x.amount*12:x.amount),monthly:x.amount,pct:x.percentage};});
+ const changes=eligible.map(r=>{const x=proposed.get(r.id);return {id:r.id,name:r.name,owner:r.owner,amount:Math.round(r.type==='annual'?x.amount*12:x.amount),monthly:x.amount,pct:x.percentage};});
  const oldRetire=eligible.filter(r=>r.type==='fund'&&canonicalPlanName(r.name)==='退休投資').reduce((s,r)=>s+monthly(r),0);
  const newRetire=eligible.filter(r=>r.type==='fund'&&canonicalPlanName(r.name)==='退休投資').reduce((s,r)=>s+proposed.get(r.id).amount,0);
  if(newRetire<oldRetire&&!confirm('此方案降低每月退休投入，可能導致退休目標無法達成。仍要採用嗎？'))return;
- try{planningBudgetTotals186129(rows.map(r=>{const c=changes.find(x=>x.id===r.id);return c?{...r,amount:c.amount}:r}));}
- catch(e){$('planningMessage').textContent='未寫入任何資料：'+e.message;alert(e.message);return;}
- if(!confirm('將採用 '+changes.length+' 項建議並立即儲存至 Google Sheets；不會用 $0 建議覆蓋已設定的非零預算。確定嗎？'))return;
+ if(!confirm('將採用 '+changes.length+' 項建議並立即儲存至 Google Sheets；原本 $0 的項目也會填入建議值。確定嗎？'))return;
  for(const c of changes){const r=rows.find(x=>x.id===c.id);r.amount=c.amount;r.actualPct=c.pct===null?null:Number(c.pct.toFixed(2));}
  syncRows();
  busy=true;$('strategyApply').disabled=true;
  $('planningMessage').textContent='正在寫入並核對 '+changes.length+' 筆建議…';
- const preWriteSnapshot=rows.map(x=>({...x,kind:'item'}));
  try{
-  const {cloud,totals}=await financeSaveTogether18613(preWriteSnapshot);
+  const response=await post({items:rows.map(x=>({...x,kind:'item'}))},'planningSave');
+  if(!response.ok||response.conflicts?.length)throw Error(response.conflicts?.length?'雲端版本衝突，未能全部儲存':'後端未確認儲存');
+  // read-back from authoritative Google Sheets, never trust only POST acknowledgement
+  const cloud=await jsonp('planning');
+  if(!cloud.ok||!Array.isArray(cloud.items))throw Error('寫入已送出，但無法讀回雲端驗證');
+  const saved=new Map(cloud.items.map(r=>[r.id,r]));
+  const mismatches=changes.filter(c=>!saved.has(c.id)||Number(saved.get(c.id).amount)!==c.amount);
+  if(mismatches.length){
+   rows=cloud.items;profile=cloud.profiles||profile;
+   proposed.clear();recommend();
+   throw Error('雲端回讀發現 '+mismatches.length+' 筆金額不一致：'+mismatches.slice(0,4).map(x=>x.name).join('、')+'。請勿重複按儲存，先核對設定');
+  }
   rows=cloud.items;profile=cloud.profiles||profile;
-  proposed.clear();recommend();syncRows();renderHouseholdRetirementGoals();renderRetire();
-  const household=totals.me.expense+totals.wife.expense;
-  $('planningMessage').textContent='財務交易已完成並雙表回讀：家庭本月預算 '+fmt(household)+'，共 '+changes.length+' 筆建議。';
-  alert('已完成可恢復交易與雙表核對；Google Sheets 不提供跨表 ACID 原子交易。');
+  proposed.clear();recommend();
+  $('planningMessage').textContent='詳細配置已核對，正在同步上方本月預算與預計存款…';
+  const totals=await synchronizeHeadlineBudgets186129(cloud.items);
+  const household=Object.values(totals).reduce((n,x)=>n+x.expense,0);
+  $('planningMessage').textContent='已核對 '+changes.length+' 筆詳細預算，並同步上方本月預算：家庭 '+fmt(household)+'／月。';
+  alert('詳細配置及上方本月預算均已儲存並回讀確認。');
  }catch(error){
   $('planningMessage').textContent='未確認全部儲存成功：'+error.message+'。請勿重複送出，先重新讀取雲端資料。';
   alert('未確認全部儲存成功：'+error.message);
@@ -1816,7 +1537,7 @@ const oldSyncRows=syncRows;syncRows=function(){oldSyncRows();for(const node of $
     for(const [name,group] of groups){
       const wrap=document.createElement('details');wrap.className='planning-family-group';
       const heading=document.createElement('summary');const sum=group.reduce((a,x)=>a+monthly(x.r),0);
-      heading.textContent=name+'｜家庭合計 '+fmt(sum)+'／月（承瑋＋俐穎，點擊展開）';wrap.appendChild(heading);
+      heading.textContent=name+'｜家庭合計 '+fmt(sum)+'／月（承瑋／俐穎各自設定，點擊展開）';wrap.appendChild(heading);
       for(const {node} of group)wrap.appendChild(node);
       holder.appendChild(wrap);
     }
@@ -1836,84 +1557,7 @@ $('planningDedupe').onclick=()=>{
 $('planningSeed').addEventListener('click',()=>{setTimeout(()=>{proposed.clear();recommend()},0)});
 window.addEventListener('load',()=>{recommend();});
 
-window.addEventListener('ledger-records-updated',()=>{if($('retireOwner'))renderRetire();});
 window.addEventListener('load',()=>{if($('retireOwner'))renderRetire();});
-})();
-</script>
-<script id="incomeLinkRC4">
-(()=>{'use strict';
-// RC4: Income transactions are the only source of historical deposits.
-// No external service is called by this module. Saving uses the existing record delta API.
-const $=id=>document.getElementById(id),bridge=window.ledgerIncomeBridge;
-const fmt=n=>'NT$'+Math.round(Number(n)||0).toLocaleString('zh-TW');
-const escapeHtml=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const KINDS={salary:'固定薪資實領',bonus:'績效 Bonus 實領',yearend:'年終獎金實領',overtime:'加班／變動工資實領',other:'其他工作入帳'};
-const labelKind={salary:'salary',薪資:'salary',固定薪資:'salary',薪水:'salary',工資:'salary',bonus:'bonus',績效:'bonus',績效獎金:'bonus',獎金:'bonus',yearend:'yearend',年終:'yearend',年終獎金:'yearend',overtime:'overtime',加班:'overtime',加班費:'overtime',other:'other',其他:'other',其他工作收入:'other'};
-const ownerNames={me:'承瑋',wife:'俐穎'};
-function kind(r){
- if(r.type!=='income'||!['me','wife'].includes(r.owner)||r.deleted)return null;
- if(r._incomeKind&&KINDS[r._incomeKind]){const expected=['bonus','yearend'].includes(r._incomeKind)?'獎金':'薪資';return r.category===expected?r._incomeKind:null;} // A manual category change removes an entry from automatic payroll linking.
- const text=String(r.merchant||'')+' '+String(r.note||'');
- if(r.category==='薪資'){
-  if(/加班|overtime/i.test(text))return 'overtime';
-  if(/年終/.test(text))return 'yearend';
-  if(/bonus|績效|獲利|分紅/i.test(text))return 'bonus';
-  return 'salary';
- }
- if(r.category==='獎金'){
-  if(/年終/.test(text))return 'yearend';
-  return 'bonus'; // Existing manual bookkeeping category is authoritative; no new CSV entry is required.
- }
- return null; // Ambiguous income does not silently become a recurring salary.
-}
-function snapshot(owner,items=bridge.list(),today=new Date()){
- if(!['me','wife'].includes(owner))throw Error('只能計算夫妻個人入帳');
- const yr=today.getFullYear(),dateLimit= today.getFullYear()+'-'+String(today.getMonth()+1).padStart(2,'0')+'-'+String(today.getDate()).padStart(2,'0');
- const groups=new Map(),bonuses=new Map(),seen=new Set(),byKind={salary:0,yearend:0,bonus:0,overtime:0,other:0},unmatched=[];
- for(const r of items){
-  if(r.owner!==owner||r.deleted||r.type!=='income'||typeof r.date!=='string'||r.date>dateLimit||seen.has(r.id))continue;
-  seen.add(r.id);const k=kind(r);if(!k){unmatched.push(r);continue;}
-  const amount=Number(r.amount);
-  if(!Number.isFinite(amount)||amount<=0)continue;
-  byKind[k]+=amount;
-  if(k==='salary'){
-   const m=r.date.slice(0,7);groups.set(m,(groups.get(m)||0)+amount);
-  }
-  if(k==='yearend'||k==='bonus'){
-   const year=Number(r.date.slice(0,4));if(!bonuses.has(year))bonuses.set(year,{year,yearend:0,bonus:0});bonuses.get(year)[k]+=amount;
-  }
- }
- // Only complete monthly salary receipts, never bonuses, may affect future monthly pay.
- const recent=[...groups.entries()].filter(([m])=>{
-  const d=new Date(m+'-01T00:00:00'),start=new Date(today.getFullYear(),today.getMonth()-11,1);
-  return d>=start&&d<=today;
- }).sort((a,b)=>b[0].localeCompare(a[0])).slice(0,3);
- const amounts=recent.map(([,sum])=>sum).sort((a,b)=>a-b);
- const median=amounts.length===0?null:amounts.length%2?amounts[(amounts.length-1)/2]:(amounts[amounts.length/2-1]+amounts[amounts.length/2])/2;
- const yearData=bonuses.get(yr)||{year:yr,yearend:0,bonus:0};
- return {owner,ready:recent.length>=2,monthly:median===null?null:Math.round(median),salaryMonths:recent.length,periods:recent.map(x=>x[0]),year:yr,bonusTotal:yearData.yearend+yearData.bonus,bonus:yearData.bonus,yearend:yearData.yearend,annualBonuses:[...bonuses.values()].sort((a,b)=>b.year-a.year),unmatched:unmatched.length,byKind};
-}
-function currentMonthly(who){const s=snapshot(who);return {ready:s.ready,amount:s.monthly,months:s.salaryMonths,periods:s.periods};}
-function currentAnnual(who){const s=snapshot(who);return {year:s.year,total:s.bonusTotal,bonus:s.bonus,yearend:s.yearend};}
-function renderSummary(){
- const el=$('incomeLinkedSummary');if(!el)return;
- const snapshots=['me','wife'].map(who=>snapshot(who));
- el.innerHTML='<div class="planning-summary">'+snapshots.map(s=>`<div><strong>${ownerNames[s.owner]}</strong><div class="mini">近 12 個月已辨識固定月薪（最近最多三個月份）</div><strong style="display:block;font-size:19px">${s.monthly===null?'未取得':fmt(s.monthly)}</strong><div class="mini">${s.ready?'已滿 2 個月份，可連動退休月實領':'未滿 2 個月份，僅顯示預覽，不取代退休工作收入'} · 已讀 ${s.salaryMonths} 個月份</div><div class="mini">${s.year} 年已入帳年終 ${fmt(s.yearend)}、Bonus ${fmt(s.bonus)}；待辨識收入 ${s.unmatched} 筆</div></div>`).join('')+'</div>';
- for(const who of ['me','wife']){
-  const input=$('strategySalary'+(who==='me'?'Me':'Wife'));
-  const linked=snapshots.find(x=>x.owner===who);
-  if(linked.ready&&input&&!input.dataset.userEdited){input.value=linked.monthly;input.dataset.linked='true';}
- }
- const selected=$('retireOwner')?.value;
- const target=selected==='me'||selected==='wife'?snapshot(selected):null;
- const status=$('retireIncomeSourceStatus');if(status)status.textContent=target?(target.ready?`${ownerNames[selected]}已辨識 ${target.salaryMonths} 個月份薪資；已啟用自動連動時，退休試算使用 ${fmt(target.monthly)} 的月實領（非本薪）。`:`${ownerNames[selected]}只有 ${target.salaryMonths} 個可辨識月份的薪資資料，退休模型仍使用原本手動值。`)+' 年終與 Bonus 屬於一次性收入，實際入帳已在交易／總覽統計，未設定重複情境前不會當成未來每年收入。':'家庭視角顯示夫妻各自連動的月薪；歷史獎金只計入一次。';
-}
-window.ledgerIncomeLink=Object.freeze({snapshot,monthly:currentMonthly,annual:currentAnnual});
-['strategySalaryMe','strategySalaryWife'].forEach(id=>$(id)?.addEventListener('input',e=>{e.target.dataset.userEdited='1';}));
-$('retireOwner')?.addEventListener('change',renderSummary);
-window.addEventListener('ledger-records-updated',renderSummary);
-window.addEventListener('load',renderSummary);
-renderSummary();
 })();
 </script>
 </body></html>
