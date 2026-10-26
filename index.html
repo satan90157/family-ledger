@@ -132,9 +132,9 @@ html[data-theme="pink"] .dot[style*="#FF8D83" i]{background:var(--pk-exp)!import
 </style>
 </head>
 <body>
-<div id="loginGate"><form class="login-panel" id="loginForm"><h1>家庭記帳 · 登入 <span class="version-chip">v1.9.4</span></h1><p class="subtitle">使用個人帳號登入；所有更動會留下操作紀錄。</p><p class="login-version" aria-label="目前前端版本">前端版本 v1.8.8.0｜以 v1.8.6.12.9 為基底</p><label for="loginUrl">Apps Script 網址（首次設定）</label><input class="field" type="url" id="loginUrl" name="ledgerApiUrl" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://script.google.com/macros/s/.../exec" required><input type="text" id="loginUsernameHint" name="username" autocomplete="username" value="me" hidden aria-hidden="true" tabindex="-1"><label for="loginUser">使用者</label><select class="field" id="loginUser" onchange="document.getElementById('loginUsernameHint').value=this.value"><option value="me">承瑋</option><option value="wife">俐穎</option></select><label for="loginPassword">密碼</label><input class="field" id="loginPassword" type="password" autocomplete="current-password" required><button class="button" id="loginButton" type="submit">登入</button><p id="loginError" role="alert"></p></form></div>
+<div id="loginGate"><form class="login-panel" id="loginForm"><h1>家庭記帳 · 登入 <span class="version-chip">v1.9.5</span></h1><p class="subtitle">使用個人帳號登入；所有更動會留下操作紀錄。</p><p class="login-version" aria-label="目前前端版本">前端版本 v1.8.8.0｜以 v1.8.6.12.9 為基底</p><label for="loginUrl">Apps Script 網址（首次設定）</label><input class="field" type="url" id="loginUrl" name="ledgerApiUrl" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://script.google.com/macros/s/.../exec" required><input type="text" id="loginUsernameHint" name="username" autocomplete="username" value="me" hidden aria-hidden="true" tabindex="-1"><label for="loginUser">使用者</label><select class="field" id="loginUser" onchange="document.getElementById('loginUsernameHint').value=this.value"><option value="me">承瑋</option><option value="wife">俐穎</option></select><label for="loginPassword">密碼</label><input class="field" id="loginPassword" type="password" autocomplete="current-password" required><button class="button" id="loginButton" type="submit">登入</button><p id="loginError" role="alert"></p></form></div>
 <main class="shell">
-  <header class="header"><div class="logo">家計簿 <span style="color:#d3b573">◈</span><small>OUR FAMILY FINANCE · v1.9.4</small></div><nav class="nav" aria-label="主要頁面"><button data-tab="dashboard" class="active">總覽</button><button data-tab="annual">年度統計</button><button data-tab="records">收支明細</button><button data-tab="aiStudio">✦ AI 智慧整理</button><button data-tab="add">新增記帳</button><button data-tab="settings">同步設定</button></nav></header>
+  <header class="header"><div class="logo">家計簿 <span style="color:#d3b573">◈</span><small>OUR FAMILY FINANCE · v1.9.5</small></div><nav class="nav" aria-label="主要頁面"><button data-tab="dashboard" class="active">總覽</button><button data-tab="annual">年度統計</button><button data-tab="records">收支明細</button><button data-tab="aiStudio">✦ AI 智慧整理</button><button data-tab="add">新增記帳</button><button data-tab="settings">同步設定</button></nav></header>
   <div id="syncBanner" class="sync-banner pending" role="status" aria-live="polite"><span id="syncBannerText">正在檢查雲端同步狀態…</span><button id="syncBannerRetry" class="button light" type="button" hidden>重試同步</button></div>
   <div id="conflictPanel" class="panel" style="margin-bottom:16px;display:none"><h2>跨裝置資料衝突</h2><p class="help">同一張發票在電腦與手機被修改時，不會自動覆蓋。請先備份，再檢視兩邊內容並逐筆決定；不同分類名稱也可雙向保留。採用本機版本時會經過 Google Sheets 版本檢查，並留下修改紀錄。</p><div id="conflictItems" class="help"></div><div class="actions"><button id="conflictBackup" class="button light" type="button">① 下載本機 JSON 備份</button><button id="conflictUseCloud" class="button light" type="button" disabled>② 雙向合併自訂分類</button><button id="conflictReview" class="button light" type="button" disabled>③ 比較交易差異</button><button id="conflictApply" class="button" type="button" style="display:none">④ 套用逐筆選擇</button></div><p id="conflictMessage" class="mini" role="status" aria-live="polite"></p></div>
   <section id="dashboard" class="section active"><div class="top"><div><h1>家庭財務總覽</h1><p class="subtitle">讓每一筆收支都有跡可循</p></div><div class="month"><button class="pill" id="prevMonth" aria-label="上個月">‹</button><input aria-label="統計月份" class="field" id="month" type="month"><button class="pill" id="nextMonth" aria-label="下個月">›</button></div><label class="month">統計歸屬 <select id="dashboardOwnerStats" class="field"><option value="all">家庭全部</option><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select></label></div>
@@ -165,7 +165,7 @@ html[data-theme="pink"] .dot[style*="#FF8D83" i]{background:var(--pk-exp)!import
 <div class="actions" style="margin-top:13px"><button class="button" id="planningSave" type="button">儲存理財配置</button><button class="button light" id="planningExport" type="button">匯出供 AI 分析 JSON</button><label class="button light file-button">匯入 AI 建議 JSON<input id="planningImport" type="file" accept=".json,application/json"></label></div><p class="budget-muted" id="planningMessage">尚未載入理財配置</p></div>
     <div id="budgetMessage" class="status" role="status" aria-live="polite" style="margin-top:16px">尚未讀取預算資料</div>
   </section>
-<section id="retirement" class="section"><div class="top"><div><h1>退休規劃</h1><p class="subtitle">以 2026 年購買力 2,000 萬為家庭目標,檢查承瑋 65 歲與俐穎 65 歲兩個時點;所有數值均為試算,不保證投資報酬。</p></div></div><div class="panel"><div class="row"><h2>退休參數</h2><select id="retireOwner" class="field" aria-label="退休試算對象"><option value="me">承瑋</option><option value="wife">俐穎</option><option value="all">家庭全部</option></select></div><div class="retire-controls"><label>出生日期<input class="field" id="retireBirth" type="date" min="1940-01-01" max="2010-12-31"></label><label>目前年齡<input class="field" id="retireAgeNow" type="number" min="0" max="100"></label><label>退休年齡<input class="field" id="retireAgeGoal" type="number" min="20" max="100"></label><label>目前退休投資本金<input class="field" id="retirePrincipal" type="number" min="0" step="1000"></label><label>每月退休投入（自動連動預算）<input class="field" id="retireMonthly" type="number" min="0" readonly aria-readonly="true" title="從預算與儲蓄目標 → 退休投資讀取，請於預算頁修改"></label><div hidden data-legacy-retire="v1.8.7.4"><label>預估年化報酬率 %<input class="field" id="retireReturn" type="number" min="-20" max="30" step="0.01"></label><label>報酬率快速調整<input id="retireSlider" type="range" min="0" max="15" step="0.1"></label><label>預估通膨率 %<input class="field" id="retireInflation" type="number" min="0" max="15" step="0.01"></label><label>目標退休資產（今日幣值）<input class="field" id="retireTarget" type="number" min="0" step="10000"></label></div></div><p class="budget-muted" id="retireMonthlySource">每月投入自動讀取「預算與儲蓄目標 → 退休投資」，請在預算頁修改；共同投入在家庭總額只計一次。</p><details hidden data-legacy-retire="v1.8.7.4" class="panel" style="padding:12px;margin:12px 0"><summary style="font-weight:700;cursor:pointer">進階設定：生活費、薪資、保單、提領及壓力參數（點擊展開）</summary><h3>家庭退休生活費及非工作現金流</h3><p class="budget-muted">夫妻各有自己的退休年齡；一方退休不代表另一方停止工作。保單及利息請依實際合約輸入，股息與投資報酬不得重複計算。</p><div class="retire-controls">
+<section id="retirement" class="section"><div class="top"><div><h1>退休規劃</h1><p class="subtitle">以 2026 年購買力 2,000 萬為家庭目標,檢查承瑋 65 歲與俐穎 65 歲兩個時點;所有數值均為試算,不保證投資報酬。</p></div></div><div class="panel" id="assetsPanelV1950" style="margin-bottom:12px"><p class="budget-muted">讀取資產資料中…</p></div><div class="panel" id="swapPanelV1950" style="margin-bottom:12px"></div><div class="panel"><div class="row"><h2>退休參數</h2><select id="retireOwner" class="field" aria-label="退休試算對象"><option value="me">承瑋</option><option value="wife">俐穎</option><option value="all">家庭全部</option></select></div><div class="retire-controls"><label>出生日期<input class="field" id="retireBirth" type="date" min="1940-01-01" max="2010-12-31"></label><label>目前年齡<input class="field" id="retireAgeNow" type="number" min="0" max="100"></label><label>退休年齡<input class="field" id="retireAgeGoal" type="number" min="20" max="100"></label><label>目前退休投資本金<input class="field" id="retirePrincipal" type="number" min="0" step="1000"></label><label>每月退休投入（自動連動預算）<input class="field" id="retireMonthly" type="number" min="0" readonly aria-readonly="true" title="從預算與儲蓄目標 → 退休投資讀取，請於預算頁修改"></label><div hidden data-legacy-retire="v1.8.7.4"><label>預估年化報酬率 %<input class="field" id="retireReturn" type="number" min="-20" max="30" step="0.01"></label><label>報酬率快速調整<input id="retireSlider" type="range" min="0" max="15" step="0.1"></label><label>預估通膨率 %<input class="field" id="retireInflation" type="number" min="0" max="15" step="0.01"></label><label>目標退休資產（今日幣值）<input class="field" id="retireTarget" type="number" min="0" step="10000"></label></div></div><p class="budget-muted" id="retireMonthlySource">每月投入自動讀取「預算與儲蓄目標 → 退休投資」，請在預算頁修改；共同投入在家庭總額只計一次。</p><details hidden data-legacy-retire="v1.8.7.4" class="panel" style="padding:12px;margin:12px 0"><summary style="font-weight:700;cursor:pointer">進階設定：生活費、薪資、保單、提領及壓力參數（點擊展開）</summary><h3>家庭退休生活費及非工作現金流</h3><p class="budget-muted">夫妻各有自己的退休年齡；一方退休不代表另一方停止工作。保單及利息請依實際合約輸入，股息與投資報酬不得重複計算。</p><div class="retire-controls">
 <label>目前家庭每月生活費（今日幣值）<input class="field" id="retireLiving" type="number" min="0" value="60000"></label>
 <label>退休醫療緊急準備金（今日幣值）<input class="field" id="retireMedical" type="number" min="0" value="2000000"></label>
 <label>退休時目標提領率 %<input class="field" id="retireWithdraw" type="number" min="1" max="8" step="0.01" value="3.5"></label>
@@ -1627,6 +1627,67 @@ function compute({items,records,startMonth='2026-11',month,owner='me'}){
 root.LedgerEnvelopeV1880=Object.freeze({compute,linkOf,matchName,DEFAULT_LINKS});
 })(typeof window!=='undefined'?window:globalThis);
 </script>
+<script id="assetsV1950">
+/* v1.9.5 家庭資產總覽與換屋試算(純計算,無 DOM;單元測試直接載入本段)。
+   2026-10-26 使用者確認:
+   - 資產 = 活存(各帳戶)+ 緊急備用金 + 證券交割戶 + 保險(參考市值)+ ETF(退休頁本金)+ 勞退/公提 + 房子(估計值)。
+   - 淨資產 = 資產 − 負債;可動用淨資產 = 淨資產 − 勞退/公提 − 保險 − 房子賣屋成本(預設 4%)。
+   - 房地合一(個人):以「成屋過戶登記日」到「出售過戶日」計持有期間;<2 年 45%、2–5 年 35%、5–10 年 20%、≥10 年 15%;
+     自住滿 6 年(設籍、未出租)且勾選時:獲利 400 萬內免稅、超過部分 10%。
+     未提示費用證明時,費用以成交價 3% 計、上限 30 萬;此處以使用者填的賣屋費用率估實際費用(較接近有單據情況)。
+   - 重購退稅:2 年內買新自住房,新房總價 ≥ 售價全額退,否則按比例退。僅為試算,以國稅局認定為準。 */
+(function (root) {
+  'use strict';
+  const KINDS = { cash: '活存', emergency: '緊急備用金', brokerage: '證券交割戶', insurance: '保險', other: '其他資產' };
+  const n = v => (Number.isFinite(Number(v)) ? Number(v) : 0);
+  function retirementAssets(profile) { return Math.max(0, n(profile?.laborRetireBalance)) + Math.max(0, n(profile?.publicFundBalance)); }
+  function summarize(snapshot, profiles, owner, opt = {}) {
+    const sellPct = opt.sellCostPct ?? n(snapshot?.house?.sellCostPct || 4);
+    const pick = o => owner === 'all' || o === owner;
+    const s = { cash: 0, emergency: 0, brokerage: 0, insurance: 0, other: 0, etf: 0, retire: 0, house: 0, liabilities: 0, items: [], debts: [] };
+    for (const a of snapshot?.accounts || []) if (pick(a.owner)) { const k = KINDS[a.kind] ? a.kind : 'other'; s[k] += n(a.amount); s.items.push(a); }
+    for (const who of ['me', 'wife']) if (pick(who)) { const p = (profiles || []).find(x => x.owner === who); s.etf += Math.max(0, n(p?.principal)); s.retire += retirementAssets(p); }
+    const h = snapshot?.house; if (h && pick(h.owner || 'me')) s.house = n(h.value);
+    for (const d of snapshot?.liabilities || []) if (pick(d.owner || 'me')) { s.liabilities += n(d.amount); s.debts.push(d); }
+    s.assets = s.cash + s.emergency + s.brokerage + s.insurance + s.other + s.etf + s.retire + s.house;
+    s.net = s.assets - s.liabilities;
+    s.liquidNet = s.net - s.retire - s.insurance - s.house * sellPct / 100;
+    s.spendableCash = s.cash + s.brokerage; // 換屋可動用現金:不含緊急備用金
+    return s;
+  }
+  function yearsBetween(a, b) { const d1 = new Date(a + 'T00:00:00'), d2 = new Date(b + 'T00:00:00'); let y = d2.getFullYear() - d1.getFullYear(); const m = d2.getMonth() - d1.getMonth(); if (m < 0 || (m === 0 && d2.getDate() < d1.getDate())) y--; return y + (((d2 - new Date(d1.getFullYear() + y, d1.getMonth(), d1.getDate())) / 864e5) / 365); }
+  function taxRate(years) { return years < 2 ? 0.45 : years < 5 ? 0.35 : years < 10 ? 0.20 : 0.15; }
+  function addYears(date, k) { const [y, m, d] = String(date).split('-').map(Number); return `${y + k}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`; }
+  /* 單一售價情境 */
+  function saleScenario({ price, purchasePrice, purchaseCosts = 0, sellCostPct = 4, registeredDate, saleDate, selfUse6 = false, payoff = 0, landTax = 0, newPrice = 0 }) {
+    const fee = price * sellCostPct / 100, gain = Math.max(0, price - purchasePrice - purchaseCosts - fee - landTax);
+    const years = yearsBetween(registeredDate, saleDate);
+    let rate = taxRate(years), tax = gain * rate, rule = `持有 ${years.toFixed(1)} 年,稅率 ${Math.round(rate * 100)}%`;
+    if (selfUse6 && years >= 6) { tax = Math.max(0, gain - 4e6) * 0.10; rate = null; rule = '自住滿 6 年:400 萬內免稅,超過 10%'; }
+    const netCash = price - fee - payoff - tax - landTax;
+    const refund = newPrice > 0 ? tax * Math.min(1, newPrice / price) : 0;
+    return { price, fee, gain, years, rate, tax, rule, payoff, netCash, refund, netAfterRefund: netCash + refund };
+  }
+  /* 新房貸款:本息平均攤還 */
+  function mortgage(principal, ratePct, years) { const r = ratePct / 100 / 12, k = years * 12; if (principal <= 0) return 0; return r ? principal * r / (1 - Math.pow(1 + r, -k)) : principal / k; }
+  function houseSwap(opts) {
+    const { prices, spendableCash = 0, newPrice = 0, buyCostPct = 2, loanRate = 2.2, loanYears = 30, ltv = 80 } = opts;
+    return prices.map(price => {
+      const s = saleScenario({ ...opts, price });
+      const down = s.netAfterRefund + spendableCash, buyCost = newPrice * buyCostPct / 100;
+      const loan = newPrice > 0 ? Math.max(0, newPrice + buyCost - down) : 0;
+      return { ...s, spendableCash, down, newPrice, buyCost, loan, ltvPct: newPrice > 0 ? loan / newPrice * 100 : 0, overLtv: newPrice > 0 && loan > newPrice * ltv / 100, monthly: mortgage(loan, loanRate, loanYears), cashGapBeforeRefund: newPrice > 0 ? Math.max(0, newPrice + buyCost - newPrice * ltv / 100 - (s.netCash + spendableCash)) : 0 };
+    });
+  }
+  function ledgerYear(records, year, owner) {
+    let inc = 0, exp = 0; const months = new Set();
+    for (const r of records) { if (r.deleted || r.source === 'category-definition' || !String(r.date).startsWith(year)) continue; if (owner !== 'all' && (r.owner || 'shared') !== owner && r.owner !== 'shared') continue; const share = owner !== 'all' && r.owner === 'shared' ? 0.5 : 1; if (r.type === 'income') inc += n(r.amount) * share; else if (r.type === 'expense') exp += n(r.amount) * share; months.add(String(r.date).slice(0, 7)); }
+    return { income: inc, expense: exp, net: inc - exp, months: months.size };
+  }
+  root.LedgerAssetsV1950 = Object.freeze({ KINDS, summarize, saleScenario, houseSwap, mortgage, taxRate, yearsBetween, addYears, ledgerYear });
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
 <script id="logic18611">
 (function(){'use strict';
 const {jsonp,post,activeRecords}=window.ledgerPlanningBridge;
@@ -1859,7 +1920,7 @@ $('planningQuickSuggest').onclick=()=>{
  $('planningQuickResult').innerHTML=html;
 };
 $('planningAdd').onclick=()=>{const name=$('planningNewName').value.trim();if(!name||name.length>50)return alert('請輸入 1～50 字的名稱');rows.push({id:'planitem:'+crypto.randomUUID(),kind:'item',name,type:$('planningNewType').value,owner:$('planningNewOwner').value,amount:0,aiAmount:null,aiPct:null,actualPct:null,category:'',dueMonth:0,active:true,_rev:0});$('planningNewName').value='';syncRows();renderRetire();$('planningMessage').textContent='新增項目尚未儲存。';};
-window.loadPlanning18611=async function(){if(!sessionStorage.getItem('ledgerSession17'))return;const r=await jsonp('planning');if(!r.ok)throw Error(r.error||'讀取理財設定失敗');rows=r.items||[];profile=r.profiles||[];loaded=true;syncRows();window.afterRenderBudgetV1880?.();window.afterRenderDashboardV1880?.();if(typeof recommend==='function')recommend();renderRetire();window.renderAnnualPlanning18611?.();$('planningMessage').textContent='已讀取 Google Sheets 理財配置';};
+window.loadPlanning18611=async function(){if(!sessionStorage.getItem('ledgerSession17'))return;const r=await jsonp('planning');if(!r.ok)throw Error(r.error||'讀取理財設定失敗');rows=r.items||[];profile=r.profiles||[];loaded=true;syncRows();window.afterRenderBudgetV1880?.();window.afterRenderDashboardV1880?.();if(typeof recommend==='function')recommend();renderRetire();window.renderAssetsV1950?.();window.renderAnnualPlanning18611?.();$('planningMessage').textContent='已讀取 Google Sheets 理財配置';};
 $('planningSave').onclick=async()=>{if(busy)return;busy=true;try{const rs=rows.map(x=>({...x,kind:'item'}));const result=await post({items:rs},'planningSave');if(!result.ok||result.conflicts?.length)throw Error(result.conflicts?.length?'其他裝置已修改理財配置，請重新讀取後核對':'儲存失敗');await loadPlanning18611();await synchronizeHeadlineBudgets186129(rows);alert('理財配置及上方月預算均已儲存且回讀確認')}catch(e){$('planningMessage').textContent='儲存失敗：'+e.message;alert(e.message)}finally{busy=false}};
 $('planningExport').onclick=()=>{const data={schema:'family-ledger-finance-analysis-v1',exportedAt:new Date().toISOString(),instruction:'請依財務資料提出各項理財配置建議。回傳 schema=family-ledger-finance-recommendations-v1，items 陣列須包含 id, aiPct, aiAmount。比例分母需明確列出，勿修改原始交易。',agreement:'俐穎每月至少提供20000元家庭補助，其餘主要由承瑋負擔；家庭內轉帳不可重複列收入',items:rows,retirement:profile,transactions:typeof activeRecords==='function'?activeRecords():[]};const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='family-ledger-FINANCE-ANALYSIS-'+new Date().toISOString().slice(0,10)+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000)};
 $('planningImport').onchange=async e=>{const f=e.target.files?.[0];if(!f)return;try{const data=JSON.parse(await f.text());if(data.schema!=='family-ledger-finance-recommendations-v1'||!Array.isArray(data.items))throw Error('這不是 AI 財務建議 JSON。請從「預算與儲蓄目標 → 匯出供 AI 分析 JSON」取得原始檔，讓 AI 依其格式產生建議，再匯入。');const byId=new Map(rows.map(x=>[x.id,x]));let changed=0;for(const item of data.items){const r=byId.get(item.id);if(!r)continue;const pct=Number(item.aiPct),amt=Number(item.aiAmount);if(!Number.isFinite(pct)||pct<0||pct>100||!Number.isFinite(amt)||amt<0||amt>1e9)throw Error('建議欄位無效：'+item.id);r.aiPct=pct;r.aiAmount=amt;changed++;}syncRows();$('planningMessage').textContent=`讀入 ${changed} 筆 AI 建議，尚未儲存，實際採用值未改動。`;if(!changed)throw Error('沒有符合目前項目 ID 的建議，請使用同一次匯出的分析資料。')}catch(err){alert(err.message)}finally{e.target.value=''}};
@@ -2111,6 +2172,124 @@ $('planningSeed').addEventListener('click',()=>{setTimeout(()=>{proposed.clear()
 window.addEventListener('load',()=>{recommend();});
 
 window.addEventListener('load',()=>{if($('retireOwner'))renderRetire();});
+
+// ===== v1.9.5 家庭資產總覽與換屋試算(資料存在 retire:me 設定的 householdAssets 欄位;後端不需修改) =====
+(function(){
+ const A=()=>window.LedgerAssetsV1950;
+ let editing=null, swapDraft=null;
+ const store=()=>{const h=getP('me').householdAssets;return {snapshots:Array.isArray(h?.snapshots)?h.snapshots:[],swap:h?.swap||{}};};
+ const latest=()=>{const s=store().snapshots;return s.length?s.slice().sort((a,b)=>String(a.date).localeCompare(String(b.date)))[s.length-1]:null;};
+ const who=o=>o==='me'?'承瑋':o==='wife'?'俐穎':o==='shared'?'共同':'家庭';
+ const today=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;};
+ const wan=v=>(Math.round(v/1000)/10).toLocaleString('en-US')+' 萬';
+ async function persist(next,msg){
+  const p={...getP('me'),householdAssets:next};
+  const result=await post({profiles:[p]},'planningSave');
+  if(!result.ok||result.conflicts?.length)throw Error(result.conflicts?.length?'資料已由其他裝置修改,請重新讀取後再試':'儲存失敗');
+  await loadPlanning18611();$('assetsMsgV1950').textContent=msg;
+ }
+ function renderAssets(){
+  const host=$('assetsPanelV1950');if(!host)return;
+  if(editing)return renderEditor();
+  const snap=latest(),owner=$('assetsOwnerV1950')?.value||'all',profiles=['me','wife'].map(w=>({...getP(w),owner:w}));
+  const sel=`<select id="assetsOwnerV1950" class="field" aria-label="資產視角">${['all','me','wife'].map(o=>`<option value="${o}" ${o===owner?'selected':''}>${who(o)}</option>`).join('')}</select>`;
+  const yr=String(new Date().getFullYear()),cf=A().ledgerYear(activeRecords(),yr,owner);
+  if(!snap){host.innerHTML=`<div class="row"><h2>家庭資產總覽</h2>${sel}</div><p class="budget-muted">還沒有資產快照。按「更新本月資產」輸入各帳戶餘額、貸款與房子估值,或從檔案帶入。</p><div class="actions"><button class="button" type="button" id="assetsEditV1950">更新本月資產</button></div><p class="mini" id="assetsMsgV1950"></p>`;return;}
+  const s=A().summarize(snap,profiles,owner),tile=(t,v,sub,c)=>`<div>${t}<strong style="display:block${c?';color:'+c:''}">${fmt(v)}</strong>${sub?`<span class="mini">${sub}</span>`:''}</div>`;
+  const hist=store().snapshots.slice().sort((a,b)=>String(a.date).localeCompare(String(b.date))).slice(-12).map((x,i,arr)=>{const v=A().summarize(x,profiles,owner).net,prev=i?A().summarize(arr[i-1],profiles,owner).net:null;return `<tr><td>${esc(x.date)}</td><td style="text-align:right">${fmt(v)}</td><td style="text-align:right">${prev===null?'—':(v-prev>=0?'+':'-')+fmt(Math.abs(v-prev))}</td></tr>`;}).reverse().join('');
+  host.innerHTML=`<div class="row"><h2>家庭資產總覽(${who(owner)})</h2>${sel}</div>
+   <p class="mini">資料日期 ${esc(snap.date)}。ETF 取自退休參數的本金、勞退取自退休設定;房子為估計值${snap.house?.note?'('+esc(snap.house.note)+')':''}。</p>
+   <div class="planning-summary">${tile('淨資產',s.net,'資產 − 負債',s.net<0?'#FF8D83':'')}${tile('可動用淨資產',s.liquidNet,`扣除勞退、保險與賣屋成本 ${snap.house?.sellCostPct||4}%`)}${tile('資產合計',s.assets)}${tile('負債合計',s.liabilities,'','#FF8D83')}</div>
+   <div class="tablewrap" style="margin-top:10px;overflow-x:auto;max-width:100%"><table style="width:100%;font-size:14px"><tbody>
+    <tr><td>活存現金</td><td style="text-align:right">${fmt(s.cash)}</td></tr>
+    <tr><td>緊急備用金</td><td style="text-align:right">${fmt(s.emergency)}</td></tr>
+    <tr><td>證券交割戶</td><td style="text-align:right">${fmt(s.brokerage)}</td></tr>
+    <tr><td>ETF/股票(本金)</td><td style="text-align:right">${fmt(s.etf)}</td></tr>
+    <tr><td>勞退/公提(60 歲後可領)</td><td style="text-align:right">${fmt(s.retire)}</td></tr>
+    ${s.insurance?`<tr><td>保險(參考市值)</td><td style="text-align:right">${fmt(s.insurance)}</td></tr>`:''}
+    ${s.other?`<tr><td>其他資產</td><td style="text-align:right">${fmt(s.other)}</td></tr>`:''}
+    ${s.house?`<tr><td>房子(估計)</td><td style="text-align:right">${fmt(s.house)}</td></tr>`:''}
+    ${s.debts.map(d=>`<tr><td>負債:${esc(d.name)}${d.monthly?` <span class="mini">月付 ${fmt(d.monthly)}</span>`:''}</td><td style="text-align:right;color:#FF8D83">-${fmt(d.amount)}</td></tr>`).join('')}
+   </tbody></table></div>
+   <h3 style="margin-top:12px">${yr} 年現金流(帳本紀錄)</h3>
+   <div class="planning-summary">${tile('收入',cf.income)}${tile('支出',cf.expense)}${tile('結餘',cf.net,cf.months?`平均每月 ${fmt(cf.net/cf.months)}(${cf.months} 個月有紀錄)`:'',cf.net<0?'#FF8D83':'#6EE7B7')}</div>
+   <p class="mini">帳本結餘不含借貸撥款、自己帳戶互轉與股票買賣;每月更新資產快照後,下方會顯示淨資產的實際變化。</p>
+   <h3 style="margin-top:12px">淨資產紀錄</h3><div class="tablewrap" style="overflow-x:auto;max-width:100%"><table style="width:100%;font-size:14px"><thead><tr><th>日期</th><th style="text-align:right">淨資產</th><th style="text-align:right">比上次</th></tr></thead><tbody>${hist}</tbody></table></div>
+   <div class="actions" style="margin-top:10px"><button class="button" type="button" id="assetsEditV1950">更新本月資產</button></div><p class="mini" id="assetsMsgV1950"></p>`;
+ }
+ function renderEditor(){
+  const host=$('assetsPanelV1950'),e=editing;
+  const ownerSel=(v,k)=>`<select class="field" data-ae="${k}.owner">${['me','wife','shared'].map(o=>`<option value="${o}" ${o===v?'selected':''}>${who(o)}</option>`).join('')}</select>`;
+  const kindSel=(v,k)=>`<select class="field" data-ae="${k}.kind">${Object.entries(A().KINDS).map(([x,t])=>`<option value="${x}" ${x===v?'selected':''}>${t}</option>`).join('')}</select>`;
+  host.innerHTML=`<div class="row"><h2>更新資產(${esc(e.date)})</h2><button class="button light" type="button" id="assetsCancelV1950">取消</button></div>
+   <p class="mini">同一個月重複儲存會更新該月;不同月份會新增一筆,不會覆蓋舊紀錄。ETF 與勞退請在下方退休參數更新。</p>
+   <h3>帳戶</h3>${e.accounts.map((a,i)=>`<div class="actions" style="gap:6px;margin:6px 0"><input class="field" style="flex:2 1 120px" data-ae="accounts.${i}.name" value="${esc(a.name)}" placeholder="帳戶名稱">${ownerSel(a.owner,'accounts.'+i)}${kindSel(a.kind,'accounts.'+i)}<input class="field" style="flex:1 1 100px" type="number" inputmode="numeric" data-ae="accounts.${i}.amount" value="${a.amount}"><button class="button light" type="button" data-ae-del="accounts.${i}">刪</button></div>`).join('')}
+   <button class="button light" type="button" data-ae-add="accounts">新增帳戶</button>
+   <h3 style="margin-top:12px">貸款與欠款</h3>${e.liabilities.map((d,i)=>`<div class="actions" style="gap:6px;margin:6px 0"><input class="field" style="flex:2 1 120px" data-ae="liabilities.${i}.name" value="${esc(d.name)}" placeholder="名稱">${ownerSel(d.owner,'liabilities.'+i)}<input class="field" style="flex:1 1 100px" type="number" data-ae="liabilities.${i}.amount" value="${d.amount}" aria-label="剩餘本金"><input class="field" style="flex:1 1 80px" type="number" data-ae="liabilities.${i}.monthly" value="${d.monthly||0}" aria-label="每月還款"><label class="mini"><input type="checkbox" data-ae="liabilities.${i}.payoffOnSale" ${d.payoffOnSale?'checked':''}> 賣屋時還清</label><button class="button light" type="button" data-ae-del="liabilities.${i}">刪</button></div>`).join('')}
+   <button class="button light" type="button" data-ae-add="liabilities">新增負債</button>
+   <h3 style="margin-top:12px">房子</h3><div class="actions" style="gap:6px"><input class="field" data-ae="house.name" value="${esc(e.house.name)}" placeholder="名稱"><input class="field" type="number" data-ae="house.value" value="${e.house.value}" aria-label="估計價值"><input class="field" data-ae="house.note" value="${esc(e.house.note||'')}" placeholder="備註,例如斡旋價"><label class="mini">賣屋成本 <input class="field" style="width:70px" type="number" step="0.5" data-ae="house.sellCostPct" value="${e.house.sellCostPct??4}">%</label></div>
+   <div class="actions" style="margin-top:12px"><button class="button" type="button" id="assetsSaveV1950">儲存為 ${esc(e.date.slice(0,7))} 快照</button><label class="button light file-button">從檔案帶入 <input id="assetsFileV1950" type="file" accept=".csv,text/csv"></label></div><p class="mini" id="assetsMsgV1950"></p>`;
+ }
+ function startEdit(){
+  const snap=latest(),d=today();
+  editing=snap?JSON.parse(JSON.stringify({...snap,date:d})):{date:d,accounts:[],liabilities:[],house:{name:'自住房',owner:'me',value:0,note:'',sellCostPct:4}};
+  editing.house=editing.house||{name:'自住房',owner:'me',value:0,sellCostPct:4};renderAssets();
+ }
+ function setPath(path,val){const ks=path.split('.');let o=editing;for(let i=0;i<ks.length-1;i++)o=o[ks[i]];o[ks[ks.length-1]]=val;}
+ function importCsv(text){
+  const rows=String(text).replace(/^\uFEFF/,'').split(/\r?\n/).filter(l=>l.trim()).map(l=>l.split(',')),head=(rows.shift()||[]).map(x=>String(x).trim()),at=h=>head.indexOf(h);
+  if(!['section','name','owner','kind','amount'].every(h=>head.includes(h)))throw Error('不是資產檔(缺少欄位)');
+  const e={date:editing.date,accounts:[],liabilities:[],house:{name:'自住房',owner:'me',value:0,note:'',sellCostPct:4}},swap={...store().swap};
+  for(const r of rows){if(r.length<3)continue;const sec=String(r[at('section')]).trim(),name=String(r[at('name')]||'').trim(),owner=String(r[at('owner')]||'me').trim()||'me',amount=Number(String(r[at('amount')]||'0').replace(/,/g,''));
+   if(sec==='account')e.accounts.push({name,owner,kind:String(r[at('kind')]||'cash').trim()||'cash',amount});
+   else if(sec==='liability')e.liabilities.push({name,owner,amount,monthly:Number(r[at('monthly')]||0),payoffOnSale:String(r[at('payoff')]||'').trim()==='1'});
+   else if(sec==='house')e.house={name,owner,value:amount,note:String(r[at('note')]||''),sellCostPct:Number(r[at('kind')]||4)||4};
+   else if(sec==='swap')swap[name]=/Date$/.test(name)?String(r[at('note')]||'').trim():(name==='prices'?String(r[at('note')]||'').split(/[\/、 ]+/).map(Number).filter(Boolean):amount);}
+  editing=e;swapDraft=swap;return e;
+ }
+ function swapParams(){const s={purchasePrice:0,purchaseCosts:0,registeredDate:'',prices:[],saleDate:today(),selfUse6:false,newPrice:0,buyCostPct:2,loanRate:2.2,loanYears:30,...store().swap,...(swapDraft||{})};return s;}
+ function renderSwap(){
+  const host=$('swapPanelV1950');if(!host)return;const snap=latest(),p=swapParams();
+  const f=(k,label,type='number',extra='')=>`<label>${label}<input class="field" data-sw="${k}" type="${type}" value="${esc(Array.isArray(p[k])?p[k].join('/'):p[k]??'')}" ${extra}></label>`;
+  let body='';
+  if(!p.purchasePrice||!p.registeredDate||!p.prices.length||!snap)body='<p class="budget-muted">請填寫買價、過戶登記日與預計售價,並先建立資產快照,才能試算。</p>';
+  else{
+   const payoff=(snap.liabilities||[]).filter(d=>d.payoffOnSale).reduce((a,d)=>a+Number(d.amount||0),0);
+   const spend=A().summarize(snap,['me','wife'].map(w=>({...getP(w),owner:w})),'all').spendableCash;
+   const rows=A().houseSwap({...p,sellCostPct:snap.house?.sellCostPct||4,payoff,spendableCash:spend});
+   const five=A().addYears(p.registeredDate,5),six=A().addYears(p.registeredDate,6);
+   const line=(t,f2,neg)=>`<tr><td>${t}</td>${rows.map(r=>`<td style="text-align:right${neg?';color:#FF8D83':''}">${f2(r)}</td>`).join('')}</tr>`;
+   body=`${rows.length>1?'<p class="mini">表格可左右滑動,比較不同售價。</p>':''}<div class="tablewrap" style="overflow-x:auto;max-width:100%"><table style="width:100%;font-size:14px"><thead><tr><th>項目</th>${rows.map(r=>`<th style="text-align:right">售 ${wan(r.price)}</th>`).join('')}</tr></thead><tbody>
+    ${line('賣屋費用',r=>'-'+fmt(r.fee),1)}${line('房地合一獲利',r=>fmt(r.gain))}${line('稅率',r=>r.rate===null?'自住優惠':Math.round(r.rate*100)+'%')}${line('房地合一稅(先繳)',r=>'-'+fmt(r.tax),1)}${line('還清貸款',r=>'-'+fmt(r.payoff),1)}
+    <tr><td><strong>賣屋實拿</strong></td>${rows.map(r=>`<td style="text-align:right"><strong>${fmt(r.netCash)}</strong></td>`).join('')}</tr>
+    ${p.newPrice?line('重購退稅(之後退回)',r=>'+'+fmt(r.refund)):''}${line('可動用現金(不含緊急備用金)',r=>'+'+fmt(r.spendableCash))}
+    <tr><td><strong>換屋可用頭期款</strong></td>${rows.map(r=>`<td style="text-align:right"><strong>${fmt(r.down)}</strong></td>`).join('')}</tr>
+    ${p.newPrice?line(`新房 ${wan(p.newPrice)} 需貸款`,r=>fmt(r.loan)+` (${r.ltvPct.toFixed(0)}%)`)+line(`月付(${p.loanRate}%、${p.loanYears} 年)`,r=>fmt(r.monthly))+line('退稅前資金缺口',r=>r.cashGapBeforeRefund?'-'+fmt(r.cashGapBeforeRefund):'無',1):''}
+   </tbody></table></div>
+   <p class="mini">持有期間以過戶登記日 ${esc(p.registeredDate)} 起算(預售屋簽約期間不算):${esc(five)} 起稅率降為 20%,${esc(six)} 起若符合自住(設籍、未出租)可用 400 萬免稅額。房地合一獲利已扣賣屋費用;未扣土地增值稅與當初買房費用(有單據可再扣)。僅為試算,申報前請洽代書或國稅局。</p>`;}
+  host.innerHTML=`<div class="row"><h2>換屋試算</h2></div><div class="retire-controls">${f('purchasePrice','當初買價')}${f('purchaseCosts','當初買房費用(有單據)')}${f('registeredDate','過戶登記日','date')}${f('prices','預計售價(多個用 / 分隔)','text')}${f('saleDate','預計賣出過戶日','date')}${f('newPrice','新房總價(可空白)')}${f('loanRate','新房貸利率 %','number','step="0.05"')}${f('loanYears','貸款年限')}<label><input type="checkbox" data-sw="selfUse6" ${p.selfUse6?'checked':''}> 符合自住條件(設籍且未出租)</label></div>${body}<div class="actions"><button class="button light" type="button" id="swapSaveV1950">儲存試算設定</button></div><p class="mini" id="swapMsgV1950"></p>`;
+ }
+ window.renderAssetsV1950=()=>{try{renderAssets();renderSwap();}catch(err){const h=$('assetsPanelV1950');if(h)h.innerHTML='<p class="status error">資產總覽無法計算:'+esc(err.message)+'</p>';}};
+ document.addEventListener('change',e=>{const t=e.target;
+  if(t.id==='assetsOwnerV1950')renderAssets();
+  if(t.dataset?.ae&&editing){setPath(t.dataset.ae,t.type==='checkbox'?t.checked:t.type==='number'?Number(t.value):t.value);}
+  if(t.dataset?.sw){swapDraft={...(swapDraft||{}),[t.dataset.sw]:t.type==='checkbox'?t.checked:t.dataset.sw==='prices'?t.value.split(/[\/、, ]+/).map(Number).filter(Boolean):t.type==='number'?Number(t.value):t.value};renderSwap();}
+  if(t.id==='assetsFileV1950'){const file=t.files?.[0];if(!file)return;file.text().then(txt=>{importCsv(txt);renderAssets();renderSwap();$('assetsMsgV1950').textContent='已從檔案帶入,請確認後按儲存。';}).catch(err=>{$('assetsMsgV1950').textContent='帶入失敗:'+err.message;});}
+ });
+ document.addEventListener('click',async e=>{const t=e.target;
+  if(t.id==='assetsEditV1950')startEdit();
+  else if(t.id==='assetsCancelV1950'){editing=null;swapDraft=null;renderAssets();renderSwap();}
+  else if(t.dataset?.aeAdd&&editing){editing[t.dataset.aeAdd].push(t.dataset.aeAdd==='accounts'?{name:'',owner:'me',kind:'cash',amount:0}:{name:'',owner:'me',amount:0,monthly:0,payoffOnSale:false});renderAssets();}
+  else if(t.dataset?.aeDel&&editing){const [k,i]=t.dataset.aeDel.split('.');editing[k].splice(Number(i),1);renderAssets();}
+  else if(t.id==='assetsSaveV1950'&&editing){
+   const bad=[...editing.accounts,...editing.liabilities].find(x=>!String(x.name||'').trim()||!Number.isFinite(Number(x.amount))||Number(x.amount)<0);if(bad)return alert('每一列都要有名稱,金額不可為負數');
+   const st=store(),snaps=st.snapshots.filter(s=>String(s.date).slice(0,7)!==editing.date.slice(0,7));snaps.push({...editing,savedAt:new Date().toISOString()});
+   t.disabled=true;try{await persist({snapshots:snaps,swap:{...st.swap,...(swapDraft||{})}},`已儲存 ${editing.date.slice(0,7)} 資產快照並回讀確認。`);editing=null;swapDraft=null;window.renderAssetsV1950();}catch(err){alert('儲存失敗:'+err.message);t.disabled=false;}
+  }
+  else if(t.id==='swapSaveV1950'){const st=store();t.disabled=true;try{await persist({snapshots:st.snapshots,swap:swapParams()},'');swapDraft=null;window.renderAssetsV1950();$('swapMsgV1950').textContent='試算設定已儲存。';}catch(err){alert('儲存失敗:'+err.message);t.disabled=false;}}
+ });
+})();
+
 })();
 </script>
 <script id="cardImportV1900">
