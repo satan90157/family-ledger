@@ -133,11 +133,11 @@ html[data-theme="pink"] .dot[style*="#FF8D83" i]{background:var(--pk-exp)!import
 </style>
 </head>
 <body>
-<div id="loginGate"><form class="login-panel" id="loginForm"><h1>家庭記帳 · 登入 <span class="version-chip">v1.9.8</span></h1><p class="subtitle">使用個人帳號登入；所有更動會留下操作紀錄。</p><p class="login-version" aria-label="目前前端版本">前端版本 v1.9.8</p><label for="loginUrl">Apps Script 網址（首次設定）</label><input class="field" type="url" id="loginUrl" name="ledgerApiUrl" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://script.google.com/macros/s/.../exec" required><input type="text" id="loginUsernameHint" name="username" autocomplete="username" value="me" hidden aria-hidden="true" tabindex="-1"><label for="loginUser">使用者</label><select class="field" id="loginUser" onchange="document.getElementById('loginUsernameHint').value=this.value"><option value="me">承瑋</option><option value="wife">俐穎</option></select><label for="loginPassword">密碼</label><input class="field" id="loginPassword" type="password" autocomplete="current-password" required><button class="button" id="loginButton" type="submit">登入</button><p id="loginError" role="alert"></p></form></div>
+<div id="loginGate"><form class="login-panel" id="loginForm"><h1>家庭記帳 · 登入 <span class="version-chip">v1.9.9</span></h1><p class="subtitle">使用個人帳號登入；所有更動會留下操作紀錄。</p><p class="login-version" aria-label="目前前端版本">前端版本 v1.9.9</p><label for="loginUrl">Apps Script 網址（首次設定）</label><input class="field" type="url" id="loginUrl" name="ledgerApiUrl" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://script.google.com/macros/s/.../exec" required><input type="text" id="loginUsernameHint" name="username" autocomplete="username" value="me" hidden aria-hidden="true" tabindex="-1"><label for="loginUser">使用者</label><select class="field" id="loginUser" onchange="document.getElementById('loginUsernameHint').value=this.value"><option value="me">承瑋</option><option value="wife">俐穎</option></select><label for="loginPassword">密碼</label><input class="field" id="loginPassword" type="password" autocomplete="current-password" required><button class="button" id="loginButton" type="submit">登入</button><p id="loginError" role="alert"></p></form></div>
 <main class="shell">
-  <header class="header"><div class="logo">家計簿 <span style="color:#d3b573">◈</span><small>OUR FAMILY FINANCE · v1.9.8</small></div><nav class="nav" aria-label="主要頁面"><button data-tab="dashboard" class="active">總覽</button><button data-tab="annual">年度統計</button><button data-tab="records">收支明細</button><button data-tab="aiStudio">✦ AI 智慧整理</button><button data-tab="add">新增記帳</button><button data-tab="settings">同步設定</button></nav></header>
+  <header class="header"><div class="logo">家計簿 <span style="color:#d3b573">◈</span><small>OUR FAMILY FINANCE · v1.9.9</small></div><nav class="nav" aria-label="主要頁面"><button data-tab="dashboard" class="active">總覽</button><button data-tab="annual">年度統計</button><button data-tab="records">收支明細</button><button data-tab="aiStudio">✦ AI 智慧整理</button><button data-tab="add">新增記帳</button><button data-tab="settings">同步設定</button></nav></header>
   <div id="syncBanner" class="sync-banner pending" role="status" aria-live="polite"><span id="syncBannerText">正在檢查雲端同步狀態…</span><button id="syncBannerRetry" class="button light" type="button" hidden>重試同步</button></div>
-  <div id="conflictPanel" class="panel" style="margin-bottom:16px;display:none"><h2>跨裝置資料衝突</h2><p class="help">同一張發票在電腦與手機被修改時，不會自動覆蓋。請先備份，再檢視兩邊內容並逐筆決定；不同分類名稱也可雙向保留。採用本機版本時會經過 Google Sheets 版本檢查，並留下修改紀錄。</p><div id="conflictItems" class="help"></div><div class="actions"><button id="conflictBackup" class="button light" type="button">① 下載本機 JSON 備份</button><button id="conflictUseCloud" class="button light" type="button" disabled>② 雙向合併自訂分類</button><button id="conflictReview" class="button light" type="button" disabled>③ 比較交易差異</button><button id="conflictApply" class="button" type="button" style="display:none">④ 套用逐筆選擇</button></div><p id="conflictMessage" class="mini" role="status" aria-live="polite"></p></div>
+  <div id="conflictPanel" class="panel" style="margin-bottom:16px;display:none"><h2>跨裝置資料衝突</h2><p class="help">同一張發票在電腦與手機被修改時，不會自動覆蓋。請先備份，再檢視兩邊內容並逐筆決定；不同分類名稱也可雙向保留。採用本機版本時會經過 Google Sheets 版本檢查，並留下修改紀錄。</p><div id="conflictItems" class="help"></div><div class="actions"><button id="conflictBackup" class="button light" type="button">① 下載本機 JSON 備份</button><button id="conflictUseCloud" class="button light" type="button" disabled>② 雙向合併自訂分類</button><button id="conflictReview" class="button light" type="button" disabled>③ 比較交易差異</button><button id="conflictAllCloud" class="button light" type="button" disabled style="display:none">重複匯入的發票：全部採用雲端</button><button id="conflictApply" class="button" type="button" style="display:none">④ 套用逐筆選擇</button></div><p id="conflictMessage" class="mini" role="status" aria-live="polite"></p></div>
   <section id="dashboard" class="section active"><div class="top"><div><h1>家庭財務總覽</h1><p class="subtitle">讓每一筆收支都有跡可循</p></div><div class="month"><button class="pill" id="prevMonth" aria-label="上個月">‹</button><input aria-label="統計月份" class="field" id="month" type="month"><button class="pill" id="nextMonth" aria-label="下個月">›</button></div><label class="month">統計歸屬 <select id="dashboardOwnerStats" class="field"><option value="all">家庭全部</option><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select></label></div>
     <div class="cards"><div class="card"><div class="k">本月收入</div><div class="v positive" id="sumIncome">$0</div><div class="note">已記錄收入</div></div><div class="card"><div class="k">本月支出</div><div class="v" id="sumExpense">$0</div><div class="note" id="expenseCount">0 筆支出</div></div><div class="card"><div class="k">本月結餘</div><div class="v" id="sumBalance">$0</div><div class="note">收入 − 支出</div></div><div class="card"><div class="k">儲蓄率</div><div class="v" id="sumRate">—</div><div class="note">結餘 ÷ 收入</div></div></div>
     <div id="dashSummaryV1880" style="margin:16px 0" aria-live="polite"></div>
@@ -196,6 +196,10 @@ html[data-theme="pink"] .dot[style*="#FF8D83" i]{background:var(--pk-exp)!import
       <label>使用範圍<select id="ruleScope" class="field"><option value="family">家庭共用</option><option value="personal">只有我自己</option></select></label>
       <div class="full actions"><button class="button" id="ruleSaveButton" type="submit">儲存分類規則</button><button class="button ghost" id="ruleCancelEdit" type="button">取消編輯</button><button class="button light" id="rulesReload" type="button">重新下載規則</button></div>
     </form><p id="ruleMessage" class="help" role="status" aria-live="polite">尚未讀取分類規則。</p><div id="ruleList" class="help"></div>
+    <details id="aiRuleListV1990" style="margin-top:10px"><summary style="cursor:pointer"><strong>AI 分類清單</strong> <span id="aiRuleCountV1990" class="mini">尚未讀取</span></summary><input id="aiRuleSearchV1990" class="field" type="search" name="aiRuleSearchV1990" autocomplete="off" placeholder="搜尋店名或分類" style="margin:8px 0;width:100%"><div id="aiRuleRowsV1990" class="help"></div></details>
+    <div class="actions" style="margin-top:10px"><label class="button file-button light">匯入 AI 分類清單 <input id="aiListCsvV1990" type="file" accept=".csv,text/csv"></label><label class="button file-button ghost">從備份還原舊規則 <input id="rulesRestoreV1990" type="file" accept=".csv,text/csv"></label></div>
+    <p class="mini">匯入發票時,先看你指定的規則,再看 AI 分類清單,都沒有才用內建關鍵字。手動改了某筆交易的分類,會問你要不要以後這家店都照這樣分。</p>
+    <div id="aiListPanelV1990" class="panel" style="margin:12px 0" hidden></div>
   </div>
 </template>
 <template id="bulkUiTemplate">
@@ -235,13 +239,26 @@ let filteredRecordIds=[];
 $('settings').appendChild($('ruleUiTemplate').content.cloneNode(true));
 $('records').appendChild($('bulkUiTemplate').content.cloneNode(true));
 let categoryRules=[],rulesReady=false,ruleEditId=null,ruleBusy=false,bulkPreview=null;
-function matchingCategoryRule(r){
+// v1.9.9 AI 分類清單:id 以 rule:ai: 開頭;keyword 可寫成「店名｜品項:關鍵字」(舊版前端會當成完整店名比對,永遠不命中)
+// rule:aiuser: = 使用者在詢問中指定「這家店以後都分到…」(店名完全相同,只用於匯入發票,優先於其他規則)
+const AI_RULE_PREFIX_V1990='rule:ai:',USER_RULE_PREFIX_V1990='rule:user:',LIST_USER_PREFIX_V1990='rule:aiuser:',ITEM_SEP_V1990='｜品項:';
+function isAiRuleV1990(rule){return String(rule?.id||'').startsWith(AI_RULE_PREFIX_V1990);}
+function isListUserRuleV1990(rule){return String(rule?.id||'').startsWith(LIST_USER_PREFIX_V1990);}
+const ruleRankV1990=r=>isListUserRuleV1990(r)?0:!isAiRuleV1990(r)?1:ruleStoreItemV1990(r).item?2:3;
+function ruleStoreItemV1990(rule){const k=String(rule.keyword||''),i=isAiRuleV1990(rule)?k.indexOf(ITEM_SEP_V1990):-1;return i<0?{store:k,item:''}:{store:k.slice(0,i),item:k.slice(i+ITEM_SEP_V1990.length)};}
+// opt.ai=true 只用在匯入發票;其他呼叫者(信用卡預覽等)維持只看使用者規則
+function matchingCategoryRule(r,opt={}){
   if(r._categoryManual||!rulesReady)return null;
-  const merchant=String(r.merchant||'').trim().toLocaleLowerCase();
-  const candidates=categoryRules.filter(rule=>rule.active&&((rule.scope==='family')||(rule.scope===r.owner&&rule.scope===currentUser))&&(
-    rule.matchType==='exact'?merchant===rule.keyword.toLocaleLowerCase():merchant.includes(rule.keyword.toLocaleLowerCase())
-  ));
-  candidates.sort((a,b)=>(b.matchType==='exact')-(a.matchType==='exact')||b.keyword.length-a.keyword.length||a.id.localeCompare(b.id));
+  const merchant=String(r.merchant||'').trim().toLocaleLowerCase(),items=(Array.isArray(r.details)?r.details:[]).map(d=>String(d?.item||'')).join(' ').toLocaleLowerCase();
+  const candidates=categoryRules.filter(rule=>{
+    if(!rule.active||!((rule.scope==='family')||(rule.scope===r.owner&&rule.scope===currentUser)))return false;
+    if((isAiRuleV1990(rule)||isListUserRuleV1990(rule))&&!opt.ai)return false; // 清單項目只用在匯入發票
+    const {store,item}=ruleStoreItemV1990(rule),s=store.toLocaleLowerCase();
+    if(!(rule.matchType==='exact'?merchant===s:merchant.includes(s)))return false;
+    return !item||items.includes(item.toLocaleLowerCase());
+  });
+  // 優先順序:你在詢問中指定的 > 其他使用者規則 > AI 有品項關鍵字 > AI 店名;同級沿用舊排序
+  candidates.sort((a,b)=>ruleRankV1990(a)-ruleRankV1990(b)||(b.matchType==='exact')-(a.matchType==='exact')||b.keyword.length-a.keyword.length||a.id.localeCompare(b.id));
   return candidates[0]||null;
 }
 const PENDING='family-ledger-pending-v1', pending=new Set(read(PENDING,[]));
@@ -250,12 +267,18 @@ let missingCloudCategories=new Set(),categoryAuditItems=[],categoryAuditBusy=fal
 let conflictReview=new Map(),conflictChoices=new Map(),conflictLocalSnapshot=new Map(),conflictReviewBusy=false;
 function clearConflictReview(){conflictReview.clear();conflictChoices.clear();conflictLocalSnapshot.clear();}
 function conflictFieldDiff(a,b){return ['date','type','merchant','amount','category','owner','invoice','note','deleted','details'].filter(k=>JSON.stringify(a?.[k]??null)!==JSON.stringify(b?.[k]??null));}
+// 本機剛匯入、從未上雲(_rev 0)的發票,雲端已有同一張:內容一致時可直接改用雲端版本
+function dupImportLocalV1990(r){return !!r&&r.source==='invoice'&&String(r.id).startsWith('inv:')&&!r.deleted&&!Number(r._rev||0);}
+function sameInvoiceV1990(l,s){return !!s&&!s.deleted&&['type','date','amount','invoice','merchant'].every(k=>JSON.stringify(l?.[k]??null)===JSON.stringify(s[k]??null));}
 function conflictSummary(r){if(!r)return '查無紀錄';return `${r.deleted?'已刪除｜':''}${r.date}｜${r.merchant||'未命名'}｜${r.type==='income'?'收入':'支出'} ${money(r.amount)}｜分類：${r.category||'無'}｜歸屬：${ownerLabel(r.owner)}${r.note?'｜備註：'+r.note:''}${r.invoice?'｜發票：'+r.invoice:''}`;}
 function renderConflictPanel(){
   const panel=$('conflictPanel');if(!panel)return;
   panel.style.display=syncConflicts.length?'block':'none';
   $('conflictUseCloud').disabled=!conflictBackupReady||!syncConflicts.length||conflictReviewBusy;
   $('conflictReview').disabled=!conflictBackupReady||!syncConflicts.length||conflictReviewBusy;
+  const dupCount=syncConflicts.filter(id=>dupImportLocalV1990(records.find(r=>r.id===id))).length;
+  $('conflictAllCloud').style.display=dupCount?'inline-flex':'none';$('conflictAllCloud').textContent=`重複匯入的發票（${dupCount} 筆）：全部採用雲端`;
+  $('conflictAllCloud').disabled=!conflictBackupReady||conflictReviewBusy||syncBusy;
   const transactions=syncConflicts.filter(id=>records.find(r=>r.id===id)?.source!=='category-definition');
   $('conflictApply').style.display=transactions.some(id=>conflictReview.has(id))?'inline-flex':'none';
   $('conflictApply').disabled=conflictReviewBusy;
@@ -291,7 +314,20 @@ function normalize(r){return {...r,amount:Number(r.amount),date:String(r.date).s
 function ownerLabel(owner){return ({me:'承瑋',wife:'俐穎',shared:'共同'})[owner]||'共同'}function ownerMatches(r,owner){return owner==='all'||(r.owner||'shared')===owner}function dateMonth(d){return String(d).slice(0,7)}function sorted(arr){return [...arr].sort((a,b)=>b.date.localeCompare(a.date)||String(b.id).localeCompare(String(a.id)))}function notify(message,err=false){$('importMessage').textContent=message;$('syncStatus').textContent=message;$('syncStatus').className='status'+(err?' error':'')}
 function classify(name,details){const t=(name+' '+details.map(x=>x.item).join(' ')).toLowerCase();if(/薪資|salary/.test(t))return'薪資';if(/中油|加油|停車|台灣高鐵|台鐵|uber|捷運|計程車/.test(t))return'交通';if(/醫院|診所|藥局|醫療/.test(t))return'醫療';if(/全聯|家樂福|好市多|超市|生鮮/.test(t))return'食品雜貨';if(/全家|統一超商|便利商店|餐飲|咖啡|餐廳|食堂|飲料|早餐|烘焙/.test(t))return'餐飲';if(/蝦皮|富邦媒體|momo|購物|百貨|商場/.test(t))return'購物';return'其他支出'}
 function parseCSV(text){text=text.replace(/^\uFEFF/,'');const rows=[];let row=[],field='',quotes=false;for(let i=0;i<text.length;i++){const c=text[i];if(quotes){if(c==='"'&&text[i+1]==='"'){field+='"';i++}else if(c==='"')quotes=false;else field+=c}else if(c==='"')quotes=true;else if(c===','){row.push(field);field=''}else if(c==='\n'||c==='\r'){if(c==='\r'&&text[i+1]==='\n')i++;row.push(field);if(row.some(x=>x!==''))rows.push(row);row=[];field=''}else field+=c}if(quotes)throw Error('CSV 引號未正確結束');if(field!==''||row.length){row.push(field);rows.push(row)}return rows}
-function importInvoice(text,owner){if(!['me','wife','shared'].includes(owner))throw Error('請先選擇匯入歸屬');if(configured()&&!rulesReady)throw Error('分類規則尚未成功下載，請先到同步設定重新下載規則，以免發票套用錯誤分類');const rows=parseCSV(text);const headers=rows.shift()?.map(x=>x.trim())||[];const required=['消費時間','發票號碼','店家名稱','消費品項','小計','總計'];if(!required.every(h=>headers.includes(h)))throw Error('CSV 欄位不符 Invoice 匯出格式');const pos=h=>headers.indexOf(h),groups=new Map();for(const row of rows){const invoice=(row[pos('發票號碼')]||'').trim();if(!invoice)continue;const merchant=row[pos('店家名稱')]||'';const time=row[pos('消費時間')]||'';const amountText=row[pos('總計')]||'';const details={item:row[pos('消費品項')]||'',subtotal:Number(row[pos('小計')]||0),unitPrice:Number(row[pos('單價')]||0),quantity:Number(row[pos('個數')]||0)};let g=groups.get(invoice);if(!g){g={id:'inv:'+invoice,type:'expense',owner,date:time.slice(0,10).replace(/\//g,'-'),merchant,invoice,amount:null,details:[],category:'',note:'',source:'invoice'};groups.set(invoice,g)}g.details.push(details);if(amountText.trim()!==''){if(g.amount!==null)throw Error(`發票 ${invoice} 有重複總計`);g.amount=Number(amountText.replace(/,/g,''))}}let added=0,skipped=0,ruleApplied=0;const ids=new Set(records.map(r=>r.id));for(const r of groups.values()){if(!Number.isFinite(r.amount)||r.amount===null)throw Error(`發票 ${r.invoice} 缺少有效總計`);if(!/^\d{4}-\d{2}-\d{2}$/.test(r.date))throw Error(`發票 ${r.invoice} 日期格式錯誤`);r.category=classify(r.merchant,r.details);if(ids.has(r.id)){skipped++;continue}const rule=matchingCategoryRule(r);if(rule){r.category=rule.category;r._categoryRuleId=rule.id;ruleApplied++}records.push(r);ids.add(r.id);added++}save();return {added,skipped,ruleApplied,total:groups.size}}
+function importInvoice(text,owner,cloudIds){if(!['me','wife','shared'].includes(owner))throw Error('請先選擇匯入歸屬');if(configured()&&!rulesReady)throw Error('分類規則尚未成功下載，請先到同步設定重新下載規則，以免發票套用錯誤分類');const rows=parseCSV(text);const headers=rows.shift()?.map(x=>x.trim())||[];const required=['消費時間','發票號碼','店家名稱','消費品項','小計','總計'];if(!required.every(h=>headers.includes(h)))throw Error('CSV 欄位不符 Invoice 匯出格式');const pos=h=>headers.indexOf(h),groups=new Map();for(const row of rows){const invoice=(row[pos('發票號碼')]||'').trim();if(!invoice)continue;const merchant=row[pos('店家名稱')]||'';const time=row[pos('消費時間')]||'';const amountText=row[pos('總計')]||'';const details={item:row[pos('消費品項')]||'',subtotal:Number(row[pos('小計')]||0),unitPrice:Number(row[pos('單價')]||0),quantity:Number(row[pos('個數')]||0)};let g=groups.get(invoice);if(!g){g={id:'inv:'+invoice,type:'expense',owner,date:time.slice(0,10).replace(/\//g,'-'),merchant,invoice,amount:null,details:[],category:'',note:'',source:'invoice'};groups.set(invoice,g)}g.details.push(details);if(amountText.trim()!==''){if(g.amount!==null)throw Error(`發票 ${invoice} 有重複總計`);g.amount=Number(amountText.replace(/,/g,''))}}let added=0,skipped=0,cloudSkipped=0,ruleApplied=0;const ids=new Set(records.map(r=>r.id));for(const r of groups.values()){if(!Number.isFinite(r.amount)||r.amount===null)throw Error(`發票 ${r.invoice} 缺少有效總計`);if(!/^\d{4}-\d{2}-\d{2}$/.test(r.date))throw Error(`發票 ${r.invoice} 日期格式錯誤`);r.category=classify(r.merchant,r.details);if(ids.has(r.id)){skipped++;continue}if(cloudIds?.has(r.id)){skipped++;cloudSkipped++;continue}const rule=matchingCategoryRule(r,{ai:true});if(rule){r.category=rule.category;r._categoryRuleId=rule.id;ruleApplied++}records.push(r);ids.add(r.id);added++}save();return {added,skipped,cloudSkipped,ruleApplied,total:groups.size}}
+// v1.9.9:同步只載入選定年度;匯入前讀 CSV 涵蓋的每個年度雲端 ID,避免把雲端已有(未載入年度)的發票當新發票送出造成版本衝突
+async function invoiceCloudIdsV1990(text){
+  if(!configured())return null;
+  const rows=parseCSV(text),headers=(rows.shift()||[]).map(x=>String(x).trim()),t=headers.indexOf('消費時間');
+  if(t<0)return null;
+  const years=[...new Set(rows.map(r=>String(r[t]||'').slice(0,4)).filter(y=>/^20\d{2}$/.test(y)))].sort(),ids=new Set();
+  for(const y of years){
+    let data;try{data=await readWithRetryV1864_('list',y);}catch(err){throw Error(`無法確認 ${y} 年雲端是否已有這些發票，為避免重複匯入已停止（${err.message}）`);}
+    if(!Array.isArray(data.records))throw Error(`${y} 年雲端資料格式不正確，已停止匯入`);
+    data.records.forEach(r=>ids.add(r.id));
+  }
+  return ids;
+}
 function goto(tab){document.querySelectorAll('.section').forEach(n=>n.classList.toggle('active',n.id===tab));document.querySelectorAll('.nav button').forEach(n=>n.classList.toggle('active',n.dataset.tab===tab));window.scrollTo({top:0,behavior:'smooth'})}document.querySelectorAll('[data-tab]').forEach(n=>n.onclick=()=>goto(n.dataset.tab));document.querySelectorAll('[data-go]').forEach(n=>n.onclick=()=>goto(n.dataset.go));
 function render(){const owner=$('dashboardOwnerStats').value,current=activeRecords().filter(r=>dateMonth(r.date)===month&&ownerMatches(r,owner)),inc=current.filter(r=>r.type==='income').reduce((n,r)=>n+r.amount,0),exp=current.filter(r=>r.type==='expense').reduce((n,r)=>n+r.amount,0);$('month').value=month;$('sumIncome').textContent=money(inc);$('sumExpense').textContent=money(exp);$('sumBalance').textContent=money(inc-exp);$('sumBalance').className='v '+(inc-exp>=0?'positive':'negative');$('sumRate').textContent=inc>0?((inc-exp)/inc*100).toFixed(1)+'%':'—';$('expenseCount').textContent=current.filter(r=>r.type==='expense').length+' 筆支出';renderTrend();renderCategories(current);renderDashboardList();renderRecordList();renderAnnual();renderCustomCategories();$('footerStatus').textContent='家計簿 v1.5 · '+(settings.url?'已設定 Google Sheets · 修改後請同步上傳':'本機模式 · 尚未同步')}
 function renderTrend(){const months=Array.from({length:6},(_,i)=>{const [y,m]=month.split('-').map(Number),d=new Date(y,m-1-(5-i),1);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`});const live=activeRecords().filter(r=>ownerMatches(r,$('dashboardOwnerStats').value));const data=months.map(m=>({m,income:live.filter(r=>dateMonth(r.date)===m&&r.type==='income').reduce((s,r)=>s+r.amount,0),expense:live.filter(r=>dateMonth(r.date)===m&&r.type==='expense').reduce((s,r)=>s+r.amount,0)}));const max=Math.max(1,...data.flatMap(x=>[x.income,x.expense]));$('trend').innerHTML=data.map(d=>`<div class="bar-group"><div class="bar-pair"><div class="bar income" style="height:${d.income/max*100}%" title="${escapeHtml(d.m)} 收入 ${money(d.income)}"></div><div class="bar expense" style="height:${d.expense/max*100}%" title="${escapeHtml(d.m)} 支出 ${money(d.expense)}"></div></div><div class="bar-label">${Number(d.m.slice(5))}月</div></div>`).join('')}
@@ -309,7 +345,7 @@ $('customCategoryList').onclick=e=>{const id=e.target.closest('[data-remove-cate
 function newForm(){editId=null;$('formTitle').textContent='新增一筆記帳';$('recordForm').reset();const d=new Date();$('fDate').value=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;$('fOwner').value=currentUser||'me';fillCategories();goto('add')}
 $('recordForm').onsubmit=e=>{e.preventDefault();const amount=Number($('fAmount').value);if(!Number.isFinite(amount)||amount<=0)return alert('金額必須大於 0');const old=records.find(r=>r.id===editId);const nextCategory=$('fCategory').value;const manuallyChanged=!old||nextCategory!==old.category;const item=normalize({...old,id:editId||'manual:'+uid(),type:$('fType').value,owner:$('fOwner').value,date:$('fDate').value,amount,category:nextCategory,_categoryManual:Boolean(old?old._categoryManual||manuallyChanged:true),merchant:$('fMerchant').value.trim(),note:$('fNote').value.trim(),source:old?.source||'manual'});if(!item.merchant)return alert('請填寫名稱');if(editId)records=records.map(r=>r.id===editId?item:r);else records.push(item);save();editId=null;goto('records')};
 $('recordList').onclick=e=>{const edit=e.target.closest('[data-edit]'),del=e.target.closest('[data-del]');if(edit){const r=records.find(x=>x.id===edit.dataset.edit&&!x.deleted);if(!r)return;editId=r.id;$('formTitle').textContent='編輯記帳';$('fType').value=r.type;$('fOwner').value=r.owner||'shared';$('fDate').value=r.date;$('fAmount').value=r.amount;fillCategories(r.category);$('fMerchant').value=r.merchant;$('fNote').value=r.note||'';goto('add')}if(del){manualDeleteV186(del.dataset.del);}};$('cancelEdit').onclick=newForm;$('fType').onchange=()=>fillCategories();
-$('csvImport').onchange=async e=>{const file=e.target.files?.[0];if(!file)return;try{const raw=await file.text();if($('monthlyImportMode').value==='ai'){const data=parseCSV(raw);const head=(data[0]||[]).map(x=>String(x).trim());if(!['消費時間','發票號碼','店家名稱','消費品項','小計','總計'].every(c=>head.includes(c)))throw Error('CSV 欄位不符 Invoice 匯出格式');if(quickDraft.size||pending.size)throw Error('請先儲存尚未同步的修改');download('family-ledger-monthly-ai-input-'+new Date().toISOString().slice(0,10)+'.csv',raw,'text/csv;charset=utf-8');$('importMessage').textContent='AI 模式：已下載原始 CSV 副本，尚未新增任何交易。請交給 Codex／Claude 分類並人工審核；目前沒有自動 AI API，也不能直接匯入 AI 建議。';goto('aiStudio');}else{const result=importInvoice(raw,$('importOwner').value);$('importMessage').textContent=`匯入完成：新增 ${result.added} 張發票，其中 ${result.ruleApplied} 張套用自訂分類規則；略過 ${result.skipped} 張重複發票（共 ${result.total} 張）。歸屬：${ownerLabel($('importOwner').value)}。`;if(result.added)window.afterInvoiceImportV1900?.();}}catch(err){$('importMessage').textContent='匯入失敗：'+err.message}finally{e.target.value=''}};
+$('csvImport').onchange=async e=>{const file=e.target.files?.[0];if(!file)return;try{const raw=await file.text();if($('monthlyImportMode').value==='ai'){const data=parseCSV(raw);const head=(data[0]||[]).map(x=>String(x).trim());if(!['消費時間','發票號碼','店家名稱','消費品項','小計','總計'].every(c=>head.includes(c)))throw Error('CSV 欄位不符 Invoice 匯出格式');if(quickDraft.size||pending.size)throw Error('請先儲存尚未同步的修改');download('family-ledger-monthly-ai-input-'+new Date().toISOString().slice(0,10)+'.csv',raw,'text/csv;charset=utf-8');$('importMessage').textContent='AI 模式：已下載原始 CSV 副本，尚未新增任何交易。請交給 Codex／Claude 分類並人工審核；目前沒有自動 AI API，也不能直接匯入 AI 建議。';goto('aiStudio');}else{const owner=$('importOwner').value;$('importMessage').textContent='檢查雲端是否已有這些發票…';const cloudIds=await invoiceCloudIdsV1990(raw);const result=importInvoice(raw,owner,cloudIds);$('importMessage').textContent=`匯入完成：新增 ${result.added} 張發票，其中 ${result.ruleApplied} 張套用自訂分類規則；略過 ${result.skipped} 張重複發票${result.cloudSkipped?`（其中 ${result.cloudSkipped} 張雲端已有）`:''}（共 ${result.total} 張）。歸屬：${ownerLabel(owner)}。`;if(result.added)window.afterInvoiceImportV1900?.();}}catch(err){$('importMessage').textContent='匯入失敗：'+err.message}finally{e.target.value=''}};
 $('applyBulkOwner').onclick=()=>{const ids=new Set(filteredRecordIds),owner=$('bulkOwner').value;if(!ids.size)return alert('沒有符合條件的交易，請先調整篩選');if(!confirm(`確定將目前篩選的 ${ids.size} 筆交易，全部改成「${ownerLabel(owner)}」嗎？`))return;records=records.map(r=>ids.has(r.id)&&!r.deleted?{...r,owner}:r);save();$('importMessage').textContent=`已將 ${ids.size} 筆交易調整為「${ownerLabel(owner)}」。請到同步設定上傳。`};
 function mergeRecords(local,remote){const map=new Map(local.map(r=>[r.id,r]));for(const r of remote){const prior=map.get(r.id);map.set(r.id,prior?.deleted&&!r.deleted?prior:r)}return [...map.values()]}
 function csvCell(v){const s=String(v??'');return /[",\r\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s}function download(name,content,type){const blob=new Blob(['\uFEFF',content],{type});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),3000)}$('exportCsv').onclick=()=>{const cols=['date','type','merchant','amount','category','owner','invoice','note','source'];download('family-ledger-'+month+'.csv',[cols.join(','),...sorted(activeRecords()).map(r=>cols.map(c=>csvCell(r[c])).join(','))].join('\r\n'),'text/csv;charset=utf-8')};$('downloadJson').onclick=()=>download('family-ledger-backup.json',JSON.stringify({schema:2,records},null,2),'application/json');$('restoreJson').onchange=async e=>{try{const data=JSON.parse(await e.target.files[0].text());if(!Array.isArray(data.records))throw Error('JSON 不含 records');if(!confirm(`要把 ${data.records.length} 筆備份合併到目前資料嗎？已刪除紀錄仍維持刪除。`))return;const imported=[];for(const r of data.records){if(!r.id||!r.date||!r.merchant||!Number.isFinite(Number(r.amount)))throw Error('資料格式錯誤');imported.push(normalize(r))}records=mergeRecords(records,imported);save();alert('還原完成')}catch(err){alert('還原失敗：'+err.message)}finally{e.target.value=''}};
@@ -533,6 +569,32 @@ $('conflictReview').onclick=async()=>{
   }catch(err){clearConflictReview();$('conflictMessage').textContent='無法讀取對照：'+err.message;showToast(err.message,true);}
   finally{conflictReviewBusy=false;renderConflictPanel();}
 };
+$('conflictAllCloud').onclick=async()=>{
+  if(!conflictBackupReady||conflictReviewBusy||syncBusy)return;
+  const ids=syncConflicts.filter(id=>dupImportLocalV1990(records.find(r=>r.id===id)));
+  if(!ids.length)return;
+  if(quickDraft.size||quickBusy){$('conflictMessage').textContent='還有快速編輯尚未儲存，請先儲存或復原後再按。';return;}
+  if(!confirm(`有 ${ids.length} 筆是重複匯入的發票（雲端已經有同一張）。要全部改用雲端版本嗎？\n\n本機這次匯入時給的分類、歸屬會被雲端版本取代。日期、金額、店家和雲端不同的不會動，留給你逐筆比較。`))return;
+  const before=new Map(ids.map(id=>[id,JSON.stringify(records.find(r=>r.id===id))]));
+  conflictReviewBusy=true;clearConflictReview();$('conflictMessage').textContent='讀取雲端發票中，請不要關閉頁面…';renderConflictPanel();
+  try{
+    const years=[...new Set(ids.map(id=>String(records.find(r=>r.id===id)?.date||'').slice(0,4)).filter(y=>/^20\d{2}$/.test(y)))],remote=new Map();
+    for(const y of years){const data=await readWithRetryV1864_('list',y);if(!Array.isArray(data.records))throw Error(`${y} 年雲端資料格式不正確`);data.records.forEach(r=>remote.set(r.id,normalize(r)));}
+    if(quickDraft.size||quickBusy)throw Error('讀取期間有快速編輯尚未儲存，請先儲存或復原後再按');
+    let done=0;const left=[];
+    for(const id of ids){
+      const index=records.findIndex(r=>r.id===id),local=records[index],server=remote.get(id);
+      if(index<0||JSON.stringify(local)!==before.get(id)||!sameInvoiceV1990(local,server)){left.push(id);continue;}
+      records[index]=server;pending.delete(id);syncConflicts=syncConflicts.filter(x=>x!==id);done++;
+    }
+    persistPending();save(false);conflictBackupReady=false;
+    cloudIssue=syncConflicts.length?`已改用雲端 ${done} 筆；另外 ${syncConflicts.length} 筆衝突待確認`:'';
+    $('conflictMessage').textContent=`已改用雲端版本 ${done} 筆。${left.length?`${left.length} 筆內容和雲端不同或剛被修改，沒有動，請下載備份後用「比較交易差異」逐筆決定。`:''}`;
+    showToast(`已改用雲端版本 ${done} 筆${syncConflicts.length?'，其餘待處理':''}`);
+    if(!syncConflicts.length&&pending.size)queueSync();
+  }catch(err){$('conflictMessage').textContent='沒有更改本機資料：'+err.message;showToast(err.message,true);}
+  finally{conflictReviewBusy=false;renderSyncNotice();}
+};
 function panelScrollConflict(){const panel=$('conflictPanel');if(panel&&typeof panel.scrollIntoView==='function')panel.scrollIntoView({behavior:'smooth',block:'start'});}
 $('conflictApply').onclick=async()=>{
   if(!conflictBackupReady||conflictReviewBusy||syncBusy)return;
@@ -675,7 +737,9 @@ function renderRuleCategories_(selected){
   $('bulkCategory').value=categories.includes(previous)?previous:'餐飲';
 }
 function renderCategoryRules_(){
-  $('ruleList').innerHTML=categoryRules.length?categoryRules.map(r=>`<div style="padding:10px 0;border-bottom:1px solid #e6ede7;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap"><span><strong>${escapeHtml(r.keyword)}</strong> · ${r.matchType==='exact'?'完全相同':'包含'} → <strong>${escapeHtml(r.category)}</strong> <span class="mini">${r.scope==='family'?'家庭共用':'個人'}</span></span><span class="actions" style="margin:0"><button class="button light" type="button" data-edit-rule="${escapeHtml(r.id)}">編輯</button><button class="button warn" type="button" data-delete-rule="${escapeHtml(r.id)}">移除</button></span></div>`).join(''):'目前沒有自訂分類規則';
+  const aiRules=categoryRules.filter(isAiRuleV1990),userRules=categoryRules.filter(r=>!isAiRuleV1990(r));
+  renderAiRuleListV1990(aiRules);
+  $('ruleList').innerHTML=userRules.length?userRules.map(r=>`<div style="padding:10px 0;border-bottom:1px solid #e6ede7;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap"><span><strong>${escapeHtml(r.keyword)}</strong> · ${r.matchType==='exact'?'完全相同':'包含'} → <strong>${escapeHtml(r.category)}</strong> <span class="mini">${r.scope==='family'?'家庭共用':'個人'}${isListUserRuleV1990(r)?' · 你指定(只用於匯入發票)':''}</span></span><span class="actions" style="margin:0"><button class="button light" type="button" data-edit-rule="${escapeHtml(r.id)}">編輯</button><button class="button warn" type="button" data-delete-rule="${escapeHtml(r.id)}">移除</button></span></div>`).join(''):'目前沒有自訂分類規則';
   $('ruleSaveButton').disabled=ruleBusy||!rulesReady;
 }
 async function loadCategoryRules_(){
@@ -712,7 +776,7 @@ async function saveRuleChange_(rule){
 $('ruleForm').onsubmit=e=>{
   e.preventDefault();if(!rulesReady||ruleBusy)return;
   const old=categoryRules.find(r=>r.id===ruleEditId);
-  const rule={id:old?.id||'rule:'+uid(),_rev:old?old._rev:0,action:old?'update':'create',keyword:$('ruleKeyword').value.trim(),matchType:$('ruleMatchType').value,category:$('ruleCategory').value,scope:$('ruleScope').value==='family'?'family':currentUser};
+  const rule={id:old?.id||USER_RULE_PREFIX_V1990+uid(),_rev:old?old._rev:0,action:old?'update':'create',keyword:$('ruleKeyword').value.trim(),matchType:$('ruleMatchType').value,category:$('ruleCategory').value,scope:$('ruleScope').value==='family'?'family':currentUser};
   if(rule.keyword.length<2)return alert('至少輸入 2 個字的店家關鍵字');
   saveRuleChange_(rule);
 };
@@ -995,7 +1059,7 @@ $('quickEditSave').onclick=async()=>{
   if(quickBusy||!quickDraft.size)return;
   if(!configured()){quickStatus('未登入雲端，草稿仍保留。');return;}
   if(pending.size||syncBusy||syncConflicts.length){quickStatus('原有同步尚未完成，請先完成同步或處理衝突。');return;}
-  quickBusy=true;quickStatus();
+  quickBusy=true;quickStatus();const catChangesV1990=[];
   try{
     const patches=[...quickDraft.values()].map(({id,year,fields})=>({id,year,fields}));
     for(let i=0;i<patches.length;i+=100){
@@ -1006,13 +1070,14 @@ $('quickEditSave').onclick=async()=>{
         const patch=part.find(p=>p.id===accepted.id),record=records.find(r=>r.id===accepted.id);
         if(!patch||!record)throw Error('回傳交易 ID 不一致');
         Object.assign(record,patch.fields,{_rev:accepted._rev,_categoryManual:('category' in patch.fields)?true:record._categoryManual});
+        if('category' in patch.fields)catChangesV1990.push({merchant:record.merchant,category:record.category,owner:record.owner}); // 已獲後端確認
         snapshot.set(record.id,JSON.stringify(record));quickDraft.delete(record.id);
       }
       localStorage.setItem(KEY,JSON.stringify(records));quickStatus();
     }
     cloudIssue='';cloudReady=true;quickStatus('✓ 全部修改已獲雲端確認');renderRecordList();renderSyncNotice();
   }catch(err){quickStatus('儲存未完成：'+err.message+'。其餘草稿已保留，請檢查後重試。');}
-  finally{quickBusy=false;quickStatus(quickDraft.size?'部分修改尚未完成，請再儲存':'✓ 已確認同步完成');renderRecordList();if(!quickDraft.size){yearVersionsV186.delete(selectedYear);await refresh();}}
+  finally{quickBusy=false;quickStatus(quickDraft.size?'部分修改尚未完成，請再儲存':'✓ 已確認同步完成');renderRecordList();if(!quickDraft.size){yearVersionsV186.delete(selectedYear);await refresh();}if(catChangesV1990.length)offerCategoryRulesV1990(catChangesV1990);}
 };
 const gotoBeforeQuick=goto;
 goto=function(tab){if(quickDraft.size&&tab!=='records'){quickStatus('請先儲存全部或復原全部，才能切換頁面。');return;}gotoBeforeQuick(tab);};
@@ -1662,6 +1727,158 @@ function rangeNoteV1980(){moreFiltersStateV1980();const el=$('rangeNoteV1980');i
   try{const v=localStorage.getItem(KEY);if(v&&[...sel.options].some(o=>o.value===v))sel.value=v;}catch{/* 沒有記憶就用預設 */}
   sel.addEventListener('change',()=>{try{localStorage.setItem(KEY,sel.value);}catch{/* 記不住不影響排序 */}renderRecordList();});
 })();
+// v1.9.9 AI 分類清單:匯入(分階段,上傳並回讀確認後才停用舊規則)、還原舊規則、手動改分類後詢問加入清單。
+// 規則都存在既有的 CategoryRules(後端不改);每條規則一次 ruleSave。
+function renderAiRuleListV1990(aiRules){
+  const cnt=$('aiRuleCountV1990');if(!cnt)return;cnt.textContent=rulesReady?aiRules.length+' 條':'尚未讀取';
+  const box=$('aiRuleRowsV1990'),d=$('aiRuleListV1990');if(!d.open){box.innerHTML='';return;} // 收起時不畫 400 多列
+  const q=$('aiRuleSearchV1990').value.trim().toLocaleLowerCase(),list=aiRules.filter(r=>!q||(r.keyword+' '+r.category).toLocaleLowerCase().includes(q));
+  box.innerHTML=list.slice(0,200).map(r=>{const {store,item}=ruleStoreItemV1990(r);return '<div style="padding:4px 0;border-bottom:1px solid rgba(127,127,127,.2)">'+escapeHtml(store)+(item?' <span class="mini">(品項含「'+escapeHtml(item)+'」)</span>':'')+' → <strong>'+escapeHtml(r.category)+'</strong></div>';}).join('')+(list.length>200?'<p class="mini">只顯示前 200 條,請用搜尋縮小範圍。</p>':'')+(list.length?'':'<p class="mini">沒有符合的項目。</p>');
+}
+$('aiRuleListV1990').addEventListener('toggle',()=>renderAiRuleListV1990(categoryRules.filter(isAiRuleV1990)));
+$('aiRuleSearchV1990').addEventListener('input',()=>renderAiRuleListV1990(categoryRules.filter(isAiRuleV1990)));
+const ruleKeyV1990=(keyword,matchType,scope)=>String(keyword).trim().replace(/\s+/g,' ').toLocaleLowerCase()+'\u0001'+matchType+'\u0001'+scope;
+const badCellV1990=s=>/^[=+@-]/.test(s);
+async function saveRuleV1990(rule){const r=await post({rule},'ruleSave');if(r&&r.ok===false)throw Error(r.error||'後端未確認');return r;}
+function parseAiListV1990(text){
+  const rows=parseCSV(String(text).replace(/^﻿/,'')),head=(rows.shift()||[]).map(x=>String(x).trim());
+  if(!['store','category'].every(k=>head.includes(k)))throw Error('不是 AI 分類清單(需要 store、category 欄位)');
+  const at=k=>head.indexOf(k),groups=new Map(),bad=[];
+  rows.forEach((r,i)=>{if(r.length<2)return;const store=String(r[at('store')]||'').trim().replace(/\s+/g,' '),item=at('item_keyword')>=0?String(r[at('item_keyword')]||'').trim():'',category=String(r[at('category')]||'').trim();
+    if(!store&&!category)return;const keyword=item?store+ITEM_SEP_V1990+item:store;
+    if(store.includes(ITEM_SEP_V1990)||keyword.length<2||keyword.length>80||!category||category.length>50||badCellV1990(keyword)||badCellV1990(category)){bad.push(i+2);return;}
+    const k=keyword.toLocaleLowerCase();if(!groups.has(k))groups.set(k,[]);groups.get(k).push({keyword,category,store,item,line:i+2});});
+  // 同一店名(+品項)出現不同分類:整組都不匯入(不依檔案順序選),在預覽列出
+  const entries=[],conflicts=[];
+  for(const g of groups.values()){if(new Set(g.map(x=>x.category)).size>1)conflicts.push({keyword:g[0].keyword,lines:g.map(x=>x.line),categories:[...new Set(g.map(x=>x.category))]});else entries.push(g[0]);}
+  return {entries,bad,conflicts};
+}
+let aiListStateV1990=null,aiListBusyV1990=false;
+const aiPanelV1990=()=>$('aiListPanelV1990');
+function aiListPlanV1990(entries){
+  const active=categoryRules.filter(r=>r.active),byKey=new Map(active.map(r=>[ruleKeyV1990(r.keyword,r.matchType,r.scope),r]));
+  const old=active.filter(r=>!isAiRuleV1990(r)&&!isListUserRuleV1990(r)&&!String(r.id).startsWith(USER_RULE_PREFIX_V1990)).map(r=>({...r})); // 本次要取代的舊規則(預覽當下固定,含版本號)
+  const oldIds=new Set(old.map(r=>r.id)),plan={create:[],update:[],ok:[],afterOld:[],keepUser:[]};
+  for(const e of entries){const hit=byKey.get(ruleKeyV1990(e.keyword,'exact','family'));
+    if(!hit)plan.create.push(e);
+    else if(isAiRuleV1990(hit))(hit.category===e.category?plan.ok:plan.update).push({...e,rule:hit});
+    else if(oldIds.has(hit.id))plan.afterOld.push({...e,oldId:hit.id}); // 舊規則停用後才能建立(後端不允許同關鍵字並存)
+    else plan.keepUser.push(e);} // 使用者指定的規則優先,不動
+  return {plan,old};
+}
+function renderAiListPanelV1990(msg){
+  const p=aiPanelV1990(),st=aiListStateV1990;if(!st){p.hidden=true;p.innerHTML='';return;}
+  const {plan,old}=st,todo=plan.create.length+plan.update.length+(st.disableOld?plan.afterOld.length:0);p.hidden=false;
+  p.innerHTML='<h2>AI 分類清單預覽</h2><p class="help">清單 '+st.entries.length+' 條:新增 '+plan.create.length+'、更新分類 '+plan.update.length+'、已是最新 '+plan.ok.length+'、你指定過的店(保留你的設定)'+plan.keepUser.length+'、要等舊規則停用後才能建立 '+plan.afterOld.length+'。'+(st.bad.length?' 有 '+st.bad.length+' 列格式不正確會略過(第 '+st.bad.slice(0,8).join('、')+(st.bad.length>8?'…':'')+' 列)。':'')+'</p>'
+   +(st.conflicts.length?'<p class="status error">有 '+st.conflicts.length+' 家店在清單裡出現不同分類,這幾家都不會匯入,請修正清單後再匯入:'+st.conflicts.slice(0,5).map(c=>escapeHtml(c.keyword)+'(第 '+c.lines.join('、')+' 列:'+c.categories.map(escapeHtml).join(' / ')+')').join(';')+(st.conflicts.length>5?'…':'')+'</p>':'')
+   +(old.length?'<label style="display:flex;gap:8px;align-items:flex-start"><input type="checkbox" id="aiListDisableOldV1990" '+(st.disableOld?'checked':'')+'><span>停用舊的自訂規則 '+old.length+' 條(會先下載備份 CSV,之後可用「從備份還原舊規則」還原)</span></label>':'<p class="mini">沒有需要停用的舊規則。</p>')
+   +'<p class="mini">上傳一條約 1–3 秒,'+todo+' 條約需 '+Math.max(1,Math.ceil(todo*2/60))+' 分鐘。中途關掉也沒關係:已上傳的會保留,再匯入一次會從缺的開始;全部確認上傳成功前,不會停用舊規則。另一位使用者的私人規則只能在他自己的裝置處理。</p>'
+   +'<p class="status" id="aiListMsgV1990" role="status" aria-live="polite">'+escapeHtml(msg||'')+'</p>'
+   +'<div class="actions"><button class="button" type="button" id="aiListGoV1990" '+(aiListBusyV1990||(!todo&&!(st.disableOld&&old.length))?'disabled':'')+'>開始匯入</button><button class="button light" type="button" id="aiListCancelV1990" '+(aiListBusyV1990?'disabled':'')+'>關閉</button></div>';
+}
+const aiMsgV1990=t=>{const el=$('aiListMsgV1990');if(el)el.textContent=t;$('ruleMessage').textContent=t;};
+const backupCsvV1990=rules=>'﻿id,keyword,matchType,category,scope\n'+rules.map(r=>[r.id,r.keyword,r.matchType,r.category,r.scope].map(csvCell).join(',')).join('\n')+'\n';
+async function runAiListV1990(){
+  const st=aiListStateV1990;if(!st||aiListBusyV1990)return;
+  aiListBusyV1990=true;const guard=e=>{e.preventDefault();e.returnValue='';};window.addEventListener('beforeunload',guard);renderAiListPanelV1990('準備中…');
+  const batch=Date.now().toString(36);let n=0,fail=0;
+  try{
+    const {plan,old}=st,disable=st.disableOld&&old.length>0;
+    // 階段 1:先下載舊規則備份
+    if(disable)download('family-ledger-category-rules-backup-'+new Date().toISOString().slice(0,10)+'.csv',backupCsvV1990(old),'text/csv;charset=utf-8');
+    // 階段 2:新增/更新不衝突的 AI 項目(單筆失敗先記下,繼續其他)
+    const step=[...plan.create.map(e=>({e,rule:{id:AI_RULE_PREFIX_V1990+batch+':'+(n++),_rev:0,action:'create',keyword:e.keyword,matchType:'exact',category:e.category,scope:'family'}})),
+      ...plan.update.map(e=>({e,rule:{id:e.rule.id,_rev:e.rule._rev,action:'update',keyword:e.keyword,matchType:'exact',category:e.category,scope:'family'}}))];
+    let done=0;for(const s of step){aiMsgV1990('上傳 AI 分類清單:'+(++done)+' / '+step.length+'(請勿關閉網頁)');try{await saveRuleV1990(s.rule);}catch{fail++;}}
+    // 階段 3:回讀確認
+    await loadCategoryRules_();if(!rulesReady)throw Error('無法讀回雲端規則,舊規則尚未停用');
+    const missing=e=>{const r=categoryRules.find(x=>x.active&&isAiRuleV1990(x)&&ruleKeyV1990(x.keyword,x.matchType,x.scope)===ruleKeyV1990(e.keyword,'exact','family'));return !r||r.category!==e.category;};
+    const miss=[...plan.create,...plan.update].filter(missing);
+    if(miss.length)throw Error('還有 '+miss.length+' 條沒有確認上傳成功,舊規則尚未停用。請再按一次「匯入 AI 分類清單」選同一個檔,會從缺的開始');
+    if(disable){
+      // 階段 4:停用預覽時固定的舊規則。版本號必須和預覽(也就是備份)時相同;預覽後被改過就停下,請重新預覽並重新備份
+      const changed=old.filter(o=>{const cur=categoryRules.find(x=>x.id===o.id);return cur&&cur._rev!==o._rev;});
+      if(changed.length)throw Error('預覽之後有 '+changed.length+' 條舊規則被修改過(例如「'+changed[0].keyword+'」),為了讓備份和停用的內容一致,這次沒有停用。請再匯入一次同一個檔(會重新預覽並重新下載備份)');
+      let k=0,bad=0;for(const o of old){aiMsgV1990('停用舊規則:'+(++k)+' / '+old.length);if(!categoryRules.some(x=>x.id===o.id))continue;try{await saveRuleV1990({id:o.id,_rev:o._rev,action:'delete'});}catch{bad++;}}
+      await loadCategoryRules_();if(!rulesReady)throw Error('停用後無法讀回雲端規則,請重新整理後再匯入一次同一個檔確認');
+      if(bad||categoryRules.some(x=>old.some(o=>o.id===x.id)))throw Error('有舊規則停用失敗;已上傳的 AI 清單仍有效,請再匯入一次同一個檔完成停用');
+      // 階段 5:建立原本和舊規則同關鍵字的 AI 項目
+      let j=0;for(const e of plan.afterOld){aiMsgV1990('補上 AI 項目:'+(++j)+' / '+plan.afterOld.length);try{await saveRuleV1990({id:AI_RULE_PREFIX_V1990+batch+':'+(n++),_rev:0,action:'create',keyword:e.keyword,matchType:'exact',category:e.category,scope:'family'});}catch{fail++;}}
+      await loadCategoryRules_();if(!rulesReady)throw Error('無法讀回雲端規則確認最後一步,請重新整理後再匯入一次同一個檔確認');
+      const miss2=plan.afterOld.filter(missing);if(miss2.length)throw Error('舊規則已停用,但還有 '+miss2.length+' 條 AI 項目沒有建立成功;請再匯入一次同一個檔補上');
+    }
+    const total=categoryRules.filter(isAiRuleV1990).length;
+    aiListStateV1990=null;renderAiListPanelV1990();
+    $('ruleMessage').textContent='AI 分類清單匯入完成:雲端共有 '+total+' 條 AI 項目'+(disable?',舊規則 '+old.length+' 條已停用(備份已下載)':'')+'。之後匯入的發票會依清單分類。';showToast('AI 分類清單匯入完成');
+  }catch(err){aiListStateV1990&&(aiListStateV1990={...aiListStateV1990});renderAiListPanelV1990('');aiMsgV1990('匯入未完成:'+err.message);showToast(err.message,true);}
+  finally{aiListBusyV1990=false;window.removeEventListener('beforeunload',guard);if(aiListStateV1990)renderAiListPanelV1990($('ruleMessage').textContent);}
+}
+$('aiListCsvV1990').onchange=async e=>{
+  const file=e.target.files?.[0];if(!file)return;
+  try{if(aiListBusyV1990)throw Error('上一次匯入還在進行');if(!configured()||!rulesReady)throw Error('請先登入並讀取分類規則');
+    const {entries,bad,conflicts}=parseAiListV1990(await file.text());if(!entries.length)throw Error('清單沒有可用的項目');
+    const {plan,old}=aiListPlanV1990(entries);aiListStateV1990={entries,bad,conflicts,plan,old,disableOld:true};renderAiListPanelV1990('請確認後按「開始匯入」。');
+  }catch(err){$('ruleMessage').textContent='AI 分類清單無法匯入:'+err.message;showToast(err.message,true);}
+  finally{e.target.value='';}
+};
+aiPanelV1990().addEventListener('change',e=>{if(e.target.id==='aiListDisableOldV1990'&&aiListStateV1990){aiListStateV1990.disableOld=e.target.checked;renderAiListPanelV1990('');}});
+aiPanelV1990().addEventListener('click',e=>{if(e.target.id==='aiListGoV1990')runAiListV1990();if(e.target.id==='aiListCancelV1990'&&!aiListBusyV1990){aiListStateV1990=null;renderAiListPanelV1990();}});
+// 從備份還原舊規則:用新 id 重新建立(後端不能重新啟用停用的 id);和 AI 項目同關鍵字時先停用該 AI 項目
+$('rulesRestoreV1990').onchange=async e=>{
+  const file=e.target.files?.[0];if(!file)return;
+  try{if(aiListBusyV1990)throw Error('AI 清單匯入還在進行');if(!configured()||!rulesReady)throw Error('請先登入並讀取分類規則');
+    const rows=parseCSV((await file.text()).replace(/^﻿/,'')),head=(rows.shift()||[]).map(x=>String(x).trim()),at=k=>head.indexOf(k);
+    if(!['keyword','matchType','category','scope'].every(k=>head.includes(k)))throw Error('不是分類規則備份檔');
+    const list=rows.filter(r=>r.length>=4&&String(r[at('keyword')]||'').trim()).map(r=>({keyword:String(r[at('keyword')]).trim(),matchType:String(r[at('matchType')]).trim(),category:String(r[at('category')]).trim(),scope:String(r[at('scope')]).trim()}));
+    const mine=list.filter(r=>r.scope==='family'||r.scope===currentUser),others=list.length-mine.length;
+    if(!confirm('要還原 '+mine.length+' 條舊規則嗎?'+(others?'(另有 '+others+' 條是另一位的私人規則,要在他的裝置還原)':'')+' 和 AI 清單同一家店時,以還原的規則為準。'))return;
+    aiListBusyV1990=true;let k=0,ok=0,skip=0,bad=0,invalid=0;const lost=[];
+    const validRow=r=>r.keyword.length>=2&&r.keyword.length<=80&&r.category&&r.category.length<=50&&['contains','exact'].includes(r.matchType)&&!badCellV1990(r.keyword)&&!badCellV1990(r.category);
+    for(const r of mine){$('ruleMessage').textContent='還原舊規則:'+(++k)+' / '+mine.length;
+      if(!validRow(r)){invalid++;continue;} // 先驗證整列,不合格的不動任何規則
+      const same=categoryRules.find(x=>x.active&&ruleKeyV1990(x.keyword,x.matchType,x.scope)===ruleKeyV1990(r.keyword,r.matchType,r.scope));
+      if(same&&!isAiRuleV1990(same)){skip++;continue;}
+      try{if(same)await saveRuleV1990({id:same.id,_rev:same._rev,action:'delete'});}catch{bad++;continue;}
+      try{await saveRuleV1990({id:'rule:'+uid(),_rev:0,action:'create',keyword:r.keyword,matchType:r.matchType,category:r.category,scope:r.scope});ok++;}
+      catch{bad++;if(same){try{await saveRuleV1990({id:AI_RULE_PREFIX_V1990+Date.now().toString(36)+':r'+k,_rev:0,action:'create',keyword:same.keyword,matchType:same.matchType,category:same.category,scope:same.scope});}catch{lost.push(same.keyword+' → '+same.category);}}}} // 建立失敗:把剛停用的 AI 項目補回
+    await loadCategoryRules_();if(!rulesReady)throw Error('還原後無法讀回雲端規則,請重新整理後再選同一個備份檔確認(已還原的不會重複建立)');
+    const msg='還原完成:新建 '+ok+' 條、原本就有 '+skip+' 條'+(invalid?'、格式不正確略過 '+invalid+' 條':'')+(bad?'、失敗 '+bad+' 條(可再選同一個備份檔重試)':'')+'。'+(lost.length?' 注意:下列 AI 項目沒能補回,請再匯入一次 AI 分類清單補上:'+lost.slice(0,5).join('、'):'');$('ruleMessage').textContent=msg;showToast(msg,Boolean(bad||lost.length));
+  }catch(err){$('ruleMessage').textContent='還原失敗:'+err.message;showToast(err.message,true);}
+  finally{aiListBusyV1990=false;e.target.value='';}
+};
+// 手動改分類 → 雲端確認後詢問「以後這家店都用這個分類嗎?」;同意 → 建立/更新「你指定」的規則(店名完全相同,只用於匯入發票,優先於其他規則)
+async function offerCategoryRulesV1990(changes){
+  if(!rulesReady||aiListBusyV1990){if(changes.length)showToast('分類規則尚未讀取完成,這次沒有詢問是否加入分類清單',true);return;}
+  const by=new Map();for(const c of changes){const s=String(c.merchant||'').trim().replace(/\s+/g,' ');if(s.length<2||s.length>80||badCellV1990(s))continue;if(!by.has(s))by.set(s,new Set());by.get(s).add(c.category);}
+  const mixed=[...by].filter(([,cs])=>cs.size>1).map(([s])=>s);
+  if(mixed.length)showToast('「'+mixed.slice(0,2).join('、')+'」這次改成不同分類,沒有加入清單');
+  // 只有這家店已經有你自己的同店名 exact 規則、而且就是這個分類時才不問(AI 的店名預設可能被品項規則蓋過,不能拿來判斷)
+  const ownExact=s=>categoryRules.find(x=>x.active&&!isAiRuleV1990(x)&&x.matchType==='exact'&&(x.scope==='family'||x.scope===currentUser)&&x.keyword.trim().toLocaleLowerCase()===s.toLocaleLowerCase());
+  const ask=[...by].filter(([s,cs])=>cs.size===1&&ownExact(s)?.category!==[...cs][0]).map(([s,cs])=>({store:s,category:[...cs][0]}));
+  if(!ask.length)return;
+  const yes=ask.length<=3?ask.filter(a=>confirm('以後「'+a.store+'」的發票都分到「'+a.category+'」嗎?\n(確定 = 加入分類清單,優先於 AI 建議;取消 = 只改這一筆)')):(confirm('以後這 '+ask.length+' 家店都用這次改的分類嗎?\n'+ask.slice(0,8).map(a=>a.store+' → '+a.category).join('\n')+(ask.length>8?'\n…':'')+'\n(確定 = 全部加入分類清單;取消 = 只改這幾筆)')?ask:[]);
+  if(!yes.length)return;
+  let ok=0,bad=0,kept=0;const lost=[],done=[];
+  for(const a of yes){
+    const key=s=>ruleKeyV1990(a.store,'exact',s);
+    // 已有同店名 exact 的非 AI 規則:之前在詢問中指定的(aiuser,只用於發票)→ 直接改;在規則頁設定的(也用在信用卡)→ 另外問過才改
+    const mine=categoryRules.find(x=>x.active&&!isAiRuleV1990(x)&&(x.scope==='family'||x.scope===currentUser)&&ruleKeyV1990(x.keyword,x.matchType,x.scope)===key(x.scope));
+    if(mine&&!isListUserRuleV1990(mine)&&!confirm('「'+a.store+'」已經有你在規則頁設定的規則(→ '+mine.category+'),那條規則也會用在信用卡帳單匯入。\n要把它改成「'+a.category+'」嗎?\n(取消 = 不改那條規則,這次只改這筆交易)')){kept++;continue;}
+    if(mine){try{await saveRuleV1990({id:mine.id,_rev:mine._rev,action:'update',keyword:mine.keyword,matchType:'exact',category:a.category,scope:mine.scope});ok++;done.push(a);}catch{bad++;}continue;}
+    // 同店名的 AI 項目要先停用(後端不允許同關鍵字並存);建立失敗就把 AI 項目補回,不留缺口
+    const ai=categoryRules.find(x=>x.active&&isAiRuleV1990(x)&&ruleKeyV1990(x.keyword,x.matchType,x.scope)===key('family'));
+    if(ai){try{await saveRuleV1990({id:ai.id,_rev:ai._rev,action:'delete'});}catch{bad++;continue;}}
+    try{await saveRuleV1990({id:LIST_USER_PREFIX_V1990+uid(),_rev:0,action:'create',keyword:a.store,matchType:'exact',category:a.category,scope:'family'});ok++;done.push(a);}
+    catch{bad++;if(ai){try{await saveRuleV1990({id:AI_RULE_PREFIX_V1990+Date.now().toString(36)+':u',_rev:0,action:'create',keyword:ai.keyword,matchType:'exact',category:ai.category,scope:'family'});}catch{lost.push(ai.keyword);}}}
+  }
+  if(!ok&&!bad&&!lost.length){if(kept)showToast('沒有改規則,只改了這筆交易');return;} // 全部選擇不改
+  // 回讀確認:讀不回來或沒有生效,就不說「已加入」
+  await loadCategoryRules_();
+  const unconfirmed=!rulesReady?done:done.filter(a=>ownExact(a.store)?.category!==a.category);
+  showToast(lost.length?'「'+lost.join('、')+'」目前沒有分類規則,請到同步設定再匯入一次 AI 分類清單補上'
+    :unconfirmed.length?'已送出,但還沒確認「'+unconfirmed.map(a=>a.store).slice(0,3).join('、')+'」的規則已生效;請到同步設定按「重新下載規則」檢查'
+    :bad?'加入分類清單:成功 '+ok+'、失敗 '+bad+'(可再改一次分類重試)':'已加入分類清單 '+ok+' 家店'+(kept?'(保留 '+kept+' 條規則頁的規則)':''),Boolean(bad||lost.length||unconfirmed.length));
+}
 // Export only authenticated networking helpers to the planning module.
 window.ledgerPlanningBridge = Object.freeze({jsonp, post, activeRecords, installmentSources: () => records.filter(r => r.source !== 'category-definition' && (r.installmentPlan || r.cardImport?.installment))});
 })();
