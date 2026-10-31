@@ -132,9 +132,9 @@ html[data-theme="pink"] .dot[style*="#FF8D83" i]{background:var(--pk-exp)!import
 </style>
 </head>
 <body>
-<div id="loginGate"><form class="login-panel" id="loginForm"><h1>家庭記帳 · 登入 <span class="version-chip">v1.9.6</span></h1><p class="subtitle">使用個人帳號登入；所有更動會留下操作紀錄。</p><p class="login-version" aria-label="目前前端版本">前端版本 v1.9.6</p><label for="loginUrl">Apps Script 網址（首次設定）</label><input class="field" type="url" id="loginUrl" name="ledgerApiUrl" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://script.google.com/macros/s/.../exec" required><input type="text" id="loginUsernameHint" name="username" autocomplete="username" value="me" hidden aria-hidden="true" tabindex="-1"><label for="loginUser">使用者</label><select class="field" id="loginUser" onchange="document.getElementById('loginUsernameHint').value=this.value"><option value="me">承瑋</option><option value="wife">俐穎</option></select><label for="loginPassword">密碼</label><input class="field" id="loginPassword" type="password" autocomplete="current-password" required><button class="button" id="loginButton" type="submit">登入</button><p id="loginError" role="alert"></p></form></div>
+<div id="loginGate"><form class="login-panel" id="loginForm"><h1>家庭記帳 · 登入 <span class="version-chip">v1.9.7</span></h1><p class="subtitle">使用個人帳號登入；所有更動會留下操作紀錄。</p><p class="login-version" aria-label="目前前端版本">前端版本 v1.9.7</p><label for="loginUrl">Apps Script 網址（首次設定）</label><input class="field" type="url" id="loginUrl" name="ledgerApiUrl" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://script.google.com/macros/s/.../exec" required><input type="text" id="loginUsernameHint" name="username" autocomplete="username" value="me" hidden aria-hidden="true" tabindex="-1"><label for="loginUser">使用者</label><select class="field" id="loginUser" onchange="document.getElementById('loginUsernameHint').value=this.value"><option value="me">承瑋</option><option value="wife">俐穎</option></select><label for="loginPassword">密碼</label><input class="field" id="loginPassword" type="password" autocomplete="current-password" required><button class="button" id="loginButton" type="submit">登入</button><p id="loginError" role="alert"></p></form></div>
 <main class="shell">
-  <header class="header"><div class="logo">家計簿 <span style="color:#d3b573">◈</span><small>OUR FAMILY FINANCE · v1.9.6</small></div><nav class="nav" aria-label="主要頁面"><button data-tab="dashboard" class="active">總覽</button><button data-tab="annual">年度統計</button><button data-tab="records">收支明細</button><button data-tab="aiStudio">✦ AI 智慧整理</button><button data-tab="add">新增記帳</button><button data-tab="settings">同步設定</button></nav></header>
+  <header class="header"><div class="logo">家計簿 <span style="color:#d3b573">◈</span><small>OUR FAMILY FINANCE · v1.9.7</small></div><nav class="nav" aria-label="主要頁面"><button data-tab="dashboard" class="active">總覽</button><button data-tab="annual">年度統計</button><button data-tab="records">收支明細</button><button data-tab="aiStudio">✦ AI 智慧整理</button><button data-tab="add">新增記帳</button><button data-tab="settings">同步設定</button></nav></header>
   <div id="syncBanner" class="sync-banner pending" role="status" aria-live="polite"><span id="syncBannerText">正在檢查雲端同步狀態…</span><button id="syncBannerRetry" class="button light" type="button" hidden>重試同步</button></div>
   <div id="conflictPanel" class="panel" style="margin-bottom:16px;display:none"><h2>跨裝置資料衝突</h2><p class="help">同一張發票在電腦與手機被修改時，不會自動覆蓋。請先備份，再檢視兩邊內容並逐筆決定；不同分類名稱也可雙向保留。採用本機版本時會經過 Google Sheets 版本檢查，並留下修改紀錄。</p><div id="conflictItems" class="help"></div><div class="actions"><button id="conflictBackup" class="button light" type="button">① 下載本機 JSON 備份</button><button id="conflictUseCloud" class="button light" type="button" disabled>② 雙向合併自訂分類</button><button id="conflictReview" class="button light" type="button" disabled>③ 比較交易差異</button><button id="conflictApply" class="button" type="button" style="display:none">④ 套用逐筆選擇</button></div><p id="conflictMessage" class="mini" role="status" aria-live="polite"></p></div>
   <section id="dashboard" class="section active"><div class="top"><div><h1>家庭財務總覽</h1><p class="subtitle">讓每一筆收支都有跡可循</p></div><div class="month"><button class="pill" id="prevMonth" aria-label="上個月">‹</button><input aria-label="統計月份" class="field" id="month" type="month"><button class="pill" id="nextMonth" aria-label="下個月">›</button></div><label class="month">統計歸屬 <select id="dashboardOwnerStats" class="field"><option value="all">家庭全部</option><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select></label></div>
@@ -1329,77 +1329,111 @@ function cardMsgV1900(t){$('importMessage').textContent=t;const s=$('cardStatusV
       } catch { /* 截圖失敗不影響匯入 */ }
     }
   }
-  function guessCategory(name) {
-    const probe = { merchant: name, owner: 'me', type: 'expense', details: [] };
+  function guessCategory(name, owner = 'me') {
+    const probe = { merchant: name, owner, type: 'expense', details: [] };
     const rule = typeof matchingCategoryRule === 'function' ? matchingCategoryRule(probe) : null;
     return rule ? { category: rule.category, ruleId: rule.id } : { category: classify(name, []), ruleId: null };
   }
+  // v1.9.7 「這份帳單是誰的」:依「銀行:卡號末四碼」記在這台裝置(只是便利設定,讀寫失敗時用登入者)
+  const OWNER_KEY = 'ledgerCardOwnerV197', OWNERS = ['me', 'wife', 'shared'];
+  const NEW_BANKS = ['esun', 'cathay'];
+  const ownerKeys = st => (st.cards?.length ? st.cards : [...new Set(st.rows.map(r => r.card).filter(Boolean))]).map(c => `${st.bank}:${c}`);
+  function rememberedOwner(st) {
+    try { const m = JSON.parse(localStorage.getItem(OWNER_KEY) || '{}'), v = [...new Set(ownerKeys(st).map(k => m[k]))]; if (v.length === 1 && OWNERS.includes(v[0])) return v[0]; } catch { /* 沒有記憶也能用 */ }
+    return null;
+  }
+  function rememberOwner(st, owner) {
+    try { const m = JSON.parse(localStorage.getItem(OWNER_KEY) || '{}'); for (const k of ownerKeys(st)) m[k] = owner; localStorage.setItem(OWNER_KEY, JSON.stringify(m)); } catch { /* 記不住不影響匯入 */ }
+  }
+  function categoryFor(r, owner) {
+    if (r.fixedCategory) return { category: r.fixedCategory, ruleId: null };
+    if (NEW_BANKS.includes(r.bank) && /^優步[-－]/.test(r.display)) return { category: /大車隊|taxi|車隊/i.test(r.display) ? '交通' : '餐飲', ruleId: null }; // 使用者確認:叫車→交通,其他(外送)→餐飲
+    return guessCategory(r.display, owner);
+  }
   function prepare(st, rows) {
+    const owner = rememberedOwner(st) || (OWNERS.includes(currentUser) ? currentUser : 'me');
     for (const r of rows) {
       r.display = C().displayName(r.name);
       r.include = r.status === 'new' || r.status === 'credit';
       r.decision = r.status === 'review' ? '' : null;
-      r.owner = 'me';
-      if (r.kind === 'purchase') { const g = guessCategory(r.display); r.category = g.category; r.ruleId = g.ruleId; } else { r.category = '其他收入'; r.ruleId = null; }
+      r.owner = owner;
+      if (r.kind === 'purchase') { const g = categoryFor(r, owner); r.category = g.category; r.ruleId = g.ruleId; } else { r.category = '其他收入'; r.ruleId = null; }
     }
     const years = [...new Set(rows.filter(r => r.status !== 'payment').map(r => r.date.slice(0, 4)))];
     const loaded = window.loadedYearsV1880?.() || [];
-    return { st, rows, missing: configured() ? years.filter(y => !loaded.includes(y)) : [] };
+    return { st, rows, owner, missing: configured() ? years.filter(y => !loaded.includes(y)) : [] };
   }
-  const STATUS = { duplicate: '已有發票/紀錄,略過', offset: '同帳單內互相抵銷', payment: '繳卡費,不記帳', imported: '之前已匯入' };
+  // v1.9.7 帳單有總額的分期:已匯入的刷卡紀錄或已有的全額發票,只更新分期進度,不再新增
+  function progressUpdates() {
+    return state.rows.filter(r => r.installment?.total).map(r => {
+      if (r.status === 'imported') { const rec = records.find(x => x.id === r.id && !x.deleted); return rec?.cardImport?.installment && r.installment.n > (rec.cardImport.installment.n || 0) ? { r, rec } : null; }
+      if (r.status === 'duplicate' && r.match) { const inv = records.find(x => x.id === r.match.id && !x.deleted); return inv && !(inv.installmentPlan && inv.installmentPlan.paid >= r.installment.n) ? { r, inv } : null; }
+      return null;
+    }).filter(Boolean);
+  }
+  const STATUS = { duplicate: '已有發票/紀錄,略過', offset: '同帳單內互相抵銷', payment: '繳卡費,不記帳', imported: '之前已匯入', nototal: '分期讀不到總額,這次不匯入' };
   function render() {
     const p = panel(), { st, rows, missing } = state; p.hidden = false;
     const add = rows.filter(r => r.status === 'new'), rev = rows.filter(r => r.status === 'review'), cr = rows.filter(r => r.status === 'credit');
-    const willAdd = rows.filter(willImport), sum = willAdd.reduce((a, r) => a + (r.kind === 'purchase' ? r.amount : 0), 0);
+    const willAdd = rows.filter(willImport), sum = willAdd.reduce((a, r) => a + (r.kind === 'purchase' ? r.amount : 0), 0), upd = progressUpdates();
     const ownerSel = r => `<select class="field" data-cc-owner="${escapeHtml(r.id)}">${['me', 'shared', 'wife'].map(o => `<option value="${o}" ${r.owner === o ? 'selected' : ''}>${ownerLabel(o)}</option>`).join('')}</select>`;
     const catSel = r => `<select class="field" data-cc-cat="${escapeHtml(r.id)}">${categoriesFor(r.kind === 'purchase' ? 'expense' : 'income', r.category).map(c => `<option value="${escapeHtml(c)}" ${c === r.category ? 'selected' : ''}>${escapeHtml(c)}</option>`).join('')}</select>`;
-    const extra = r => [r.fee ? `含國外交易手續費 ${fmtN(r.fee)}` : '', r.fxAmount ? `${r.currency} ${r.fxAmount.toLocaleString('en-US')}` : '', r.installment ? `分期 ${r.installment.n}/${r.installment.of}` : '', `卡 ${r.card || '—'}`].filter(Boolean).join(' · ');
+    const extra = r => [r.fee ? `含國外交易手續費 ${fmtN(r.fee)}` : '', r.fxAmount ? `${r.currency} ${r.fxAmount.toLocaleString('en-US')}` : '', r.installment ? `分期 ${r.installment.n}/${r.installment.of}${r.installment.total ? `,記全額,本期 ${fmtN(r.installment.perPeriod)}` : ''}` : '', r.interestRows ? `${r.interestRows} 筆分期利息合計` : '', `卡 ${r.card || '—'}`].filter(Boolean).join(' · ');
     const nameCell = r => `${r.crop ? `<img alt="原始帳單這一列" src="${r.crop}" style="display:block;max-width:100%;border:1px solid rgba(255,255,255,.15);border-radius:6px;margin-bottom:4px">` : ''}<input class="field" data-cc-name="${escapeHtml(r.id)}" value="${escapeHtml(r.display)}" placeholder="${r.crop ? '看上面的帳單,輸入店名' : '店名'}" style="width:100%">`;
     const line = (r, ctl) => `<div class="cc-row" style="border-top:1px solid rgba(255,255,255,.08);padding:10px 0;display:grid;gap:6px">
       <div class="row" style="justify-content:space-between;gap:8px"><span>${ctl || ''}<strong>${escapeHtml(r.date)}</strong></span><strong>${fmtN(r.kind === 'purchase' ? r.amount : -r.amount)}</strong></div>
       ${nameCell(r)}<div class="mini">${escapeHtml(extra(r))}</div><div class="actions" style="gap:6px">${ownerSel(r)}${catSel(r)}</div></div>`;
     const collapsed = (k, list) => list.length ? `<details style="margin-top:8px"><summary style="cursor:pointer">${STATUS[k]}(${list.length} 筆)</summary>${list.map(r => `<div class="row mini" style="justify-content:space-between;gap:8px;padding:4px 0"><span>${escapeHtml(r.date)} ${escapeHtml(r.display || '(帳單未提供店名)')}${r.match ? ` → ${escapeHtml(r.match.date)} ${escapeHtml(r.match.merchant || '')}` : ''}</span><span>${fmtN(r.amount)}</span></div>`).join('')}</details>` : '';
     p.innerHTML = `<div class="row" style="justify-content:space-between;gap:8px"><h2>${escapeHtml(st.bankName)}信用卡帳單 · 結帳日 ${escapeHtml(st.closing || '—')}</h2><button class="button light" type="button" id="ccCancelV1900">關閉</button></div>
+      <label class="row" style="gap:8px;flex-wrap:wrap;align-items:center;margin:6px 0"><strong>這份帳單是誰的</strong><select class="field" id="ccOwnerAllV1970" style="width:auto">${OWNERS.map(o => `<option value="${o}" ${state.owner === o ? 'selected' : ''}>${ownerLabel(o)}</option>`).join('')}</select><span class="mini">會記住這張卡(${escapeHtml(ownerKeys(st).map(k => k.split(':')[1]).join('、') || '—')}),下面每一列仍可個別改</span></label>
+      ${rows.some(r => r.status === 'nototal') ? `<p class="status error">有 ${rows.filter(r => r.status === 'nototal').length} 筆分期讀不到分期總額,為了避免記錯全額,這幾筆這次不匯入(其他列不受影響)。請回報這份帳單的格式。</p>` : ''}
       ${missing.length ? `<p class="status error">請先在上方「載入年度」讀取 ${missing.join('、')} 年的資料,才能正確比對,避免重複記帳。</p>` : ''}
       <p class="help">共 ${rows.length} 列:新增 ${add.length}、需要你確認 ${rev.length}、退款/回饋 ${cr.length}、已有發票 ${rows.filter(r => r.status === 'duplicate').length}、抵銷 ${rows.filter(r => r.status === 'offset').length}、繳卡費 ${rows.filter(r => r.status === 'payment').length}、之前已匯入 ${rows.filter(r => r.status === 'imported').length}。</p>
       ${rev.length ? `<h3 style="margin-top:12px">需要你確認(${rev.length})</h3><p class="mini">同一天、同金額已經有一筆手動紀錄,但店名不同。請選擇是不是同一筆;沒選的這次不匯入。</p>${rev.map(r => `<div>${line(r)}<div class="mini">已有:${escapeHtml(r.match.date)} ${escapeHtml(r.match.merchant || '')} ${fmtN(r.match.amount)}</div><div class="actions" style="gap:12px"><label><input type="radio" name="cc-${escapeHtml(r.id)}" data-cc-decide="${escapeHtml(r.id)}" value="same" ${r.decision === 'same' ? 'checked' : ''}> 是同一筆,略過</label><label><input type="radio" name="cc-${escapeHtml(r.id)}" data-cc-decide="${escapeHtml(r.id)}" value="new" ${r.decision === 'new' ? 'checked' : ''}> 不同消費,新增</label></div></div>`).join('')}` : ''}
       <h3 style="margin-top:12px">將新增的消費(${add.length})</h3>${add.map(r => line(r, `<input type="checkbox" data-cc-inc="${escapeHtml(r.id)}" ${r.include ? 'checked' : ''}> `)).join('') || '<p class="mini">沒有需要新增的消費。</p>'}
       ${cr.length ? `<h3 style="margin-top:12px">退款與回饋(記為收入)</h3>${cr.map(r => line(r, `<input type="checkbox" data-cc-inc="${escapeHtml(r.id)}" ${r.include ? 'checked' : ''}> `)).join('')}` : ''}
-      ${collapsed('duplicate', rows.filter(r => r.status === 'duplicate'))}${collapsed('offset', rows.filter(r => r.status === 'offset'))}${collapsed('payment', rows.filter(r => r.status === 'payment'))}${collapsed('imported', rows.filter(r => r.status === 'imported'))}
-      <div class="actions" style="margin-top:14px"><button class="button" type="button" id="ccConfirmV1900" ${missing.length || !willAdd.length ? 'disabled' : ''}>確認匯入 ${willAdd.length} 筆(支出 ${fmtN(sum)})</button></div>`;
+      ${collapsed('duplicate', rows.filter(r => r.status === 'duplicate'))}${collapsed('offset', rows.filter(r => r.status === 'offset'))}${collapsed('payment', rows.filter(r => r.status === 'payment'))}${collapsed('imported', rows.filter(r => r.status === 'imported'))}${collapsed('nototal', rows.filter(r => r.status === 'nototal'))}
+      <div class="actions" style="margin-top:14px"><button class="button" type="button" id="ccConfirmV1900" ${missing.length || !(willAdd.length || upd.length) ? 'disabled' : ''}>${willAdd.length || !upd.length ? `確認匯入 ${willAdd.length} 筆(支出 ${fmtN(sum)})` : ''}${upd.length ? `${willAdd.length ? ',並' : ''}更新分期進度 ${upd.length} 筆` : ''}</button></div>`;
   }
   function willImport(r) { return (r.status === 'new' || r.status === 'credit') ? r.include : r.status === 'review' ? r.decision === 'new' : false; }
   function toRecord(r) {
     const name = String(r.display || '').trim() || `${state.st.bankName}刷卡`, income = r.kind !== 'purchase';
     const rec = normalize({ id: r.id, type: income ? 'income' : 'expense', owner: r.owner, date: r.date, amount: Math.round(Math.abs(r.amount)), category: r.category, merchant: name.slice(0, 120),
-      note: income ? `信用卡${r.status === 'credit' && !r.name ? '回饋' : '退款'}` : (r.installment ? `分期 ${r.installment.n}/${r.installment.of}` : ''), source: 'manual', details: [],
+      note: income ? `信用卡${r.status === 'credit' && (!r.name || (NEW_BANKS.includes(r.bank) && /回饋/.test(r.name))) ? '回饋' : '退款'}` : (r.installment?.total ? `分期 ${r.installment.of} 期,每期 ${Math.round(r.installment.perPeriod).toLocaleString('en-US')}(記全額)` : r.installment ? `分期 ${r.installment.n}/${r.installment.of}` : ''), source: 'manual', details: [],
       _categoryManual: !r.ruleId, cardImport: { bank: r.bank, card: r.card, statement: state.st.closing, postDate: r.postDate, raw: r.name, loc: r.loc, currency: r.currency, fxAmount: r.fxAmount, fee: r.fee, installment: r.installment, purchaseDate: r.purchaseDate || null } });
     if (r.ruleId) rec._categoryRuleId = r.ruleId;
     return rec;
   }
   function confirmImport() {
-    const list = state.rows.filter(willImport), ids = new Set(records.map(x => x.id));
+    const list = state.rows.filter(willImport), ids = new Set(records.map(x => x.id)), upd = progressUpdates();
     const fresh = list.filter(r => !ids.has(r.id)).map(toRecord);
     for (const r of fresh) records.push(r);
     // 分期已有全額發票:不另記支出,但把分期進度記在發票上,供總覽計算「還要付多少」
-    for (const r of state.rows.filter(x => x.installment && x.match?.installmentOf)) {
+    for (const r of state.rows.filter(x => x.installment && (x.match?.installmentOf || (x.installment.total && x.status === 'duplicate' && x.match)))) {
       const inv = records.find(x => x.id === r.match.id); if (!inv) continue;
       const key = `${r.bank}:${r.card}:${C().baseName(r.name)}:${r.installment.of}:${r.purchaseDate || ''}`, old = inv.installmentPlan;
       if (old && old.paid >= r.installment.n) continue;
-      const plan = { key: old?.key || key, total: inv.amount, perPeriod: r.amount, of: r.installment.of, paid: r.installment.n, lastPost: r.postDate, card: r.card, bank: r.bank };
+      const plan = { key: old?.key || key, total: inv.amount, perPeriod: r.installment.perPeriod ?? r.amount, of: r.installment.of, paid: r.installment.n, lastPost: r.postDate, card: r.card, bank: r.bank };
       records = records.map(x => x.id === inv.id ? { ...x, installmentPlan: plan } : x);
     }
+    // 已匯入的全額分期:只更新分期進度(期數、入帳日、帳單),金額、日期、owner、分類、備註等使用者看得到的欄位都不動
+    for (const { r, rec } of upd.filter(u => u.rec)) records = records.map(x => x.id === rec.id ? { ...x, cardImport: { ...x.cardImport, installment: { ...x.cardImport.installment, n: r.installment.n }, postDate: r.postDate, statement: state.st.closing } } : x);
     save();
-    cardMsgV1900(`信用卡帳單匯入完成:新增 ${fresh.length} 筆(${state.st.bankName},結帳日 ${state.st.closing || '—'})。略過已有發票 ${state.rows.filter(r => r.status === 'duplicate').length} 筆。`);
+    cardMsgV1900(`信用卡帳單匯入完成:新增 ${fresh.length} 筆(${state.st.bankName},結帳日 ${state.st.closing || '—'})。略過已有發票 ${state.rows.filter(r => r.status === 'duplicate').length} 筆。${upd.length ? `更新分期進度 ${upd.length} 筆。` : ''}`);
     state = null; panel().hidden = true; panel().innerHTML = '';
   }
   function bind() {
     const p = panel();
     p.addEventListener('change', e => {
       if (!state) return; const t = e.target, find = id => state.rows.find(r => r.id === id);
-      if (t.dataset.ccInc) { find(t.dataset.ccInc).include = t.checked; render(); }
+      if (t.id === 'ccOwnerAllV1970') {
+        state.owner = t.value; rememberOwner(state.st, t.value);
+        for (const r of state.rows) { r.owner = t.value; if (r.kind === 'purchase' && !r.catManual) { const g = categoryFor(r, t.value); r.category = g.category; r.ruleId = g.ruleId; } } // 分類規則可能因人而異;使用者改過的分類不動
+        render();
+      }
+      else if (t.dataset.ccInc) { find(t.dataset.ccInc).include = t.checked; render(); }
       else if (t.dataset.ccOwner) find(t.dataset.ccOwner).owner = t.value;
-      else if (t.dataset.ccCat) { const r = find(t.dataset.ccCat); r.category = t.value; r.ruleId = null; }
+      else if (t.dataset.ccCat) { const r = find(t.dataset.ccCat); r.category = t.value; r.ruleId = null; r.catManual = true; }
       else if (t.dataset.ccDecide) { find(t.dataset.ccDecide).decision = t.value; render(); }
     });
     p.addEventListener('input', e => { if (state && e.target.dataset.ccName) state.rows.find(r => r.id === e.target.dataset.ccName).display = e.target.value; });
@@ -1461,7 +1495,7 @@ function cardMsgV1900(t){$('importMessage').textContent=t;const s=$('cardStatusV
       const ins = d.card.cardImport?.installment; if (!ins) continue;
       const inv = records.find(x => x.id === d.match.id); if (!inv || (inv.installmentPlan && inv.installmentPlan.paid >= ins.n)) continue;
       const C2 = window.LedgerCardImportV1900, key = `${d.card.cardImport.bank || ''}:${d.card.cardImport.card || ''}:${C2.baseName(d.card.cardImport.raw || d.card.merchant)}:${ins.of}:${d.card.cardImport.purchaseDate || ''}`;
-      records = records.map(x => x.id === inv.id ? { ...x, installmentPlan: { key: inv.installmentPlan?.key || key, total: inv.amount, perPeriod: d.card.amount, of: ins.of, paid: ins.n, lastPost: d.card.cardImport.postDate || d.card.date, card: d.card.cardImport.card, bank: d.card.cardImport.bank } } : x);
+      records = records.map(x => x.id === inv.id ? { ...x, installmentPlan: { key: inv.installmentPlan?.key || key, total: inv.amount, perPeriod: ins.perPeriod ?? d.card.amount, of: ins.of, paid: ins.n, lastPost: d.card.cardImport.postDate || d.card.date, card: d.card.cardImport.card, bank: d.card.cardImport.bank } } : x);
       annotated++;
     }
     if (annotated) save();
@@ -2345,7 +2379,12 @@ window.addEventListener('load',()=>{if($('retireOwner'))renderRetire();});
   const DATE = /^(\d{3})\/(\d{2})\/(\d{2})$/, NUM = /^[-+]?\d{1,3}(,\d{3})*$|^[-+]?\d+$/;
   const PROFILES = {
     taishin: { name: '台新', test: t => /台新/.test(t), merchantX: [150, 320], amountX: [320, 362] },
-    ctbc: { name: '中國信託', test: t => /ctbc\.tw|CTBC/i.test(t), merchantX: [100, 262], amountX: [262, 305], cardX: [310, 340] }
+    ctbc: { name: '中國信託', test: t => /ctbc\.tw|CTBC/i.test(t), merchantX: [100, 262], amountX: [262, 305], cardX: [310, 340] },
+    // v1.9.7:日期只有 MM/DD 的帳單,走 parseMMDD。headX = 第 1 頁表頭日期欄的 x 範圍,依 y 由上而下的順序對應 headOrder
+    esun: { name: '玉山', mmdd: true, test: t => /玉山/.test(t), headX: [215, 235], headOrder: ['deadline', 'closing'],
+      merchantX: [100, 370], amountX: [400, 545], totalX: [400, 460], curX: [370, 390], locX: [225, 235] },
+    cathay: { name: '國泰世華', mmdd: true, test: t => /國泰世華|cathaybk/i.test(t), headX: [215, 235], headOrder: ['closing', 'deadline'],
+      merchantX: [110, 290], amountX: [290, 330], cardX: [335, 350], locX: [410, 430], curX: [440, 460] }
   };
   const roc = s => { const m = DATE.exec(s); return m ? `${Number(m[1]) + 1911}-${m[2]}-${m[3]}` : null; };
   const num = s => Number(String(s).replace(/,/g, ''));
@@ -2368,6 +2407,7 @@ window.addEventListener('load',()=>{if($('retireOwner'))renderRetire();});
     const text = items.map(i => i.s).join(' '), bank = detect(text);
     if (!bank) throw Error('尚未支援這家銀行的帳單格式(目前支援台新、中國信託)');
     const P = PROFILES[bank], L = lines(items), rows = [];
+    if (P.mmdd) return parseMMDD(bank, P, L);
     let card = '', closing = null;
     const closeLine = L.find(l => l.items.some(i => /帳單結帳日/.test(i.s)));
     if (closeLine) closing = roc((closeLine.items.find(i => DATE.test(i.s)) || {}).s || '');
@@ -2415,6 +2455,82 @@ window.addEventListener('load',()=>{if($('retireOwner'))renderRetire();});
     for (const r of out) if (r.installment) { r.purchaseDate = r.date; r.date = r.postDate; } // 分期:以本期入帳日記帳,保留原始消費日
     return { bank, bankName: P.name, closing, rows: out };
   }
+  /* v1.9.7 玉山、國泰世華:明細日期只有 MM/DD,年份由繳款截止日回推;店名是全形字,先 NFKC。
+     分期採 A 方案:以消費日記全額(installment.total),id 由消費日+總額組成,下一期同一筆分期 id 相同。 */
+  const MMDD = /^(\d{2})\/(\d{2})$/, YMD = /^(\d{4})\/(\d{2})\/(\d{2})$/;
+  const nfkc = s => String(s || '').normalize('NFKC').replace(/\s+/g, ' ').trim();
+  const inX = (i, r) => r && i.x >= r[0] && i.x < r[1];
+  const lineText = l => l.items.map(i => i.s).join('');
+  function headDates(P, L) {
+    const ds = [];
+    for (const l of L) if (l.page === 1) for (const i of l.items) if (inX(i, P.headX)) { const d = YMD.test(i.s) ? i.s.replace(/\//g, '-') : roc(i.s); if (d) ds.push(d); }
+    const out = {}; P.headOrder.forEach((k, j) => { out[k] = ds[j] || null; });
+    const gap = out.closing && out.deadline ? dayDiff(out.deadline, out.closing) : -1;
+    if (ds.length !== P.headOrder.length || gap < 5 || gap > 31) throw Error(`讀不到${P.name}帳單的結帳日/繳款截止日,格式可能改了,請勿匯入並回報`);
+    return out;
+  }
+  function parseMMDD(bank, P, L) {
+    const { closing, deadline } = headDates(P, L), dy = Number(deadline.slice(0, 4)), dm = Number(deadline.slice(5, 7));
+    const ymd = s => { const m = MMDD.exec(s); return m ? `${Number(m[1]) > dm ? dy - 1 : dy}-${m[1]}-${m[2]}` : null; };
+    const rows = [], plans = [], cards = new Set();
+    let card = '', previous = null, total = null, ended = false;
+    for (const l of L) {
+      const txt = lineText(l), nums = l.items.filter(i => NUM.test(i.s));
+      if (/^-+END-+$/.test(txt)) ended = true;
+      const cm = nfkc(txt).match(/卡號:[\dX]{4}-[\dX]{4}-[\dX]{4}-(\d{4})/);
+      if (cm) { card = cm[1]; cards.add(card); continue; }
+      if (/^(上期應繳金額|上期帳單總額)/.test(txt) && previous === null) previous = num((nums.find(i => inX(i, P.amountX)) || nums[0] || {}).s || 0);
+      if (/^(本期合計|本期應繳總額)/.test(txt) && total === null) total = num((nums.find(i => inX(i, P.amountX)) || nums[0] || {}).s || 0);
+      // 國泰:明細後面的「分期未到期」表(民國消費日、交易摘要、分期總金額、未到期本金…卡號後四碼)
+      const rd = l.items[0] && roc(l.items[0].s);
+      if (bank === 'cathay' && rd && l.items[0].x < 80) {
+        const amt = nums.filter(i => i.x > 280), c4 = l.items.filter(i => /^\d{4}$/.test(i.s)).pop();
+        if (amt.length >= 2) plans.push({ date: rd, name: nfkc(l.items.filter(i => i.x > l.items[0].x && i.x < 280).map(i => i.s).join(' ')).replace(/\s*\d{2}-\d{2}$/, ''), total: num(amt[0].s), remaining: num(amt[1].s), card: c4 ? c4.s : '' });
+        continue;
+      }
+      if (ended || /未到期分期金額/.test(txt)) continue;
+      const dates = l.items.filter(i => MMDD.test(i.s) && i.x < P.merchantX[0]);
+      const amts = nums.filter(i => inX(i, P.amountX)), amt = amts[amts.length - 1];
+      if (!dates.length || !amt) continue;
+      const cur = (l.items.find(i => inX(i, P.curX) && /^[A-Z]{3}$/.test(i.s)) || {}).s || '';
+      const locTok = l.items.find(i => inX(i, P.locX) && /^[A-Z]{2}$/.test(i.s));
+      let nameItems = l.items.filter(i => inX(i, P.merchantX) && !MMDD.test(i.s) && !NUM.test(i.s));
+      if (locTok && inX(locTok, P.merchantX)) nameItems = nameItems.filter(i => i.x < locTok.x); // 玉山:消費地(US)與之後的城市名不放進店名
+      let name = nfkc(nameItems.map(i => i.s).join(' ')), inst = null;
+      const im = bank === 'esun' ? name.match(/\s*分(\d+)期之第(\d+)期/) : name.match(/\s+(\d{2})\/(\d{2})$/);
+      if (im) { inst = bank === 'esun' ? { n: Number(im[2]), of: Number(im[1]) } : { n: Number(im[1]), of: Number(im[2]) }; name = name.replace(im[0], '').trim(); }
+      const totalTok = inst && P.totalX ? nums.find(i => inX(i, P.totalX) && i !== amt) : null;
+      const cardTok = P.cardX ? (l.items.find(i => inX(i, P.cardX) && /^\d{4}$/.test(i.s)) || {}).s : '';
+      if (cardTok) cards.add(cardTok);
+      const fxTok = cur && cur !== 'TWD' ? nums.find(i => i.x > (P.totalX || P.amountX)[0] && i !== amt) : null;
+      rows.push({ txDate: dates.length > 1 ? ymd(dates[0].s) : null, postDate: ymd(dates[dates.length - 1].s), name, amount: num(amt.s), card: cardTok || card,
+        loc: locTok ? locTok.s : '', currency: cur, fxAmount: fxTok ? num(fxTok.s) : null, inst, instTotal: totalTok ? num(totalTok.s) : null, page: l.page, y: l.y });
+    }
+    const only = cards.size === 1 ? [...cards][0] : '';
+    const out = [], interest = { sum: 0, n: 0, first: null };
+    for (const r of rows) {
+      const c = r.card || only, base = { bank, bankName: P.name, card: c, date: r.txDate || r.postDate, postDate: r.postDate, name: r.name, amount: r.amount, loc: r.loc, currency: r.currency, fxAmount: r.fxAmount, page: r.page, y: r.y };
+      if (/^分期利息/.test(r.name)) { interest.sum += r.amount; interest.n++; interest.first = interest.first || { ...base }; continue; }
+      const prev = out[out.length - 1];
+      if (/^國外交易(服務|手續)費/.test(r.name) && prev && prev.kind === 'purchase') { prev.fee += r.amount; prev.amount += r.amount; continue; }
+      let kind = 'purchase';
+      if (/繳卡費|繳款|扣繳|自動轉帳/.test(r.name) || (!r.txDate && r.amount < 0)) kind = 'payment';
+      else if (r.amount < 0) kind = 'credit';
+      let installment = null;
+      if (r.inst) {
+        let tot = r.instTotal, purchaseDate = base.date;
+        const p = plans.find(p => !p.used && p.card === c && p.date === purchaseDate && simCore(norm(p.name), norm(r.name)));
+        if (p) { p.used = true; tot = p.total; }
+        // 讀不到總額時不估算(估錯的全額下一期 id 會不同而重複記):amount 先放本期款,reconcile 標成 nototal 不匯入
+        installment = { n: r.inst.n, of: r.inst.of, total: tot || null, perPeriod: r.amount };
+        out.push({ ...base, date: purchaseDate, purchaseDate, amount: tot || r.amount, kind, fee: 0, installment, noTotal: !tot });
+        continue;
+      }
+      out.push({ ...base, kind, fee: 0, installment });
+    }
+    if (interest.n) out.push({ ...interest.first, date: closing, postDate: closing, name: '信用卡分期利息', amount: interest.sum, kind: 'purchase', fee: 0, installment: null, interestRows: interest.n, fixedCategory: '其他' });
+    return { bank, bankName: P.name, closing, deadline, previous, total, cards: [...cards], rows: out };
+  }
   const dayDiff = (a, b) => Math.round((Date.parse(a) - Date.parse(b)) / 864e5);
   const PROCESSORS = /^(街口電支|街口|全支付|聯信|藍新|樂購蝦皮|酷澎|客路|優步|悠遊卡自動加值|全盈支付|一卡通|LINE Pay|ＬＩＮＥ Ｐａｙ|91APP|９１ＡＰＰ)[－-]/i;
   function norm(s) {
@@ -2432,7 +2548,7 @@ window.addEventListener('load',()=>{if($('retireOwner'))renderRetire();});
   /* 分期:原始全額發票(金額 ≈ 每期 × 期數、店名相近、在消費日之後的期數範圍內)已記帳時,各期都視為重複,不另外記。 */
   function installmentCovers(r, p) {
     if (!r.installment) return false;
-    const total = r.amount * r.installment.of, start = r.purchaseDate || r.date;
+    const total = r.installment.total ?? r.amount * r.installment.of, start = r.purchaseDate || r.date; // v1.9.7:帳單有總額時直接用
     if (Math.abs(Math.round(p.amount) - total) > Math.max(r.installment.of, total * 0.02)) return false; // 各期金額可能差幾元
     const d = dayDiff(r.date, p.date);
     return Math.abs(dayDiff(p.date, start)) <= 7 && d >= -7 && d <= (r.installment.of + 1) * 31 && similar(r.name, p.merchant || '');
@@ -2453,8 +2569,8 @@ window.addEventListener('load',()=>{if($('retireOwner'))renderRetire();});
     // 同一張帳單內,金額相反、店名相近的一正一負(例如年費與年費減免)互相抵銷
     rows.forEach(c => { if (c.kind !== 'credit' || c.offset) return; const p = rows.find(p => p.kind === 'purchase' && !p.offset && p.card === c.card && Math.round(p.amount) === Math.round(-c.amount) && (similar(c.name, p.name) || norm(c.name).includes(norm(p.name).trim()))); if (p) { p.offset = c.id; c.offset = p.id; } });
     const cands = [];
-    rows.forEach((r, i) => { if (r.kind !== 'purchase' || r.offset || !r.installment) return; const hit = pool.find(p => !used.has(p.id) && installmentCovers(r, p)); if (hit) { used.add(hit.id); r.match = { id: hit.id, date: hit.date, merchant: hit.merchant, amount: hit.amount, source: hit.source, owner: hit.owner, days: 0, similar: true, level: 'duplicate', installmentOf: true }; } });
-    rows.forEach((r, i) => { if (r.kind !== 'purchase' || r.offset || r.match) return; for (const p of pool) { const d = Math.abs(dayDiff(p.date, r.date)); if (d > winSimilar) continue;
+    rows.forEach((r, i) => { if (r.kind !== 'purchase' || r.offset || !r.installment || r.noTotal) return; const hit = pool.find(p => !used.has(p.id) && installmentCovers(r, p)); if (hit) { used.add(hit.id); r.match = { id: hit.id, date: hit.date, merchant: hit.merchant, amount: hit.amount, source: hit.source, owner: hit.owner, days: 0, similar: true, level: 'duplicate', installmentOf: true }; } });
+    rows.forEach((r, i) => { if (r.kind !== 'purchase' || r.offset || r.match || r.noTotal) return; for (const p of pool) { const d = Math.abs(dayDiff(p.date, r.date)); if (d > winSimilar) continue;
       const amtOk = Math.round(p.amount) === Math.round(r.amount) || (r.fee && Math.round(p.amount) === Math.round(r.amount - r.fee)); if (!amtOk) continue;
       const sim = similar(r.name, p.merchant || ''), isInv = p.source === 'invoice' || String(p.id).startsWith('inv:');
       let level = null; if (d === 0 && isInv) level = 'duplicate'; else if (sim && d <= winSimilar) level = 'duplicate'; else if (d === 0) level = 'review';
@@ -2462,7 +2578,8 @@ window.addEventListener('load',()=>{if($('retireOwner'))renderRetire();});
     cands.sort((a, b) => a.rank - b.rank);
     for (const c of cands) { const r = rows[c.i]; if (r.match || used.has(c.p.id)) continue; r.match = { id: c.p.id, date: c.p.date, merchant: c.p.merchant, amount: c.p.amount, source: c.p.source, owner: c.p.owner, days: c.d, similar: c.sim, level: c.level }; used.add(c.p.id); }
     for (const r of rows) {
-      if (existingIds.has(r.id)) r.status = 'imported';
+      if (r.noTotal) { r.status = 'nototal'; delete r.match; }
+      else if (existingIds.has(r.id)) r.status = 'imported';
       else if (r.kind === 'payment') r.status = 'payment';
       else if (r.offset) r.status = 'offset';
       else if (r.kind === 'credit') r.status = 'credit';
@@ -2477,9 +2594,9 @@ window.addEventListener('load',()=>{if($('retireOwner'))renderRetire();});
     const live = records.filter(r => !r.deleted && r.source !== 'category-definition' && r.type === 'expense');
     const cards = live.filter(r => String(r.id).startsWith('manual:card:')), pool = live.filter(r => !String(r.id).startsWith('manual:card:'));
     const cands = [];
-    for (const c of cards) { const ins = c.cardImport?.installment; if (!ins) continue; const r = { name: c.cardImport.raw || c.merchant, amount: c.amount, date: c.date, purchaseDate: c.cardImport.purchaseDate || null, installment: ins };
+    for (const c of cards) { const ins = c.cardImport?.installment; if (!ins) continue; const r = { name: c.cardImport.raw || c.merchant, amount: ins.perPeriod ?? c.amount, date: c.date, purchaseDate: c.cardImport.purchaseDate || null, installment: ins };
       for (const p of pool) if (installmentCovers(r, p) || (!r.purchaseDate && Math.abs(Math.round(p.amount) - c.amount * ins.of) <= Math.max(ins.of, c.amount * ins.of * 0.02) && dayDiff(c.date, p.date) >= 0 && dayDiff(c.date, p.date) <= (ins.of + 1) * 31 && similar(r.name, p.merchant || ''))) cands.push({ c, p, rank: -1, shared: true }); }
-    for (const c of cards) for (const p of pool) { if (c.cardImport?.installment) continue;
+    for (const c of cards) for (const p of pool) { if (c.cardImport?.installment && !c.cardImport.installment.total) continue; // v1.9.7 全額分期也比照一般消費比對
       const d = Math.abs(dayDiff(p.date, c.date)); if (d > 7) continue;
       const fee = Number(c.cardImport?.fee || 0);
       if (!(Math.round(p.amount) === Math.round(c.amount) || (fee && Math.round(p.amount) === Math.round(c.amount - fee)))) continue;
@@ -2502,7 +2619,7 @@ window.addEventListener('load',()=>{if($('retireOwner'))renderRetire();});
       if (r.installmentPlan) { const ip = r.installmentPlan; add(ip.key, { key: ip.key, name: baseName(r.merchant), owner: r.owner, total: ip.total ?? r.amount, perPeriod: ip.perPeriod, of: ip.of, paid: ip.paid, lastPost: ip.lastPost, invoiceId: r.id }); continue; }
       const ins = r.cardImport?.installment; if (!ins) continue;
       const name = baseName(r.cardImport.raw || r.merchant), key = `${r.cardImport.bank || ''}:${r.cardImport.card || ''}:${name}:${ins.of}:${r.cardImport.purchaseDate || ''}`;
-      add(key, { key, name, owner: r.owner, total: null, perPeriod: r.amount, of: ins.of, paid: ins.n, lastPost: r.cardImport.postDate || r.date });
+      add(key, { key, name, owner: r.owner, total: ins.total ?? null, perPeriod: ins.perPeriod ?? r.amount, of: ins.of, paid: ins.n, lastPost: r.cardImport.postDate || r.date });
     }
     return [...plans.values()].map(p => ({ ...p, remainingPeriods: Math.max(0, p.of - p.paid), remaining: Math.max(0, p.of - p.paid) * p.perPeriod })).sort((a, b) => b.remaining - a.remaining);
   }
