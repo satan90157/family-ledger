@@ -133,11 +133,11 @@ html[data-theme="pink"] .dot[style*="#FF8D83" i]{background:var(--pk-exp)!import
 </style>
 </head>
 <body>
-<div id="loginGate"><form class="login-panel" id="loginForm"><h1>家庭記帳 · 登入 <span class="version-chip">v1.9.9</span></h1><p class="subtitle">使用個人帳號登入；所有更動會留下操作紀錄。</p><p class="login-version" aria-label="目前前端版本">前端版本 v1.9.9</p><label for="loginUrl">Apps Script 網址（首次設定）</label><input class="field" type="url" id="loginUrl" name="ledgerApiUrl" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://script.google.com/macros/s/.../exec" required><input type="text" id="loginUsernameHint" name="username" autocomplete="username" value="me" hidden aria-hidden="true" tabindex="-1"><label for="loginUser">使用者</label><select class="field" id="loginUser" onchange="document.getElementById('loginUsernameHint').value=this.value"><option value="me">承瑋</option><option value="wife">俐穎</option></select><label for="loginPassword">密碼</label><input class="field" id="loginPassword" type="password" autocomplete="current-password" required><button class="button" id="loginButton" type="submit">登入</button><p id="loginError" role="alert"></p></form></div>
+<div id="loginGate"><form class="login-panel" id="loginForm"><h1>家庭記帳 · 登入 <span class="version-chip">v1.9.10</span></h1><p class="subtitle">使用個人帳號登入；所有更動會留下操作紀錄。</p><p class="login-version" aria-label="目前前端版本">前端版本 v1.9.10</p><label for="loginUrl">Apps Script 網址（首次設定）</label><input class="field" type="url" id="loginUrl" name="ledgerApiUrl" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://script.google.com/macros/s/.../exec" required><input type="text" id="loginUsernameHint" name="username" autocomplete="username" value="me" hidden aria-hidden="true" tabindex="-1"><label for="loginUser">使用者</label><select class="field" id="loginUser" onchange="document.getElementById('loginUsernameHint').value=this.value"><option value="me">承瑋</option><option value="wife">俐穎</option></select><label for="loginPassword">密碼</label><input class="field" id="loginPassword" type="password" autocomplete="current-password" required><button class="button" id="loginButton" type="submit">登入</button><p id="loginError" role="alert"></p></form></div>
 <main class="shell">
-  <header class="header"><div class="logo">家計簿 <span style="color:#d3b573">◈</span><small>OUR FAMILY FINANCE · v1.9.9</small></div><nav class="nav" aria-label="主要頁面"><button data-tab="dashboard" class="active">總覽</button><button data-tab="annual">年度統計</button><button data-tab="records">收支明細</button><button data-tab="aiStudio">✦ AI 智慧整理</button><button data-tab="add">新增記帳</button><button data-tab="settings">同步設定</button></nav></header>
+  <header class="header"><div class="logo">家計簿 <span style="color:#d3b573">◈</span><small>OUR FAMILY FINANCE · v1.9.10</small></div><nav class="nav" aria-label="主要頁面"><button data-tab="dashboard" class="active">總覽</button><button data-tab="annual">年度統計</button><button data-tab="records">收支明細</button><button data-tab="aiStudio">✦ AI 智慧整理</button><button data-tab="add">新增記帳</button><button data-tab="settings">同步設定</button></nav></header>
   <div id="syncBanner" class="sync-banner pending" role="status" aria-live="polite"><span id="syncBannerText">正在檢查雲端同步狀態…</span><button id="syncBannerRetry" class="button light" type="button" hidden>重試同步</button></div>
-  <div id="conflictPanel" class="panel" style="margin-bottom:16px;display:none"><h2>跨裝置資料衝突</h2><p class="help">同一張發票在電腦與手機被修改時，不會自動覆蓋。請先備份，再檢視兩邊內容並逐筆決定；不同分類名稱也可雙向保留。採用本機版本時會經過 Google Sheets 版本檢查，並留下修改紀錄。</p><div id="conflictItems" class="help"></div><div class="actions"><button id="conflictBackup" class="button light" type="button">① 下載本機 JSON 備份</button><button id="conflictUseCloud" class="button light" type="button" disabled>② 雙向合併自訂分類</button><button id="conflictReview" class="button light" type="button" disabled>③ 比較交易差異</button><button id="conflictAllCloud" class="button light" type="button" disabled style="display:none">重複匯入的發票：全部採用雲端</button><button id="conflictApply" class="button" type="button" style="display:none">④ 套用逐筆選擇</button></div><p id="conflictMessage" class="mini" role="status" aria-live="polite"></p></div>
+  <div id="conflictPanel" class="panel" style="margin-bottom:16px;display:none"><h2>跨裝置資料衝突</h2><p class="help">同一張發票在電腦與手機被修改時，不會自動覆蓋。按「處理衝突」會先自動下載備份、合併自訂分類，再列出兩邊內容讓你選；重複匯入的發票會自動改用雲端。採用本機版本時會經過 Google Sheets 版本檢查，並留下修改紀錄。</p><div id="conflictItems" class="help"></div><div class="actions"><button id="conflictStartV19A" class="button" type="button">處理衝突</button><button id="conflictPickCloudV19A" class="button light" type="button" style="display:none">全部選雲端</button><button id="conflictPickLocalV19A" class="button light" type="button" style="display:none">全部選本機</button><button id="conflictBackup" class="button light" type="button" style="display:none">① 下載本機 JSON 備份</button><button id="conflictUseCloud" class="button light" type="button" disabled style="display:none">② 雙向合併自訂分類</button><button id="conflictReview" class="button light" type="button" disabled style="display:none">③ 比較交易差異</button><button id="conflictAllCloud" class="button light" type="button" disabled style="display:none">重複匯入的發票：全部採用雲端</button><button id="conflictApply" class="button" type="button" style="display:none">套用選擇</button></div><p id="conflictMessage" class="mini" role="status" aria-live="polite"></p></div>
   <section id="dashboard" class="section active"><div class="top"><div><h1>家庭財務總覽</h1><p class="subtitle">讓每一筆收支都有跡可循</p></div><div class="month"><button class="pill" id="prevMonth" aria-label="上個月">‹</button><input aria-label="統計月份" class="field" id="month" type="month"><button class="pill" id="nextMonth" aria-label="下個月">›</button></div><label class="month">統計歸屬 <select id="dashboardOwnerStats" class="field"><option value="all">家庭全部</option><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select></label></div>
     <div class="cards"><div class="card"><div class="k">本月收入</div><div class="v positive" id="sumIncome">$0</div><div class="note">已記錄收入</div></div><div class="card"><div class="k">本月支出</div><div class="v" id="sumExpense">$0</div><div class="note" id="expenseCount">0 筆支出</div></div><div class="card"><div class="k">本月結餘</div><div class="v" id="sumBalance">$0</div><div class="note">收入 − 支出</div></div><div class="card"><div class="k">儲蓄率</div><div class="v" id="sumRate">—</div><div class="note">結餘 ÷ 收入</div></div></div>
     <div id="dashSummaryV1880" style="margin:16px 0" aria-live="polite"></div>
@@ -264,7 +264,7 @@ function matchingCategoryRule(r,opt={}){
 const PENDING='family-ledger-pending-v1', pending=new Set(read(PENDING,[]));
 let cloudIssue='',cloudReady=false,legacyMismatch=[],syncConflicts=[],conflictBackupReady=false;
 let missingCloudCategories=new Set(),categoryAuditItems=[],categoryAuditBusy=false,categoryAuditBackupReady=false;
-let conflictReview=new Map(),conflictChoices=new Map(),conflictLocalSnapshot=new Map(),conflictReviewBusy=false;
+let conflictReview=new Map(),conflictChoices=new Map(),conflictLocalSnapshot=new Map(),conflictReviewBusy=false,conflictFlowBusyV19A=false;
 function clearConflictReview(){conflictReview.clear();conflictChoices.clear();conflictLocalSnapshot.clear();}
 function conflictFieldDiff(a,b){return ['date','type','merchant','amount','category','owner','invoice','note','deleted','details'].filter(k=>JSON.stringify(a?.[k]??null)!==JSON.stringify(b?.[k]??null));}
 // 本機剛匯入、從未上雲(_rev 0)的發票,雲端已有同一張:內容一致時可直接改用雲端版本
@@ -278,10 +278,13 @@ function renderConflictPanel(){
   $('conflictReview').disabled=!conflictBackupReady||!syncConflicts.length||conflictReviewBusy;
   const dupCount=syncConflicts.filter(id=>dupImportLocalV1990(records.find(r=>r.id===id))).length;
   $('conflictAllCloud').style.display=dupCount?'inline-flex':'none';$('conflictAllCloud').textContent=`重複匯入的發票（${dupCount} 筆）：全部採用雲端`;
-  $('conflictAllCloud').disabled=!conflictBackupReady||conflictReviewBusy||syncBusy;
+  $('conflictAllCloud').disabled=conflictFlowBusyV19A||!conflictBackupReady||conflictReviewBusy||syncBusy;
   const transactions=syncConflicts.filter(id=>records.find(r=>r.id===id)?.source!=='category-definition');
-  $('conflictApply').style.display=transactions.some(id=>conflictReview.has(id))?'inline-flex':'none';
-  $('conflictApply').disabled=conflictReviewBusy;
+  const reviewing=transactions.some(id=>conflictReview.has(id));
+  $('conflictApply').style.display=reviewing?'inline-flex':'none';
+  $('conflictPickCloudV19A').style.display=$('conflictPickLocalV19A').style.display=reviewing?'inline-flex':'none';
+  $('conflictStartV19A').disabled=conflictFlowBusyV19A||conflictReviewBusy||syncBusy;
+  $('conflictApply').disabled=$('conflictPickCloudV19A').disabled=$('conflictPickLocalV19A').disabled=conflictFlowBusyV19A||conflictReviewBusy;
   $('conflictItems').innerHTML=syncConflicts.map(id=>{
     const local=records.find(r=>r.id===id),server=conflictReview.get(id);
     if(!server){const name=local?.source==='category-definition'?`自訂分類：${local.category}`:`${local?.merchant||id}／${local?.date||''}`;return `<div style="padding:9px 0;border-bottom:1px solid #e6ede7">${escapeHtml(name)} <span class="mini">${escapeHtml(id.slice(0,20))}…</span></div>`;}
@@ -442,6 +445,28 @@ async function pullRemote(){
   notify(`已讀取 ${selectedYear} 年雲端：${cloudActiveV1871} 筆有效 · 已載入 ${[...loadedYearSet].sort().join('、')} 年合計 ${activeRecords().length} 筆${pending.size?' · '+pending.size+' 筆待同步':''}`);
   cloudReady=true;renderSyncNotice();
 }
+// v1.9.10:本機剛匯入、從未上雲的發票撞到雲端已有的同一張(核心欄位相同)→ 自動改用雲端版本,不需備份與手動處理。
+// 讀不到雲端、有快速編輯草稿、內容不同的都原樣交給衝突區。
+async function autoDupCloudV19A(ids){
+  const dup=ids.filter(id=>dupImportLocalV1990(records.find(r=>r.id===id)));
+  if(!dup.length||quickDraft.size||quickBusy)return ids;
+  const before=new Map(dup.map(id=>[id,JSON.stringify(records.find(r=>r.id===id))])),remote=new Map();
+  try{
+    for(const y of [...new Set(dup.map(id=>String(records.find(r=>r.id===id).date).slice(0,4)))]){
+      const data=await readWithRetryV1864_('list',y);if(!Array.isArray(data.records))return ids;
+      data.records.forEach(r=>remote.set(r.id,normalize(r)));
+    }
+  }catch{return ids;}
+  if(quickDraft.size||quickBusy)return ids;
+  const left=ids.filter(id=>!dup.includes(id));let done=0;
+  for(const id of dup){
+    const index=records.findIndex(r=>r.id===id),local=records[index],server=remote.get(id);
+    if(index<0||JSON.stringify(local)!==before.get(id)||!sameInvoiceV1990(local,server)){left.push(id);continue;}
+    records[index]=server;pending.delete(id);done++;
+  }
+  if(done){persistPending();save(false);showToast(`已自動改用雲端 ${done} 筆重複匯入的發票`);}
+  return left;
+}
 async function flushPending(){
   if(syncBusy||!configured()||!pending.size)return;
   if(syncConflicts.length){renderSyncNotice();return;}
@@ -462,7 +487,7 @@ async function flushPending(){
         if(unchanged)pending.delete(updated.id);
       }
       save(false);persistPending();
-      if(result.conflicts.length){syncConflicts=[...new Set([...syncConflicts,...result.conflicts])];conflictBackupReady=false;clearConflictReview();cloudIssue=`版本衝突：${syncConflicts.length} 筆，雲端未覆蓋；請使用下方「跨裝置資料衝突」處理。`;notify(cloudIssue,true);showToast('記帳同步失敗：版本衝突',true);renderSyncNotice();return;}
+      if(result.conflicts.length){const left=await autoDupCloudV19A(result.conflicts);if(!left.length)continue;syncConflicts=[...new Set([...syncConflicts,...left])];conflictBackupReady=false;clearConflictReview();cloudIssue=`版本衝突：${syncConflicts.length} 筆，雲端未覆蓋；請使用下方「跨裝置資料衝突」處理。`;notify(cloudIssue,true);showToast('記帳同步失敗：版本衝突',true);renderSyncNotice();return;}
       if(!result.accepted.length)throw Error('後端未確認任何變更');
     }
     notify(`已同步 Google Sheets · ${activeRecords().length} 筆有效資料`);
@@ -512,9 +537,9 @@ $('conflictBackup').onclick=()=>{
   download('family-ledger-phone-conflict-backup-'+new Date().toISOString().slice(0,10)+'.json',JSON.stringify({schema:2,records,pending:[...pending],conflicts:syncConflicts},null,2),'application/json');
   conflictBackupReady=true;$('conflictMessage').textContent='已要求瀏覽器下載備份。請先到「檔案／下載項目」確認檔案存在，再點下一步。';renderSyncNotice();
 };
-$('conflictUseCloud').onclick=async()=>{
+$('conflictUseCloud').onclick=async(e,auto)=>{
   if(!conflictBackupReady||!syncConflicts.length||syncBusy)return;
-  if(!confirm(`確認已保存手機 JSON 備份？接下來會雙向合併自訂分類：相同分類去重，不同分類都保留；一般收支交易不會被覆蓋。`))return;
+  if(!auto&&!confirm(`確認已保存手機 JSON 備份？接下來會雙向合併自訂分類：相同分類去重，不同分類都保留；一般收支交易不會被覆蓋。`))return;
   const ids=[...syncConflicts],oldValues=new Map(ids.map(id=>[id,JSON.stringify(records.find(r=>r.id===id))]));
   $('conflictUseCloud').disabled=true;$('conflictMessage').textContent='讀取各年度雲端紀錄中…';
   try{
@@ -541,7 +566,8 @@ $('conflictUseCloud').onclick=async()=>{
     cloudIssue=remaining.length?`另外 ${remaining.length} 筆非分類或異常紀錄仍有版本衝突，未擅自覆蓋`:'';
     conflictBackupReady=false;renderSyncNotice();$('conflictMessage').textContent=`已合併 ${resolved} 筆分類衝突，保留 ${added} 個手機獨有分類，${remaining.length} 筆需要個別確認。`;
     if(!remaining.length){showToast(`分類已合併，${pending.size} 筆等待雲端確認`);if(pending.size)queueSync();}
-  }catch(err){$('conflictMessage').textContent='沒有更改本機資料：'+err.message;showToast(err.message,true);}
+    return true;
+  }catch(err){$('conflictMessage').textContent='沒有更改本機資料：'+err.message;showToast(err.message,true);return false;}
   finally{renderSyncNotice();}
 };
 async function fetchConflictCloud(ids){
@@ -564,13 +590,13 @@ $('conflictReview').onclick=async()=>{
   try{
     const remote=await fetchConflictCloud(ids);
     ids.forEach(id=>{conflictReview.set(id,remote.get(id));conflictLocalSnapshot.set(id,JSON.stringify(records.find(r=>r.id===id)));});
-    $('conflictMessage').textContent=`已載入 ${ids.length} 筆交易對照。每筆選擇本機或雲端版本後，按「套用逐筆選擇」；不選的交易不會更動。`;
+    $('conflictMessage').textContent=`已自動下載備份。下面列出 ${ids.length} 筆兩邊內容，逐筆選或按「全部選雲端／本機」，再按「套用選擇」；不選的交易不會更動。`;
     panelScrollConflict();
   }catch(err){clearConflictReview();$('conflictMessage').textContent='無法讀取對照：'+err.message;showToast(err.message,true);}
   finally{conflictReviewBusy=false;renderConflictPanel();}
 };
 $('conflictAllCloud').onclick=async()=>{
-  if(!conflictBackupReady||conflictReviewBusy||syncBusy)return;
+  if(conflictFlowBusyV19A||!conflictBackupReady||conflictReviewBusy||syncBusy)return;
   const ids=syncConflicts.filter(id=>dupImportLocalV1990(records.find(r=>r.id===id)));
   if(!ids.length)return;
   if(quickDraft.size||quickBusy){$('conflictMessage').textContent='還有快速編輯尚未儲存，請先儲存或復原後再按。';return;}
@@ -595,9 +621,25 @@ $('conflictAllCloud').onclick=async()=>{
   }catch(err){$('conflictMessage').textContent='沒有更改本機資料：'+err.message;showToast(err.message,true);}
   finally{conflictReviewBusy=false;renderSyncNotice();}
 };
+$('conflictStartV19A').onclick=async()=>{
+  if(conflictFlowBusyV19A||!syncConflicts.length||conflictReviewBusy||syncBusy)return;
+  conflictFlowBusyV19A=true;renderConflictPanel();
+  try{
+    $('conflictBackup').onclick();
+    if(syncConflicts.some(id=>records.find(r=>r.id===id)?.source==='category-definition')){
+      if(await $('conflictUseCloud').onclick(null,true)!==true)return; // 失敗訊息由合併步驟顯示,不繼續
+      conflictBackupReady=true;
+    }
+    if(syncConflicts.some(id=>records.find(r=>r.id===id)?.source!=='category-definition'))await $('conflictReview').onclick();
+    else if(!syncConflicts.length)$('conflictMessage').textContent='衝突已處理完成。';
+  }finally{conflictFlowBusyV19A=false;renderSyncNotice();}
+};
+const pickAllV19A=v=>{if(conflictFlowBusyV19A||conflictReviewBusy)return;for(const id of conflictReview.keys())if(syncConflicts.includes(id))conflictChoices.set(id,v);renderConflictPanel();};
+$('conflictPickCloudV19A').onclick=()=>pickAllV19A('cloud');
+$('conflictPickLocalV19A').onclick=()=>pickAllV19A('local');
 function panelScrollConflict(){const panel=$('conflictPanel');if(panel&&typeof panel.scrollIntoView==='function')panel.scrollIntoView({behavior:'smooth',block:'start'});}
 $('conflictApply').onclick=async()=>{
-  if(!conflictBackupReady||conflictReviewBusy||syncBusy)return;
+  if(conflictFlowBusyV19A||!conflictBackupReady||conflictReviewBusy||syncBusy)return;
   const ids=syncConflicts.filter(id=>conflictReview.has(id)&&['local','cloud'].includes(conflictChoices.get(id)));
   if(!ids.length){$('conflictMessage').textContent='請先為至少一筆交易選擇「本機」或「雲端」。';return;}
   if(!confirm(`要處理 ${ids.length} 筆衝突交易嗎？選擇「本機」會寫回 Google Sheets 並留下稽核紀錄；選擇「雲端」會替換目前裝置的這筆內容。`))return;
