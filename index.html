@@ -2126,10 +2126,12 @@ const stocksV1911 = (function () {
     if (st.unsupported) { el.innerHTML = `<div class="panel"><h2>需要更新後端</h2><p class="help">股票與家庭補助功能需要新版 Apps Script:在 Apps Script 編輯器新增 <code>Stocks.gs</code>、更新 <code>Code.gs</code>,再到「部署 → 管理部署作業 → 編輯 → 新版本」。網址不變。原本的記帳功能不受影響。</p></div>`; return; }
     if (!st.loaded) { el.innerHTML = `<div class="panel"><p class="help">${esc(st.error || '讀取股票資料中…')}</p></div>`; return; }
     const draft = ls.get(draftKey(currentUser), null), divs = dividends(), q = quotes();
-    const { rows, unassigned } = S().table(S().positions(st.items), divs, q);
+    const today0 = todayTpe(), { rows, unassigned } = S().table(S().positions(st.items), divs, q, today0);
     const held = rows.filter(r => r.shares > 0 || r.divCount || r.realized); // 合計與統計口徑:包含已賣光、只有配息的列
     const shown = held.filter(r => r.shares !== 0 || r.error), hiddenZero = held.length - shown.length; // 「目前持股」只顯示股數不為 0 的列(有錯誤的列照樣顯示);合計仍用 held
     const sum = k => held.reduce((s, r) => s + (r[k] || 0), 0);
+    // 目前持股(股數 > 0)的近 12 個月配息、剩餘成本、市值 → 合計殖利率;還沒指定帳戶的配息另外提示
+    const live12 = held.filter(r => r.shares > 0), y12 = { div: live12.reduce((s, r) => s + r.div12, 0), cost: live12.reduce((s, r) => s + r.cost, 0), value: live12.reduce((s, r) => s + (r.value || 0), 0), unassigned: unassigned.filter(d => S().in12m(d.date, today0)) };
     const anyPrice = held.some(r => r.shares > 0 && r.price === null);
     const meta = ls.get('quoteMeta', {}), latest = Object.values(q).filter(x => !x.manual).map(x => x.date).sort().pop() || '';
     const trades = live('trade'), plans = st.items.filter(r => r.kind === 'plan' && !r.deleted);
@@ -2145,20 +2147,20 @@ const stocksV1911 = (function () {
       <p class="mini">最新可取得收盤價:${latest ? esc(latest) : '尚未取得'}${meta.at ? ` · 更新於 ${new Date(meta.at).toLocaleString('zh-TW', { hour12: false })}` : ''}(非即時)${st.quoteMsg ? ` · <span style="color:#F5B971">${esc(st.quoteMsg)}</span>` : ''}</p>
       ${st.histBusy ? '<p class="mini">讀取歷年配息中…</p>' : st.histFail.length ? `<p class="status error">配息資料不完整:${esc(st.histFail.join('、'))} 年讀取失敗,累積配息與下方「每年現金流」的配息、手續費退回可能不正確(退回沒讀到時,預估可能偏高)。</p>` : ''}
       ${mismatch.length ? `<p class="status error">有 ${mismatch.length} 筆配息的歸屬和證券帳戶的歸屬不同,請在下方「配息明細」核對。</p>` : ''}
-      <div class="stk-scroll-v1911" style="overflow-x:auto;max-width:100%"><table style="min-width:640px"><thead><tr><th>帳戶 / 代號</th><th>股數</th><th>剩餘成本</th><th>現價</th><th>市值</th><th>未實現</th><th>已實現</th><th>累積配息</th><th>配息/剩餘成本</th><th>報酬率<br><span class="mini">(App 算法)</span></th></tr></thead><tbody>
+      <div class="stk-scroll-v1911" style="overflow-x:auto;max-width:100%"><table style="min-width:640px"><thead><tr><th>帳戶 / 代號</th><th>股數</th><th>剩餘成本</th><th>現價</th><th>市值</th><th>未實現</th><th>已實現</th><th>累積配息</th><th>殖利率<br><span class="mini">(近 12 個月)</span></th><th>報酬率<br><span class="mini">(App 算法)</span></th></tr></thead><tbody>
       ${shown.map(r => `<tr><td><strong>${esc(r.code)}</strong> ${esc((q[r.code] && q[r.code].name) || nameFromDiv(divs, r.code))}<br><span class="mini">${esc(accName(r.account))}${r.error ? ` · <span style="color:#FF8D83">${esc(r.error)}</span>` : ''}</span></td>
         <td>${r.shares.toLocaleString('zh-TW')}</td><td>${money(r.cost)}</td>
         <td>${r.price === null ? '—' : r.price}${r.quoteManual ? '<br><span class="mini">手動</span>' : r.quoteDate ? `<br><span class="mini">${esc(r.quoteDate.slice(5))}</span>` : ''}${r.shares > 0 ? `<br><button class="button light" type="button" data-stk-manual="${esc(r.code)}" style="padding:2px 6px;font-size:12px">手動現價</button>` : ''}</td>
         <td>${r.value === null ? '—' : money(r.value)}</td><td style="${tone(r.unrealized)}">${signed(r.unrealized)}</td><td style="${tone(r.realized)}">${signed(r.realized)}</td>
         <td>${money(r.divPerf)}${r.divBefore ? `<br><span class="mini">開帳前 ${money(r.divBefore)}</span>` : ''}${r.lastDiv ? `<br><span class="mini">最近 ${esc(r.lastDiv)}</span>` : ''}</td>
-        <td>${pct(r.divOnCost)}</td><td style="${tone(r.appReturn || 0)}">${pct(r.appReturn)}${r.openAppReturn !== null && r.openAppReturn !== undefined ? `<br><span class="mini">期初 App ${esc(String(r.openAppReturn))}%</span>` : ''}</td></tr>`).join('') || `<tr><td colspan="10" class="help">${held.length ? '目前沒有持股。' : '還沒有持股資料。請先新增證券帳戶,再建立目前持股。'}</td></tr>`}
-      ${held.length ? `<tr><td><strong>合計</strong></td><td></td><td>${money(sum('cost'))}</td><td></td><td>${anyPrice ? '部分缺價' : money(sum('value'))}</td><td style="${tone(sum('unrealized'))}">${anyPrice ? '—' : signed(sum('unrealized'))}</td><td style="${tone(sum('realized'))}">${signed(sum('realized'))}</td><td>${money(sum('divPerf'))}${sum('divBefore') ? `<br><span class="mini">開帳前 ${money(sum('divBefore'))}</span>` : ''}</td><td></td><td style="${anyPrice ? '' : tone(sum('netUnreal'))}" id="stkTotalRetV1911">${anyPrice || !(sum('cost') > 0) ? '—' : pct(sum('netUnreal') / sum('cost'))}</td></tr>` : ''}
+        <td>${r.shares > 0 ? `成本 ${pct(r.yieldCost)}<br><span class="mini">市值 ${pct(r.yieldValue)}</span>${r.div12 ? `<br><span class="mini">近 12 月 ${money(r.div12)}</span>` : ''}` : '—'}</td><td style="${tone(r.appReturn || 0)}">${pct(r.appReturn)}${r.openAppReturn !== null && r.openAppReturn !== undefined ? `<br><span class="mini">期初 App ${esc(String(r.openAppReturn))}%</span>` : ''}</td></tr>`).join('') || `<tr><td colspan="10" class="help">${held.length ? '目前沒有持股。' : '還沒有持股資料。請先新增證券帳戶,再建立目前持股。'}</td></tr>`}
+      ${held.length ? `<tr><td><strong>合計</strong></td><td></td><td>${money(sum('cost'))}</td><td></td><td>${anyPrice ? '部分缺價' : money(sum('value'))}</td><td style="${tone(sum('unrealized'))}">${anyPrice ? '—' : signed(sum('unrealized'))}</td><td style="${tone(sum('realized'))}">${signed(sum('realized'))}</td><td>${money(sum('divPerf'))}${sum('divBefore') ? `<br><span class="mini">開帳前 ${money(sum('divBefore'))}</span>` : ''}</td><td id="stkTotalYieldV1911">${y12.cost > 0 ? `成本 ${pct(y12.div / y12.cost)}<br><span class="mini">市值 ${anyPrice || !(y12.value > 0) ? '—' : pct(y12.div / y12.value)}</span>` : '—'}</td><td style="${anyPrice ? '' : tone(sum('netUnreal'))}" id="stkTotalRetV1911">${anyPrice || !(sum('cost') > 0) ? '—' : pct(sum('netUnreal') / sum('cost'))}</td></tr>` : ''}
       ${hiddenZero ? `<tr><td colspan="10" class="mini" id="stkHiddenZeroV1911">另有 ${hiddenZero} 檔目前 0 股(已賣光或只有配息)未列出;它們的已實現損益與配息仍計入上方合計。</td></tr>` : ''}
       </tbody></table></div>
-      <p class="mini">平均成本法(每個帳戶分開計算)。「報酬率(App 算法)」=(市值 − 預估賣出手續費 0.1425% − 預估證交稅 − 剩餘成本)÷ 剩餘成本,和證券 App 的庫存報酬率同一種算法,不含配息與已實現;「未實現」欄是還沒扣賣出費用的金額。股價用最近收盤價,App 盤中用即時價,會有些微差距。「配息/剩餘成本」<strong>非年化</strong>;建立期初持股之前的配息列為「開帳前」。</p>
+      <p class="mini">平均成本法(每個帳戶分開計算)。「報酬率(App 算法)」=(市值 − 預估賣出手續費 0.1425% − 預估證交稅 − 剩餘成本)÷ 剩餘成本,和證券 App 的庫存報酬率同一種算法,不含配息與已實現;「未實現」欄是還沒扣賣出費用的金額。股價用最近收盤價,App 盤中用即時價,會有些微差距。「殖利率(近 12 個月)」= 最近 12 個月實際入帳的配息(含開帳前)÷ 剩餘成本(成本)或 ÷ 市值(市值);持有未滿一年、這一年內有加碼或減碼時只是參考。建立期初持股之前的配息在「累積配息」列為「開帳前」。</p>
     </div>
 
-    ${cashflowPanel(divs)}
+    ${cashflowPanel(divs, y12, anyPrice, today0)}
 
     ${events.length ? `<div class="panel" style="margin-top:16px"><h2>定期定額待確認(${events.length})</h2><p class="help">股數是用最新收盤價估算,請照證券 App 改成實際成交的股數、價格、手續費再確認;沒確認不會記入。</p>
       ${events.map(ev => { const p = ev.plan, price = q[p.code] && q[p.code].close, est = S().estimateShares(p.amount, p.fee, price); return `<div class="row" style="flex-wrap:wrap;gap:8px;border-top:1px solid rgba(255,255,255,.08);padding:8px 0" data-stk-ev="${esc(ev.id)}">
@@ -2225,11 +2227,14 @@ const stocksV1911 = (function () {
     restoreInputs(el, snap, el.dataset.formMode, 'stkT');
   }
   // 每年配息與手續費退回(現金流):配息含開帳前、含尚未指定帳戶;退回分「已入帳」(記帳裡的交割折讓)與「預估」(帳戶退回比例 × 手續費,下個月入帳)
-  function cashflowPanel(divs) {
+  function cashflowPanel(divs, y12, anyPrice, today) {
     const years = S().cashflow(divs, allRecords(), st.items, accounts());
     if (!years.length) return '';
+    const div12All = divs.filter(d => S().in12m(d.date, today)).reduce((s, d) => s + d.amount, 0);
+    const yieldLine = `<p id="stkYield12V1911"><strong>近 12 個月配息 ${money(div12All)}</strong> <span class="mini">(${esc(S().yearAgo(today))} 之後 ~ ${esc(today)},含已賣光、還沒指定帳戶的)</span><br>目前持股殖利率:對持有成本 <strong>${y12.cost > 0 ? pct(y12.div / y12.cost) : '—'}</strong>、對市值 <strong>${y12.cost > 0 && !anyPrice && y12.value > 0 ? pct(y12.div / y12.value) : '—'}</strong> <span class="mini">(目前持股近 12 個月配息 ${money(y12.div)} ÷ 剩餘成本 ${money(y12.cost)}${!anyPrice && y12.value > 0 ? ` / 市值 ${money(y12.value)}` : ',有持股缺價所以不算市值殖利率'})</span></p>${y12.unassigned.length ? `<p class="status error">有 ${y12.unassigned.length} 筆近 12 個月的配息(${money(y12.unassigned.reduce((s, d) => s + d.amount, 0))})還沒指定證券帳戶,沒算進殖利率;到下方「配息待指定帳戶」指定後就會算進去。</p>` : ''}`;
     const sumRow = (label, x, id) => `<tr${id ? ` id="${id}"` : ''}><td>${label}</td><td>${money(x.div)}</td><td>${money(x.rebActual)}</td><td>${x.rebEst ? money(x.rebEst) : '—'}</td><td><strong>${money(x.div + x.rebActual + x.rebEst)}</strong></td></tr>`;
     return `<div class="panel" style="margin-top:16px" id="stkCashflowV1911"><h2>配息與手續費退回(每年現金流)</h2>
+      ${yieldLine}
       <div class="stk-scroll-v1911" style="overflow-x:auto;max-width:100%"><table style="min-width:520px"><thead><tr><th>年度</th><th>配息</th><th>手續費退回<br><span class="mini">已入帳</span></th><th>手續費退回<br><span class="mini">預估</span></th><th>合計</th></tr></thead><tbody>
       ${years.map(y => sumRow(esc(y.year), y, 'stkCfY' + esc(y.year))).join('')}</tbody></table></div>
       ${years.map((y, i) => `<details ${i === 0 ? 'open' : ''} style="margin-top:8px"><summary class="mini">${esc(y.year)} 每月明細</summary><div class="stk-scroll-v1911" style="overflow-x:auto;max-width:100%"><table style="min-width:520px"><thead><tr><th>月份</th><th>配息</th><th>退回(已入帳)</th><th>退回(預估)</th><th>合計</th></tr></thead><tbody>${y.months.map(m => sumRow(esc(m.month), m)).join('')}</tbody></table></div></details>`).join('')}
@@ -2613,17 +2618,21 @@ window.LedgerStocksV1911 = (function () {
   // 績效起點:有期初 → 期初基準日之後(不含當天);否則第一筆買入日(含)
   function inPerf(p, date) { return p.openingDate ? date > p.openingDate : date >= p.firstDate; }
 
-  // 合併持股、配息、股價 → 每列指標
-  function table(pos, dividends, quotes) {
-    const rows = pos.map(p => ({ ...p, divPerf: 0, divBefore: 0, divCount: 0, lastDiv: '' }));
+  // 近 12 個月:asOf(YYYY-MM-DD)往前一年,不含一年前當天、含 asOf
+  const yearAgo = asOf => String(Number(asOf.slice(0, 4)) - 1).padStart(4, '0') + asOf.slice(4);
+  const in12m = (date, asOf) => Boolean(asOf) && date > yearAgo(asOf) && date <= asOf;
+  // 合併持股、配息、股價 → 每列指標;asOf 有給才算近 12 個月殖利率
+  function table(pos, dividends, quotes, asOf) {
+    const rows = pos.map(p => ({ ...p, divPerf: 0, divBefore: 0, divCount: 0, lastDiv: '', div12: 0 }));
     const find = (account, code) => rows.find(r => r.account === account && r.code === code);
     const unassigned = [];
     for (const d of dividends) {
       let row = d.account ? find(d.account, d.code) : null;
-      if (!row && d.account) { row = { key: d.account + '|' + d.code, account: d.account, code: d.code, shares: 0, cost: 0, realized: 0, openingCost: 0, buyCost: 0, openingDate: null, firstDate: '9999-12-31', divPerf: 0, divBefore: 0, divCount: 0, lastDiv: '', noTrades: true }; rows.push(row); }
+      if (!row && d.account) { row = { key: d.account + '|' + d.code, account: d.account, code: d.code, shares: 0, cost: 0, realized: 0, openingCost: 0, buyCost: 0, openingDate: null, firstDate: '9999-12-31', divPerf: 0, divBefore: 0, divCount: 0, lastDiv: '', div12: 0, noTrades: true }; rows.push(row); }
       if (!row) { unassigned.push(d); continue; }
       if (!row.noTrades && inPerf(row, d.date)) row.divPerf += d.amount; else row.divBefore += d.amount;
       row.divCount++; if (d.date > row.lastDiv) row.lastDiv = d.date;
+      if (in12m(d.date, asOf)) row.div12 += d.amount; // 殖利率看的是「現在持有一年能領多少」,開帳前的配息也算
     }
     for (const r of rows) {
       const q = quotes && quotes[r.code];
@@ -2636,6 +2645,9 @@ window.LedgerStocksV1911 = (function () {
       r.netUnreal = r.value !== null && r.shares > 0 ? r0(r.value - r.estSell - r.cost) : null;
       r.appReturn = r.netUnreal !== null && r.cost > 0 ? r.netUnreal / r.cost : null;
       r.divOnCost = r.shares > 0 && r.cost > 0 ? r.divPerf / r.cost : null;
+      // 近 12 個月殖利率:近 12 個月實際入帳配息 ÷ 剩餘成本(成本殖利率)/ ÷ 市值(以現價算)
+      r.yieldCost = asOf && r.shares > 0 && r.cost > 0 ? r.div12 / r.cost : null;
+      r.yieldValue = asOf && r.shares > 0 && r.value > 0 ? r.div12 / r.value : null;
       r.invested = r.openingCost + r.buyCost;
       r.totalReturn = r.invested > 0 && r.unrealized !== null ? (r.divPerf + r.realized + r.unrealized) / r.invested : (r.invested > 0 && r.shares === 0 ? (r.divPerf + r.realized) / r.invested : null);
     }
@@ -2715,7 +2727,7 @@ window.LedgerStocksV1911 = (function () {
     return [...years.values()].sort((a, b) => a.year < b.year ? 1 : -1);
   }
 
-  return { CODE, DIV_RE, TAX, normCode, validCode, guessType, sellTax, feeOf, dividendOf, positions, table, planEvents, estimateShares, agreementAt, spouseSummary, monthAdd, isRebate, cashflow };
+  return { CODE, DIV_RE, TAX, normCode, validCode, guessType, sellTax, feeOf, dividendOf, positions, table, planEvents, estimateShares, agreementAt, spouseSummary, monthAdd, isRebate, cashflow, in12m, yearAgo };
 })();
 </script>
 <script id="envelopeV1880">
