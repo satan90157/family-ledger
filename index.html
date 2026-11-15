@@ -2164,7 +2164,7 @@ const stocksV1911 = (function () {
         <button class="button" type="button" data-stk-ev-ok="${esc(ev.id)}">確認</button><button class="button light" type="button" data-stk-ev-skip="${esc(ev.id)}">略過</button></div>`; }).join('')}</div>` : ''}
 
     ${unassigned.length ? `<div class="panel" style="margin-top:16px"><h2>配息待指定帳戶(${unassigned.length})</h2><p class="help">這些配息還不知道是哪個證券帳戶(以前匯入的「股利 代號」,或原本的帳戶不存在)。勾選後指定帳戶;只會記下對應關係,不會改動以前匯入的交易。預設只勾選和帳戶同一個人的配息。</p>
-      <div class="row" style="gap:8px;flex-wrap:wrap"><label>指定到 <select class="field" id="stkLegacyAccV1911">${accOptions('')}</select></label><button class="button" type="button" id="stkLegacySaveV1911" ${accounts().some(a => a.active) ? '' : 'disabled'}>指定勾選的配息</button></div>
+      <div class="row" style="gap:8px;flex-wrap:wrap"><label>指定到 <select class="field" id="stkLegacyAccV1911" ${firstAcc ? '' : 'disabled'}>${accOptions('') || '<option value="">沒有可用的證券帳戶</option>'}</select></label><button class="button" type="button" id="stkLegacySaveV1911" ${firstAcc ? '' : 'disabled'}>指定勾選的配息</button>${firstAcc ? '' : '<span class="mini">請先在下方「證券帳戶」新增或啟用帳戶</span>'}</div>
       <div style="max-height:320px;overflow:auto;margin-top:6px">${unassigned.map(d => `<label class="row mini" style="gap:6px;padding:3px 0" data-stk-pick="${esc(d.id)}"><input type="checkbox" data-pick-owner="${esc(d.owner)}" value="${esc(d.id)}" ${firstAcc && d.owner === firstAcc.owner ? 'checked' : ''}>${esc(d.date)} ${esc(d.code)} ${money(d.amount)} · ${esc(ownerName(d.owner))}${d.badAccount ? '(原帳戶不存在)' : ''}</label>`).join('')}</div></div>` : ''}
 
     <div class="panel" style="margin-top:16px"><h2>證券帳戶</h2>
