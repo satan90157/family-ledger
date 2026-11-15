@@ -133,9 +133,9 @@ html[data-theme="pink"] .dot[style*="#FF8D83" i]{background:var(--pk-exp)!import
 </style>
 </head>
 <body>
-<div id="loginGate"><form class="login-panel" id="loginForm"><h1>家庭記帳 · 登入 <span class="version-chip">v1.9.10</span></h1><p class="subtitle">使用個人帳號登入；所有更動會留下操作紀錄。</p><p class="login-version" aria-label="目前前端版本">前端版本 v1.9.10</p><label for="loginUrl">Apps Script 網址（首次設定）</label><input class="field" type="url" id="loginUrl" name="ledgerApiUrl" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://script.google.com/macros/s/.../exec" required><input type="text" id="loginUsernameHint" name="username" autocomplete="username" value="me" hidden aria-hidden="true" tabindex="-1"><label for="loginUser">使用者</label><select class="field" id="loginUser" onchange="document.getElementById('loginUsernameHint').value=this.value"><option value="me">承瑋</option><option value="wife">俐穎</option></select><label for="loginPassword">密碼</label><input class="field" id="loginPassword" type="password" autocomplete="current-password" required><button class="button" id="loginButton" type="submit">登入</button><p id="loginError" role="alert"></p></form></div>
+<div id="loginGate"><form class="login-panel" id="loginForm"><h1>家庭記帳 · 登入 <span class="version-chip">v1.9.11</span></h1><p class="subtitle">使用個人帳號登入；所有更動會留下操作紀錄。</p><p class="login-version" aria-label="目前前端版本">前端版本 v1.9.11</p><label for="loginUrl">Apps Script 網址（首次設定）</label><input class="field" type="url" id="loginUrl" name="ledgerApiUrl" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://script.google.com/macros/s/.../exec" required><input type="text" id="loginUsernameHint" name="username" autocomplete="username" value="me" hidden aria-hidden="true" tabindex="-1"><label for="loginUser">使用者</label><select class="field" id="loginUser" onchange="document.getElementById('loginUsernameHint').value=this.value"><option value="me">承瑋</option><option value="wife">俐穎</option></select><label for="loginPassword">密碼</label><input class="field" id="loginPassword" type="password" autocomplete="current-password" required><button class="button" id="loginButton" type="submit">登入</button><p id="loginError" role="alert"></p></form></div>
 <main class="shell">
-  <header class="header"><div class="logo">家計簿 <span style="color:#d3b573">◈</span><small>OUR FAMILY FINANCE · v1.9.10</small></div><nav class="nav" aria-label="主要頁面"><button data-tab="dashboard" class="active">總覽</button><button data-tab="annual">年度統計</button><button data-tab="records">收支明細</button><button data-tab="aiStudio">✦ AI 智慧整理</button><button data-tab="add">新增記帳</button><button data-tab="settings">同步設定</button></nav></header>
+  <header class="header"><div class="logo">家計簿 <span style="color:#d3b573">◈</span><small>OUR FAMILY FINANCE · v1.9.11</small></div><nav class="nav" aria-label="主要頁面"><button data-tab="dashboard" class="active">總覽</button><button data-tab="annual">年度統計</button><button data-tab="records">收支明細</button><button data-tab="stocks">股票</button><button data-tab="aiStudio">✦ AI 智慧整理</button><button data-tab="add">新增記帳</button><button data-tab="settings">同步設定</button></nav></header>
   <div id="syncBanner" class="sync-banner pending" role="status" aria-live="polite"><span id="syncBannerText">正在檢查雲端同步狀態…</span><button id="syncBannerRetry" class="button light" type="button" hidden>重試同步</button></div>
   <div id="conflictPanel" class="panel" style="margin-bottom:16px;display:none"><h2>跨裝置資料衝突</h2><p class="help">同一張發票在電腦與手機被修改時，不會自動覆蓋。按「處理衝突」會先自動下載備份、合併自訂分類，再列出兩邊內容讓你選；重複匯入的發票會自動改用雲端。採用本機版本時會經過 Google Sheets 版本檢查，並留下修改紀錄。</p><div id="conflictItems" class="help"></div><div class="actions"><button id="conflictStartV19A" class="button" type="button">處理衝突</button><button id="conflictPickCloudV19A" class="button light" type="button" style="display:none">全部選雲端</button><button id="conflictPickLocalV19A" class="button light" type="button" style="display:none">全部選本機</button><button id="conflictBackup" class="button light" type="button" style="display:none">① 下載本機 JSON 備份</button><button id="conflictUseCloud" class="button light" type="button" disabled style="display:none">② 雙向合併自訂分類</button><button id="conflictReview" class="button light" type="button" disabled style="display:none">③ 比較交易差異</button><button id="conflictAllCloud" class="button light" type="button" disabled style="display:none">重複匯入的發票：全部採用雲端</button><button id="conflictApply" class="button" type="button" style="display:none">套用選擇</button></div><p id="conflictMessage" class="mini" role="status" aria-live="polite"></p></div>
   <section id="dashboard" class="section active"><div class="top"><div><h1>家庭財務總覽</h1><p class="subtitle">讓每一筆收支都有跡可循</p></div><div class="month"><button class="pill" id="prevMonth" aria-label="上個月">‹</button><input aria-label="統計月份" class="field" id="month" type="month"><button class="pill" id="nextMonth" aria-label="下個月">›</button></div><label class="month">統計歸屬 <select id="dashboardOwnerStats" class="field"><option value="all">家庭全部</option><option value="me">承瑋</option><option value="wife">俐穎</option><option value="shared">共同</option></select></label></div>
@@ -160,7 +160,7 @@ html[data-theme="pink"] .dot[style*="#FF8D83" i]{background:var(--pk-exp)!import
     <div class="grid"><div class="panel"><h2>儲蓄基金</h2><div id="budgetFunds"></div><h2 id="fundFormTitle">新增基金目標</h2><div class="budget-form"><label>名稱<input id="fundName" class="field" maxlength="60" placeholder="例如 旅遊、緊急備用金"></label><label>目標金額<input id="fundTarget" class="field" type="number" min="0" step="1"></label><label>目前已存<input id="fundSaved" class="field" type="number" min="0" step="1"></label><div class="actions"><button id="saveFund" type="button" class="button">儲存基金</button><button id="cancelFundEdit" type="button" class="button ghost">取消編輯</button></div></div></div><div class="panel"><h2>每月儲蓄結算</h2><p class="budget-muted">依記帳推估的「收入－支出」不等於銀行裡真正增加的存款。建議次月 5 日核對帳戶後，手動確認上月實存金額。</p><div id="savingsEstimate" class="budget-summary"></div><div class="budget-form" style="margin-top:16px"><label>結算月份<input id="settlementMonth" class="field" type="month"></label><label>實際存下金額（元）<input id="settlementAmount" class="field" type="number" step="1" placeholder="存款減少請填負數"></label><div class="actions"><button id="saveSettlement" type="button" class="button">確認實際存款</button></div></div><div class="budget-muted" id="settlementResult"></div></div></div>
 
  <div class="panel" id="planningPanel" style="margin-top:16px"><div class="row" style="flex-wrap:wrap"><div><h2>理財配置與年度預留</h2><p class="budget-muted">金額以新台幣計。AI 建議與實際設定分開儲存；家庭全部只做彙總，不重複計帳。</p></div><button class="button light" id="planningSeed" type="button">補齊預算項目</button><button class="button light" id="planningDedupe" type="button">整理重複項目</button><button class="button" id="planningMigrateV2" type="button">整理成預算 v2</button></div><div id="planningMigratePreview" role="region" aria-live="polite"></div>
- <p class="budget-muted" style="margin:8px 0">每個項目只屬於承瑋或俐穎；舊版「共同」項目只供查閱，請用「整理成預算 v2」轉換（停用不刪除）。按「儲存理財配置」才會同步到 Google Sheets。AI 建議必須先匯出資料交給 AI 分析，再匯入建議 JSON；如尚未匯入，可先查看系統參考預算（不等同 AI 分析）。</p><p class="budget-muted" style="margin:10px 0">提醒：此處管理的是預算與預計儲蓄，不是銀行帳單匯入。現有「收支明細 → 匯入 Invoice CSV」僅支援電子發票格式；銀行對帳單 CSV 匯入功能尚未實作，請勿將銀行 CSV 放入發票匯入區。</p><div class="panel" id="strategyPanel" style="padding:14px;margin:12px 0"><h3>理財強度與系統建議</h3><p class="budget-muted">切換時只試算，不會覆蓋已確認的實際金額。點「採用建議、同步上方預算並儲存」會在確認後直接將建議值寫入詳細配置，並同步上方本月預算及預計存款；僅調整光譜不會修改現有設定。夫妻補助 $20,000 是內部轉帳，不計入家庭總消費。</p><div class="strategy-grid"><label>承瑋實領月收入（試算）<input class="field" id="strategySalaryMe" type="number" min="0" value="74700"></label><label>俐穎實領月收入（試算）<input class="field" id="strategySalaryWife" type="number" min="0" value="66216"></label></div><div class="strategy-grid"><label>理財光譜：<strong id="strategyModeLabel">平衡</strong><input id="strategyMode" type="range" min="0" max="4" step="1" value="2" style="width:100%"></label><div class="strategy-scale">寬鬆　·　舒適　·　平衡　·　嚴謹　·　積極</div></div><div class="actions"><button class="button light" id="strategyRecommend" type="button">產生全部項目參考比例</button><button class="button" id="strategyApply" type="button">採用建議、同步上方預算並儲存</button></div><p class="budget-muted">所得稅建議是以 CSV 薪資及獎金作年度概算的保守準備金，不等於五月應補繳稅額；實際需扣除扣繳稅款，並核對所得憑單、股利、保險及列舉扣除等。已自行設定為 $0 的實際金額不會被建議功能擅自覆蓋。</p><div id="strategyWarning" role="status" aria-live="polite"></div></div><p class="budget-muted">上方「本月預算」讀取 BudgetData；下方詳細項目讀取 PlanningData。採用並儲存時會同步兩者：固定、彈性及年度預留計入支出預算；退休、緊急、旅遊基金計入預計存款，內部補助不重複列帳。</p><div class="planning-summary" id="planningSummary"></div><label class="mini" style="display:inline-flex;gap:6px;align-items:center;margin:6px 0"><input type="checkbox" id="planningShowZero"> 顯示 0 元項目</label><div class="planning-grid-head"><span>項目／性質</span><span>AI 建議 %／金額</span><span>實際 %／預算金額</span><span>設定</span></div><div id="planningRows"></div>
+ <p class="budget-muted" style="margin:8px 0">每個項目只屬於承瑋或俐穎；舊版「共同」項目只供查閱，請用「整理成預算 v2」轉換（停用不刪除）。按「儲存理財配置」才會同步到 Google Sheets。AI 建議必須先匯出資料交給 AI 分析，再匯入建議 JSON；如尚未匯入，可先查看系統參考預算（不等同 AI 分析）。</p><p class="budget-muted" style="margin:10px 0">提醒：此處管理的是預算與預計儲蓄，不是銀行帳單匯入。現有「收支明細 → 匯入 Invoice CSV」僅支援電子發票格式；銀行對帳單 CSV 匯入功能尚未實作，請勿將銀行 CSV 放入發票匯入區。</p><div class="panel" id="strategyPanel" style="padding:14px;margin:12px 0"><h3>理財強度與系統建議</h3><p class="budget-muted">切換時只試算，不會覆蓋已確認的實際金額。點「採用建議、同步上方預算並儲存」會在確認後直接將建議值寫入詳細配置，並同步上方本月預算及預計存款；僅調整光譜不會修改現有設定。家庭補助是內部轉帳，不計入家庭總消費（約定金額以預算項目「家庭補助」為準）。</p><div class="strategy-grid"><label>承瑋實領月收入（試算）<input class="field" id="strategySalaryMe" type="number" min="0" value="74700"></label><label>俐穎實領月收入（試算）<input class="field" id="strategySalaryWife" type="number" min="0" value="66216"></label></div><div class="strategy-grid"><label>理財光譜：<strong id="strategyModeLabel">平衡</strong><input id="strategyMode" type="range" min="0" max="4" step="1" value="2" style="width:100%"></label><div class="strategy-scale">寬鬆　·　舒適　·　平衡　·　嚴謹　·　積極</div></div><div class="actions"><button class="button light" id="strategyRecommend" type="button">產生全部項目參考比例</button><button class="button" id="strategyApply" type="button">採用建議、同步上方預算並儲存</button></div><p class="budget-muted">所得稅建議是以 CSV 薪資及獎金作年度概算的保守準備金，不等於五月應補繳稅額；實際需扣除扣繳稅款，並核對所得憑單、股利、保險及列舉扣除等。已自行設定為 $0 的實際金額不會被建議功能擅自覆蓋。</p><div id="strategyWarning" role="status" aria-live="polite"></div></div><p class="budget-muted">上方「本月預算」讀取 BudgetData；下方詳細項目讀取 PlanningData。採用並儲存時會同步兩者：固定、彈性及年度預留計入支出預算；退休、緊急、旅遊基金計入預計存款，內部補助不重複列帳。</p><div class="planning-summary" id="planningSummary"></div><label class="mini" style="display:inline-flex;gap:6px;align-items:center;margin:6px 0"><input type="checkbox" id="planningShowZero"> 顯示 0 元項目</label><div class="planning-grid-head"><span>項目／性質</span><span>AI 建議 %／金額</span><span>實際 %／預算金額</span><span>設定</span></div><div id="planningRows"></div>
  <details style="margin:10px 0"><summary>管理已停用項目（可恢復）</summary><div id="planningInactive"></div></details><div class="planning-new"><input class="field" id="planningNewName" maxlength="50" placeholder="新增項目名稱，例如旅遊基金"><select class="field" id="planningNewType"><option value="variable">每月彈性預算</option><option value="fixed">固定月費</option><option value="annual">年度預留</option><option value="fund">基金／投資</option></select><select class="field" id="planningNewOwner"><option value="me">承瑋</option><option value="wife">俐穎</option></select><button class="button" id="planningAdd" type="button">新增項目</button></div>
  <div class="panel" style="margin:14px 0;padding:14px"><h3>先看系統參考配置（不等同 AI 建議）</h3><p class="budget-muted">可直接列出已盤點的每月金額；投資、旅遊與預備金的比例需要收入基準。這是初步試算，不會修改目前設定，也不會自動儲存。</p><div class="actions" style="align-items:end;flex-wrap:wrap"><label style="display:flex;flex-direction:column;gap:5px">家庭每月實領收入（選填）<input class="field" id="planningIncomeBasis" type="number" min="0" step="1000" placeholder="例如 140000；不知道可留空"></label><button class="button light" id="planningQuickSuggest" type="button">顯示參考金額與比例</button></div><div id="planningQuickResult" role="status" aria-live="polite"></div></div>
 <div class="actions" style="margin-top:13px"><button class="button" id="planningSave" type="button">儲存理財配置</button><button class="button light" id="planningExport" type="button">匯出供 AI 分析 JSON</button><label class="button light file-button">匯入 AI 建議 JSON<input id="planningImport" type="file" accept=".json,application/json"></label></div><p class="budget-muted" id="planningMessage">尚未載入理財配置</p></div>
@@ -179,7 +179,8 @@ html[data-theme="pink"] .dot[style*="#FF8D83" i]{background:var(--pk-exp)!import
 <label>個人給付開始年齡<input class="field" id="retirePensionAge" type="number" min="40" max="95" value="65"></label>
 <label>模擬到俐穎年齡<input class="field" id="retireHorizon" type="number" min="75" max="110" value="95"></label>
 </div><p class="budget-muted">通膨預設 <strong>2.03%</strong>（2026 年央行全年 CPI 預測參考，非長期保證）；保留小數兩位與完整計算精度。金額為未來名目值。</p></details><div class="actions"><button class="button" id="retireSave" type="button">儲存退休設定</button></div><div id="retireCheckpointsV1871" class="panel" style="margin:12px 0;padding:12px"></div><div hidden data-legacy-retire="v1.8.7.4"><div id="retireCashflow" class="panel" style="margin:12px 0;padding:12px"></div><div id="retireCards" class="retire-cards"></div><div id="retireGraph" class="retire-chart"></div><div id="retireScenarios"></div></div><p class="budget-muted" id="retireStatus">修改出生日期、退休年齡或本金後,按「儲存退休設定」才會寫入並更新上方檢查。</p></div></section>
-  <section id="settings" class="section"><div class="top"><div><h1>同步與資料安全</h1><p class="subtitle">正常同步由系統自動完成；需要時才使用進階維護工具。</p></div></div>
+  <section id="stocks" class="section"><div class="top"><div><h1>股票</h1><p class="subtitle">持股、買賣、配息與定期定額</p></div></div><div id="stocksRootV1911"></div></section>
+<section id="settings" class="section"><div class="top"><div><h1>同步與資料安全</h1><p class="subtitle">正常同步由系統自動完成；需要時才使用進階維護工具。</p></div></div>
 <div class="panel"><h2>雲端連線</h2><div id="syncStatus" class="status" role="status" aria-live="polite">準備同步中…</div><div class="actions" style="margin-top:12px"><button class="button light" id="syncDown" type="button" title="立即重新取得雲端交易；不會覆寫雲端資料。">重新讀取雲端</button><button class="button light" id="syncUp" type="button" title="有同步失敗時重試送出待同步資料；沒有待同步資料則無須操作。">重試待同步資料</button></div><p class="help">通常無須手動操作，若同步失敗請依畫面提示處理。</p></div>
 <details class="panel" style="margin-top:16px"><summary style="cursor:pointer;font-weight:700">進階連線設定（更換 Apps Script 網址）</summary><div style="margin-top:16px"><div class="form-grid"><label class="full">Apps Script 網頁應用程式 URL<input class="field" id="apiUrl" type="url" name="ledgerApiUrlSetting" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://script.google.com/macros/s/.../exec"></label><label class="full" style="display:none">舊版金鑰<input class="field" id="apiToken" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" hidden></label></div><div class="actions" style="margin-top:12px"><button class="button" id="saveSettings">儲存網址</button></div><p class="help">僅在後端部署網址變更時使用。變更後可能需要重新登入；此處不必填入 ACCESS_TOKEN。</p></div></details>
 <details class="panel" style="margin-top:16px"><summary style="cursor:pointer;font-weight:700">舊版分類修復（僅故障時使用）</summary><div style="margin-top:16px"><p class="help">修復舊版本留在電腦、未上傳至 Google Sheets 的分類；先核對、下載本機備份，再由你勾選要補上的分類。不會修改發票與交易金額。</p><div class="actions"><button id="categoryAuditScan" class="button light" type="button">① 核對本機與雲端分類</button><button id="categoryAuditBackup" class="button ghost" type="button">② 下載本機完整備份</button><button id="categoryAuditUpload" class="button" type="button" disabled>③ 上傳勾選的缺少分類</button></div><p id="categoryAuditMessage" class="help" role="status" aria-live="polite">僅在確認舊裝置有缺少的自訂分類時操作。</p><div id="categoryAuditResults" class="help"></div></div></details>
@@ -445,7 +446,7 @@ async function pullRemote(){
   notify(`已讀取 ${selectedYear} 年雲端：${cloudActiveV1871} 筆有效 · 已載入 ${[...loadedYearSet].sort().join('、')} 年合計 ${activeRecords().length} 筆${pending.size?' · '+pending.size+' 筆待同步':''}`);
   cloudReady=true;renderSyncNotice();
 }
-// v1.9.10:本機剛匯入、從未上雲的發票撞到雲端已有的同一張(核心欄位相同)→ 自動改用雲端版本,不需備份與手動處理。
+// v1.9.11:本機剛匯入、從未上雲的發票撞到雲端已有的同一張(核心欄位相同)→ 自動改用雲端版本,不需備份與手動處理。
 // 讀不到雲端、有快速編輯草稿、內容不同的都原樣交給衝突區。
 async function autoDupCloudV19A(ids){
   const dup=ids.filter(id=>dupImportLocalV1990(records.find(r=>r.id===id)));
@@ -1921,6 +1922,557 @@ async function offerCategoryRulesV1990(changes){
     :unconfirmed.length?'已送出,但還沒確認「'+unconfirmed.map(a=>a.store).slice(0,3).join('、')+'」的規則已生效;請到同步設定按「重新下載規則」檢查'
     :bad?'加入分類清單:成功 '+ok+'、失敗 '+bad+'(可再改一次分類重試)':'已加入分類清單 '+ok+' 家店'+(kept?'(保留 '+kept+' 條規則頁的規則)':''),Boolean(bad||lost.length||unconfirmed.length));
 }
+// v1.9.11 股票頁(帳戶、期初、買賣、配息、定期定額、股價)與總覽「家庭補助」卡片。資料在後端 StockData;配息是一般收入交易。
+const stocksV1911 = (function () {
+  const S = () => window.LedgerStocksV1911;
+  // 本機儲存依「後端網址」分開;非同步工作開始時固定 namespace,之後只寫自己的 namespace
+  const nsFor = url => { let h = 0; for (const c of String(url || '')) h = (h * 31 + c.charCodeAt(0)) | 0; return 'ledgerStocksV1911:' + (h >>> 0).toString(36) + ':'; };
+  const lsAt = ns => ({
+    get(k, d) { try { const v = localStorage.getItem(ns + k); return v ? JSON.parse(v) : d; } catch { return d; } },
+    set(k, v) { try { if (v === null) localStorage.removeItem(ns + k); else localStorage.setItem(ns + k, JSON.stringify(v)); } catch { /* 本機儲存失敗不影響雲端資料 */ } },
+  });
+  const ls = { get: (k, d) => lsAt(nsFor(settings.url)).get(k, d), set: (k, v) => lsAt(nsFor(settings.url)).set(k, v) }; // 只給「目前畫面」的同步動作用
+  // 登入狀態(session 世代):登入/登出/換後端 → 世代 +1,所有舊工作的結果一律丟棄
+  let sessionSeen = null, sessionGen = 0;
+  const draftKey = u => 'draft:' + (u || ''); // 草稿依「後端網址 + 帳號」分開
+  const ctxNow = () => ({ user: String(currentUser || ''), gen: sessionGen, url: String(settings.url || ''), session: String(session || ''), ns: nsFor(settings.url) });
+  const ctxValid = c => { checkSession(); return c.gen === sessionGen && c.url === String(settings.url || '') && c.session === String(session || ''); };
+  const freshState = () => ({ items: [], loaded: false, loading: null, loadedAt: 0, unsupported: false, error: '', quoteBusy: false, quoteMsg: '', remote: [], remoteYears: [], histAt: 0, histFail: [], histBusy: false, planItem: undefined, planErr: false, planLoading: null, initializing: null, busy: false, msg: '', showOpening: false, editTrade: null, editXfer: null });
+  // remote:只存「本機沒有載入的年度」的雲端交易;已載入年度一律即時用本機 records 計算
+  const st = freshState();
+  const todayTpe = () => new Date(Date.now() + 8 * 3600e3).toISOString().slice(0, 10); // 台北日期(刻意 +8 小時後取 UTC 日期)
+  const live = k => st.items.filter(r => r.kind === k && !r.deleted);
+  const accounts = () => st.items.filter(r => r.kind === 'account');
+  const accName = id => { const a = accounts().find(x => x.id === id); return a ? `${a.name}(${a.owner === 'me' ? '承瑋' : '俐穎'})` : '未知帳戶'; };
+  const esc = escapeHtml;
+  const pct = x => x === null || !Number.isFinite(x) ? '—' : (x * 100).toFixed(2) + '%';
+  const signed = n => n === null ? '—' : (n > 0 ? '+' : n < 0 ? '−' : '') + money(Math.abs(n));
+  const tone = n => n > 0 ? 'color:#6EE7B7' : n < 0 ? 'color:#FF8D83' : '';
+  const root = () => $('stocksRootV1911');
+  const quotes = () => ls.get('quotes', {});
+  const strip = o => { const { _rev, _lastEditedBy, _lastEditedAt, owner, ...x } = o || {}; return JSON.stringify(Object.keys(x).sort().map(k => [k, x[k]])); };
+  const priceOk = s => /^\d+(\.\d{1,4})?$/.test(String(s).trim());
+  const ownerName = o => o === 'me' ? '承瑋' : o === 'wife' ? '俐穎' : '共同';
+  // 同日排序:有成交時間用時間,沒有就排在當天最後;尾數用輸入時間避免完全相同
+  const seqOf = time => { const m = /^(\d{2}):(\d{2})$/.exec(time || ''); return (m ? Number(m[1]) * 60 + Number(m[2]) : 1440) * 1e12 + (Math.max(0, Date.now() - 1577836800000) % 1e12); };
+
+  // 每個讀取工作持有自己的 promise;只有仍持有者(同世代、同一個 promise)才能清除 loading
+  function loadStocks(force) {
+    if (!configured()) return Promise.resolve();
+    if (st.loading) { const c0 = ctxNow(); return force ? st.loading.then(() => ctxValid(c0) ? loadStocks(true) : undefined) : st.loading; } // 強制重讀:等進行中的讀完再讀一次
+    if (!force && st.loaded && Date.now() - st.loadedAt < 60000) return Promise.resolve();
+    const c = ctxNow();
+    const task = (async () => {
+      try {
+        const r = await jsonp('stocks');
+        if (!ctxValid(c)) return; // 讀取期間已換帳號/登出:丟棄
+        if (!r.ok) { if (/無效的操作/.test(r.error || '')) st.unsupported = true; else st.error = r.error || '讀取股票資料失敗'; return; }
+        st.unsupported = false; st.error = ''; st.items = r.items || []; st.loaded = true; st.loadedAt = Date.now();
+      } catch (e) { if (ctxValid(c)) st.error = '讀取股票資料失敗:' + e.message; }
+      finally { if (c.gen === sessionGen && st.loading === task) st.loading = null; }
+      if (ctxValid(c)) renderAll();
+    })();
+    st.loading = task;
+    return task;
+  }
+  function loadPlanItem() {
+    if (st.planLoading) return st.planLoading;
+    const c = ctxNow();
+    const task = (async () => {
+      try { const r = await jsonp('planning'); if (!ctxValid(c)) return; if (!r.ok) throw Error(r.error); st.planErr = false; st.planItem = (r.items || []).find(x => x.name === '家庭補助' && x.owner === 'wife' && x.active !== false && !x.deleted) || null; }
+      catch { if (ctxValid(c)) { st.planErr = true; st.planItem = null; } }
+      finally { if (c.gen === sessionGen && st.planLoading === task) st.planLoading = null; }
+    })();
+    st.planLoading = task;
+    return task;
+  }
+  async function loadHistory(force) {
+    if (!configured() || st.histBusy || (!force && st.histAt && Date.now() - st.histAt < 300000)) return;
+    const c = ctxNow(), rs = [], fail = [], years = [];
+    st.histBusy = true; renderStocks();
+    try {
+      const y = await jsonp('years'); if (!ctxValid(c)) return; if (!y.ok) throw Error(y.error);
+      const loaded = new Set((window.loadedYearsV1880?.() || []).map(String));
+      for (const year of (y.years || []).map(String)) {
+        if (loaded.has(year)) continue;
+        if (!ctxValid(c)) return; // 換帳號後不再發出舊工作的請求
+        try { const r = await jsonp('list', year); if (!r.ok) throw Error(r.error); rs.push(...(r.records || []).filter(x => !x.deleted && x.source !== 'category-definition')); years.push(year); }
+        catch { fail.push(year); }
+      }
+      if (ctxValid(c)) { st.remote = rs; st.remoteYears = years; st.histAt = Date.now(); st.histFail = fail; }
+    } catch (e) { if (ctxValid(c)) st.histFail = ['年度清單']; }
+    finally { if (c.gen === sessionGen) { st.histBusy = false; renderStocks(); } }
+  }
+
+  function codesNeeded() {
+    const pos = S().positions(st.items);
+    return [...new Set([...pos.filter(p => p.shares > 0).map(p => p.code), ...live('plan').filter(p => p.active).map(p => p.code)])];
+  }
+  // 逐代號判斷:新代號沒報價馬上抓;已有報價但日期不是今天、或缺價 → 每 30 分鐘最多抓一次
+  async function refreshQuotes(force) {
+    if (st.quoteBusy || st.unsupported || !st.loaded || !configured()) return;
+    const codes = codesNeeded(); if (!codes.length) return;
+    const c = ctxNow(), L = lsAt(c.ns);
+    const cache = L.get('quotes', {}), meta = L.get('quoteMeta', {}), tried = meta.tried || {}, today = todayTpe(), now = Date.now();
+    const need = codes.filter(x => force || (!cache[x] && !tried[x]) || ((!cache[x] || cache[x].manual || cache[x].date < today) && now - (tried[x] || 0) > 30 * 60e3));
+    if (!need.length) return;
+    st.quoteBusy = true; renderStocks();
+    const miss = [], fails = new Set();
+    try {
+      for (let i = 0; i < need.length; i += 50) {
+        if (!ctxValid(c)) return; // 換帳號/後端:停止後續批次
+        const part = need.slice(i, i + 50), r = await jsonp('quotes', { codes: part.join(',') });
+        if (!ctxValid(c)) return;
+        if (!r.ok) throw Error(r.error);
+        for (const [k, q] of Object.entries(r.quotes || {})) cache[k] = q;
+        for (const k of part) tried[k] = now;
+        miss.push(...(r.missing || [])); (r.failed || []).forEach(f => fails.add(f));
+      }
+      L.set('quotes', cache); L.set('quoteMeta', { at: now, tried });
+      st.quoteMsg = (miss.length ? `查不到收盤價:${miss.join('、')}(可按「手動現價」填入)` : '') + (fails.size ? `${miss.length ? ';' : ''}${[...fails].map(f => f === 'twse' ? '證交所' : '櫃買中心').join('、')}資料讀取失敗,保留上次的價格` : '');
+    } catch (e) { if (ctxValid(c)) st.quoteMsg = '股價未更新:' + e.message + '(保留上次的價格)'; }
+    finally { if (c.gen === sessionGen) { st.quoteBusy = false; renderStocks(); } }
+  }
+
+  // 儲存:草稿先存本機(固定在開始時的後端 namespace);有未完成草稿時不接受新的寫入(先重試或捨棄);
+  // 衝突時若雲端內容與草稿相同視為已成功。回覆到達前若已換帳號/後端:不碰任何狀態,草稿留在原本的 namespace。
+  async function saveItems(items, label, retry, ctx) {
+    if (checkSession() || (ctx && !ctxValid(ctx))) return false; // 送出前:登入已變或呼叫端的 context 已失效 → 不送
+    if (st.busy) { if (!retry) showToast('上一筆股票資料還在儲存中,請稍候再按', true); return false; } // 不默默忽略使用者的操作
+    const c = ctx || ctxNow(), L = lsAt(c.ns);
+    if (!retry && L.get(draftKey(c.user), null)) { showToast('有一筆尚未完成的股票資料,請先按「重試」或「捨棄草稿」', true); goto('stocks'); renderStocks(); return false; }
+    st.busy = true; L.set(draftKey(c.user), { items, label, at: Date.now() }); st.msg = label + '儲存中…'; renderAll();
+    let stale = false;
+    try {
+      const r = await post({ items }, 'stockSave');
+      if (!ctxValid(c)) { stale = true; return false; }
+      if (r.conflicts && r.conflicts.length) {
+        await loadStocks(true);
+        if (!ctxValid(c)) { stale = true; return false; }
+        const rest = items.filter(x => strip(st.items.find(y => y.id === x.id)) !== strip(x));
+        if (!rest.length) { L.set(draftKey(c.user), null); st.msg = label + '已儲存(先前的請求其實已成功)。'; return true; }
+        if (retry && r.conflicts.every(id => !rest.some(x => x.id === id))) { st.busy = false; L.set(draftKey(c.user), { items: rest, label, at: Date.now() }); return await saveItems(rest, label, true, c); } // 先前已部分存入:只補送剩下的(await:外層 finally 等內層完成才解鎖)
+        st.msg = `${label}沒有儲存:${r.conflicts.length} 筆資料已在其他裝置變更,已重新讀取雲端資料。請確認後按「捨棄草稿」再重新輸入。`;
+        return false;
+      }
+      L.set(draftKey(c.user), null); st.msg = label + '已儲存。'; st.loadedAt = 0; await loadStocks(true); if (!ctxValid(c)) return false; refreshQuotes(false); return true; // 重讀期間換帳號:呼叫端不可再動新畫面
+    } catch (e) {
+      if (!ctxValid(c)) { stale = true; return false; }
+      const msg = String(e.message || '');
+      if (msg.includes('[STOCK_NOT_WRITTEN]')) { L.set(draftKey(c.user), null); st.msg = `${label}沒有儲存:${msg.replace(' [STOCK_NOT_WRITTEN]', '')}`; } // 後端在寫入前就拒絕:不保留草稿
+      else { st.msg = `${label}沒有完成:${msg}。草稿已保留,可按「重試」(若其實已部分或全部存入,重試會自動核對)。`; loadStocks(true); }
+      return false;
+    } finally { if (!stale && c.gen === sessionGen) { st.busy = false; renderAll(); } }
+  }
+
+  // 所有配息:已載入年度用本機 records(即時、含待同步);其他年度用唯讀的雲端資料,但本機有同 id(含已刪除)時以本機為準
+  function dividends() {
+    const maps = new Map(live('divmap').map(m => [m.record, m]));
+    const accById = new Map(accounts().map(a => [a.id, a]));
+    const loaded = new Set((window.loadedYearsV1880?.() || []).map(String)), localIds = new Set(records.map(r => r.id));
+    const src = [...activeRecords(), ...st.remote.filter(r => !localIds.has(r.id) && !loaded.has(String(r.date).slice(0, 4)))];
+    return src.map(r => {
+      const d = S().dividendOf(r, maps); if (!d) return null;
+      const a = d.account && accById.get(d.account);
+      return { ...d, account: a ? d.account : null, badAccount: Boolean(d.account && !a), ownerMismatch: Boolean(a && a.owner !== r.owner), id: r.id, date: r.date, amount: Number(r.amount) || 0, owner: r.owner, merchant: r.merchant };
+    }).filter(Boolean);
+  }
+  const nameFromDiv = (divs, code) => { const d = divs.find(x => x.code === code); return d ? String(d.merchant || '').replace(S().DIV_RE, '').trim() : ''; };
+  const accOptions = (sel, onlyActive = true) => accounts().filter(a => !onlyActive || a.active).map(a => `<option value="${esc(a.id)}" ${a.id === sel ? 'selected' : ''}>${esc(accName(a.id))}</option>`).join('');
+  const typeOptions = sel => [['stock', '股票'], ['etf', 'ETF'], ['bond-etf', '債券 ETF'], ['other', '其他']].map(([v, t]) => `<option value="${v}" ${v === sel ? 'selected' : ''}>${t}</option>`).join('');
+
+  // 重繪前後保留使用者正在輸入的內容(背景重新讀取、報價更新都不可清掉表單)
+  function snapshotInputs(el, mode) {
+    if (!el) return null;
+    const ids = {}, groups = {};
+    for (const x of el.querySelectorAll('input,select')) {
+      const g = x.closest('[data-stk-open],[data-stk-ev],[data-stk-pick]');
+      const val = x.type === 'checkbox' ? x.checked : x.value;
+      if (g) { const key = g.hasAttribute('data-stk-open') ? 'open' : g.hasAttribute('data-stk-ev') ? 'ev:' + g.dataset.stkEv : 'pick:' + g.dataset.stkPick; (groups[key] = groups[key] || []).push([x.dataset.f || x.name || '', val, x.dataset.touched || '']); }
+      else if (x.id) ids[x.id] = [val, x.dataset.touched || ''];
+    }
+    // gen:以這份畫面「實際產生時」的登入世代為準
+    return { gen: Number(el.dataset.sessionGen), mode, ids, groups, focus: document.activeElement && el.contains(document.activeElement) ? document.activeElement.id : '' };
+  }
+  function restoreInputs(el, snap, mode, prefix) {
+    if (!el || !snap || snap.gen !== sessionGen) return; // 換帳號後不還原前一位使用者的未送出輸入
+    const sameMode = snap.mode === mode;
+    for (const [id, [v, touched]] of Object.entries(snap.ids)) { const x = el.querySelector('#' + CSS.escape(id)); if (!x || (!sameMode && id.startsWith(prefix))) continue; if (x.type === 'checkbox') x.checked = v; else if (x.tagName !== 'SELECT' || [...x.options].some(o => o.value === v)) x.value = v; if (touched) x.dataset.touched = touched; }
+    const open = snap.groups.open || [];
+    if (open.length) {
+      const per = (el.querySelector('[data-stk-open]')?.querySelectorAll('input,select').length) || 5, rows = Math.ceil(open.length / per);
+      const box = el.querySelector('#stkOpenRowsV1911');
+      while (box && box.querySelectorAll('[data-stk-open]').length < rows) box.insertAdjacentHTML('beforeend', openingRow());
+      const xs = box ? [...box.querySelectorAll('[data-stk-open] input,[data-stk-open] select')] : [];
+      open.forEach(([, v], i) => { if (xs[i] && (xs[i].tagName !== 'SELECT' || [...xs[i].options].some(o => o.value === v))) xs[i].value = v; });
+    }
+    for (const [key, vals] of Object.entries(snap.groups)) {
+      if (key === 'open') continue;
+      const [kind, ...rest] = key.split(':'), id = rest.join(':');
+      const g = el.querySelector(kind === 'ev' ? `[data-stk-ev="${CSS.escape(id)}"]` : `[data-stk-pick="${CSS.escape(id)}"]`);
+      if (!g) continue;
+      const xs = [...g.querySelectorAll('input,select')];
+      vals.forEach(([, v, touched], i) => { if (!xs[i]) return; if (xs[i].type === 'checkbox') { if (touched) { xs[i].checked = v; xs[i].dataset.touched = touched; } } else xs[i].value = v; });
+    }
+    if (snap.focus) el.querySelector('#' + CSS.escape(snap.focus))?.focus();
+  }
+
+  function renderStocks() {
+    const el = root(); if (!el || !S()) return;
+    const snap = el.querySelector('#stkTSaveV1911') ? snapshotInputs(el, el.dataset.formMode) : null;
+    if (!configured()) { el.innerHTML = '<div class="panel"><p class="help">請先登入雲端。</p></div>'; return; }
+    if (st.unsupported) { el.innerHTML = `<div class="panel"><h2>需要更新後端</h2><p class="help">股票與家庭補助功能需要新版 Apps Script:在 Apps Script 編輯器新增 <code>Stocks.gs</code>、更新 <code>Code.gs</code>,再到「部署 → 管理部署作業 → 編輯 → 新版本」。網址不變。原本的記帳功能不受影響。</p></div>`; return; }
+    if (!st.loaded) { el.innerHTML = `<div class="panel"><p class="help">${esc(st.error || '讀取股票資料中…')}</p></div>`; return; }
+    const draft = ls.get(draftKey(currentUser), null), divs = dividends(), q = quotes();
+    const { rows, unassigned } = S().table(S().positions(st.items), divs, q);
+    const held = rows.filter(r => r.shares > 0 || r.divCount || r.realized);
+    const sum = k => held.reduce((s, r) => s + (r[k] || 0), 0);
+    const anyPrice = held.some(r => r.shares > 0 && r.price === null);
+    const meta = ls.get('quoteMeta', {}), latest = Object.values(q).filter(x => !x.manual).map(x => x.date).sort().pop() || '';
+    const trades = live('trade'), plans = st.items.filter(r => r.kind === 'plan' && !r.deleted);
+    const existing = new Set(st.items.filter(r => r.kind === 'trade').map(r => r.id)), today = todayTpe();
+    const events = plans.flatMap(p => S().planEvents(p, existing, today));
+    const divCodes = [...new Set(divs.map(d => d.code))], noTrades = !trades.length;
+    const mismatch = divs.filter(d => d.ownerMismatch), assigned = divs.filter(d => d.account).sort((a, b) => a.date < b.date ? 1 : -1);
+    const et = st.editTrade, firstAcc = accounts().find(a => a.active);
+    el.innerHTML = `
+    ${st.msg ? `<p class="status ${/沒有/.test(st.msg) ? 'error' : ''}">${esc(st.msg)}</p>` : ''}
+    ${draft ? `<div class="panel" style="margin-bottom:12px"><p class="help">有一筆尚未完成的「${esc(draft.label)}」(${draft.items.length} 筆)。完成或捨棄之前,不能新增其他股票資料。</p><div class="actions"><button class="button" type="button" id="stkRetryV1911" ${st.busy ? 'disabled' : ''}>重試</button><button class="button light" type="button" id="stkDropV1911" ${st.busy ? 'disabled' : ''}>捨棄草稿</button></div></div>` : ''}
+    <div class="panel"><div class="row" style="justify-content:space-between;gap:8px;flex-wrap:wrap"><h2>持股總覽</h2><div class="actions"><button class="button light" type="button" id="stkQuoteV1911" ${st.quoteBusy ? 'disabled' : ''}>${st.quoteBusy ? '更新中…' : '更新股價'}</button><button class="button light" type="button" id="stkBackupV1911">下載股票資料備份</button></div></div>
+      <p class="mini">最新可取得收盤價:${latest ? esc(latest) : '尚未取得'}${meta.at ? ` · 更新於 ${new Date(meta.at).toLocaleString('zh-TW', { hour12: false })}` : ''}(非即時)${st.quoteMsg ? ` · <span style="color:#F5B971">${esc(st.quoteMsg)}</span>` : ''}</p>
+      ${st.histBusy ? '<p class="mini">讀取歷年配息中…</p>' : st.histFail.length ? `<p class="status error">配息資料不完整:${esc(st.histFail.join('、'))} 年讀取失敗,累積配息可能偏低。</p>` : ''}
+      ${mismatch.length ? `<p class="status error">有 ${mismatch.length} 筆配息的歸屬和證券帳戶的歸屬不同,請在下方「配息明細」核對。</p>` : ''}
+      <div class="stk-scroll-v1911" style="overflow-x:auto;max-width:100%"><table style="min-width:640px"><thead><tr><th>帳戶 / 代號</th><th>股數</th><th>剩餘成本</th><th>現價</th><th>市值</th><th>未實現</th><th>已實現</th><th>累積配息</th><th>配息/剩餘成本</th><th>簡單累積報酬</th></tr></thead><tbody>
+      ${held.map(r => `<tr><td><strong>${esc(r.code)}</strong> ${esc((q[r.code] && q[r.code].name) || nameFromDiv(divs, r.code))}<br><span class="mini">${esc(accName(r.account))}${r.error ? ` · <span style="color:#FF8D83">${esc(r.error)}</span>` : ''}</span></td>
+        <td>${r.shares.toLocaleString('zh-TW')}</td><td>${money(r.cost)}</td>
+        <td>${r.price === null ? '—' : r.price}${r.quoteManual ? '<br><span class="mini">手動</span>' : r.quoteDate ? `<br><span class="mini">${esc(r.quoteDate.slice(5))}</span>` : ''}${r.shares > 0 ? `<br><button class="button light" type="button" data-stk-manual="${esc(r.code)}" style="padding:2px 6px;font-size:12px">手動現價</button>` : ''}</td>
+        <td>${r.value === null ? '—' : money(r.value)}</td><td style="${tone(r.unrealized)}">${signed(r.unrealized)}</td><td style="${tone(r.realized)}">${signed(r.realized)}</td>
+        <td>${money(r.divPerf)}${r.divBefore ? `<br><span class="mini">開帳前 ${money(r.divBefore)}</span>` : ''}${r.lastDiv ? `<br><span class="mini">最近 ${esc(r.lastDiv)}</span>` : ''}</td>
+        <td>${pct(r.divOnCost)}</td><td style="${tone(r.totalReturn || 0)}">${pct(r.totalReturn)}</td></tr>`).join('') || '<tr><td colspan="10" class="help">還沒有持股資料。請先新增證券帳戶,再建立目前持股。</td></tr>'}
+      ${held.length ? `<tr><td><strong>合計</strong></td><td></td><td>${money(sum('cost'))}</td><td></td><td>${anyPrice ? '部分缺價' : money(sum('value'))}</td><td style="${tone(sum('unrealized'))}">${anyPrice ? '—' : signed(sum('unrealized'))}</td><td style="${tone(sum('realized'))}">${signed(sum('realized'))}</td><td>${money(sum('divPerf'))}${sum('divBefore') ? `<br><span class="mini">開帳前 ${money(sum('divBefore'))}</span>` : ''}</td><td></td><td></td></tr>` : ''}
+      </tbody></table></div>
+      <p class="mini">平均成本法(每個帳戶分開計算)。「配息/剩餘成本」與「簡單累積報酬」=(配息+已實現+未實現)÷(期初總成本+之後買入成本)都<strong>非年化</strong>;建立期初持股之前的配息列為「開帳前」,不計入報酬。</p>
+    </div>
+
+    ${events.length ? `<div class="panel" style="margin-top:16px"><h2>定期定額待確認(${events.length})</h2><p class="help">股數是用最新收盤價估算,請照證券 App 改成實際成交的股數、價格、手續費再確認;沒確認不會記入。</p>
+      ${events.map(ev => { const p = ev.plan, price = q[p.code] && q[p.code].close, est = S().estimateShares(p.amount, p.fee, price); return `<div class="row" style="flex-wrap:wrap;gap:8px;border-top:1px solid rgba(255,255,255,.08);padding:8px 0" data-stk-ev="${esc(ev.id)}">
+        <span><strong>${esc(p.code)}</strong> ${esc(accName(p.account))} · 排定 ${esc(ev.date)}${ev.weekend ? '(週末,實際可能延後)' : ''} · 每次 ${money(p.amount)}</span>
+        <label class="mini">成交日 <input class="field" type="date" data-f="date" value="${esc(ev.date)}"></label>
+        <label class="mini">股數 <input class="field" type="number" min="1" step="1" data-f="shares" value="${est === null ? '' : est}" placeholder="${est === null ? '無價格,請填' : ''}"></label>
+        <label class="mini">成交價 <input class="field" type="number" min="0" step="0.0001" data-f="price" value=""></label>
+        <label class="mini">手續費 <input class="field" type="number" min="0" step="1" data-f="fee" value="${p.fee}"></label>
+        <button class="button" type="button" data-stk-ev-ok="${esc(ev.id)}">確認</button><button class="button light" type="button" data-stk-ev-skip="${esc(ev.id)}">略過</button></div>`; }).join('')}</div>` : ''}
+
+    ${unassigned.length ? `<div class="panel" style="margin-top:16px"><h2>配息待指定帳戶(${unassigned.length})</h2><p class="help">這些配息還不知道是哪個證券帳戶(以前匯入的「股利 代號」,或原本的帳戶不存在)。勾選後指定帳戶;只會記下對應關係,不會改動以前匯入的交易。預設只勾選和帳戶同一個人的配息。</p>
+      <div class="row" style="gap:8px;flex-wrap:wrap"><label>指定到 <select class="field" id="stkLegacyAccV1911">${accOptions('')}</select></label><button class="button" type="button" id="stkLegacySaveV1911" ${accounts().some(a => a.active) ? '' : 'disabled'}>指定勾選的配息</button></div>
+      <div style="max-height:320px;overflow:auto;margin-top:6px">${unassigned.map(d => `<label class="row mini" style="gap:6px;padding:3px 0" data-stk-pick="${esc(d.id)}"><input type="checkbox" data-pick-owner="${esc(d.owner)}" value="${esc(d.id)}" ${firstAcc && d.owner === firstAcc.owner ? 'checked' : ''}>${esc(d.date)} ${esc(d.code)} ${money(d.amount)} · ${esc(ownerName(d.owner))}${d.badAccount ? '(原帳戶不存在)' : ''}</label>`).join('')}</div></div>` : ''}
+
+    <div class="panel" style="margin-top:16px"><h2>證券帳戶</h2>
+      ${accounts().map(a => `<div class="row" style="justify-content:space-between;gap:8px;padding:4px 0"><span>${esc(accName(a.id))}${a.active ? '' : ' <span class="mini">(已停用)</span>'}</span><button class="button light" type="button" data-stk-acc="${esc(a.id)}">${a.active ? '停用' : '啟用'}</button></div>`).join('') || '<p class="help">尚未建立。例如「台新證券」「國泰證券」「俐穎 定期定額」。</p>'}
+      <div class="row" style="gap:8px;flex-wrap:wrap;margin-top:8px"><input class="field" id="stkAccNameV1911" maxlength="40" placeholder="帳戶名稱,例如 台新證券"><select class="field" id="stkAccOwnerV1911"><option value="me">承瑋</option><option value="wife">俐穎</option></select><button class="button" type="button" id="stkAccAddV1911">新增帳戶</button></div></div>
+
+    ${(noTrades || st.showOpening) && accounts().some(a => a.active) ? `<div class="panel" style="margin-top:16px"><h2>建立目前持股(期初)</h2><p class="help">照證券 App「庫存」頁填<strong>股數</strong>與<strong>總成本</strong>;已賣光的不用填。每個帳戶的每一檔只能有一筆期初,而且基準日要早於之後記的所有買賣。以下代號是從配息紀錄找到的,可再新增。</p>
+      <label>基準日(App 庫存的日期) <input class="field" type="date" id="stkOpenDateV1911" value="${today}"></label>
+      <div id="stkOpenRowsV1911">${divCodes.map(c => openingRow(c, nameFromDiv(divs, c))).join('')}</div>
+      <div class="actions"><button class="button light" type="button" id="stkOpenAddRowV1911">再加一檔</button><button class="button" type="button" id="stkOpenSaveV1911">儲存期初持股</button></div></div>` : (!noTrades ? '<p class="mini" style="margin-top:8px"><button class="button light" type="button" id="stkOpenShowV1911">補建其他帳戶的期初持股</button></p>' : '')}
+
+    <div class="panel" style="margin-top:16px"><h2>${et ? '修改買賣' : '記一筆買賣'}</h2><div class="form-grid">
+      <label>帳戶<select class="field" id="stkTAccV1911" ${et ? 'disabled' : ''}>${accOptions(et ? et.account : '', !et)}</select></label>
+      <label>買/賣<select class="field" id="stkTSideV1911" ${et ? 'disabled' : ''}><option value="buy" ${et && et.side === 'buy' ? 'selected' : ''}>買入</option><option value="sell" ${et && et.side === 'sell' ? 'selected' : ''}>賣出</option></select></label>
+      <label>日期<input class="field" type="date" id="stkTDateV1911" value="${et ? esc(et.date) : today}"></label>
+      <label>成交時間(選填,決定同日先後)<input class="field" type="time" id="stkTTimeV1911" value="${et && et.time ? esc(et.time) : ''}"></label>
+      <label>代號<input class="field" id="stkTCodeV1911" maxlength="6" placeholder="例如 0056" value="${et ? esc(et.code) : ''}" ${et ? 'disabled' : ''}></label>
+      <label>商品類型<select class="field" id="stkTTypeV1911">${typeOptions(et ? et.productType : 'etf')}</select></label>
+      <label>股數<input class="field" type="number" min="1" step="1" id="stkTSharesV1911" value="${et ? et.shares : ''}"></label>
+      <label>成交價<input class="field" type="number" min="0" step="0.0001" id="stkTPriceV1911" value="${et ? et.price : ''}"></label>
+      <label>手續費<input class="field" type="number" min="0" step="1" id="stkTFeeV1911" value="${et ? et.fee : ''}" ${et ? 'data-touched="1"' : ''}></label>
+      <label>證交稅(賣出)<input class="field" type="number" min="0" step="1" id="stkTTaxV1911" value="${et ? et.tax : 0}" ${et ? 'data-touched="1"' : ''}></label>
+      <label class="full">備註<input class="field" maxlength="200" id="stkTNoteV1911" value="${et ? esc(et.note || '') : ''}"></label>
+      <p class="mini full">手續費預設 0.1425%(可改成實際折扣後金額);證交稅只在賣出:股票 0.3%、ETF 0.1%、債券 ETF 目前免稅(免稅期間至 2026 年底,請以證交所公告為準)。同一天有多筆時,沒填時間的排在當天最後。</p>
+      <div class="full actions"><button class="button" type="button" id="stkTSaveV1911">${et ? '儲存修改' : '儲存買賣'}</button>${et ? '<button class="button light" type="button" id="stkTCancelV1911">取消修改</button>' : ''}</div></div></div>
+
+    <div class="panel" style="margin-top:16px"><h2>記一筆配息</h2><p class="help">記實際入帳金額;會新增一筆「投資收入」交易(收支明細看得到),歸屬跟著證券帳戶。</p><div class="form-grid">
+      <label>帳戶<select class="field" id="stkDAccV1911">${accOptions('')}</select></label>
+      <label>代號<input class="field" id="stkDCodeV1911" maxlength="6"></label>
+      <label>入帳日<input class="field" type="date" id="stkDDateV1911" value="${today}"></label>
+      <label>入帳金額<input class="field" type="number" min="1" step="1" id="stkDAmtV1911"></label>
+      <label class="full">備註<input class="field" maxlength="200" id="stkDNoteV1911"></label>
+      <div class="full actions"><button class="button" type="button" id="stkDSaveV1911">儲存配息</button></div></div>
+      ${assigned.length ? `<details style="margin-top:10px"><summary class="mini" style="cursor:pointer">配息明細(${assigned.length} 筆,可改帳戶)</summary><div style="max-height:360px;overflow:auto">${assigned.map(d => `<div class="row mini" style="gap:6px;flex-wrap:wrap;padding:4px 0;border-top:1px solid rgba(255,255,255,.06)" data-stk-pick="re:${esc(d.id)}"><span>${esc(d.date)} ${esc(d.code)} ${money(d.amount)} · 交易歸屬 ${esc(ownerName(d.owner))}${d.ownerMismatch ? ' <span style="color:#FF8D83">(與帳戶歸屬不同)</span>' : ''}</span><select class="field">${accOptions(d.account, false)}</select><button class="button light" type="button" data-stk-reassign="${esc(d.id)}" style="padding:2px 8px">改帳戶</button></div>`).join('')}</div></details>` : ''}</div>
+
+    <div class="panel" style="margin-top:16px"><h2>定期定額</h2>
+      ${plans.map(p => `<div class="row" style="justify-content:space-between;gap:8px;padding:4px 0;flex-wrap:wrap"><span><strong>${esc(p.code)}</strong> ${esc(accName(p.account))} · 每月 ${esc(p.days.join('、'))} 日 · 每次 ${money(p.amount)} · ${esc(p.start)} 起${p.end ? ' 至 ' + esc(p.end) : ''}${p.active ? '' : '(已停用)'}</span><span class="actions"><button class="button light" type="button" data-stk-plan-toggle="${esc(p.id)}">${p.active ? '停用' : '啟用'}</button><button class="button warn" type="button" data-stk-plan-del="${esc(p.id)}">刪除</button></span></div>`).join('') || '<p class="help">尚未設定。</p>'}
+      <div class="form-grid" style="margin-top:8px">
+      <label>帳戶<select class="field" id="stkPAccV1911">${accOptions('')}</select></label>
+      <label>代號<input class="field" id="stkPCodeV1911" maxlength="6"></label>
+      <label>每次金額<input class="field" type="number" min="1" step="1" id="stkPAmtV1911"></label>
+      <label>扣款日(最多 3 個,逗號分隔)<input class="field" id="stkPDaysV1911" placeholder="例如 6,16,26"></label>
+      <label>開始月份<input class="field" type="month" id="stkPStartV1911" value="${today.slice(0, 7)}"></label>
+      <label>每次手續費<input class="field" type="number" min="0" step="1" id="stkPFeeV1911" value="1"></label>
+      <label>商品類型<select class="field" id="stkPTypeV1911">${typeOptions('etf')}</select></label>
+      <div class="full actions"><button class="button" type="button" id="stkPSaveV1911">新增定期定額</button></div></div></div>
+
+    <div class="panel" style="margin-top:16px"><h2>最近買賣</h2>
+      ${trades.slice().sort((a, b) => a.date < b.date ? 1 : a.date > b.date ? -1 : b.seq - a.seq).slice(0, 40).map(t => `<div class="row" style="justify-content:space-between;gap:8px;padding:4px 0;border-top:1px solid rgba(255,255,255,.06)"><span>${esc(t.date)}${t.time ? ' ' + esc(t.time) : ''} ${esc(t.code)} ${t.skipped ? '略過' : t.side === 'opening' ? '期初' : t.side === 'buy' ? '買入' : '賣出'} ${t.skipped ? '' : t.shares.toLocaleString('zh-TW') + ' 股'} ${t.side === 'opening' ? '成本 ' + money(t.totalCost) : t.skipped ? '' : '@' + t.price}<br><span class="mini">${esc(accName(t.account))}${t.note ? ' · ' + esc(t.note) : ''}</span></span><span class="actions">${t.skipped ? '' : `<button class="button light" type="button" data-stk-edit="${esc(t.id)}">修改</button>`}<button class="button warn" type="button" data-stk-del="${esc(t.id)}">刪除</button></span></div>`).join('') || '<p class="help">尚無紀錄。</p>'}</div>`;
+    el.dataset.formMode = st.editTrade ? st.editTrade.id : 'new'; el.dataset.sessionGen = sessionGen;
+    restoreInputs(el, snap, el.dataset.formMode, 'stkT');
+  }
+  function openingRow(code = '', name = '') {
+    return `<div class="row" style="gap:8px;flex-wrap:wrap;padding:6px 0;border-top:1px solid rgba(255,255,255,.06)" data-stk-open>
+      <input class="field" data-f="code" maxlength="6" value="${esc(code)}" placeholder="代號" style="max-width:90px"><span class="mini">${esc(name)}</span>
+      <select class="field" data-f="account">${accOptions('')}</select>
+      <input class="field" data-f="shares" type="number" min="0" step="1" placeholder="股數" style="max-width:110px">
+      <input class="field" data-f="cost" type="number" min="0" step="1" placeholder="總成本" style="max-width:130px">
+      <select class="field" data-f="type">${typeOptions(S().guessType(code))}</select></div>`;
+  }
+
+  const val = id => $(id) ? $(id).value.trim() : '';
+  const intv = v => { const n = Number(v); return Number.isSafeInteger(n) ? n : NaN; };
+  function posOf(account, code) { return S().positions(st.items).find(p => p.account === account && p.code === code); }
+  function autoFee() {
+    const shares = Number(val('stkTSharesV1911')), price = Number(val('stkTPriceV1911')), amt = shares * price;
+    if (!(amt > 0)) return;
+    if (!$('stkTFeeV1911').dataset.touched) $('stkTFeeV1911').value = S().feeOf(amt);
+    if (!$('stkTTaxV1911').dataset.touched) $('stkTTaxV1911').value = val('stkTSideV1911') === 'sell' ? S().sellTax(Math.round(amt), val('stkTTypeV1911')) : 0;
+  }
+  const divmapItem = (d, account) => { const id = 'stkmap:' + d.id.replace(/^(inv|manual):/, ''), prior = st.items.find(x => x.id === id); return { kind: 'divmap', id, record: d.id, date: d.date, account, code: d.code, _rev: prior ? prior._rev : 0 }; };
+  // 有 stock 欄位的配息(新版記的)改帳戶 → 改原交易;舊格式 → 寫 divmap
+  async function assignDividends(list, account) {
+    if (checkSession()) return;
+    const c = ctxNow();
+    const a = accounts().find(x => x.id === account); if (!a) return showToast('請選擇證券帳戶', true);
+    const withField = list.filter(d => !d.legacy), legacy = list.filter(d => d.legacy);
+    if (withField.length) {
+      const miss = withField.filter(d => !records.some(r => r.id === d.id));
+      if (miss.length) return showToast(`有 ${miss.length} 筆在未載入的年度,請先在收支明細載入 ${[...new Set(miss.map(d => d.date.slice(0, 4)))].join('、')} 年`, true);
+      records = records.map(r => withField.some(d => d.id === r.id) ? normalize({ ...r, stock: { code: r.stock.code, account } }) : r); save();
+      showToast(`已改 ${withField.length} 筆配息的帳戶,雲端同步中…`);
+    }
+    for (let i = 0; i < legacy.length; i += 250) { if (!ctxValid(c)) return; if (!(await saveItems(legacy.slice(i, i + 250).map(d => divmapItem(d, account)), `指定配息帳戶(${i + 1}–${Math.min(i + 250, legacy.length)})`, false, c))) return; }
+    if (ctxValid(c)) renderStocks();
+  }
+
+  function clearTradeForm() { for (const k of ['stkTSharesV1911', 'stkTPriceV1911', 'stkTFeeV1911', 'stkTNoteV1911', 'stkTTimeV1911']) if ($(k)) { $(k).value = ''; delete $(k).dataset.touched; } if ($('stkTTaxV1911')) { $('stkTTaxV1911').value = '0'; delete $('stkTTaxV1911').dataset.touched; } if ($('stkTDateV1911')) $('stkTDateV1911').value = todayTpe(); }
+  async function onClick(e) {
+    const t = e.target.closest('button'); if (!t || !root().contains(t)) return;
+    if (checkSession()) return; // 登入剛變更:畫面已重設,舊畫面的點擊不處理
+    const id = t.id, ds = t.dataset;
+    if (id === 'stkRetryV1911') { const d = ls.get(draftKey(currentUser), null); if (d) await saveItems(d.items, d.label, true); return; }
+    if (id === 'stkDropV1911') { if (!confirm('捨棄這筆尚未完成的股票資料?(如果其實已存到雲端,重新整理後會看到)')) return; const c = ctxNow(); ls.set(draftKey(currentUser), null); st.msg = ''; await loadStocks(true); if (ctxValid(c)) renderStocks(); return; }
+    if (id === 'stkQuoteV1911') return refreshQuotes(true);
+    if (id === 'stkBackupV1911') { const blob = new Blob([JSON.stringify({ schema: 'family-ledger-stocks-v1911', exportedAt: new Date().toISOString(), items: st.items }, null, 2)], { type: 'application/json' }); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'family-ledger-stocks-' + todayTpe() + '.json'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000); return; }
+    if (ds.stkManual) { const c = ds.stkManual, v = prompt(`${c} 手動現價(只存在這台裝置,標示「手動」)`); if (v === null) return; if (!priceOk(v) || !(Number(v) > 0)) return showToast('價格必須大於 0,最多 4 位小數', true); const q = quotes(); q[c] = { code: c, name: (q[c] && q[c].name) || '', close: Number(v), date: todayTpe(), manual: true }; ls.set('quotes', q); renderStocks(); return; }
+    if (id === 'stkAccAddV1911') { const name = val('stkAccNameV1911'); if (!name) return showToast('請填帳戶名稱', true); if (await saveItems([{ kind: 'account', id: 'stkacct:' + uid(), name, owner: val('stkAccOwnerV1911'), active: true, _rev: 0 }], '新增帳戶')) $('stkAccNameV1911').value = ''; return; }
+    if (ds.stkAcc) { const a = accounts().find(x => x.id === ds.stkAcc); if (a) return saveItems([{ ...a, active: !a.active }], a.active ? '停用帳戶' : '啟用帳戶'); return; }
+    if (id === 'stkOpenShowV1911') { st.showOpening = true; return renderStocks(); }
+    if (id === 'stkOpenAddRowV1911') { $('stkOpenRowsV1911').insertAdjacentHTML('beforeend', openingRow()); return; }
+    if (id === 'stkOpenSaveV1911') {
+      const date = val('stkOpenDateV1911'), items = [], seen = new Set();
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return showToast('請填基準日', true);
+      for (const row of root().querySelectorAll('[data-stk-open]')) {
+        const f = k => row.querySelector(`[data-f="${k}"]`).value.trim(), code = S().normCode(f('code')), shares = intv(f('shares') || 0), cost = intv(f('cost') || 0), account = f('account');
+        if (!shares) continue;
+        if (!S().validCode(code)) return showToast(`代號 ${code} 格式不正確`, true);
+        if (!(shares > 0) || !(cost >= 0) || Number.isNaN(cost)) return showToast(`${code} 的股數或總成本不正確(股數要整數)`, true);
+        if (seen.has(account + '|' + code)) return showToast(`${code} 在同一個帳戶填了兩列,請合併成一列`, true);
+        seen.add(account + '|' + code);
+        const p = live('trade').filter(x => x.account === account && x.code === code);
+        if (p.some(x => x.side === 'opening')) return showToast(`${code} 在這個帳戶已經有期初持股,要加碼請記「買入」`, true);
+        if (p.some(x => x.date <= date)) return showToast(`${code} 在這個帳戶已有 ${date} 當天或之前的買賣,期初基準日要更早`, true);
+        items.push({ kind: 'trade', id: 'stktx:' + uid(), account, code, side: 'opening', date, seq: 0, shares, totalCost: cost, productType: f('type'), note: '期初持股', _rev: 0 });
+      }
+      if (!items.length) return showToast('沒有填任何股數', true);
+      if (await saveItems(items, '期初持股')) { st.showOpening = false; renderStocks(); refreshQuotes(true); }
+      return;
+    }
+    if (id === 'stkLegacySaveV1911') {
+      const acc = val('stkLegacyAccV1911'), picked = new Set([...root().querySelectorAll('[data-stk-pick] input[type=checkbox]')].filter(x => x.checked).map(x => x.value));
+      const list = dividends().filter(d => !d.account && picked.has(d.id));
+      if (!list.length) return showToast('請先勾選要指定的配息', true);
+      const a = accounts().find(x => x.id === acc);
+      if (a && list.some(d => d.owner !== a.owner) && !confirm(`有 ${list.filter(d => d.owner !== a.owner).length} 筆配息的交易歸屬不是${ownerName(a.owner)},仍要指定到「${a.name}」嗎?(之後會列在「與帳戶歸屬不同」)`)) return;
+      return assignDividends(list, acc);
+    }
+    if (ds.stkReassign) {
+      const d = dividends().find(x => x.id === ds.stkReassign), sel = t.parentElement.querySelector('select');
+      if (!d || !sel || sel.value === d.account) return;
+      return assignDividends([d], sel.value);
+    }
+    if (ds.stkEdit) {
+      const x = st.items.find(y => y.id === ds.stkEdit); if (!x) return;
+      if (x.side === 'opening') {
+        const shares = prompt(`${x.code} 期初股數`, x.shares); if (shares === null) return;
+        const cost = prompt(`${x.code} 期初總成本`, x.totalCost); if (cost === null) return;
+        const date = prompt('基準日(YYYY-MM-DD)', x.date); if (date === null) return;
+        if (!(intv(shares) > 0) || !(intv(cost) >= 0) || !/^\d{4}-\d{2}-\d{2}$/.test(date)) return showToast('股數、總成本要整數,日期格式 YYYY-MM-DD', true);
+        return saveItems([{ ...x, shares: intv(shares), totalCost: intv(cost), date }], '修改期初持股');
+      }
+      st.editTrade = JSON.parse(JSON.stringify(x)); renderStocks(); $('stkTSaveV1911').scrollIntoView({ block: 'center' }); return;
+    }
+    if (id === 'stkTCancelV1911') { st.editTrade = null; renderStocks(); return clearTradeForm(); }
+    if (id === 'stkTSaveV1911') {
+      const et = st.editTrade;
+      const account = et ? et.account : val('stkTAccV1911'), side = et ? et.side : val('stkTSideV1911'), code = et ? et.code : S().normCode(val('stkTCodeV1911')), date = val('stkTDateV1911'), time = val('stkTTimeV1911');
+      const shares = intv(val('stkTSharesV1911')), priceS = val('stkTPriceV1911'), fee = intv(val('stkTFeeV1911') || 0), tax = side === 'sell' ? intv(val('stkTTaxV1911') || 0) : 0;
+      if (!account) return showToast('請先新增證券帳戶', true);
+      if (!S().validCode(code)) return showToast('代號格式不正確', true);
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || !(shares > 0) || !priceOk(priceS) || !(fee >= 0) || !(tax >= 0)) return showToast('日期、股數(整數)、價格(最多 4 位小數)、手續費、證交稅請確認', true);
+      if (side === 'sell' && !et) { const p = posOf(account, code); if (!p || p.shares < shares) return showToast(`持股只有 ${p ? p.shares : 0} 股,不能賣出 ${shares} 股`, true); }
+      const open = live('trade').find(x => x.account === account && x.code === code && x.side === 'opening');
+      if (open && date <= open.date) return showToast(`這檔的期初基準日是 ${open.date},之後的買賣日期要更晚`, true);
+      const rec = { ...(et || { kind: 'trade', id: 'stktx:' + uid(), account, code, side, _rev: 0 }), date, shares, price: Number(priceS), fee, tax, productType: val('stkTTypeV1911'), note: val('stkTNoteV1911') };
+      if (time) rec.time = time; else delete rec.time;
+      if (!et || et.date !== date || (et.time || '') !== time) rec.seq = seqOf(time);
+      const ok = await saveItems([rec], et ? '修改買賣' : side === 'buy' ? '買入' : '賣出');
+      if (ok) { st.editTrade = null; renderStocks(); clearTradeForm(); }
+      return;
+    }
+    if (id === 'stkDSaveV1911') return saveDividend();
+    if (id === 'stkPSaveV1911') {
+      const days = val('stkPDaysV1911').split(/[,、\s]+/).filter(Boolean).map(Number), code = S().normCode(val('stkPCodeV1911')), amount = intv(val('stkPAmtV1911')), fee = intv(val('stkPFeeV1911') || 0);
+      if (!val('stkPAccV1911')) return showToast('請先新增證券帳戶', true);
+      if (!S().validCode(code) || !(amount > 0) || !(fee >= 0) || !days.length || days.length > 3 || days.some(d => !Number.isSafeInteger(d) || d < 1 || d > 31) || new Set(days).size !== days.length || !/^\d{4}-\d{2}$/.test(val('stkPStartV1911'))) return showToast('代號、金額、扣款日(1–31,最多 3 個)、開始月份請確認', true);
+      if (await saveItems([{ kind: 'plan', id: 'stkplan:' + uid(), account: val('stkPAccV1911'), code, amount, days, start: val('stkPStartV1911'), fee, productType: val('stkPTypeV1911'), active: true, _rev: 0 }], '新增定期定額')) for (const k of ['stkPCodeV1911', 'stkPAmtV1911', 'stkPDaysV1911']) $(k).value = '';
+      return;
+    }
+    if (ds.stkPlanToggle) { const p = st.items.find(x => x.id === ds.stkPlanToggle); if (p) return saveItems([{ ...p, active: !p.active }], p.active ? '停用定期定額' : '啟用定期定額'); return; }
+    if (ds.stkPlanDel) { const p = st.items.find(x => x.id === ds.stkPlanDel); if (p && confirm('刪除這個定期定額設定?已確認的買入紀錄會保留。')) return saveItems([{ ...p, active: false, deleted: true }], '刪除定期定額'); return; }
+    if (ds.stkDel) { const x = st.items.find(y => y.id === ds.stkDel); if (x && confirm('刪除這筆買賣紀錄?')) return saveItems([{ ...x, deleted: true }], '刪除買賣'); return; }
+    if (ds.stkEvOk || ds.stkEvSkip) {
+      const evId = ds.stkEvOk || ds.stkEvSkip, row = root().querySelector(`[data-stk-ev="${CSS.escape(evId)}"]`), plan = st.items.find(p => p.id === 'stkplan:' + evId.split(':')[2]);
+      if (!row || !plan) return;
+      const base = { kind: 'trade', id: evId, account: plan.account, code: plan.code, side: 'buy', productType: plan.productType, tax: 0, _rev: 0 };
+      if (ds.stkEvSkip) { if (!confirm('略過這次扣款?(例如扣款失敗)')) return; return saveItems([{ ...base, date: evId.slice(-10), seq: seqOf(''), shares: 0, price: 0, fee: 0, skipped: true, note: '略過' }], '略過定期定額'); }
+      const f = k => row.querySelector(`[data-f="${k}"]`).value.trim(), shares = intv(f('shares')), priceS = f('price'), fee = intv(f('fee') || 0), date = f('date');
+      if (!(shares > 0) || !priceOk(priceS) || !(Number(priceS) > 0) || !(fee >= 0) || !/^\d{4}-\d{2}-\d{2}$/.test(date)) return showToast('請照證券 App 填實際股數(整數)、成交價(最多 4 位小數)與手續費', true);
+      const total = Math.round(shares * Number(priceS)) + fee;
+      if (Math.abs(total - plan.amount) > Math.max(50, plan.amount * 0.05) && !confirm(`扣款總額約 ${money(total)},和設定的每次 ${money(plan.amount)} 差很多,確定嗎?`)) return;
+      return saveItems([{ ...base, date, seq: seqOf(''), shares, price: Number(priceS), fee, note: '定期定額' }], '確認定期定額');
+    }
+  }
+
+  function saveDividend() {
+    if (checkSession()) return;
+    const account = val('stkDAccV1911'), code = S().normCode(val('stkDCodeV1911')), date = val('stkDDateV1911'), amount = intv(val('stkDAmtV1911'));
+    const a = accounts().find(x => x.id === account);
+    if (!a) return showToast('請先新增證券帳戶', true);
+    if (!S().validCode(code) || !/^\d{4}-\d{2}-\d{2}$/.test(date) || !(amount > 0)) return showToast('代號、入帳日、金額(整數)請確認', true);
+    const loaded = (window.loadedYearsV1880?.() || []).map(String);
+    if (!loaded.includes(date.slice(0, 4))) return showToast(`請先在收支明細「載入年度」讀取 ${date.slice(0, 4)} 年,再記這筆配息`, true);
+    const dup = dividends().filter(d => d.code === code && d.amount === amount && Math.abs(Date.parse(d.date) - Date.parse(date)) <= 3 * 864e5 && (!d.account || d.account === account));
+    if (dup.length && !confirm(`已經有一筆很像的配息:${dup[0].date} ${dup[0].code} ${money(dup[0].amount)}。仍要新增嗎?`)) return;
+    if (amount >= 20000 && !confirm('單筆 2 萬元以上的股利可能適用二代健保補充保費(2.11%)。請確認填的是「實際入帳金額」。要儲存嗎?')) return;
+    const item = normalize({ id: 'manual:' + uid(), type: 'income', owner: a.owner, date, amount, category: '投資收入', _categoryManual: true, merchant: '股利 ' + code, note: val('stkDNoteV1911'), source: 'manual', stock: { code, account } });
+    records.push(item); save();
+    showToast(`配息已儲存本機${configured() ? ',雲端同步中…' : ''}`);
+    for (const k of ['stkDAmtV1911', 'stkDNoteV1911']) if ($(k)) $(k).value = '';
+    renderStocks();
+  }
+
+  // ---------- 家庭補助(總覽卡片) ----------
+  function renderSpouse() {
+    const dash = $('dashboard'); if (!dash || !S()) return;
+    let el = $('spouseCardV1911');
+    if (!el) { el = document.createElement('div'); el.id = 'spouseCardV1911'; el.className = 'panel'; el.style.marginTop = '16px'; dash.appendChild(el); }
+    if (!configured() || (!st.loaded && !st.unsupported)) { el.hidden = true; return; }
+    el.hidden = false;
+    if (st.unsupported) { el.innerHTML = '<h2>家庭補助</h2><p class="help">需要更新後端才能記錄家庭補助(說明在「股票」頁)。</p>'; return; }
+    const snap = el.querySelector('#xferSaveV1911') ? snapshotInputs(el, el.dataset.formMode) : null;
+    const ym = /^\d{4}-\d{2}$/.test($('month')?.value || '') ? $('month').value : todayTpe().slice(0, 7);
+    const s = S().spouseSummary(st.items, st.planItem || null, ym), list = live('transfer').filter(t => t.period.slice(0, 4) === ym.slice(0, 4)).sort((a, b) => a.date < b.date ? 1 : -1);
+    const unset = st.planErr ? '讀取失敗' : '未設定';
+    const due = s.due === null ? unset : money(s.due), gap = s.due === null ? null : s.paid - s.due, gapY = s.dueYear === null ? null : s.paidYear - s.dueYear;
+    const ex = st.editXfer;
+    el.innerHTML = `<div class="row" style="justify-content:space-between;gap:8px;flex-wrap:wrap"><h2>家庭補助(俐穎 → 承瑋)</h2><button class="button light" type="button" data-go-budget-v1911>調整約定金額</button></div>
+      <p class="help">內部轉帳,不算家庭收入或支出。約定金額取自預算頁的「家庭補助」項目(可設定從哪個月起生效)。</p>
+      <div class="planning-summary"><div>${esc(ym)} 已給 <strong style="display:block">${money(s.paid)}</strong><span class="mini">約定 ${due}${gap === null ? '' : gap >= 0 ? ' · 已達成' : ' · 尚差 ' + money(-gap)}</span></div>
+      <div>${esc(ym.slice(0, 4))} 年至 ${Number(ym.slice(5))} 月 <strong style="display:block">${money(s.paidYear)}</strong><span class="mini">應給 ${s.dueYear === null ? unset : money(s.dueYear)}${gapY === null ? '' : gapY >= 0 ? ' · 已達成' : ' · 尚差 ' + money(-gapY)}${s.unknownMonths ? `(${s.unknownMonths} 個月約定未知,未計入)` : ''}</span></div></div>
+      <div class="row" style="gap:8px;flex-wrap:wrap;margin-top:10px"><label class="mini">日期 <input class="field" type="date" id="xferDateV1911" value="${ex ? esc(ex.date) : todayTpe()}"></label><label class="mini">算哪個月 <input class="field" type="month" id="xferPeriodV1911" value="${esc(ex ? ex.period : ym)}"></label><label class="mini">金額 <input class="field" type="number" min="1" step="1" id="xferAmtV1911" value="${ex ? ex.amount : gap !== null && gap < 0 ? -gap : ''}"></label><button class="button" type="button" id="xferSaveV1911" ${st.busy ? 'disabled' : ''}>${ex ? '儲存修改' : '記一筆'}</button>${ex ? '<button class="button light" type="button" id="xferCancelV1911">取消修改</button>' : ''}</div>
+      ${list.length ? `<details style="margin-top:8px" ${ex ? 'open' : ''}><summary class="mini" style="cursor:pointer">${esc(ym.slice(0, 4))} 年紀錄(${list.length} 筆)</summary>${list.map(t => `<div class="row" style="justify-content:space-between;gap:8px;padding:4px 0"><span>${esc(t.date)} · 算 ${esc(t.period)} · ${money(t.amount)}${t.note ? ' · ' + esc(t.note) : ''}</span><span class="actions"><button class="button light" type="button" data-xfer-edit="${esc(t.id)}">修改</button><button class="button warn" type="button" data-xfer-del="${esc(t.id)}">刪除</button></span></div>`).join('')}</details>` : ''}
+      ${st.msg && /補助/.test(st.msg) ? `<p class="status ${/沒有/.test(st.msg) ? 'error' : ''}">${esc(st.msg)}</p>` : ''}`;
+    el.dataset.formMode = st.editXfer ? st.editXfer.id : 'new'; el.dataset.sessionGen = sessionGen;
+    restoreInputs(el, snap, el.dataset.formMode, 'xfer');
+  }
+  async function onSpouseClick(e) {
+    const t = e.target.closest('button'); if (!t) return;
+    if (checkSession()) return;
+    if (t.hasAttribute('data-go-budget-v1911')) { const b = document.querySelector('nav [data-tab="budget"]'); if (b) b.click(); else goto('budget'); return; }
+    if (t.id === 'xferCancelV1911') { st.editXfer = null; renderSpouse(); if ($('xferAmtV1911')) $('xferAmtV1911').value = ''; return; }
+    if (t.dataset.xferEdit) { const x = st.items.find(y => y.id === t.dataset.xferEdit); st.editXfer = x ? JSON.parse(JSON.stringify(x)) : null; return renderSpouse(); }
+    if (t.id === 'xferSaveV1911') {
+      const date = val('xferDateV1911'), period = val('xferPeriodV1911'), amount = intv(val('xferAmtV1911')), ex = st.editXfer;
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || !/^\d{4}-\d{2}$/.test(period) || !(amount > 0)) return showToast('日期、月份、金額(整數)請確認', true);
+      const ok = await saveItems([ex ? { ...ex, date, period, amount } : { kind: 'transfer', id: 'xfer:' + uid(), from: 'wife', to: 'me', date, period, amount, _rev: 0 }], ex ? '修改家庭補助' : '家庭補助');
+      if (ok) { st.editXfer = null; if ($('xferAmtV1911')) $('xferAmtV1911').value = ''; renderSpouse(); }
+      return;
+    }
+    if (t.dataset.xferDel) { const x = st.items.find(y => y.id === t.dataset.xferDel); if (x && confirm('刪除這筆家庭補助紀錄?')) return saveItems([{ ...x, deleted: true }], '刪除家庭補助'); }
+  }
+
+  function renderAll() { renderStocks(); renderSpouse(); }
+  // 生命週期(不掛在交易同步上):登入/換帳號 → onSession;進入股票頁 → enterStocks;進入總覽 → enterDashboard。
+  // 股票的讀取成功與否都不影響交易同步的狀態。
+  function resetForSession() {
+    sessionGen++;
+    Object.assign(st, freshState()); // 包含所有 busy/loading 旗標:舊工作的旗標不帶到新登入
+  }
+  function onSession() {
+    const c = ctxNow();
+    const task = (async () => {
+      try {
+        await loadStocks(false); if (!ctxValid(c)) return;
+        await loadPlanItem(); if (!ctxValid(c)) return;
+        renderSpouse(); refreshQuotes(false); // 打開網頁就自動更新股價(與交易同步分開)
+      } finally { if (c.gen === sessionGen && st.initializing === task) st.initializing = null; }
+    })();
+    st.initializing = task; // 同步登記:初始化開始的同一刻就算忙碌
+    return task;
+  }
+  async function enterStocks() {
+    checkSession();
+    const c = ctxNow();
+    renderStocks();
+    await loadStocks(false); if (!ctxValid(c)) return;
+    loadHistory(false); refreshQuotes(false); renderStocks();
+  }
+  async function enterDashboard() {
+    checkSession();
+    const c = ctxNow();
+    await loadStocks(false); if (!ctxValid(c)) return;
+    st.planItem = undefined; await loadPlanItem(); if (!ctxValid(c)) return; // 每次進總覽重讀約定(可能剛在預算頁改過)
+    renderSpouse();
+  }
+  // 只比對登入狀態(不發網路請求);登入、登出或換後端時重設股票狀態並重新載入
+  // 切頁時也先同步檢查一次,避免「切頁讀好資料後,定時檢查才發現登入而把資料重設」
+  function checkSession() {
+    const key = configured() ? String(settings.url) + '|' + String(session) : '';
+    if (key === sessionSeen) return false;
+    sessionSeen = key; resetForSession(); renderAll();
+    if (key) onSession();
+    return true;
+  }
+  setInterval(checkSession, 1000);
+  document.addEventListener('click', e => { if (root()?.contains(e.target)) onClick(e); else if ($('spouseCardV1911')?.contains(e.target)) onSpouseClick(e); });
+  document.addEventListener('input', e => { if (['stkTFeeV1911', 'stkTTaxV1911'].includes(e.target.id)) e.target.dataset.touched = '1'; if (['stkTSharesV1911', 'stkTPriceV1911', 'stkTSideV1911', 'stkTTypeV1911'].includes(e.target.id)) autoFee(); });
+  document.addEventListener('change', e => {
+    if (e.target.id === 'stkTSideV1911' || e.target.id === 'stkTTypeV1911') autoFee();
+    if (e.target.id === 'stkTCodeV1911') { const c = S().normCode(e.target.value), p = S().positions(st.items).find(x => x.code === c); $('stkTTypeV1911').value = p ? p.productType : S().guessType(c); }
+    if (e.target.id === 'stkLegacyAccV1911') { const a = accounts().find(x => x.id === e.target.value); for (const x of root().querySelectorAll('[data-pick-owner]')) { x.checked = Boolean(a && x.dataset.pickOwner === a.owner); x.dataset.touched = '1'; } }
+    if (e.target.matches?.('[data-pick-owner]')) e.target.dataset.touched = '1';
+    if (e.target.id === 'month') renderSpouse();
+  });
+  document.querySelector('nav [data-tab="stocks"]')?.addEventListener('click', () => { if (configured()) enterStocks(); else renderStocks(); });
+  document.querySelector('nav [data-tab="dashboard"]')?.addEventListener('click', () => { if (configured()) enterDashboard(); });
+  const busy = () => { checkSession(); return Boolean(st.busy || st.loading || st.quoteBusy || st.histBusy || st.planLoading || st.initializing); }; // 先同步檢查登入,避免初始化尚未開始時被當成閒置
+  return { renderAll, busy, state: st };
+})();
+// v1.9.11 測試與除錯用:目前已知的進行中工作(只回傳布林值與筆數,不含網址、登入資訊或資料內容)。
+// 範圍:交易同步/讀取、衝突處理、快速編輯、手動刪除、分類核對、規則/AI 清單、預算儲存、股票(初始化、讀取、報價、儲存)。
+// 尚未涵蓋:信用卡重新比對、CSV 匯入讀檔等模組內部的私有工作(重構階段 2 以註冊方式補上)。pending>0 不代表忙碌(可能因衝突/離線停住)。
+window.ledgerTaskStateV1911 = () => {
+  const busy = { syncBusy, syncTimer: Boolean(syncTimer), pullBusy, conflictReviewBusy, conflictFlowBusyV19A, quickBusy, manualActionBusy, categoryAuditBusy, ruleBusy, aiListBusyV1990, budgetBusy, stocks: stocksV1911.busy() };
+  return { idle: !Object.values(busy).some(Boolean), busy, pending: pending.size, scope: 'partial-v1911' };
+};
 // Export only authenticated networking helpers to the planning module.
 window.ledgerPlanningBridge = Object.freeze({jsonp, post, activeRecords, installmentSources: () => records.filter(r => r.source !== 'category-definition' && (r.installmentPlan || r.cardImport?.installment))});
 })();
@@ -1961,6 +2513,140 @@ function requiredMonthly(args){const ratio=args.people.map(p=>Math.max(0,num(p.m
 function firstReach(args){let hit=null;core(args,x=>{if(hit===null&&x.assets>=x.goalNominal)hit=x.date;});return hit;}
 root.LedgerRetireCheckV1871=Object.freeze({project,series,requiredMonthly,firstReach,monthIndex:mi,MAIN_RETURN:11.79,ALT_RETURN:7});
 })(typeof window!=='undefined'?window:globalThis);
+</script>
+<script id="stocksV1911">
+// v1.9.11 股票計算(純函式):平均成本(帳戶×代號)、證交稅、配息辨識、報酬、定期定額事件、家庭補助統計。
+window.LedgerStocksV1911 = (function () {
+  const CODE = /^[0-9]{4}[0-9A-Z]{0,2}$/;
+  const DIV_RE = /^股利\s*([0-9]{4}[0-9A-Z]{0,2})(?![0-9A-Z])/;
+  const TAX = { stock: 0.003, etf: 0.001, 'bond-etf': 0, other: 0.003 };
+  const r0 = n => { const x = Math.round(n); return x === 0 ? 0 : x; };
+  const normCode = s => String(s || '').trim().toUpperCase();
+  const validCode = s => CODE.test(normCode(s));
+  const guessType = code => /^00/.test(normCode(code)) ? (/B$/.test(normCode(code)) ? 'bond-etf' : 'etf') : 'stock';
+  const sellTax = (amount, type) => Math.floor(Math.max(0, amount) * (TAX[type] ?? 0.003));
+  const feeOf = amount => Math.max(1, Math.floor(Math.max(0, amount) * 0.001425));
+  const byOrder = (a, b) => a.date < b.date ? -1 : a.date > b.date ? 1 : (a.seq - b.seq) || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
+
+  // 一筆收入交易是否為配息 → {code, account|null, legacy}
+  function dividendOf(r, maps) {
+    if (!r || r.type !== 'income' || r.deleted || r.source === 'category-definition') return null;
+    if (r.stock && validCode(r.stock.code)) return { code: normCode(r.stock.code), account: r.stock.account || null, legacy: false };
+    const m = DIV_RE.exec(String(r.merchant || '').trim());
+    if (!m) return null;
+    const map = maps && maps.get(r.id);
+    return { code: map ? map.code : m[1], account: map ? map.account : null, legacy: true, mapped: Boolean(map) };
+  }
+
+  // 依帳戶×代號重建持股。trades:StockData 的 trade(含 deleted/skipped 會被略過)
+  function positions(trades) {
+    const groups = new Map();
+    for (const t of trades) {
+      if (!t || t.kind !== 'trade' || t.deleted || t.skipped) continue;
+      const k = t.account + '|' + t.code;
+      if (!groups.has(k)) groups.set(k, []);
+      groups.get(k).push(t);
+    }
+    const out = [];
+    for (const [k, list] of groups) {
+      list.sort(byOrder);
+      const p = { key: k, account: list[0].account, code: list[0].code, productType: list[list.length - 1].productType, shares: 0, cost: 0, realized: 0, openingCost: 0, buyCost: 0, openingDate: null, firstDate: list[0].date, error: '' };
+      for (const t of list) {
+        if (t.side === 'opening') {
+          p.shares += t.shares; p.cost += t.totalCost; p.openingCost += t.totalCost;
+          if (!p.openingDate || t.date > p.openingDate) p.openingDate = t.date;
+        } else if (t.side === 'buy') {
+          const c = r0(t.shares * t.price) + t.fee;
+          p.shares += t.shares; p.cost += c; p.buyCost += c;
+        } else {
+          if (t.shares > p.shares) { p.error = `${t.date} 賣出 ${t.shares} 股超過持股 ${p.shares} 股`; break; }
+          const removed = p.shares ? r0(p.cost * t.shares / p.shares) : 0;
+          const net = r0(t.shares * t.price) - t.fee - t.tax;
+          p.realized = r0(p.realized + net - removed);
+          p.cost = r0(p.cost - removed); p.shares -= t.shares;
+          if (p.shares === 0) p.cost = 0;
+        }
+      }
+      p.avg = p.shares ? p.cost / p.shares : 0;
+      out.push(p);
+    }
+    return out;
+  }
+
+  // 績效起點:有期初 → 期初基準日之後(不含當天);否則第一筆買入日(含)
+  function inPerf(p, date) { return p.openingDate ? date > p.openingDate : date >= p.firstDate; }
+
+  // 合併持股、配息、股價 → 每列指標
+  function table(pos, dividends, quotes) {
+    const rows = pos.map(p => ({ ...p, divPerf: 0, divBefore: 0, divCount: 0, lastDiv: '' }));
+    const find = (account, code) => rows.find(r => r.account === account && r.code === code);
+    const unassigned = [];
+    for (const d of dividends) {
+      let row = d.account ? find(d.account, d.code) : null;
+      if (!row && d.account) { row = { key: d.account + '|' + d.code, account: d.account, code: d.code, shares: 0, cost: 0, realized: 0, openingCost: 0, buyCost: 0, openingDate: null, firstDate: '9999-12-31', divPerf: 0, divBefore: 0, divCount: 0, lastDiv: '', noTrades: true }; rows.push(row); }
+      if (!row) { unassigned.push(d); continue; }
+      if (!row.noTrades && inPerf(row, d.date)) row.divPerf += d.amount; else row.divBefore += d.amount;
+      row.divCount++; if (d.date > row.lastDiv) row.lastDiv = d.date;
+    }
+    for (const r of rows) {
+      const q = quotes && quotes[r.code];
+      r.price = q && q.close > 0 ? q.close : null;
+      r.quoteDate = q ? q.date : ''; r.quoteManual = Boolean(q && q.manual);
+      r.value = r.price !== null ? r0(r.shares * r.price) : null;
+      r.unrealized = r.value !== null ? r0(r.value - r.cost) : null;
+      r.divOnCost = r.shares > 0 && r.cost > 0 ? r.divPerf / r.cost : null;
+      r.invested = r.openingCost + r.buyCost;
+      r.totalReturn = r.invested > 0 && r.unrealized !== null ? (r.divPerf + r.realized + r.unrealized) / r.invested : (r.invested > 0 && r.shares === 0 ? (r.divPerf + r.realized) / r.invested : null);
+    }
+    rows.sort((a, b) => a.account < b.account ? -1 : a.account > b.account ? 1 : a.code < b.code ? -1 : 1);
+    return { rows, unassigned };
+  }
+
+  const pad = n => String(n).padStart(2, '0');
+  const lastDay = (y, m) => new Date(Date.UTC(y, m, 0)).getUTCDate();
+  const monthAdd = (ym, k) => { let [y, m] = ym.split('-').map(Number); m += k; while (m < 1) { m += 12; y--; } while (m > 12) { m -= 12; y++; } return y + '-' + pad(m); };
+
+  // 定期定額待處理事件:最多追補 3 個月(含本月),已存在(含已刪除、略過)的 id 不再出現
+  function planEvents(plan, existingIds, today) {
+    if (!plan || plan.deleted || !plan.active) return [];
+    const uuid = plan.id.replace(/^stkplan:/, ''), cur = today.slice(0, 7), out = [], seen = new Set();
+    let from = monthAdd(cur, -2); if (plan.start > from) from = plan.start;
+    for (let ym = from; ym <= cur && (!plan.end || ym <= plan.end); ym = monthAdd(ym, 1)) {
+      const [y, m] = ym.split('-').map(Number);
+      for (const d of plan.days.slice().sort((a, b) => a - b)) {
+        const date = ym + '-' + pad(Math.min(d, lastDay(y, m)));
+        const id = 'stktx:plan:' + uuid + ':' + date;
+        if (date > today || seen.has(id) || existingIds.has(id)) continue;
+        seen.add(id);
+        const dow = new Date(date + 'T00:00:00Z').getUTCDay();
+        out.push({ id, date, plan, weekend: dow === 0 || dow === 6 });
+      }
+    }
+    return out;
+  }
+  function estimateShares(amount, fee, price) { return price > 0 ? Math.max(0, Math.floor((amount - fee) / price)) : null; }
+
+  // 家庭補助:約定 = 預算項目「家庭補助」(俐穎)的 amountHistory;transfers 用 period 歸月
+  function agreementAt(item, ym) {
+    if (!item) return null;
+    const all = Array.isArray(item.amountHistory) ? item.amountHistory.filter(x => x && /^\d{4}-\d{2}$/.test(x.from) && Number.isFinite(Number(x.amount))).sort((a, b) => a.from < b.from ? -1 : 1) : [];
+    if (!all.length) return Number(item.amount || 0);
+    const hs = all.filter(x => x.from <= ym);
+    return hs.length ? Number(hs[hs.length - 1].amount) : null; // 最早生效月份之前:約定未知
+  }
+  function spouseSummary(transfers, item, ym) {
+    const live = transfers.filter(t => t && t.kind === 'transfer' && !t.deleted);
+    const year = ym.slice(0, 4), months = [];
+    for (let m = 1; m <= Number(ym.slice(5)); m++) months.push(year + '-' + pad(m));
+    const paid = p => live.filter(t => t.period === p).reduce((s, t) => s + t.amount, 0);
+    const dues = item ? months.map(p => agreementAt(item, p)) : [];
+    const dueYear = item ? dues.reduce((s, d) => s + (d || 0), 0) : null, unknownMonths = dues.filter(d => d === null).length;
+    const paidYear = months.reduce((s, p) => s + paid(p), 0);
+    return { month: ym, due: item ? agreementAt(item, ym) : null, paid: paid(ym), dueYear, paidYear, unknownMonths, perMonth: months.map(p => ({ period: p, due: item ? agreementAt(item, p) : null, paid: paid(p) })) };
+  }
+
+  return { CODE, DIV_RE, TAX, normCode, validCode, guessType, sellTax, feeOf, dividendOf, positions, table, planEvents, estimateShares, agreementAt, spouseSummary, monthAdd };
+})();
 </script>
 <script id="envelopeV1880">
 /* v1.8.8.0 信封預算(純計算,無 DOM;單元測試直接載入本段)。2026-10-26 使用者確認的規則:
@@ -2145,12 +2831,12 @@ const guidance={
  '水電天然氣':{me:null,wife:0,shared:0,reason:'家計簿歷史水電天然氣及季節波動，建議 $2,000／月；俐穎已依約提供家庭補助，不重複編列。'},
  '汽車保養':{me:null,wife:0,shared:0,reason:'2026/4/30 車輛保養紀錄 $6,080；加計約十年車齡與耗材，先以 $900／月累積維護預算。既有已設定 $0 不會自動覆蓋。'},
  '所得稅準備金':{me:0,wife:0,shared:null,reason:'115 年度（2026）夫妻合併申報概算：依 1～9 月 CSV 的薪資及獎金推估、2026 年免稅與扣除額試算，年預留先抓 $240,000（每月 $20,000）；此為偏保守的應納稅額準備，不等於五月實際應補稅額，須扣除已扣繳稅額等。參考財政部 115 年度公告。',source:'https://www.mof.gov.tw/singlehtml/384fb3077bb349ea973e7fc6f13b6974%3FcntId%3D34b463dc8f1b49f29d440d92a6fd5139'},
- '家庭補助':{me:0,wife:null,shared:0,reason:'夫妻約定俐穎每月至少轉入家庭 $20,000，屬內部資金移轉，不列家庭費用或收入。'}
+ '家庭補助':{me:0,wife:null,shared:0,reason:'夫妻約定俐穎每月轉入家庭補助（金額以此項目設定為準），屬內部資金移轉，不列家庭費用或收入。'}
 };
-function seed(){return V2_SPEC.map(x=>({id:'planitem:'+crypto.randomUUID(),kind:'item',name:x.name,type:x.type,owner:x.owner,amount:x.amount,category:x.category,dueMonth:x.dueMonth,aiPct:null,aiAmount:null,actualPct:null,active:true,_rev:0}));}
+function seed(){return V2_SPEC.map(x=>({id:'planitem:'+crypto.randomUUID(),kind:'item',name:x.name,type:x.type,owner:x.owner,amount:x.amount??0,category:x.category,dueMonth:x.dueMonth,aiPct:null,aiAmount:null,actualPct:null,active:true,_rev:0}));}
 function seedLegacy186(){const current=defaults.map(([name,type,owner,amount,category,dueMonth])=>({name:canonicalPlanName(name),type,owner,amount,category:category||'',dueMonth:dueMonth||0}));const result=[];
  const canonical=[...new Map([...catalogExtra.map(([name,type,amount,category])=>[canonicalPlanName(name),{name:canonicalPlanName(name),type,category,dueMonth:0}]),...current.map(r=>[r.name,{name:r.name,type:r.type,category:r.category,dueMonth:r.dueMonth}])]).values()];
- for(const c of canonical){for(const owner of OWNER){let found=current.find(x=>x.name===c.name&&x.owner===owner);let ext=catalogExtra.find(x=>x[0]===c.name),amt=found?found.amount:(owner==='me'&&ext?ext[2]:0);if(c.name==='家庭補助')amt=owner==='wife'?20000:0;
+ for(const c of canonical){for(const owner of OWNER){let found=current.find(x=>x.name===c.name&&x.owner===owner);let ext=catalogExtra.find(x=>x[0]===c.name),amt=found?found.amount:(owner==='me'&&ext?ext[2]:0);if(c.name==='家庭補助')amt=owner==='wife'&&found?Number(found.amount||0):0;
   if(c.name==='緊急預備金')amt=owner==='me'?4000:owner==='wife'?3000:0;
   if(c.name==='退休投資')amt=owner==='me'?4000:owner==='wife'?6000:0;
   if(c.name==='旅遊基金')amt=owner==='me'?1600:owner==='wife'?1800:0;
@@ -2169,7 +2855,7 @@ function monthly(r){return r.type==='annual'?Number(r.amount||0)/12:Number(r.amo
 const V2_SPEC=[
  ['房貸','fixed','me',23460,'房貸',0],['車貸','fixed','me',5493,'車貸',0],['信貸','fixed','me',13160,'貸款',0],
  ['社區管理費','fixed','me',2187,'居家',0],['網路費','fixed','me',400,'水電電信',0],['手機費','fixed','me',1000,'水電電信',0],
- ['家庭補助','fixed','wife',20000,'家庭內轉帳',0],['水電天然氣','variable','me',2000,'水電電信',0],
+ ['家庭補助','fixed','wife',null,'家庭內轉帳',0],['水電天然氣','variable','me',2000,'水電電信',0],
  ['日常餐飲','variable','me',10000,'餐飲',0],['日常餐飲','variable','wife',10000,'餐飲',0],
  ['中醫','variable','me',3500,'醫療',0],['中醫','variable','wife',11000,'醫療',0],
  ['汽車加油','variable','me',3000,'交通',0],['停車及通行','variable','me',500,'交通',0],['汽車清潔雜費','variable','me',200,'交通',0],
@@ -2192,10 +2878,10 @@ function planV2Migration(current){
   const cands=draft.filter(r=>r.active!==false&&!used.has(r.id)&&r.owner===spec.owner&&v2Name(r.name)===spec.name)
    .sort((a,b)=>(Number(b.amount>0)-Number(a.amount>0))||(Number(b.name===spec.name)-Number(a.name===spec.name))||(Number(b._rev||0)-Number(a._rev||0)));
   let r=cands[0];
-  if(!r){r={id:'planitem:'+crypto.randomUUID(),kind:'item',name:spec.name,type:spec.type,owner:spec.owner,amount:spec.amount,category:spec.category,dueMonth:spec.dueMonth,aiPct:null,aiAmount:null,actualPct:null,active:true,_rev:0};draft.push(r);created.push(r);used.add(r.id);continue;}
+  if(!r){r={id:'planitem:'+crypto.randomUUID(),kind:'item',name:spec.name,type:spec.type,owner:spec.owner,amount:spec.amount??0,category:spec.category,dueMonth:spec.dueMonth,aiPct:null,aiAmount:null,actualPct:null,active:true,_rev:0};draft.push(r);created.push(r);used.add(r.id);continue;}
   used.add(r.id);
   const before={name:r.name,type:r.type,amount:Number(r.amount||0),category:r.category||'',dueMonth:r.dueMonth||0};
-  Object.assign(r,{name:spec.name,type:spec.type,amount:spec.amount,category:spec.category,dueMonth:spec.dueMonth,active:true,actualPct:null});
+  Object.assign(r,{name:spec.name,type:spec.type,amount:spec.amount===null?Number(r.amount||0):spec.amount,category:spec.category,dueMonth:spec.dueMonth,active:true,actualPct:null});
   if(before.name!==r.name||before.type!==r.type||before.amount!==r.amount||before.category!==r.category||before.dueMonth!==r.dueMonth)changes.push({r,before});
  }
  for(const r of draft)if(r.active!==false&&!used.has(r.id)){r.active=false;disabled.push(r);}
@@ -2343,7 +3029,7 @@ $('planningQuickSuggest').onclick=()=>{
 $('planningAdd').onclick=()=>{const name=$('planningNewName').value.trim();if(!name||name.length>50)return alert('請輸入 1～50 字的名稱');rows.push({id:'planitem:'+crypto.randomUUID(),kind:'item',name,type:$('planningNewType').value,owner:$('planningNewOwner').value,amount:0,aiAmount:null,aiPct:null,actualPct:null,category:'',dueMonth:0,active:true,_rev:0});$('planningNewName').value='';syncRows();renderRetire();$('planningMessage').textContent='新增項目尚未儲存。';};
 window.loadPlanning18611=async function(){if(!sessionStorage.getItem('ledgerSession17'))return;const r=await jsonp('planning');if(!r.ok)throw Error(r.error||'讀取理財設定失敗');rows=r.items||[];profile=r.profiles||[];loaded=true;savedAmountsV1980=new Map(rows.map(x=>[x.id,x.amount]));syncRows();window.afterRenderBudgetV1880?.();window.afterRenderDashboardV1880?.();if(typeof recommend==='function')recommend();renderRetire();window.renderAssetsV1950?.();window.renderAnnualPlanning18611?.();$('planningMessage').textContent='已讀取 Google Sheets 理財配置';};
 $('planningSave').onclick=async()=>{if(busy)return;busy=true;try{const stamped=withAmountHistoryCheckedV1980(rows);if(!stamped){$('planningMessage').textContent='已取消儲存,修改尚未存到雲端。';return;}const rs=stamped.map(x=>({...x,kind:'item'}));const result=await post({items:rs},'planningSave');if(!result.ok||result.conflicts?.length)throw Error(result.conflicts?.length?'其他裝置已修改理財配置，請重新讀取後核對':'儲存失敗');await loadPlanning18611();await synchronizeHeadlineBudgets186129(rows);alert('理財配置及上方月預算均已儲存且回讀確認')}catch(e){$('planningMessage').textContent='儲存失敗：'+e.message;alert(e.message)}finally{busy=false}};
-$('planningExport').onclick=()=>{const data={schema:'family-ledger-finance-analysis-v1',exportedAt:new Date().toISOString(),instruction:'請依財務資料提出各項理財配置建議。回傳 schema=family-ledger-finance-recommendations-v1，items 陣列須包含 id, aiPct, aiAmount。比例分母需明確列出，勿修改原始交易。',agreement:'俐穎每月至少提供20000元家庭補助，其餘主要由承瑋負擔；家庭內轉帳不可重複列收入',items:rows,retirement:profile,transactions:typeof activeRecords==='function'?activeRecords():[]};const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='family-ledger-FINANCE-ANALYSIS-'+new Date().toISOString().slice(0,10)+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000)};
+$('planningExport').onclick=()=>{const data={schema:'family-ledger-finance-analysis-v1',exportedAt:new Date().toISOString(),instruction:'請依財務資料提出各項理財配置建議。回傳 schema=family-ledger-finance-recommendations-v1，items 陣列須包含 id, aiPct, aiAmount。比例分母需明確列出，勿修改原始交易。',agreement:(()=>{const sp=rows.find(x=>x.name==='家庭補助'&&x.owner==='wife'&&x.active!==false);return sp&&Number(sp.amount)>0?'俐穎每月至少提供'+Number(sp.amount)+'元家庭補助，其餘主要由承瑋負擔；家庭內轉帳不可重複列收入':'家庭補助金額未設定；其餘主要由承瑋負擔；家庭內轉帳不可重複列收入';})(),items:rows,retirement:profile,transactions:typeof activeRecords==='function'?activeRecords():[]};const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='family-ledger-FINANCE-ANALYSIS-'+new Date().toISOString().slice(0,10)+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000)};
 $('planningImport').onchange=async e=>{const f=e.target.files?.[0];if(!f)return;try{const data=JSON.parse(await f.text());if(data.schema!=='family-ledger-finance-recommendations-v1'||!Array.isArray(data.items))throw Error('這不是 AI 財務建議 JSON。請從「預算與儲蓄目標 → 匯出供 AI 分析 JSON」取得原始檔，讓 AI 依其格式產生建議，再匯入。');const byId=new Map(rows.map(x=>[x.id,x]));let changed=0;for(const item of data.items){const r=byId.get(item.id);if(!r)continue;const pct=Number(item.aiPct),amt=Number(item.aiAmount);if(!Number.isFinite(pct)||pct<0||pct>100||!Number.isFinite(amt)||amt<0||amt>1e9)throw Error('建議欄位無效：'+item.id);r.aiPct=pct;r.aiAmount=amt;changed++;}syncRows();$('planningMessage').textContent=`讀入 ${changed} 筆 AI 建議，尚未儲存，實際採用值未改動。`;if(!changed)throw Error('沒有符合目前項目 ID 的建議，請使用同一次匯出的分析資料。')}catch(err){alert(err.message)}finally{e.target.value=''}};
 const baseProfile=who=>({id:'retire:'+who,kind:'retire',owner:who,age:who==='me'?38:26,retireAge:65,principal:0,monthly:0,annualReturn:6,inflation:2.03,target:10000000,_rev:0});
 function getP(who){return profile.find(p=>p.owner===who)||baseProfile(who)}
@@ -2471,7 +3157,7 @@ if(Object.prototype.hasOwnProperty.call(ownerFixedRecommendations,nm)){
 if(nm==='中醫－承瑋')amount=r.owner==='me'?3500:0;
 if(nm==='中醫－俐穎')amount=r.owner==='wife'?11000:0;
 {const v2=v2Monthly(nm,r.owner);if(v2!==null){const adjustable=['娛樂興趣','旅遊基金','服裝鞋包','美妝保養','退休投資','緊急預備金'].includes(v2Name(nm));amount=Math.round(v2*(adjustable?Math.max(.3,r.type==='fund'?factor:2-factor):1));}else if(r.owner==='shared')amount=0;}
-if(nm==='家庭補助')amount=r.owner==='wife'?20000:0;
+if(nm==='家庭補助')amount=r.owner==='wife'?Number(r.amount||0):0;
 const denom=incomes[r.owner],suggestion={amount,percentage:denom>0?amount/denom*100:null,reason:base?.reason||'依已知帳單／交易歷史預設金額；其他情況須依實際明細調整。'};proposed.set(r.id,suggestion);if(r.owner!=='wife'||r.name!=='家庭補助')monthlyPlans+=amount;committed++;}
 const totalIncome=incomes.me+incomes.wife;const doubleCountNote='家庭補助不列家庭整體新增收入與支出；上述項目存在個人與共同歸屬規劃重疊的可能，正式家庭彙總要依支付責任逐項核對。';$('strategyWarning').innerHTML=`<p class="budget-muted">已產生 ${committed} 項建議。家庭實領基準 ${fmt(totalIncome)}，其中生活費與基金的分母依歸屬不同。${esc(doubleCountNote)}</p>${monthlyPlans>totalIncome?`<p style="color:#FF8D83">⚠️ 建議配置合計 ${fmt(monthlyPlans)} 超過你填的試算收入 ${fmt(totalIncome)}(多 ${fmt(monthlyPlans-totalIncome)})。這是「建議值 vs 試算收入」的比較,與實際消費無關;實際支出是否超過實際收入,請看上方「本月預算概況」。</p>`:`<p class="budget-muted">建議配置合計 ${fmt(monthlyPlans)},試算收入 ${fmt(totalIncome)},尚餘 ${fmt(totalIncome-monthlyPlans)}。</p>`}<p class="budget-muted">退休是否達標請查看「退休規劃」的夫妻雙時間軸壓力測試。切換光譜不會改動正式帳本。</p>`;syncRows();}
 $('strategyMode').addEventListener('input',recommend);$('strategyRecommend').onclick=recommend;
