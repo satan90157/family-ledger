@@ -2066,12 +2066,14 @@ const stocksV1911 = (function () {
   }
 
   // 所有配息:已載入年度用本機 records(即時、含待同步);其他年度用唯讀的雲端資料,但本機有同 id(含已刪除)時以本機為準
+  function allRecords() {
+    const loaded = new Set((window.loadedYearsV1880?.() || []).map(String)), localIds = new Set(records.map(r => r.id));
+    return [...activeRecords(), ...st.remote.filter(r => !localIds.has(r.id) && !loaded.has(String(r.date).slice(0, 4)))];
+  }
   function dividends() {
     const maps = new Map(live('divmap').map(m => [m.record, m]));
     const accById = new Map(accounts().map(a => [a.id, a]));
-    const loaded = new Set((window.loadedYearsV1880?.() || []).map(String)), localIds = new Set(records.map(r => r.id));
-    const src = [...activeRecords(), ...st.remote.filter(r => !localIds.has(r.id) && !loaded.has(String(r.date).slice(0, 4)))];
-    return src.map(r => {
+    return allRecords().map(r => {
       const d = S().dividendOf(r, maps); if (!d) return null;
       const a = d.account && accById.get(d.account);
       return { ...d, account: a ? d.account : null, badAccount: Boolean(d.account && !a), ownerMismatch: Boolean(a && a.owner !== r.owner), id: r.id, date: r.date, amount: Number(r.amount) || 0, owner: r.owner, merchant: r.merchant };
@@ -2141,7 +2143,7 @@ const stocksV1911 = (function () {
     ${draft ? `<div class="panel" style="margin-bottom:12px"><p class="help">有一筆尚未完成的「${esc(draft.label)}」(${draft.items.length} 筆)。完成或捨棄之前,不能新增其他股票資料。</p><div class="actions"><button class="button" type="button" id="stkRetryV1911" ${st.busy ? 'disabled' : ''}>重試</button><button class="button light" type="button" id="stkDropV1911" ${st.busy ? 'disabled' : ''}>捨棄草稿</button></div></div>` : ''}
     <div class="panel"><div class="row" style="justify-content:space-between;gap:8px;flex-wrap:wrap"><h2>持股總覽</h2><div class="actions"><button class="button light" type="button" id="stkQuoteV1911" ${st.quoteBusy ? 'disabled' : ''}>${st.quoteBusy ? '更新中…' : '更新股價'}</button><button class="button light" type="button" id="stkBackupV1911">下載股票資料備份</button></div></div>
       <p class="mini">最新可取得收盤價:${latest ? esc(latest) : '尚未取得'}${meta.at ? ` · 更新於 ${new Date(meta.at).toLocaleString('zh-TW', { hour12: false })}` : ''}(非即時)${st.quoteMsg ? ` · <span style="color:#F5B971">${esc(st.quoteMsg)}</span>` : ''}</p>
-      ${st.histBusy ? '<p class="mini">讀取歷年配息中…</p>' : st.histFail.length ? `<p class="status error">配息資料不完整:${esc(st.histFail.join('、'))} 年讀取失敗,累積配息可能偏低。</p>` : ''}
+      ${st.histBusy ? '<p class="mini">讀取歷年配息中…</p>' : st.histFail.length ? `<p class="status error">配息資料不完整:${esc(st.histFail.join('、'))} 年讀取失敗,累積配息與下方「每年現金流」的配息、手續費退回可能不正確(退回沒讀到時,預估可能偏高)。</p>` : ''}
       ${mismatch.length ? `<p class="status error">有 ${mismatch.length} 筆配息的歸屬和證券帳戶的歸屬不同,請在下方「配息明細」核對。</p>` : ''}
       <div class="stk-scroll-v1911" style="overflow-x:auto;max-width:100%"><table style="min-width:640px"><thead><tr><th>帳戶 / 代號</th><th>股數</th><th>剩餘成本</th><th>現價</th><th>市值</th><th>未實現</th><th>已實現</th><th>累積配息</th><th>配息/剩餘成本</th><th>報酬率<br><span class="mini">(App 算法)</span></th></tr></thead><tbody>
       ${shown.map(r => `<tr><td><strong>${esc(r.code)}</strong> ${esc((q[r.code] && q[r.code].name) || nameFromDiv(divs, r.code))}<br><span class="mini">${esc(accName(r.account))}${r.error ? ` · <span style="color:#FF8D83">${esc(r.error)}</span>` : ''}</span></td>
@@ -2155,6 +2157,8 @@ const stocksV1911 = (function () {
       </tbody></table></div>
       <p class="mini">平均成本法(每個帳戶分開計算)。「報酬率(App 算法)」=(市值 − 預估賣出手續費 0.1425% − 預估證交稅 − 剩餘成本)÷ 剩餘成本,和證券 App 的庫存報酬率同一種算法,不含配息與已實現;「未實現」欄是還沒扣賣出費用的金額。股價用最近收盤價,App 盤中用即時價,會有些微差距。「配息/剩餘成本」<strong>非年化</strong>;建立期初持股之前的配息列為「開帳前」。</p>
     </div>
+
+    ${cashflowPanel(divs)}
 
     ${events.length ? `<div class="panel" style="margin-top:16px"><h2>定期定額待確認(${events.length})</h2><p class="help">股數是用最新收盤價估算,請照證券 App 改成實際成交的股數、價格、手續費再確認;沒確認不會記入。</p>
       ${events.map(ev => { const p = ev.plan, price = q[p.code] && q[p.code].close, est = S().estimateShares(p.amount, p.fee, price); return `<div class="row" style="flex-wrap:wrap;gap:8px;border-top:1px solid rgba(255,255,255,.08);padding:8px 0" data-stk-ev="${esc(ev.id)}">
@@ -2170,10 +2174,10 @@ const stocksV1911 = (function () {
       <div style="max-height:320px;overflow:auto;margin-top:6px">${unassigned.map(d => `<label class="row mini" style="gap:6px;padding:3px 0" data-stk-pick="${esc(d.id)}"><input type="checkbox" data-pick-owner="${esc(d.owner)}" value="${esc(d.id)}" ${firstAcc && d.owner === firstAcc.owner ? 'checked' : ''}>${esc(d.date)} ${esc(d.code)} ${money(d.amount)} · ${esc(ownerName(d.owner))}${d.badAccount ? '(原帳戶不存在)' : ''}</label>`).join('')}</div></div>` : ''}
 
     <div class="panel" style="margin-top:16px"><h2>證券帳戶</h2>
-      ${accounts().map(a => `<div class="row" style="justify-content:space-between;gap:8px;padding:4px 0"><span>${esc(accName(a.id))}${a.active ? '' : ' <span class="mini">(已停用)</span>'}</span><button class="button light" type="button" data-stk-acc="${esc(a.id)}">${a.active ? '停用' : '啟用'}</button></div>`).join('') || '<p class="help">尚未建立。例如「台新證券」「國泰證券」「俐穎 定期定額」。</p>'}
+      ${accounts().map(a => `<div class="row" style="justify-content:space-between;gap:8px;padding:4px 0"><span>${esc(accName(a.id))}${a.active ? '' : ' <span class="mini">(已停用)</span>'}<br><span class="mini">手續費退回 ${Number(a.feeRebatePct) > 0 ? esc(String(a.feeRebatePct)) + '%' : '未設定'}</span></span><span class="actions"><button class="button light" type="button" data-stk-rebate="${esc(a.id)}">設定退回比例</button><button class="button light" type="button" data-stk-acc="${esc(a.id)}">${a.active ? '停用' : '啟用'}</button></span></div>`).join('') || '<p class="help">尚未建立。例如「台新證券」「國泰證券」「俐穎 定期定額」。</p>'}
       <div class="row" style="gap:8px;flex-wrap:wrap;margin-top:8px"><input class="field" id="stkAccNameV1911" maxlength="40" placeholder="帳戶名稱,例如 台新證券"><select class="field" id="stkAccOwnerV1911"><option value="me">承瑋</option><option value="wife">俐穎</option></select><button class="button" type="button" id="stkAccAddV1911">新增帳戶</button></div></div>
 
-    ${(noTrades || st.showOpening) && accounts().some(a => a.active) ? `<div class="panel" style="margin-top:16px"><h2>建立目前持股(期初)</h2><p class="help">照證券 App「庫存」頁直接填<strong>股數</strong>與<strong>持有成本</strong>(App 顯示的數字,已含歷次買進手續費,網站不另外推算);「App 報酬率」可不填,只當期初參考。之後的買賣、配息由網站接手計算。已賣光的不用填。每個帳戶的每一檔只能有一筆期初,而且基準日要早於之後記的所有買賣。以下代號是從配息紀錄找到的,可再新增。</p>
+    ${(noTrades || st.showOpening) && accounts().some(a => a.active) ? `<div class="panel stk-open-box-v1911" style="margin-top:16px"><h2>建立目前持股(期初)</h2><p class="help">照證券 App「庫存」頁直接填<strong>股數</strong>與<strong>持有成本</strong>(App 顯示的數字,已含歷次買進手續費,網站不另外推算);「App 報酬率」可不填,只當期初參考。之後的買賣、配息由網站接手計算。已賣光的不用填。每個帳戶的每一檔只能有一筆期初,而且基準日要早於之後記的所有買賣。以下代號是從配息紀錄找到的,可再新增。</p>
       <label>基準日(App 庫存的日期) <input class="field" type="date" id="stkOpenDateV1911" value="${today}"></label>
       <div class="stk-open-grid-v1911 stk-open-head-v1911 mini" aria-hidden="true"><span>股票代號</span><span>股票名稱</span><span>證券帳戶</span><span>股數</span><span>持有成本(照 App)</span><span>類型</span><span>App 報酬率 %</span></div>
       <div id="stkOpenRowsV1911">${divCodes.map(c => openingRow(c, nameFromDiv(divs, c))).join('')}</div>
@@ -2220,6 +2224,17 @@ const stocksV1911 = (function () {
     el.dataset.formMode = st.editTrade ? st.editTrade.id : 'new'; el.dataset.sessionGen = sessionGen;
     restoreInputs(el, snap, el.dataset.formMode, 'stkT');
   }
+  // 每年配息與手續費退回(現金流):配息含開帳前、含尚未指定帳戶;退回分「已入帳」(記帳裡的交割折讓)與「預估」(帳戶退回比例 × 手續費,下個月入帳)
+  function cashflowPanel(divs) {
+    const years = S().cashflow(divs, allRecords(), st.items, accounts());
+    if (!years.length) return '';
+    const sumRow = (label, x, id) => `<tr${id ? ` id="${id}"` : ''}><td>${label}</td><td>${money(x.div)}</td><td>${money(x.rebActual)}</td><td>${x.rebEst ? money(x.rebEst) : '—'}</td><td><strong>${money(x.div + x.rebActual + x.rebEst)}</strong></td></tr>`;
+    return `<div class="panel" style="margin-top:16px" id="stkCashflowV1911"><h2>配息與手續費退回(每年現金流)</h2>
+      <div class="stk-scroll-v1911" style="overflow-x:auto;max-width:100%"><table style="min-width:520px"><thead><tr><th>年度</th><th>配息</th><th>手續費退回<br><span class="mini">已入帳</span></th><th>手續費退回<br><span class="mini">預估</span></th><th>合計</th></tr></thead><tbody>
+      ${years.map(y => sumRow(esc(y.year), y, 'stkCfY' + esc(y.year))).join('')}</tbody></table></div>
+      ${years.map((y, i) => `<details ${i === 0 ? 'open' : ''} style="margin-top:8px"><summary class="mini">${esc(y.year)} 每月明細</summary><div class="stk-scroll-v1911" style="overflow-x:auto;max-width:100%"><table style="min-width:520px"><thead><tr><th>月份</th><th>配息</th><th>退回(已入帳)</th><th>退回(預估)</th><th>合計</th></tr></thead><tbody>${y.months.map(m => sumRow(esc(m.month), m)).join('')}</tbody></table></div></details>`).join('')}
+      <p class="mini">配息:記帳裡所有「股利 代號」或標記為配息的收入(含開帳前、含還沒指定帳戶的)。手續費退回已入帳:記帳裡商家或備註含「交割折讓」或「手續費退回」的收入(配息交易不會同時算成退回)。預估:在「證券帳戶」設定退回比例後,每筆買賣的手續費 × 比例,算在成交的下個月;同一人那個月已有退回入帳時,改用入帳金額、不再加預估。</p></div>`;
+  }
   function openingRow(code = '', name = '') {
     // 所有列共用 .stk-open-grid-v1911 的欄寬(代號|名稱|帳戶|股數|持有成本|類型|App 報酬率);名稱空白也保留欄位,後面欄位才會對齊
     return `<div class="stk-open-grid-v1911" data-stk-open>
@@ -2230,12 +2245,12 @@ const stocksV1911 = (function () {
       <select class="field" data-f="type" aria-label="類型">${typeOptions(S().guessType(code))}</select>
       <input class="field" data-f="ret" type="number" step="0.01" placeholder="選填" aria-label="App 報酬率 %"></div>`;
   }
-  // 期初表格版面:寬螢幕一列七欄;窄螢幕每檔三行(代號|名稱|帳戶 / 股數|持有成本|類型 / App 報酬率),所有列欄寬相同
-  if (!document.getElementById('stkOpenCssV1911')) document.head.insertAdjacentHTML('beforeend', `<style id="stkOpenCssV1911">.stk-open-grid-v1911{display:grid;grid-template-columns:80px minmax(70px,1fr) minmax(120px,1.4fr) 100px 120px 100px 100px;gap:8px;align-items:center;padding:6px 0;border-top:1px solid rgba(255,255,255,.06)}.stk-open-grid-v1911>.field{width:100%;max-width:none;min-width:0}.stk-open-name-v1911{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.stk-open-head-v1911{border-top:0;padding-bottom:0}@media(max-width:640px){.stk-open-grid-v1911{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.4fr)}}</style>`);
+  // 期初表格版面:期初區寬度 ≥ 780px 一列七欄;較窄時(依期初區實際寬度,不是視窗寬度)每檔三行(代號|名稱|帳戶 / 股數|持有成本|類型 / App 報酬率),所有列欄寬相同
+  if (!document.getElementById('stkOpenCssV1911')) document.head.insertAdjacentHTML('beforeend', `<style id="stkOpenCssV1911">.stk-open-grid-v1911{display:grid;grid-template-columns:80px minmax(70px,1fr) minmax(120px,1.4fr) 100px 120px 100px 100px;gap:8px;align-items:center;padding:6px 0;border-top:1px solid rgba(255,255,255,.06)}.stk-open-grid-v1911>.field{width:100%;max-width:none;min-width:0}.stk-open-name-v1911{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.stk-open-head-v1911{border-top:0;padding-bottom:0}.stk-open-box-v1911{container-type:inline-size}@container (max-width:780px){.stk-open-grid-v1911{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.4fr)}}@supports not (container-type:inline-size){@media(max-width:1100px){.stk-open-grid-v1911{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.4fr)}}}</style>`);
 
   const val = id => $(id) ? $(id).value.trim() : '';
   const intv = v => { const n = Number(v); return Number.isSafeInteger(n) ? n : NaN; };
-  const retNum = v => { const t = String(v).trim(); return /^-?\d{1,6}(\.\d{1,2})?$/.test(t) && Number(t) >= -100 ? Number(t) : NaN; }; // App 報酬率 %:-100 以上、最多 2 位小數
+  const retNum = v => { const t = String(v).trim(); return /^-?\d{1,6}(\.\d{1,2})?$/.test(t) && Number(t) >= -100 && Number(t) <= 999999 ? Number(t) : NaN; }; // App 報酬率 %:-100 ~ 999999、最多 2 位小數(與後端相同)
   function posOf(account, code) { return S().positions(st.items).find(p => p.account === account && p.code === code); }
   function autoFee() {
     const shares = Number(val('stkTSharesV1911')), price = Number(val('stkTPriceV1911')), amt = shares * price;
@@ -2271,6 +2286,14 @@ const stocksV1911 = (function () {
     if (id === 'stkBackupV1911') { const blob = new Blob([JSON.stringify({ schema: 'family-ledger-stocks-v1911', exportedAt: new Date().toISOString(), items: st.items }, null, 2)], { type: 'application/json' }); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'family-ledger-stocks-' + todayTpe() + '.json'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000); return; }
     if (ds.stkManual) { const c = ds.stkManual, v = prompt(`${c} 手動現價(只存在這台裝置,標示「手動」)`); if (v === null) return; if (!priceOk(v) || !(Number(v) > 0)) return showToast('價格必須大於 0,最多 4 位小數', true); const q = quotes(); q[c] = { code: c, name: (q[c] && q[c].name) || '', close: Number(v), date: todayTpe(), manual: true }; ls.set('quotes', q); renderStocks(); return; }
     if (id === 'stkAccAddV1911') { const name = val('stkAccNameV1911'); if (!name) return showToast('請填帳戶名稱', true); if (await saveItems([{ kind: 'account', id: 'stkacct:' + uid(), name, owner: val('stkAccOwnerV1911'), active: true, _rev: 0 }], '新增帳戶')) $('stkAccNameV1911').value = ''; return; }
+    if (ds.stkRebate) {
+      const a = accounts().find(x => x.id === ds.stkRebate); if (!a) return;
+      const v = prompt(`「${a.name}」手續費退回比例 %(例如券商退回手續費的一半填 50;留空表示不估算)`, a.feeRebatePct === undefined ? '' : a.feeRebatePct); if (v === null) return;
+      const t = String(v).trim(), n = Number(t);
+      if (t !== '' && !(/^\d{1,3}(\.\d)?$/.test(t) && n >= 0 && n <= 100)) return showToast('退回比例要是 0~100 的數字(最多 1 位小數)', true);
+      const nx = { ...a }; if (t === '') delete nx.feeRebatePct; else nx.feeRebatePct = n;
+      return saveItems([nx], '設定手續費退回比例');
+    }
     if (ds.stkAcc) { const a = accounts().find(x => x.id === ds.stkAcc); if (a) return saveItems([{ ...a, active: !a.active }], a.active ? '停用帳戶' : '啟用帳戶'); return; }
     if (id === 'stkOpenShowV1911') { st.showOpening = true; return renderStocks(); }
     if (id === 'stkOpenAddRowV1911') { $('stkOpenRowsV1911').insertAdjacentHTML('beforeend', openingRow()); return; }
@@ -2282,7 +2305,7 @@ const stocksV1911 = (function () {
         if (!shares) continue;
         if (!S().validCode(code)) return showToast(`代號 ${code} 格式不正確`, true);
         if (!(shares > 0) || !(cost >= 0) || Number.isNaN(cost)) return showToast(`${code} 的股數或總成本不正確(股數要整數)`, true);
-        if (Number.isNaN(ret)) return showToast(`${code} 的 App 報酬率要是數字(最多 2 位小數),不填也可以`, true);
+        if (Number.isNaN(ret)) return showToast(`${code} 的 App 報酬率要是 -100 ~ 999999 的數字(最多 2 位小數),不填也可以`, true);
         if (seen.has(account + '|' + code)) return showToast(`${code} 在同一個帳戶填了兩列,請合併成一列`, true);
         seen.add(account + '|' + code);
         const p = live('trade').filter(x => x.account === account && x.code === code);
@@ -2316,7 +2339,7 @@ const stocksV1911 = (function () {
         const ret = String(retS).trim() === '' ? null : retNum(retS);
         const date = prompt('基準日(YYYY-MM-DD)', x.date); if (date === null) return;
         if (!(intv(shares) > 0) || !(intv(cost) >= 0) || !/^\d{4}-\d{2}-\d{2}$/.test(date)) return showToast('股數、持有成本要整數,日期格式 YYYY-MM-DD', true);
-        if (Number.isNaN(ret)) return showToast('App 報酬率要是數字(最多 2 位小數)', true);
+        if (Number.isNaN(ret)) return showToast('App 報酬率要是 -100 ~ 999999 的數字(最多 2 位小數)', true);
         const nx = { ...x, shares: intv(shares), totalCost: intv(cost), date }; if (ret === null) delete nx.appReturn; else nx.appReturn = ret;
         return saveItems([nx], '修改期初持股');
       }
@@ -2663,7 +2686,36 @@ window.LedgerStocksV1911 = (function () {
     return { month: ym, due: item ? agreementAt(item, ym) : null, paid: paid(ym), dueYear, paidYear, unknownMonths, perMonth: months.map(p => ({ period: p, due: item ? agreementAt(item, p) : null, paid: paid(p) })) };
   }
 
-  return { CODE, DIV_RE, TAX, normCode, validCode, guessType, sellTax, feeOf, dividendOf, positions, table, planEvents, estimateShares, agreementAt, spouseSummary, monthAdd };
+  // 手續費退回的收入交易:商家或備註含完整關鍵字「交割折讓」或「手續費退回」;已辨識為配息的交易不算(同一筆不會兩邊都算)
+  const REBATE_RE = /交割折讓|手續費退回/;
+  const isRebate = r => Boolean(r && r.type === 'income' && !r.deleted && r.source !== 'category-definition' && !dividendOf(r, null) && REBATE_RE.test(String(r.merchant || '') + ' ' + String(r.note || '')));
+  // 每年/每月現金流:配息、手續費退回(已入帳)、手續費退回(預估)。
+  // 預估 = 帳戶設定的退回比例 × 每筆買賣手續費,算在成交「下個月」;同一人同一月份已有入帳的退回 → 以入帳為準,該月預估不計(避免重複)。
+  function cashflow(divs, recs, trades, accounts) {
+    const acc = new Map((accounts || []).map(a => [a.id, a]));
+    const months = new Map(), cell = ym => { if (!months.has(ym)) months.set(ym, { month: ym, div: 0, rebActual: 0, rebEst: 0 }); return months.get(ym); };
+    for (const d of divs || []) cell(String(d.date).slice(0, 7)).div += Number(d.amount) || 0;
+    const actual = new Set();
+    for (const r of recs || []) if (isRebate(r)) { const ym = String(r.date).slice(0, 7); cell(ym).rebActual += Number(r.amount) || 0; actual.add(r.owner + '|' + ym); }
+    const est = new Map();
+    for (const t of trades || []) {
+      if (!t || t.kind !== 'trade' || t.deleted || t.skipped || (t.side !== 'buy' && t.side !== 'sell')) continue;
+      const a = acc.get(t.account), pct = a && Number(a.feeRebatePct);
+      if (!(pct > 0) || !(t.fee > 0)) continue;
+      const ym = monthAdd(String(t.date).slice(0, 7), 1), k = a.owner + '|' + ym;
+      est.set(k, (est.get(k) || 0) + t.fee * pct / 100);
+    }
+    for (const [k, v] of est) if (!actual.has(k)) cell(k.split('|')[1]).rebEst += r0(v);
+    const list = [...months.values()].sort((a, b) => a.month < b.month ? -1 : 1), years = new Map();
+    for (const m of list) {
+      const y = m.month.slice(0, 4);
+      if (!years.has(y)) years.set(y, { year: y, div: 0, rebActual: 0, rebEst: 0, months: [] });
+      const Y = years.get(y); Y.div += m.div; Y.rebActual += m.rebActual; Y.rebEst += m.rebEst; Y.months.push(m);
+    }
+    return [...years.values()].sort((a, b) => a.year < b.year ? 1 : -1);
+  }
+
+  return { CODE, DIV_RE, TAX, normCode, validCode, guessType, sellTax, feeOf, dividendOf, positions, table, planEvents, estimateShares, agreementAt, spouseSummary, monthAdd, isRebate, cashflow };
 })();
 </script>
 <script id="envelopeV1880">
